@@ -1,0 +1,90 @@
+{
+  "trimming": {
+    "preferredBounds": [
+      "UpperPerf_FT",
+      "LowerPerf_FT"
+    ],
+    "boundType": "MeasuredDepthFeet",
+    "interpolateBoundaryStations": true,
+    "missingBounds": "Estimate geometric lateral and label the trim method",
+    "geometricFallbackParameters": "Longest contiguous sampled station run with inclination >=80 degrees, at least two stations; method labelled Inclination80Estimate"
+  },
+  "geometryPrecedence": {
+    "first": "Validated ACTUAL survey trimmed to lateral interval",
+    "secondInNewMexico": "PLANNED directional survey trimmed to lateral interval and labelled PlannedGeometry",
+    "fallback": "Enverus wells.LateralLine; toe-back XY trim by positive reported lateral length when toe is verified",
+    "phantom": "Do not promote PHANTOM survey geometry",
+    "reviewGeometry": "Retain untrimmable fallback lines in the analytical layer with AllocationReview flags, per user preference"
+  },
+  "tcaAssignment": {
+    "requiredAttributeMatches": [
+      "GUGG_BASIN",
+      "GUGG_BENCH"
+    ],
+    "selection": "Greatest plan-view lateral overlap length",
+    "overlapFractionDenominator": "Total selected well lateral plan-view length",
+    "requirePositiveOverlapLength": true,
+    "assignmentKey": "TCA_NAME",
+    "retainAllIntersections": true,
+    "equalLengthTie": "Flag ambiguous assignment for review",
+    "noMatch": "Leave TCA attributes null and flag",
+    "keyValidation": "Require nonblank unique TCA_NAME in the applicable TCA source; flag violations before assignment."
+  },
+  "fluidWindowAssignment": {
+    "selection": "Greatest plan-view lateral overlap length",
+    "overlapFractionDenominator": "Total selected well lateral plan-view length",
+    "requirePositiveOverlapLength": true,
+    "assignedTypeSource": "GUGG_FluidWindows.Type",
+    "retainAllIntersections": true,
+    "equalLengthTie": "Flag ambiguous assignment for review",
+    "noMatch": "Leave fluid-window attributes null and flag",
+    "keepSeparateFromTcaFluidType": true
+  },
+  "calculatedFields": [
+    {
+      "fieldName": "Spacing_Ft",
+      "alias": "Well Spacing Ft",
+      "exportType": "DOUBLE",
+      "formula": "5280 / WPS",
+      "inputSource": "Assigned TCA.WPS",
+      "unit": "Feet"
+    },
+    {
+      "fieldName": "DA_Ft",
+      "alias": "Well Drainage Area FT",
+      "exportType": "DOUBLE",
+      "formula": "Spacing_Ft / 2",
+      "unit": "Feet"
+    }
+  ],
+  "calculationNullPolicy": "For missing, zero, negative, nonnumeric, or nonfinite WPS, return null for both calculated fields and flag the reason. Shapefiles use -999999999 for missing numeric values with a keyed null manifest.",
+  "schema": {
+    "enverusHeaderFieldCount": 69,
+    "appendGuggColumns": true,
+    "calculationFieldNameConfirmed": "DA_Ft",
+    "templateColumnCount": 99
+  },
+  "acquisition": {
+    "excludedStatuses": [
+      "PERMIT CANCELLED",
+      "PERMIT EXPIRED"
+    ],
+    "retainedPermitStatuses": [
+      "PERMITTED",
+      "PERMIT PENDING APPROVAL"
+    ],
+    "serverWellFilter": "not(in(PERMIT CANCELLED,PERMIT EXPIRED))",
+    "surveyScope": "API12 allowlist from included wells; broad survey downloads blocked",
+    "defaultDownloader": "Py/BuildEnverusGuggWellRecord.py sync"
+  },
+  "finalProducts": [
+    "EnvLateral_Gugg",
+    "EnvWell_Gugg",
+    "EnvWellCentroid_Gugg"
+  ],
+  "templateColumns": 99,
+  "headerFields": 69,
+  "scope": "All account-entitled North America wells; no basin/country filter",
+  "identity": "Country plus full supplied API_UWI; never truncate Canadian UWIs",
+  "measurement": "Per-well UTM/UPS projected XY feet"
+}

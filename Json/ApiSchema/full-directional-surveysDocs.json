@@ -1,0 +1,282 @@
+[
+  {
+    "name": "API_UWI",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "API defined as: State (2 digit), county (3 digit), unique well identifier (5 digit) | UWI number is a unique well identifier (up to 16 digits) that defines the bottom-hole location and each significant drilling or completion event in the well.",
+    "filterType": ""
+  },
+  {
+    "name": "API_UWI_12_Unformatted",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be alphanumeric.",
+    "description": "API_UWI_12 with dashes and slashes removed. API defined as: State (2 digit), county (3 digit), unique well identifier (5 digit), wellbore identifier (2 digit).",
+    "filterType": "request"
+  },
+  {
+    "name": "API_UWI_Unformatted",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "API_UWI with dashes and slashes removed.",
+    "filterType": ""
+  },
+  {
+    "name": "Azimuth_DEG",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Angle Between the Station Point and True North.",
+    "filterType": ""
+  },
+  {
+    "name": "Closure_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Shortest Distance Between the Surface Location and The Horizontal Projection of The Survey Point.",
+    "filterType": ""
+  },
+  {
+    "name": "CoordinateSource",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Data source of the directional survey.",
+    "filterType": ""
+  },
+  {
+    "name": "Country",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be alphanumeric.",
+    "description": "Abbreviation of the country the well is located in.",
+    "filterType": "request"
+  },
+  {
+    "name": "County",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be alphanumeric.",
+    "description": "Name of the county the well is located in.",
+    "filterType": "request"
+  },
+  {
+    "name": "Course_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Distance Drilled from One Point to The Next as Measured.",
+    "filterType": ""
+  },
+  {
+    "name": "DeletedDate",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be in the RFC3339 format. Example: 2021-01-01",
+    "description": "Date the record was deleted.",
+    "filterType": "request"
+  },
+  {
+    "name": "Doglegseverity_DegPer100FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Change in The Inclination And/Or Direction of a Wellbore, Expressed in Degrees Per 100Ft.",
+    "filterType": ""
+  },
+  {
+    "name": "E_W",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Easting - Horizontal distance between survey point and North-South axis in plan view",
+    "filterType": ""
+  },
+  {
+    "name": "ENVBasin",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be alphanumeric.",
+    "description": "Name of the basin the well is located in.",
+    "filterType": "request"
+  },
+  {
+    "name": "ENVInterval",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be alphanumeric.",
+    "description": "ENV Interval is assigned when a well is located within an ENV Play Shapefile boundary AND meets specific geo-gridding, date, trajectory and/or formation criteria to be considered prospective within that given play file boundary.",
+    "filterType": "request"
+  },
+  {
+    "name": "ENVPlay",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be alphanumeric.",
+    "description": "ENV Play as defined by a well's location within an Enverus-defined Play Shapefile AND meets criteria to be assigned an ENV Interval within that play.",
+    "filterType": "request"
+  },
+  {
+    "name": "ENVRegion",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be alphanumeric.",
+    "description": "ENV Region as defined by a well's location within one of nine ENV Region Shapefiles. ENV Region inclusively covers North America.",
+    "filterType": "request"
+  },
+  {
+    "name": "GeomXYZ_Point",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Geometry of the point.",
+    "filterType": ""
+  },
+  {
+    "name": "GridX_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "UTM coordinates.",
+    "filterType": ""
+  },
+  {
+    "name": "GridY_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "UTM coordinates.",
+    "filterType": ""
+  },
+  {
+    "name": "Inclination_DEG",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Angle of The Station Point with Respect to The Vertical.",
+    "filterType": ""
+  },
+  {
+    "name": "Latitude",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Latitude Location of The Given Station Point as Displayed in Prism.",
+    "filterType": ""
+  },
+  {
+    "name": "Longitude",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Longitude Location of The Given Station Point as Displayed in Prism.",
+    "filterType": ""
+  },
+  {
+    "name": "MeasuredDepth_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Depth of The Station Point Measured Along the Path of The Wellbore.",
+    "filterType": ""
+  },
+  {
+    "name": "N_S",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Northing - Horizontal distance between survey point and East-West axis",
+    "filterType": ""
+  },
+  {
+    "name": "StateProvince",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be alphanumeric.",
+    "description": "State abbreviation where the well is located.",
+    "filterType": "request"
+  },
+  {
+    "name": "SubseaElevation_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Subsea Elevation in Ft of The Given Station Point.",
+    "filterType": ""
+  },
+  {
+    "name": "TVD_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Absolute Vertical Distance Between the Reference Height and The Station Point on The Wellbore.",
+    "filterType": ""
+  },
+  {
+    "name": "UpdatedDate",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be in the RFC3339 format. Example: 2021-01-01",
+    "description": "Date the record was updated.",
+    "filterType": "request"
+  },
+  {
+    "name": "VerticalSection_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Horizontal Displacement of The Well Path Projected At 90 Degrees to The Desired Azimuth.",
+    "filterType": ""
+  },
+  {
+    "name": "WellID",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Primary key for a well.",
+    "filterType": ""
+  },
+  {
+    "name": "X_ecef",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "X coordinate from earth-centered, earth-fixed space.",
+    "filterType": ""
+  },
+  {
+    "name": "Y_ecef",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Y coordinate from earth-centered, earth-fixed space.",
+    "filterType": ""
+  },
+  {
+    "name": "Z_ecef",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Z coordinate from earth-centered, earth-fixed space.",
+    "filterType": ""
+  },
+  {
+    "name": "API_UWI_12",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be alphanumeric.",
+    "description": "API defined as: State (2 digit), county (3 digit), unique well identifier (5 digit), wellbore identifier (2 digit).",
+    "filterType": "path"
+  },
+  {
+    "name": "StationNumber",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be numeric.",
+    "description": "Chronological number indicating a measured point along the wellbore.",
+    "filterType": "path"
+  }
+]

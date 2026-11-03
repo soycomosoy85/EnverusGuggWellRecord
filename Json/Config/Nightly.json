@@ -1,0 +1,28 @@
+{
+  "profile": "NorthAmerica",
+  "apiFilters": {},
+  "excludedStatuses": [
+    "PERMIT CANCELLED",
+    "PERMIT EXPIRED"
+  ],
+  "plannedSurveyStates": [
+    "NM"
+  ],
+  "lookbackDays": 3,
+  "surveyBatchSize": 100,
+  "workers": 4,
+  "surveyChangeScan": "GlobalMetadata",
+  "referenceGdb": "Gdb/Reference/GuggenheimReference.gdb",
+  "measurement": "PerWellUtm",
+  "exportShapefiles": true,
+  "shapefileMaximumRecords": 100000,
+  "shapefileMaximumEstimatedBytes": 800000000,
+  "note": "No basin or country filter: all account-entitled records. ScopedMetadata requests survey change IDs only for included wellbores; GlobalMetadata is an optional faster identifier-only change scan. Full survey payloads always require an included-well allowlist. First run requires a full baseline.",
+  "minimumFreeDiskGb": 20,
+  "nightly": {
+    "time": "01:00",
+    "action": "run",
+    "timeBasis": "Work computer local time"
+  },
+  "maximumAutomaticRemovalFraction": 0.05
+}

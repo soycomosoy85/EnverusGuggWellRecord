@@ -1,0 +1,346 @@
+[
+  {
+    "name": "API_UWI",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "API defined as: State (2 digit), county (3 digit), unique well identifier (5 digit) | UWI number is a unique well identifier (up to 16 digits) that defines the bottom-hole location and each significant drilling or completion event in the well.",
+    "filterType": ""
+  },
+  {
+    "name": "API_UWI_12_Unformatted",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be alphanumeric.",
+    "description": "API_UWI_12 with dashes and slashes removed. API defined as: State (2 digit), county (3 digit), unique well identifier (5 digit), wellbore identifier (2 digit).",
+    "filterType": "request"
+  },
+  {
+    "name": "API_UWI_Unformatted",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "API_UWI with dashes and slashes removed.",
+    "filterType": ""
+  },
+  {
+    "name": "CoordinateSource",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Data source of the directional survey. The ENV Phantoms algorithm solves the problem of missing directional surveys by building synthetic directional surveys (phantoms) for wells missing in our coverage areas. Given a surface hole location (SHL), a bottom-hole location (BHL), a lateral length and a true vertical depth (TVD), a set of prospective phantoms can be drawn and assessed to determine which well path is most likely. These well paths are then used in the spacing model to ensure that the system the spacing model is looking to describe is fully defined from the beginning.",
+    "filterType": ""
+  },
+  {
+    "name": "Country",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be alphanumeric.",
+    "description": "Abbreviation of the country the well is located in.",
+    "filterType": "request"
+  },
+  {
+    "name": "County",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be alphanumeric.",
+    "description": "Name of the county the well is located in.",
+    "filterType": "request"
+  },
+  {
+    "name": "Date",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Date the Survey Was Performed",
+    "filterType": ""
+  },
+  {
+    "name": "DatumOriginal",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Reference system against which original positional measurements are made for computing locations.",
+    "filterType": ""
+  },
+  {
+    "name": "DatumTransformed",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Reference system against which positional measurements are made for computing locations.",
+    "filterType": ""
+  },
+  {
+    "name": "DeletedDate",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be in the RFC3339 format. Example: 2021-01-01",
+    "description": "Date the record was deleted.",
+    "filterType": "request"
+  },
+  {
+    "name": "ElevationGL_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Elevation to ground level in feet.",
+    "filterType": ""
+  },
+  {
+    "name": "ENVBasin",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be alphanumeric.",
+    "description": "Name of the basin the well is located in.",
+    "filterType": "request"
+  },
+  {
+    "name": "ENVInterval",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be alphanumeric.",
+    "description": "ENV Interval is assigned when a well is located within an ENV Play Shapefile boundary AND meets specific geo-gridding, date, trajectory and/or formation criteria to be considered prospective within that given play file boundary.",
+    "filterType": "request"
+  },
+  {
+    "name": "ENVPlay",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be alphanumeric.",
+    "description": "ENV Play as defined by a well's location within an Enverus-defined Play Shapefile AND meets criteria to be assigned an ENV Interval within that play.",
+    "filterType": "request"
+  },
+  {
+    "name": "ENVRegion",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be alphanumeric.",
+    "description": "ENV Region as defined by a well's location within one of nine ENV Region Shapefiles. ENV Region inclusively covers North America.",
+    "filterType": "request"
+  },
+  {
+    "name": "Geometry_Line",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Represents the Geometry of the wellbore as a linestring.",
+    "filterType": ""
+  },
+  {
+    "name": "GeomSHL_Point",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Geometry representation of the well surface location in 2D",
+    "filterType": ""
+  },
+  {
+    "name": "GLElevationFromPlat",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Ground level elevation.",
+    "filterType": ""
+  },
+  {
+    "name": "GridConvergence",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The horizontal angle at a place between true north and grid north",
+    "filterType": ""
+  },
+  {
+    "name": "GridConvergenceSource",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Source Of Grid Convergence Value - Document Or Calculated",
+    "filterType": ""
+  },
+  {
+    "name": "KellyBushing",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "An adaptor that connects the rotary table to the kelly.",
+    "filterType": ""
+  },
+  {
+    "name": "Latitude",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Latitude Location Of Surface Hole As Displayed In Prism",
+    "filterType": ""
+  },
+  {
+    "name": "Latitude_BH",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Latitude of the last station point from the directional survey.",
+    "filterType": ""
+  },
+  {
+    "name": "LatitudeOriginal",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The original latitude of the well.",
+    "filterType": ""
+  },
+  {
+    "name": "Longitude",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Longitude Location Of Surface Hole As Displayed In Prism",
+    "filterType": ""
+  },
+  {
+    "name": "Longitude_BH",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Longitude of the last station point from the directional survey.",
+    "filterType": ""
+  },
+  {
+    "name": "LongitudeOriginal",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The original longitude of the well.",
+    "filterType": ""
+  },
+  {
+    "name": "MagneticNorth",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Magnetic North.",
+    "filterType": ""
+  },
+  {
+    "name": "MapZone",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The map projection of the directional survey.",
+    "filterType": ""
+  },
+  {
+    "name": "MapZoneSource",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Source of the map zone is DOCUMENT if the value came from the survey, and CALCULATED if it was calculated based on it\u2019s location.",
+    "filterType": ""
+  },
+  {
+    "name": "MaxMeasuredDepth_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Maximum Measured Depth from the directional survey in feet.",
+    "filterType": ""
+  },
+  {
+    "name": "MaxTrueVerticalDepth_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Maximum True Vertical Depth from the directional survey in feet.",
+    "filterType": ""
+  },
+  {
+    "name": "NorthReference",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "North Reference.",
+    "filterType": ""
+  },
+  {
+    "name": "NorthReferenceTransformed",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The applied north reference value.",
+    "filterType": ""
+  },
+  {
+    "name": "RigName",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Name of the rig.",
+    "filterType": ""
+  },
+  {
+    "name": "StateProvince",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be alphanumeric.",
+    "description": "State abbreviation where the well is located.",
+    "filterType": "request"
+  },
+  {
+    "name": "SurveyCompany",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Company that created survey.",
+    "filterType": ""
+  },
+  {
+    "name": "UpdatedDate",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be in the RFC3339 format. Example: 2021-01-01",
+    "description": "Date the record was updated.",
+    "filterType": "request"
+  },
+  {
+    "name": "VerticalReference",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The starting elevation for the directional survey. This will typically be the ground level plus Kelly bushing height, Drilling floor height, or stated reference elevation.",
+    "filterType": ""
+  },
+  {
+    "name": "WellboreName",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Name of the wellbore as it appears on a survey.",
+    "filterType": ""
+  },
+  {
+    "name": "WellboreType",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The directional survey measurement type, typically either easured while drilling (MWD) or Gyroscopic (Gyro).",
+    "filterType": ""
+  },
+  {
+    "name": "WellID",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Enverus-generated unique well identifier.",
+    "filterType": ""
+  },
+  {
+    "name": "API_UWI_12",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be alphanumeric.",
+    "description": "API defined as: State (2 digit), county (3 digit), unique well identifier (5 digit), wellbore identifier (2 digit).",
+    "filterType": "path"
+  }
+]

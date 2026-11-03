@@ -1,0 +1,2 @@
+# ArcPy comes from licensed ArcGIS Pro; do not install an unrelated arcpy package.
+requests>=2.31,<3

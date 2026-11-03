@@ -1,0 +1,4898 @@
+[
+  {
+    "name": "Abstract",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The abstract number for the surface location of the well.",
+    "filterType": ""
+  },
+  {
+    "name": "AcidVolume_BBL",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Amount of acid used in the completion (bbl)",
+    "filterType": ""
+  },
+  {
+    "name": "AlternativeWellName",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The alternate name for a well using official abbreviations, where applicable.",
+    "filterType": ""
+  },
+  {
+    "name": "API_UWI",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "API defined as: State (2 digit), county (3 digit), unique well identifier (5 digit) | UWI number is a unique well identifier (up to 16 digits) that defines the bottom-hole location and each significant drilling or completion event in the well.",
+    "filterType": ""
+  },
+  {
+    "name": "API_UWI_12",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "API defined as: State (2 digit), county (3 digit), unique well identifier (5 digit) and directional sidetrack (2 digit).",
+    "filterType": ""
+  },
+  {
+    "name": "API_UWI_12_Unformatted",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be alphanumeric.",
+    "description": "API_UWI_12 with dashes and slashes removed.",
+    "filterType": "request"
+  },
+  {
+    "name": "API_UWI_14",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "API defined as: State (2 digit), county (3 digit), unique well identifier (5 digit), directional sidetrack (2 digit) and event sequence code (2 digit).",
+    "filterType": ""
+  },
+  {
+    "name": "API_UWI_14_Unformatted",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be alphanumeric.",
+    "description": "API_UWI_14 with dashes and slashes removed.",
+    "filterType": "request"
+  },
+  {
+    "name": "API_UWI_Unformatted",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be alphanumeric.",
+    "description": "API_UWI with dashes and slashes removed.",
+    "filterType": "request"
+  },
+  {
+    "name": "Average100dVPercentEurPreWBT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Within 100 ft Vertical, The weighted average percentage of EUR (first 30 years) recovered from the nearest neighbours (left and right) before a WBT started production",
+    "filterType": ""
+  },
+  {
+    "name": "Average100dVProdMonthDiff",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Within 100 ft vertical, the average number of months the nearest neighbour has been producing before target well started production",
+    "filterType": ""
+  },
+  {
+    "name": "AverageAnyPercentEurPreWBT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "In any zone, the weighted average percentage of EUR (first 30 years) recovered from the nearest neighbours (left and right) before a WBT started production",
+    "filterType": ""
+  },
+  {
+    "name": "AverageAnyProdMonthDiff",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "In any zone, the average number of months the nearest neighbour has been producing before target well started production.",
+    "filterType": ""
+  },
+  {
+    "name": "AverageSamePercentEurPreWBT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "In the same zone, The weighted average percentage of EUR (first 30 years) recovered from the nearest neighbours (left and right) before a WBT started production",
+    "filterType": ""
+  },
+  {
+    "name": "AverageSameProdMonthDiff",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "In the same zone, the average number of months the nearest neighbour has been producing before target well started production",
+    "filterType": ""
+  },
+  {
+    "name": "AverageStageSpacing_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Average stage spacing for the well, calculated as lateral length divided by number of stages (ft).",
+    "filterType": ""
+  },
+  {
+    "name": "Avg3DDist100dVZone_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The average of the 3D distance to the nearest neighbors, within 100 ft Vertical, on the left and right (if fully bounded), equal to the closest 3D distance (if half bounded) or empty (if unbounded).",
+    "filterType": ""
+  },
+  {
+    "name": "Avg3DDistAnyZone_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The average of the 3D distance to the nearest neighbors, in any ENV Interval, on the left and right (if fully bounded), equal to the closest 3D distance (if half bounded) or empty (if unbounded).",
+    "filterType": ""
+  },
+  {
+    "name": "Avg3DDistAtDrillTime100dVZone_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The average of the 3D distance to the nearest neighbors, within 100 ft Vertical, at time of wellbore target completion, on the left and right (if fully bounded), equal to the closest 3D distance (if half bounded) or empty (if unbounded).",
+    "filterType": ""
+  },
+  {
+    "name": "Avg3DDistAtDrillTimeAnyZone_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The average of the 3D distance to the nearest neighbors, in any ENV Interval, at the time of wellbore completion, on the left and right (if fully bounded), equal to the closest 3D distance (if half bounded) or empty (if unbounded).",
+    "filterType": ""
+  },
+  {
+    "name": "Avg3DDistAtDrillTimeSameZone_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The average of the 3D distance to the nearest neighbors at drill time, in the same ENV Interval, on the left and right (if fully bounded), equal to the closest 3D distance (if half bounded) or empty (if unbounded).",
+    "filterType": ""
+  },
+  {
+    "name": "Avg3DDistSameZone_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The average of the 3D distance to the nearest neighbors, in the same ENV Interval, on the left and right (if fully bounded), equal to the closest 3D distance (if half bounded) or empty (if unbounded).",
+    "filterType": ""
+  },
+  {
+    "name": "Avg3DDistToParentAtDrillTime100dVZone_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The average of the 3D distance to the nearest parent wells, within 100 ft Vertical, at time of wellbore completion, on the left and right (if fully bounded), equal to the closest 3D distance to parent well (if half bounded) or empty (if unbounded).",
+    "filterType": ""
+  },
+  {
+    "name": "Avg3DDistToParentAtDrillTimeAnyZone_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The average of the 3D distance to the nearest parent wells, in any ENV Interval, at time of wellbore completion, on the left and right (if fully bounded), equal to the closest 3D distance to parent well (if half bounded) or empty (if unbounded).",
+    "filterType": ""
+  },
+  {
+    "name": "Avg3DDistToParentAtDrillTimeSameZone_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The average of the 3D distance to the nearest parent wells, in same ENV Interval, at time of wellbore completion, on the left and right (if fully bounded), equal to the closest 3D distance to parent well (if half bounded) or empty (if unbounded).",
+    "filterType": ""
+  },
+  {
+    "name": "AvgBreakdownPressure_PSI",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Average of the reported breakdown pressure seen during each stage of the hydraulic fracture treatment.",
+    "filterType": ""
+  },
+  {
+    "name": "AvgClusterSpacing_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Average distance between clusters inside the wellbore, regardless of being stimulated in the same stage or in adjacent stages. A cluster is defined as a frac port, a sliding sleeve, or a perforating gun.",
+    "filterType": ""
+  },
+  {
+    "name": "AvgClusterSpacingPerStage_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Distance between clusters, from top of one cluster to top of next cluster, within each stage. Only applicable to stages with 2 or more clusters.",
+    "filterType": ""
+  },
+  {
+    "name": "AvgFluidPerCluster_BBL",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Average fluid injected per cluster during each stage of the hydraulic fracture treatment.",
+    "filterType": ""
+  },
+  {
+    "name": "AvgFluidPerShot_BBL",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Average fluid injected per entry point during each stage of the hydraulic fracture treatment.",
+    "filterType": ""
+  },
+  {
+    "name": "AvgFluidPerStage_BBL",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Average fluid injected in the wellbore during each stage of the hydraulic fracture treatment.",
+    "filterType": ""
+  },
+  {
+    "name": "AvgFracGradient_PSIPerFT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Average of the reported frac gradient obtained during each stage of the hydraulic fracture treatment.",
+    "filterType": ""
+  },
+  {
+    "name": "AvgHzDist100dVZone_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Within 100 ft Vertical, at the current completion of WBT, Average Max Horizontal Distance, which is the average of closest left and right NNS, missing if no neighbors, or distance to closest neighbor averaged with buffer size (ft)",
+    "filterType": ""
+  },
+  {
+    "name": "AvgHzDistAnyZone_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "In any zone, at current completion of WBT, Average Max Horizontal Distance, which is the average of closest left and right NNS, missing if no neighbors, or distance to closest neighbor averaged with buffer size (ft)",
+    "filterType": ""
+  },
+  {
+    "name": "AvgHzDistAtDrillTime100dVZone_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Within 100 ft Vertical, at initial completion of WBT, Average Max Horizontal Distance, which is the average of closest left and right NNS, missing if no neighbors, or distance to closest neighbor averaged with buffer size (ft)",
+    "filterType": ""
+  },
+  {
+    "name": "AvgHzDistAtDrillTimeAnyZone_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "In any zone, at initial completion of WBT, Average Max Horizontal Distance, which is the average of closest left and right NNS, missing if no neighbors, or distance to closest neighbor averaged with buffer size (ft)",
+    "filterType": ""
+  },
+  {
+    "name": "AvgHzDistAtDrillTimeSameZone_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "In same zone, at initial completion of WBT, Average Max Horizontal Distance, which is the average of closest left and right NNS, missing if no neighbors, or distance to closest neighbor averaged with buffer size (ft)",
+    "filterType": ""
+  },
+  {
+    "name": "AvgHzDistSameZone_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "In same zone, at current completion of WBT, Average Max Horizontal Distance, which is the average of closest left and right NNS, missing if no neighbors, or distance to closest neighbor averaged with buffer size (ft)",
+    "filterType": ""
+  },
+  {
+    "name": "AvgHzDistToParentAtDrillTime100dVZone_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The average of the horizontal distance to the nearest parent wells, within 100 ft Vertical, at time of wellbore completion, on the left and right (if fully bounded), equal to the closest horizontal distance to parent well (if half bounded) or empty (if unbounded).",
+    "filterType": ""
+  },
+  {
+    "name": "AvgHzDistToParentAtDrillTimeAnyZone_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The average of the horizontal distance to the nearest parent wells, in any ENV Interval, at time of wellbore completion, on the left and right (if fully bounded), equal to the closest horizontal distance to parent well (if half bounded) or empty (if unbounded).",
+    "filterType": ""
+  },
+  {
+    "name": "AvgHzDistToParentAtDrillTimeSameZone_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The average of the horizontal distance to the nearest parent wells, in same ENV Interval, at time of wellbore completion, on the left and right (if fully bounded), equal to the closest horizontal distance to parent well (if half bounded) or empty (if unbounded).",
+    "filterType": ""
+  },
+  {
+    "name": "AvgISIP_PSI",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Average of the reported instantaneous shut-in pressures obtained during each stage of the hydraulic fracture treatment.",
+    "filterType": ""
+  },
+  {
+    "name": "AvgMillTime_Min",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Average milling time per plug or per frac port during milling operations of the well.",
+    "filterType": ""
+  },
+  {
+    "name": "AvgPortSleeveOpeningPressure_PSI",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Average of the reported pressure to open the ports or shift the sleeves during the hydraulic fracture treatment.",
+    "filterType": ""
+  },
+  {
+    "name": "AvgProppantPerCluster_LBS",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Average proppant (lbs) placed per cluster during each stage of the hydraulic fracture treatment.",
+    "filterType": ""
+  },
+  {
+    "name": "AvgProppantPerShot_LBS",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Average proppant (lbs) placed per entry point during each stage of the hydraulic fracture treatment.",
+    "filterType": ""
+  },
+  {
+    "name": "AvgProppantPerStage_LBS",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Average proppant (lbs) placed in the wellbore during each stage of the hydraulic fracture treatment.",
+    "filterType": ""
+  },
+  {
+    "name": "AvgShotsPerCluster",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Average number of shots fired per perforating gun, according to completion report.",
+    "filterType": ""
+  },
+  {
+    "name": "AvgShotsPerFT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Average number of shots per ft in guns configuration, according to completion report.",
+    "filterType": ""
+  },
+  {
+    "name": "AvgTreatmentPressure_PSI",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Average of the reported average pressure obtained during each stage of the hydraulic fracture treatment.",
+    "filterType": ""
+  },
+  {
+    "name": "AvgTreatmentRate_BBLPerMin",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Average of the reported average rate (bbl/day) obtained during each stage of the hydraulic fracture treatment.",
+    "filterType": ""
+  },
+  {
+    "name": "AvgVtDist100dVZone_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Outside 100 ft Vertical, at the current completion of WBT, Average Max Vertical Distance, which is the average of closest left and right NNS, missing if no neighbors, or distance to closest neighbor averaged with buffer size (ft)",
+    "filterType": ""
+  },
+  {
+    "name": "AvgVtDistAnyZone_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "In any zone, at current completion of WBT, Average Max Vertical Distance, which is the average of closest left and right NNS, missing if no neighbors, or distance to closest neighbor averaged with buffer size (ft)",
+    "filterType": ""
+  },
+  {
+    "name": "AvgVtDistAtDrillTime100dVZone_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Outside 100 ft Vertical, at initial completion of WBT, Average Max Vertical Distance, which is the average of closest left and right NNS, missing if no neighbors, or distance to closest neighbor averaged with buffer size (ft)",
+    "filterType": ""
+  },
+  {
+    "name": "AvgVtDistAtDrillTimeAnyZone_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "In any zone, at initial completion of WBT, Average Max Vertical Distance, which is the average of closest left and right NNS, missing if no neighbors, or distance to closest neighbor averaged with buffer size (ft)",
+    "filterType": ""
+  },
+  {
+    "name": "AvgVtDistAtDrillTimeSameZone_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "In same zone, at initial completion of WBT, Average Max Vertical Distance, which is the average of closest left and right NNS, missing if no neighbors, or distance to closest neighbor averaged with buffer size (ft)",
+    "filterType": ""
+  },
+  {
+    "name": "AvgVtDistSameZone_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "In same zone, at current completion of WBT, Average Max Vertical Distance, which is the average of closest left and right NNS, missing if no neighbors, or distance to closest neighbor averaged with buffer size (ft)",
+    "filterType": ""
+  },
+  {
+    "name": "AvgVtDistToParentAtDrillTime100dVZone_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The average of the vertical distance to the nearest parent wells, outside 100 ft Vertical, at time of wellbore completion, on the left and right (if fully bounded), equal to the closest vertical distance to parent well (if half bounded) or empty (if unbounded).",
+    "filterType": ""
+  },
+  {
+    "name": "AvgVtDistToParentAtDrillTimeAnyZone_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The average of the vertical distance to the nearest parent wells, in any ENV Interval, at time of wellbore completion, on the left and right (if fully bounded), equal to the closest vertical distance to parent well (if half bounded) or empty (if unbounded).",
+    "filterType": ""
+  },
+  {
+    "name": "AvgVtDistToParentAtDrillTimeSameZone_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The average of the vertical distance to the nearest parent wells, in same ENV Interval, at time of wellbore completion, on the left and right (if fully bounded), equal to the closest vertical distance to parent well (if half bounded) or empty (if unbounded).",
+    "filterType": ""
+  },
+  {
+    "name": "AzimuthFromGridNorth_DEG",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Angle of the straight lateral versus North grid (degrees)",
+    "filterType": ""
+  },
+  {
+    "name": "BE15To1WTINYMEX_USDPerBBL",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Commodity price that generates a 10% rate of return based on time 0 drill and complete and 360-month well life. Breakeven of a well. Calculated as PV-10, WTI to HH @ 15:1. Measured in $/bbl.",
+    "filterType": ""
+  },
+  {
+    "name": "BE15To1WTINYMEXHistorical_USDPerBBL",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Commodity price that generates a 10% rate of return based on time 0 drill and complete and 360-month well life. Historical breakeven of a well. Calculated as PV-10, WTI to HH @ 15:1. Measured in $/bbl.",
+    "filterType": ""
+  },
+  {
+    "name": "BE15To1WTINYMEXHistorical_USDPerMcf",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Historical breakeven of a well (PV-10, WTI to HH @ 15:1) ($/Mcf)",
+    "filterType": ""
+  },
+  {
+    "name": "BE15To1WTIYMEX_USDPerMcf",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Breakeven of a well (PV-10, WTI to HH @ 15:1) ($/Mcf)",
+    "filterType": ""
+  },
+  {
+    "name": "BE20To1WTINYMEX_USDPerBBL",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Commodity price that generates a 10% rate of return based on time 0 drill and complete and 360-month well life. Breakeven of a well. Calculated as PV-10, WTI to HH @ 20:1. Measured in $/bbl.",
+    "filterType": ""
+  },
+  {
+    "name": "BE20To1WTINYMEX_USDPerMcf",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Breakeven of a well (PV-10, WTI to HH @ 20:1) ($/Mcf)",
+    "filterType": ""
+  },
+  {
+    "name": "BE20To1WTINYMEXHistorical_USDPerBBL",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Commodity price that generates a 10% rate of return based on time 0 drill and complete and 360-month well life. Historical breakeven of a well. Calculated as PV-10, WTI to HH @ 20:1. Measured in $/bbl.",
+    "filterType": ""
+  },
+  {
+    "name": "BE20To1WTINYMEXHistorical_USDPerMcf",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Historical breakeven of a well (PV-10, WTI to HH @ 20:1) ($/Mcf)",
+    "filterType": ""
+  },
+  {
+    "name": "BE25To1HHNYMEXHistorical_USDPerMcf",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Historical breakeven of a well (PV-10, WTI to HH @ 25:1) ($/Mcf)",
+    "filterType": ""
+  },
+  {
+    "name": "BE25To1WTINYMEX_USDPerBBL",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Commodity price that generates a 10% rate of return based on time 0 drill and complete and 360-month well life. Breakeven of a well. Calculated as PV-10, WTI to HH @ 25:1. Measured in $/bbl.",
+    "filterType": ""
+  },
+  {
+    "name": "BE25To1WTINYMEX_USDPerMcf",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Breakeven of a well (PV-10, WTI to HH @ 25:1) ($/Mcf)",
+    "filterType": ""
+  },
+  {
+    "name": "BE25To1WTINYMEXHistorical_USDPerBBL",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Commodity price which generates a 10% rate of return based on time 0 drill and complete and 360-month well life. Historical breakeven of a well. Calculated as PV-10, WTI to HH @ 25:1. Measured in $/bbl.",
+    "filterType": ""
+  },
+  {
+    "name": "Biocide_LBS",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Amount of biocide used in the completion (lbs).",
+    "filterType": ""
+  },
+  {
+    "name": "Block",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Subdivision indicating location of an offshore well.",
+    "filterType": ""
+  },
+  {
+    "name": "Bottom_Hole_Temp_DEGF",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Temperature at the bottom of the well measured in fahrenheit",
+    "filterType": ""
+  },
+  {
+    "name": "BottomHoleAge",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The age of the well at TD",
+    "filterType": ""
+  },
+  {
+    "name": "BottomHoleFormationName",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The name of the bottom hole stratigraphic unit",
+    "filterType": ""
+  },
+  {
+    "name": "BottomHoleLithology",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The lithology of the well at TD",
+    "filterType": ""
+  },
+  {
+    "name": "BottomOfZone_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "True vertical depth to the bottom of formation (ft)",
+    "filterType": ""
+  },
+  {
+    "name": "Bounded100dVZoneCurrent",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Within 100 ft Vertical, at the current time, classifies unbounded with no neighbors, half bounded with a neighbor on one side, and fully bounded if neighbors on both sides",
+    "filterType": ""
+  },
+  {
+    "name": "Bounded100dVZoneInitial",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Within 100 ft Vertical, at drill time, classifies unbounded with no neighbors, half bounded with a neighbor on one side, and fully bounded if neighbors on both sides",
+    "filterType": ""
+  },
+  {
+    "name": "BoundedAnyZone",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "In any zone, classifies unbounded with no neighbors, half bounded with a neighbor on one side, and fully bounded if neighbors on both sides",
+    "filterType": ""
+  },
+  {
+    "name": "BoundedAnyZoneInitial",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "In any zone, at drill time, classifies unbounded with no neighbors, half bounded with a neighbor on one side, and fully bounded if neighbors on both sides",
+    "filterType": ""
+  },
+  {
+    "name": "BoundedSameZone",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "In same zone, classifies unbounded with no neighbors, half bounded with a neighbor on one side, and fully bounded if neighbors on both sides",
+    "filterType": ""
+  },
+  {
+    "name": "BoundedSameZoneInitial",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "In the same zone, at drill time, classifies unbounded with no neighbors, half bounded with a neighbor on one side, and fully bounded if neighbors on both sides",
+    "filterType": ""
+  },
+  {
+    "name": "Breaker_LBS",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Amount of breaker used in the completion (lbs).",
+    "filterType": ""
+  },
+  {
+    "name": "Buffer_LBS",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Amount of buffer used in the completion (lbs).",
+    "filterType": ""
+  },
+  {
+    "name": "BulkDensity_GPerCC",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Average mass of rock per cubic centimeter (g/cc)",
+    "filterType": ""
+  },
+  {
+    "name": "CapitalEfficiency_USDPerBOEPerDAY",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Capital Expenditure / Exit Rate of New Production. If an operator spends $150 million to bring on 10  000 boe/d (exit) of new production, the capital efficiency is $15  000/boe/d. The lower the number, the less it costs to bring on new production.",
+    "filterType": ""
+  },
+  {
+    "name": "CasingPressure_PSI",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Pressure in psi measured at the casing during the time of the well test.",
+    "filterType": ""
+  },
+  {
+    "name": "ChokeSize_64IN",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Choke size as reported on the completion report based on 64th-of-an-inch orifice size (e.g., 132 implies a choke of 132/64th-of-an-inch choke).",
+    "filterType": ""
+  },
+  {
+    "name": "ClayControl_LBS",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Amount of clay control used in the completion (lbs).",
+    "filterType": ""
+  },
+  {
+    "name": "ClayVolume_PCT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Average clay volume (V/V)",
+    "filterType": ""
+  },
+  {
+    "name": "Closest100dVPercentEurPreWBT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Within 100 ft Vertical, The percentage of EUR (first 30 years) recovered from the nearest neighbour before a WBT started production",
+    "filterType": ""
+  },
+  {
+    "name": "Closest100dVProdMonthDiff",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Within 100 ft vertical, The number of months the nearest neighbour has been producing before target well started production",
+    "filterType": ""
+  },
+  {
+    "name": "Closest3DDist100dVZone_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Within 100 ft Vertical, the 3D distance to the closest near neighbor.",
+    "filterType": ""
+  },
+  {
+    "name": "Closest3DDistAnyZone_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "In any ENV Interval, the 3D distance to the closest near neighbor.",
+    "filterType": ""
+  },
+  {
+    "name": "Closest3DDistAtDrillTime100dVZone_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Within 100 ft Vertical, at time of wellbore target completion, the 3D distance to the closest near neighbor.",
+    "filterType": ""
+  },
+  {
+    "name": "Closest3DDistAtDrillTimeAnyZone_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "In any ENV Interval, at time of wellbore target completion, the 3D distance to the closest near neighbor.",
+    "filterType": ""
+  },
+  {
+    "name": "Closest3DDistAtDrillTimeSameZone_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "In same ENV Interval, at time of wellbore target completion, the 3D distance to the closest near neighbor.",
+    "filterType": ""
+  },
+  {
+    "name": "Closest3DDistSameZone_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "In same ENV Interval, the 3D distance to the closest near neighbor.",
+    "filterType": ""
+  },
+  {
+    "name": "Closest3DDistToParentAtDrillTime100dVZone_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Within 100 ft Vertical, at time of wellbore target completion, the 3D distance to the closest parent well.",
+    "filterType": ""
+  },
+  {
+    "name": "Closest3DDistToParentAtDrillTimeAnyZone_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "In any ENV Interval, at time of wellbore target completion, the 3D distance to the closest parent well.",
+    "filterType": ""
+  },
+  {
+    "name": "Closest3DDistToParentAtDrillTimeSameZone_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "In same ENV Interval, at time of wellbore target completion, the 3D distance to the closest parent well.",
+    "filterType": ""
+  },
+  {
+    "name": "ClosestAnyPercentEurPreWBT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "In any zone, the percentage of EUR (first 30 years) recovered from the nearest neighbour before target well started production",
+    "filterType": ""
+  },
+  {
+    "name": "ClosestAnyProdMonthDiff",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "In any zone, the number of months the nearest neighbour has been producing before target well started production",
+    "filterType": ""
+  },
+  {
+    "name": "ClosestHzDist100dVZone_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Within 100 ft Vertical, at the current completion of WBT, horizontal distance of closest near neighbor (ft)",
+    "filterType": ""
+  },
+  {
+    "name": "ClosestHzDistAnyZone_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "In any zone, at current completion of WBT, horizontal distance of closest near neighbor (ft)",
+    "filterType": ""
+  },
+  {
+    "name": "ClosestHzDistAtDrillTime100dVZone_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Within 100 ft Vertical, at initial completion of WBT, horizontal distance of closest near neighbor (ft)",
+    "filterType": ""
+  },
+  {
+    "name": "ClosestHzDistAtDrillTimeAnyZone_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "In any zone, at initial completion of WBT, horizontal distance of closest near neighbor (ft)",
+    "filterType": ""
+  },
+  {
+    "name": "ClosestHzDistAtDrillTimeSameZone_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "In same zone, at initial completion of WBT, horizontal distance of closest near neighbor (ft)",
+    "filterType": ""
+  },
+  {
+    "name": "ClosestHzDistSameZone_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "In same zone, at current completion of WBT, horizontal distance of closest near neighbor (ft)",
+    "filterType": ""
+  },
+  {
+    "name": "ClosestHzDistToParentAtDrillTime100dVZone_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Within 100 ft Vertical, at time of wellbore target completion, the horizontal distance to the closest parent well.",
+    "filterType": ""
+  },
+  {
+    "name": "ClosestHzDistToParentAtDrillTimeAnyZone_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "In any ENV Interval, at time of wellbore target completion, the horizontal distance to the closest parent well.",
+    "filterType": ""
+  },
+  {
+    "name": "ClosestHzDistToParentAtDrillTimeSameZone_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "In same ENV Interval, at time of wellbore target completion, the horizontal distance to the closest parent well.",
+    "filterType": ""
+  },
+  {
+    "name": "ClosestSamePercentEurPreWBT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "In the same zone, The percentage of EUR (first 30 years) recovered from the nearest neighbour before a WBT started production",
+    "filterType": ""
+  },
+  {
+    "name": "ClosestSameProdMonthDiff",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "In the same zone, he number of months the nearest neighbour has been producing before target well started production",
+    "filterType": ""
+  },
+  {
+    "name": "ClosestVtDist100dVZone_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Outside 100 ft Vertical, at the current completion of WBT, vertical distance of closest near neighbor (ft)",
+    "filterType": ""
+  },
+  {
+    "name": "ClosestVtDistAnyZone_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "In any zone, at current completion of WBT, vertical distance of closest near neighbor (ft)",
+    "filterType": ""
+  },
+  {
+    "name": "ClosestVtDistAtDrillTime100dVZone_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Outside 100 ft Vertical, at initial completion of WBT, vertical distance of closest near neighbor (ft)",
+    "filterType": ""
+  },
+  {
+    "name": "ClosestVtDistAtDrillTimeAnyZone_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "In any zone, at initial completion of WBT, vertical distance of closest near neighbor (ft)",
+    "filterType": ""
+  },
+  {
+    "name": "ClosestVtDistAtDrillTimeSameZone_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "In same zone, at initial completion of WBT, vertical distance of closest near neighbor (ft)",
+    "filterType": ""
+  },
+  {
+    "name": "ClosestVtDistSameZone_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "In same zone, at current completion of WBT, vertical distance of closest near neighbor (ft)",
+    "filterType": ""
+  },
+  {
+    "name": "ClosestVtDistToParentAtDrillTime100dVZone_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Outside 100 ft Vertical, at time of wellbore target completion, the vertical distance to the closest parent well.",
+    "filterType": ""
+  },
+  {
+    "name": "ClosestVtDistToParentAtDrillTimeAnyZone_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "In any ENV Interval, at time of wellbore target completion, the vertical distance to the closest parent well.",
+    "filterType": ""
+  },
+  {
+    "name": "ClosestVtDistToParentAtDrillTimeSameZone_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "In same ENV Interval, at time of wellbore target completion, the vertical distance to the closest parent well.",
+    "filterType": ""
+  },
+  {
+    "name": "Cluster",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Name of the cluster.",
+    "filterType": ""
+  },
+  {
+    "name": "ClustersPer1000FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Number of clusters normalized by 1  000 ft of lateral length.",
+    "filterType": ""
+  },
+  {
+    "name": "ClustersPerStage",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Average number of clusters contained in each stage. A cluster is defined as a frac port, a sliding sleeve, or a perforating gun.",
+    "filterType": ""
+  },
+  {
+    "name": "CoCompletion",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "True if a neighbor was completed within 3 months before or after WBT",
+    "filterType": ""
+  },
+  {
+    "name": "CompletionCost_USDMM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Current completion cost ($MM);  the cost to complete as of today.",
+    "filterType": ""
+  },
+  {
+    "name": "CompletionCostHistorical_USDMM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Current completion cost ($MM); the cost to complete as of today.",
+    "filterType": ""
+  },
+  {
+    "name": "CompletionDate",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Reported completion date. Enverus-derived date where no completion date is disclosed.",
+    "filterType": ""
+  },
+  {
+    "name": "CompletionDesign",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "State-disclosed completion design  (ie: open hole, ball drop, plug-and-perf, etc.).",
+    "filterType": ""
+  },
+  {
+    "name": "CompletionNumber",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "A sequential number that indicates the completion event number.",
+    "filterType": ""
+  },
+  {
+    "name": "CompletionTime_DAYS",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Number of days calculated between fracture start and fracture end date.",
+    "filterType": ""
+  },
+  {
+    "name": "Contract",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The name of the contract in which the well was drilled",
+    "filterType": ""
+  },
+  {
+    "name": "ContractorName",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Name of the company that owns or operates the rig.",
+    "filterType": ""
+  },
+  {
+    "name": "CoordinateQuality",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The quality qualifier relating to the well coordinates",
+    "filterType": ""
+  },
+  {
+    "name": "CoordinateSource",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Data source of the directional survey. The ENV Phantoms algorithm solves the problem of missing directional surveys by building synthetic directional surveys (phantoms) for wells missing in our coverage areas. Given a surface hole location (SHL), a bottom-hole location (BHL), a lateral length and a true vertical depth (TVD), a set of prospective phantoms can be drawn and assessed to determine which well path is most likely. These well paths are then used in the spacing model to ensure that the system the spacing model is looking to describe is fully defined from the beginning.",
+    "filterType": ""
+  },
+  {
+    "name": "CountPadWells",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Count of well pads.",
+    "filterType": ""
+  },
+  {
+    "name": "Country",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be alphanumeric.",
+    "description": "Location of the well by country, derived from data source origin.",
+    "filterType": "request"
+  },
+  {
+    "name": "County",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be alphanumeric.",
+    "description": "Location of the well by county, derived from API for US data.",
+    "filterType": "request"
+  },
+  {
+    "name": "CrossLinker_LBS",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Amount of crosslinker used in the completion (lbs).",
+    "filterType": ""
+  },
+  {
+    "name": "CumGas_MCF",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Total gas MCF produced (Mcf)",
+    "filterType": ""
+  },
+  {
+    "name": "CumGas_MCFPer1000FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Total Cumulative well head gas produced per 1  000 ft (Mcf/1  000 ft)",
+    "filterType": ""
+  },
+  {
+    "name": "CumOil_BBL",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Total barrels of oil produced (bbl)",
+    "filterType": ""
+  },
+  {
+    "name": "CumOil_BBLPer1000FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Total cumulative well head barrels of oil produced per 1  000 ft (boe/1  000 ft)",
+    "filterType": ""
+  },
+  {
+    "name": "CumProd_BOE",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Total barrel of oil equivalent produced (boe)",
+    "filterType": ""
+  },
+  {
+    "name": "CumProd_BOEPer1000FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Total Cumulative well head boe produced per 1  000 ft (boe/1  000 ft)",
+    "filterType": ""
+  },
+  {
+    "name": "CumProd_MCFE",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Total MCF equivalent produced (Mcfe)",
+    "filterType": ""
+  },
+  {
+    "name": "CumProd_MCFEPer1000FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Total cumulative well head Mcfe produced per 1  000 ft (Mcfe/1  000 ft)",
+    "filterType": ""
+  },
+  {
+    "name": "CumulativeSOR",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The Cumulative SOR (Steam-Oil-Ratio) per injection pairing.",
+    "filterType": ""
+  },
+  {
+    "name": "CumWater_BBL",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Total cumulative well head water produced per 1  000 ft (boe)",
+    "filterType": ""
+  },
+  {
+    "name": "CumWatertoBoeRatio",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Cumulative water per barrel of oil equivalent to date.",
+    "filterType": ""
+  },
+  {
+    "name": "CumWatertoGasRatio",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Cumulative water per wellhead (2-stream) gas produced to date.",
+    "filterType": ""
+  },
+  {
+    "name": "CumWatertoOilRatio",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Cumulative water per oil produced to date.",
+    "filterType": ""
+  },
+  {
+    "name": "DaysOnLocationWell",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The sum of the all the rig job days on location, aggregated to a well level.",
+    "filterType": ""
+  },
+  {
+    "name": "DaysOnSite",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Number of days on site. ",
+    "filterType": ""
+  },
+  {
+    "name": "DeletedDate",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be in the RFC3339 format. Example:2021-01-01",
+    "description": "Date the record was deleted.",
+    "filterType": "request"
+  },
+  {
+    "name": "DensityPorosity_PCT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Average porosity calculated using bulk density (V/V)",
+    "filterType": ""
+  },
+  {
+    "name": "DetectedFracCrewDate",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Date a frac crew was first detected.",
+    "filterType": ""
+  },
+  {
+    "name": "DevelopmentFlag",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Indicator if it is a development well",
+    "filterType": ""
+  },
+  {
+    "name": "DiscountRate_PCT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Discount rate as a percentage.",
+    "filterType": ""
+  },
+  {
+    "name": "DiscoverMagnitudeComments",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Discovery Comments",
+    "filterType": ""
+  },
+  {
+    "name": "DiscoveryType",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Commercial, Technical, or Undefined if too early to say for Resource Magnitude",
+    "filterType": ""
+  },
+  {
+    "name": "District",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "District in which the well is located.",
+    "filterType": ""
+  },
+  {
+    "name": "Diverter_LBS",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Amount of diverter used in the completion (lbs).",
+    "filterType": ""
+  },
+  {
+    "name": "DrillingCost_USDMM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Current drilling cost ($MM); the cost to drill as of today.",
+    "filterType": ""
+  },
+  {
+    "name": "DrillingCostHistorical_USDMM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Historical drill cost ($MM); the cost to drill a well at the time corresponding to that wells completion date.",
+    "filterType": ""
+  },
+  {
+    "name": "DrillingEndDate",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Recorded drilling end date",
+    "filterType": ""
+  },
+  {
+    "name": "DrillingFootagePerDay",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Measured depth divided by days on location for a specific rig job.",
+    "filterType": ""
+  },
+  {
+    "name": "DrillingTDDate",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The date of well reaching TD (RFC3339 timestamp)",
+    "filterType": ""
+  },
+  {
+    "name": "DrillingTDDateQualifier",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The quality qualifier relating to drilling TD reached date",
+    "filterType": ""
+  },
+  {
+    "name": "EffectivePorosity_PCT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Porosity excluding isolated pores occupied with clay minerals (V/V)",
+    "filterType": ""
+  },
+  {
+    "name": "ElevationGL_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Elevation to ground level in feet.",
+    "filterType": ""
+  },
+  {
+    "name": "ElevationKB_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Elevation to kelly bushing in feet.",
+    "filterType": ""
+  },
+  {
+    "name": "EndDateQualifier",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The quality qualifier relating to drilling end date",
+    "filterType": ""
+  },
+  {
+    "name": "Energizer_LBS",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Amount of energizer used in the completion (lbs).",
+    "filterType": ""
+  },
+  {
+    "name": "ENVBasin",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be alphanumeric.",
+    "description": "ENV Basin as defined by a wells location within one of 32 ENV Basin Shapefiles. Basins are defined by EIA Shapefiles and Enverus-defined geological prospectivity.",
+    "filterType": "request"
+  },
+  {
+    "name": "ENVCompanyType",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "ENV-derived categorization based on a company's peer group that indicates whether a company is public or private",
+    "filterType": ""
+  },
+  {
+    "name": "ENVCompInsertedDate",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The date the completion record was inserted into the Enverus database.",
+    "filterType": ""
+  },
+  {
+    "name": "ENVEffectiveLateralLength",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The total length used to calculate length-normalized attributes in Prism.",
+    "filterType": ""
+  },
+  {
+    "name": "ENVEffectiveLateralLengthSource",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Indicates the length measurement used for calculating length-normalized attributes in Prism.",
+    "filterType": ""
+  },
+  {
+    "name": "ENVElevationGL_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Enverus Ground Elevation determination. An ENV Ground Elevation has been assigned per well based on an outlier detection and source hierarchy determination",
+    "filterType": ""
+  },
+  {
+    "name": "ENVElevationGLSource",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Source for the ENV Elevation GL (ft)     value. ACTUAL: From validated publicly reported sources, CALC: Calculated elevation based on analytics of offset wells data, ESTIMATED: Estimated from ENV GeoScience Analytics, DEM: based on latitude/longitude and Digital elevation Model",
+    "filterType": ""
+  },
+  {
+    "name": "ENVElevationKB_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Enverus Kelly Bushing Elevation determination. An ENV Kelly Bushing Elevation has been assigned per well based on an outlier detection and source hierarchy determination",
+    "filterType": ""
+  },
+  {
+    "name": "ENVElevationKBSource",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Source for the ENV Elevation KB (ft)     value. ACTUAL: From validated publicly reported sources, CALC: Calculated elevation based on analytics of offset wells data, ESTIMATED: Estimated from ENV GeoScience Analytics and adjusted DEM GL Elevations",
+    "filterType": ""
+  },
+  {
+    "name": "ENVFluidType",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Reported frac fluid type.",
+    "filterType": ""
+  },
+  {
+    "name": "ENVFracJobType",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Enverus-identified frac job type based on fluid disclosure (slickwater, crosslink, etc.).",
+    "filterType": ""
+  },
+  {
+    "name": "ENVGasGatherer",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The closest gas gathering system to the well, based on Enverusshapefiles.",
+    "filterType": ""
+  },
+  {
+    "name": "ENVGasGatheringSystem",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The closest gas gathering system to the well, based on Enverus shapefiles.",
+    "filterType": ""
+  },
+  {
+    "name": "ENVInterval",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be alphanumeric.",
+    "description": "ENV Interval is assigned when a well is located within an ENV Play Shapefile boundary AND meets specific geo-gridding,date, trajectory and/or formation criteria to be considered prospective within that given play file boundary.",
+    "filterType": "request"
+  },
+  {
+    "name": "ENVIntervalSource",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Source for the ENV Interval Source: ENV Interpreted: Enverus Interval determined by using either the intersection of the directional surveys with subsea grids from the geological model, or by using well information from state documents such as formation, trajectory, dates, and status. ENV Analyst: Enverus Interval overridden by a geological analyst team. ENV Predicted: Enverus Interval predicted using a model that recognizes nearby development trends as input.",
+    "filterType": ""
+  },
+  {
+    "name": "Environment",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The physical environment in which the well is located",
+    "filterType": ""
+  },
+  {
+    "name": "ENVOilGatherer",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The closest oil gathering system to the well, based on Enverus shapefiles.",
+    "filterType": ""
+  },
+  {
+    "name": "ENVOilGatheringSystem",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The closest oil gathering system to the well, based on Enverus shapefiles.",
+    "filterType": ""
+  },
+  {
+    "name": "ENVOperator",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be alphanumeric.",
+    "description": "Latest operator of the well. Data has been normalized and standardized by Enverus to aggregate into single operator names as well as roll subsidiaries up to the parent company where public data is disclosed.",
+    "filterType": "request"
+  },
+  {
+    "name": "ENVPeerGroup",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The respective group a company belongs based on market capitalization for public companies, and for private companies either private equity backed or non-private equity backed private distinctions.",
+    "filterType": ""
+  },
+  {
+    "name": "ENVPlay",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be alphanumeric.",
+    "description": "ENV Play as defined by a wells location within an Enverus-defined Play Shapefile AND meets criteria to be assigned an ENV Interval within that play.",
+    "filterType": "request"
+  },
+  {
+    "name": "ENVProducingMethod",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "State reported producing method normalized to ENV Producing Method",
+    "filterType": ""
+  },
+  {
+    "name": "ENVProdWellType",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Enverus-derived categorization of a well based on cumulative wellhead liquids percentage (dry gas, liquids-rich gas, oil and wet gas).",
+    "filterType": ""
+  },
+  {
+    "name": "ENVProppantBrand",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Reported proppant brand.",
+    "filterType": ""
+  },
+  {
+    "name": "ENVProppantType",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Indicates the types of proppant used during completion of the well.",
+    "filterType": ""
+  },
+  {
+    "name": "ENVRegion",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be alphanumeric.",
+    "description": "ENV Region as defined by a wells location within one of nine ENV Region Shapefiles. ENV Region inclusively covers North America.",
+    "filterType": "request"
+  },
+  {
+    "name": "ENVSpacingAssumption",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "In same zone, at current completion of WBT, Average Max Horizontal Distance, which is the average of closest left and right NNS, missing if no neighbors, or distance to closest neighbor averaged with buffer size",
+    "filterType": ""
+  },
+  {
+    "name": "ENVSpacingClass_AnyZone",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "P \u00e2\u20ac\u201c Parent to well on one side, unbounded on the other  C \u00e2\u20ac\u201c Child to well on one side, unbounded on the other Co \u00e2\u20ac\u201c Co-completed with well on one side, unbounded on the other S \u00e2\u20ac\u201c Standalone well, unbounded on both sides P | P \u00e2\u20ac\u201c Parent to both wells on either side C | C \u00e2\u20ac\u201c Child to both wells on either side, AKA infill well Co | Co \u00e2\u20ac\u201c Co-completed with both wells on either side P | C \u00e2\u20ac\u201c Parent to well on one side, child to well on the other side P | Co \u00e2\u20ac\u201c Parent to well on one side, co-completed on the other side C | Co \u00e2\u20ac\u201c Child to well on one side, co-completed on the other side",
+    "filterType": ""
+  },
+  {
+    "name": "ENVSpacingClass_AnyZoneAtInitialClass",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "P \u00e2\u20ac\u201c Parent to well on one side, unbounded on the other  C \u00e2\u20ac\u201c Child to well on one side, unbounded on the other Co \u00e2\u20ac\u201c Co-completed with well on one side, unbounded on the other S \u00e2\u20ac\u201c Standalone well, unbounded on both sides P | P \u00e2\u20ac\u201c Parent to both wells on either side C | C \u00e2\u20ac\u201c Child to both wells on either side, AKA infill well Co | Co \u00e2\u20ac\u201c Co-completed with both wells on either side P | C \u00e2\u20ac\u201c Parent to well on one side, child to well on the other side P | Co \u00e2\u20ac\u201c Parent to well on one side, co-completed on the other side C | Co \u00e2\u20ac\u201c Child to well on one side, co-completed on the other side",
+    "filterType": ""
+  },
+  {
+    "name": "ENVSpacingClass_SameZone",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "P \u00e2\u20ac\u201c Parent to well on one side, unbounded on the other  C \u00e2\u20ac\u201c Child to well on one side, unbounded on the other Co \u00e2\u20ac\u201c Co-completed with well on one side, unbounded on the other S \u00e2\u20ac\u201c Standalone well, unbounded on both sides P | P \u00e2\u20ac\u201c Parent to both wells on either side C | C \u00e2\u20ac\u201c Child to both wells on either side, AKA infill well Co | Co \u00e2\u20ac\u201c Co-completed with both wells on either side P | C \u00e2\u20ac\u201c Parent to well on one side, child to well on the other side P | Co \u00e2\u20ac\u201c Parent to well on one side, co-completed on the other side C | Co \u00e2\u20ac\u201c Child to well on one side, co-completed on the other side",
+    "filterType": ""
+  },
+  {
+    "name": "ENVSpacingClass_SameZoneAtInitialClass",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "P \u00e2\u20ac\u201c Parent to well on one side, unbounded on the other  C \u00e2\u20ac\u201c Child to well on one side, unbounded on the other Co \u00e2\u20ac\u201c Co-completed with well on one side, unbounded on the other S \u00e2\u20ac\u201c Standalone well, unbounded on both sides P | P \u00e2\u20ac\u201c Parent to both wells on either side C | C \u00e2\u20ac\u201c Child to both wells on either side, AKA infill well Co | Co \u00e2\u20ac\u201c Co-completed with both wells on either side P | C \u00e2\u20ac\u201c Parent to well on one side, child to well on the other side P | Co \u00e2\u20ac\u201c Parent to well on one side, co-completed on the other side C | Co \u00e2\u20ac\u201c Child to well on one side, co-completed on the other side",
+    "filterType": ""
+  },
+  {
+    "name": "ENVSpacingClass_Vertical100AtInitialClass",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "P \u00e2\u20ac\u201c Parent to well on one side, unbounded on the other  C \u00e2\u20ac\u201c Child to well on one side, unbounded on the other Co \u00e2\u20ac\u201c Co-completed with well on one side, unbounded on the other S \u00e2\u20ac\u201c Standalone well, unbounded on both sides P | P \u00e2\u20ac\u201c Parent to both wells on either side C | C \u00e2\u20ac\u201c Child to both wells on either side, AKA infill well Co | Co \u00e2\u20ac\u201c Co-completed with both wells on either side P | C \u00e2\u20ac\u201c Parent to well on one side, child to well on the other side P | Co \u00e2\u20ac\u201c Parent to well on one side, co-completed on the other side C | Co \u00e2\u20ac\u201c Child to well on one side, co-completed on the other side",
+    "filterType": ""
+  },
+  {
+    "name": "ENVSpacingClass_Within100",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "P \u00e2\u20ac\u201c Parent to well on one side, unbounded on the other  C \u00e2\u20ac\u201c Child to well on one side, unbounded on the other Co \u00e2\u20ac\u201c Co-completed with well on one side, unbounded on the other S \u00e2\u20ac\u201c Standalone well, unbounded on both sides P | P \u00e2\u20ac\u201c Parent to both wells on either side C | C \u00e2\u20ac\u201c Child to both wells on either side, AKA infill well Co | Co \u00e2\u20ac\u201c Co-completed with both wells on either side P | C \u00e2\u20ac\u201c Parent to well on one side, child to well on the other side P | Co \u00e2\u20ac\u201c Parent to well on one side, co-completed on the other side C | Co \u00e2\u20ac\u201c Child to well on one side, co-completed on the other side",
+    "filterType": ""
+  },
+  {
+    "name": "ENVStockExchange",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The stock exchange where a public company trades.",
+    "filterType": ""
+  },
+  {
+    "name": "ENVSubPlay",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "ENV Sub Play as defined by a wells location within an Enverus-defined Sub Play Shapefile. Sub Play is a subset of a play where all Sub Plays inclusively make up a play.",
+    "filterType": ""
+  },
+  {
+    "name": "ENVTicker",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Ticker symbol for the most recent reported operator based on Enverus-normalized ENV Operator field. Public companies follow the convention of -US for US-listed stocks and -CA for Canadian-listed stocks. Private operators are followed by an asterisk*.",
+    "filterType": ""
+  },
+  {
+    "name": "EnvVerticalSpacingClass100dVZone",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Looking in the vertical plane, above and below the target, outside 100 ft vertically and inside 700 ft vertically, at current, P \u00e2\u20ac\u201c Parent to well on one side, unbounded on the other C \u00e2\u20ac\u201c Child to well on one side, unbounded on the other Co \u00e2\u20ac\u201c Co-completed with well on one side, unbounded on the other S \u00e2\u20ac\u201c Standalone well, unbounded on both sides P | P \u00e2\u20ac\u201c Parent to both wells on either side C | C \u00e2\u20ac\u201c Child to both wells on either side, AKA infill well Co | Co \u00e2\u20ac\u201c Co-completed with both wells on either side P | C \u00e2\u20ac\u201c Parent to well on one side, child to well on the other side P | Co \u00e2\u20ac\u201c Parent to well on one side, co-completed on the other side C | Co \u00e2\u20ac\u201c Child to well on one side, co-completed on the other side",
+    "filterType": ""
+  },
+  {
+    "name": "EnvVerticalSpacingClassAnyZone",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Looking in the vertical plane, above and below the target, within the buffer radius, at current, P \u00e2\u20ac\u201c Parent to well on one side, unbounded on the other C \u00e2\u20ac\u201c Child to well on one side, unbounded on the other Co \u00e2\u20ac\u201c Co-completed with well on one side, unbounded on the other S \u00e2\u20ac\u201c Standalone well, unbounded on both sides P | P \u00e2\u20ac\u201c Parent to both wells on either side C | C \u00e2\u20ac\u201c Child to both wells on either side, AKA infill well Co | Co \u00e2\u20ac\u201c Co-completed with both wells on either side P | C \u00e2\u20ac\u201c Parent to well on one side, child to well on the other side P | Co \u00e2\u20ac\u201c Parent to well on one side, co-completed on the other side C | Co \u00e2\u20ac\u201c Child to well on one side, co-completed on the other side",
+    "filterType": ""
+  },
+  {
+    "name": "EnvVerticalSpacingClassAtDrillTime100dVZone",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Looking in the vertical plane, above and below the target, outside 100 ft vertically and inside 700 ft vertically, at drill time, P \u00e2\u20ac\u201c Parent to well on one side, unbounded on the other C \u00e2\u20ac\u201c Child to well on one side, unbounded on the other Co \u00e2\u20ac\u201c Co-completed with well on one side, unbounded on the other S \u00e2\u20ac\u201c Standalone well, unbounded on both sides P | P \u00e2\u20ac\u201c Parent to both wells on either side C | C \u00e2\u20ac\u201c Child to both wells on either side, AKA infill well Co | Co \u00e2\u20ac\u201c Co-completed with both wells on either side P | C \u00e2\u20ac\u201c Parent to well on one side, child to well on the other side P | Co \u00e2\u20ac\u201c Parent to well on one side, co-completed on the other side C | Co \u00e2\u20ac\u201c Child to well on one side, co-completed on the other side",
+    "filterType": ""
+  },
+  {
+    "name": "EnvVerticalSpacingClassAtDrillTimeAnyZone",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Looking in the vertical plane, above and below the target, within the buffer radius, at drill time, P \u00e2\u20ac\u201c Parent to well on one side, unbounded on the other C \u00e2\u20ac\u201c Child to well on one side, unbounded on the other Co \u00e2\u20ac\u201c Co-completed with well on one side, unbounded on the other S \u00e2\u20ac\u201c Standalone well, unbounded on both sides P | P \u00e2\u20ac\u201c Parent to both wells on either side C | C \u00e2\u20ac\u201c Child to both wells on either side, AKA infill well Co | Co \u00e2\u20ac\u201c Co-completed with both wells on either side P | C \u00e2\u20ac\u201c Parent to well on one side, child to well on the other side P | Co \u00e2\u20ac\u201c Parent to well on one side, co-completed on the other side C | Co \u00e2\u20ac\u201c Child to well on one side, co-completed on the other side",
+    "filterType": ""
+  },
+  {
+    "name": "EnvVerticalSpacingClassAtDrillTimeSameZone",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Looking in the vertical plane, above and below the target, within the same ENV Interval, at drill time, P \u00e2\u20ac\u201c Parent to well on one side, unbounded on the other C \u00e2\u20ac\u201c Child to well on one side, unbounded on the other Co \u00e2\u20ac\u201c Co-completed with well on one side, unbounded on the other S \u00e2\u20ac\u201c Standalone well, unbounded on both sides P | P \u00e2\u20ac\u201c Parent to both wells on either side C | C \u00e2\u20ac\u201c Child to both wells on either side, AKA infill well Co | Co \u00e2\u20ac\u201c Co-completed with both wells on either side P | C \u00e2\u20ac\u201c Parent to well on one side, child to well on the other side P | Co \u00e2\u20ac\u201c Parent to well on one side, co-completed on the other side C | Co \u00e2\u20ac\u201c Child to well on one side, co-completed on the other side",
+    "filterType": ""
+  },
+  {
+    "name": "EnvVerticalSpacingClassSameZone",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Looking in the vertical plane, above and below the target, within the same ENV Interval, at current, P \u00e2\u20ac\u201c Parent to well on one side, unbounded on the other C \u00e2\u20ac\u201c Child to well on one side, unbounded on the other Co \u00e2\u20ac\u201c Co-completed with well on one side, unbounded on the other S \u00e2\u20ac\u201c Standalone well, unbounded on both sides P | P \u00e2\u20ac\u201c Parent to both wells on either side C | C \u00e2\u20ac\u201c Child to both wells on either side, AKA infill well Co | Co \u00e2\u20ac\u201c Co-completed with both wells on either side P | C \u00e2\u20ac\u201c Parent to well on one side, child to well on the other side P | Co \u00e2\u20ac\u201c Parent to well on one side, co-completed on the other side C | Co \u00e2\u20ac\u201c Child to well on one side, co-completed on the other side",
+    "filterType": ""
+  },
+  {
+    "name": "ENVWellboreStatus",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The ENV Wellbore Status is inferred to increase the granularity ENV Well Status on a wellbore level, as the state agencies do not report well status at wellbore level. For example, setting PILOT and SIDETRACK wellbore types to be drilled.",
+    "filterType": ""
+  },
+  {
+    "name": "ENVWellboreType",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "SINGLE BORE: Well that only has one wellbore. PILOT: Vertical wellbore on a multi-bore well that is deep enough to reach the target formation. It is not completed or produced. ORIGINAL: Vertical wellbore on a multi-bore well that has been completed or produced. SIDETRACK: Unintended wellbore segment that is usually caused by a mis steer during drilling. It is not completed or produced. LATERAL: The only horizontal wellbore on a multi-bore well that is permitted, completed or produced. MUTILATERAL: All horizontal wellbores on a multi-bore well that are permitted, completed or produced. UNDETERMINED: All the other wellbores on a multi-bore well that does not fall into above categories.These ENV Wellbore Types will be rolled out to each state over time, starting with Canada and Texas.",
+    "filterType": ""
+  },
+  {
+    "name": "ENVWellGrouping",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Denotes wells that are operationally related. For example, in steam-assisted gravity drainage (SAGD), producer wells will be tagged to their corresponding injector and infill(s). In Cold Flow Heavy Oil (CFHO), multilateral UWIs will be tagged to their producing lateral. ",
+    "filterType": ""
+  },
+  {
+    "name": "ENVWellServiceProvider",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Service company hired to perform completion of the well. Enverus-derived based on proppant supplier.",
+    "filterType": ""
+  },
+  {
+    "name": "ENVWellStatus",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be alphanumeric.",
+    "description": "Most recent reported status of the well normalized to ENV classifications (abandoned,complete,drilled,inactive,etc.).",
+    "filterType": "request"
+  },
+  {
+    "name": "ENVWellType",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "State reported well type normalized to ENV Well Type",
+    "filterType": ""
+  },
+  {
+    "name": "EUR100dVAvgPercentWBTNNS",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Within 100 ft Vertical, The WBT EUR as a percentage of the average of its two closest NNs EUR",
+    "filterType": ""
+  },
+  {
+    "name": "EUR100dVCloPercentWBTNNS",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Within 100 ft Vertical, The WBT EUR as a percentage of its closest NNs EUR",
+    "filterType": ""
+  },
+  {
+    "name": "EURAnyAvgPercentWBTNNS",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "In any zone, The WBT EUR as a percentage of the average of its two closest NNs EUR",
+    "filterType": ""
+  },
+  {
+    "name": "EURAnyCloPercentWBTNNS",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "In any zone, The WBT EUR as a percentage of its closest NNs EUR",
+    "filterType": ""
+  },
+  {
+    "name": "EURPerSectionAnyZone_MBBL",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "In any zone, the estimated ultimate oil recovery per section, calculated as (EUR_Oil_360 / 5280 * LateralLengthFt) * WellSectionAnyZone",
+    "filterType": ""
+  },
+  {
+    "name": "EURPerSectionAnyZone_MBOE",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "In any zone, the estimated ultimate BOE recovery per section, calculated as (EUR_Raw_360 / (LateralLengthFt * 1000) * 5280 * WellSectionAnyZone)",
+    "filterType": ""
+  },
+  {
+    "name": "EURPerSectionSameZone_MBBL",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "In the same zone, the estimated ultimate oil recovery per section, calculated as (EUR_Oil_360 / 5280 * LateralLengthFt) * WellSectionSameZone",
+    "filterType": ""
+  },
+  {
+    "name": "EURPerSectionSameZone_MBOE",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "In the same zone, the estimated ultimate BOE recovery per section, calculated as (EUR_Raw_360 / (LateralLengthFt * 1000) * 5280 * WellSectionSameZone)",
+    "filterType": ""
+  },
+  {
+    "name": "EURPP_MBOE",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Estimated ultimate post-processed hydrocarbons recovery, without economic cut-off. Measured in Mboe. See Post-Processing Gross Up (%).",
+    "filterType": ""
+  },
+  {
+    "name": "EURPP_MBOEPer1000FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "EUR, pp, gross (no economic cutoff; Mboe per 1  000 ft lateral, sales, gross)",
+    "filterType": ""
+  },
+  {
+    "name": "EURSameAvgPercentWBTNNS",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "In the same zone, The WBT EUR as a percentage of the average of its two closest NNs EUR",
+    "filterType": ""
+  },
+  {
+    "name": "EURSameCloPercentWBTNNS",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "In the same zone, The WBT EUR as a percentage of its closest NNs EUR",
+    "filterType": ""
+  },
+  {
+    "name": "EURWH_BCF_360",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Estimated ultimate wellhead gas recovery. Calculated at 30 years. Measured in Bcf.",
+    "filterType": ""
+  },
+  {
+    "name": "EURWH_BCF_360Per1000FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Estimated well head gas recovery (30 years; Bcf per 1  000 ft lateral)",
+    "filterType": ""
+  },
+  {
+    "name": "EURWH_BCFE_360",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Estimated ultimate wellhead gas equivalent recovery. Calculated at 30 years. Measured in Bcfe.",
+    "filterType": ""
+  },
+  {
+    "name": "EURWH_BCFE_360Per1000FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "EUR, raw (Bcfe per 1  000 ft lateral; first 30 years)",
+    "filterType": ""
+  },
+  {
+    "name": "EURWH_MBBL_360",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Estimated ultimate wellhead oil recovery. Calculated at 30 years. Measured in Mbbl.",
+    "filterType": ""
+  },
+  {
+    "name": "EURWH_MBBL_360Per1000FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Estimated ultimate oil recovery (30 years; Mbbl/1  000 ft lateral)",
+    "filterType": ""
+  },
+  {
+    "name": "EURWH_MBOE",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Estimated ultimate recovery of wellhead hydrocarbons (oil and gas) without economic cut-off. This is an Enverus-determined number based on our type curves over the life of the well (or group of wells).",
+    "filterType": ""
+  },
+  {
+    "name": "EURWH_MBOE_120",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Estimated ultimate wellhead hydrocarbon recovery. Calculated at 10 years. Measured in Mboe.",
+    "filterType": ""
+  },
+  {
+    "name": "EURWH_MBOE_120Per1000FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Estimated ultimate wellhead boe recovery (first 10 years; Mboe / 1  000 ft lateral)",
+    "filterType": ""
+  },
+  {
+    "name": "EURWH_MBOE_180",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Estimated ultimate wellhead hydrocarbon recovery. Calculated at 15 years. Measured in Mboe.",
+    "filterType": ""
+  },
+  {
+    "name": "EURWH_MBOE_180Per1000FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Estimated ultimate wellhead boe recovery (first 15 years; Mboe/1  000 ft)",
+    "filterType": ""
+  },
+  {
+    "name": "EURWH_MBOE_360",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Estimated ultimate wellhead hydrocarbon recovery. Calculated at 30 years. Measured in Mboe.",
+    "filterType": ""
+  },
+  {
+    "name": "EURWH_MBOE_360PEr1000FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "EUR, raw (Mboe per 1  000 ft lateral; first 30 years)",
+    "filterType": ""
+  },
+  {
+    "name": "EURWH_MBOE_60",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Estimated ultimate wellhead hydrocarbon recovery. Calculated at five years. Measured in Mboe.",
+    "filterType": ""
+  },
+  {
+    "name": "EURWH_MBOE_60Per1000FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Estimated ultimate wellhead boe recovery (first 5 years; Mboe/1  000 ft lateral)",
+    "filterType": ""
+  },
+  {
+    "name": "EURWH_MBOEPer1000FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "EUR for wellhead hydrocarbons (no economic cutoff; EUR_Oil + EUR_Gas) (Mboe per 1  000 ft lateral)",
+    "filterType": ""
+  },
+  {
+    "name": "ExplorationFlag",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Indicator if it is an exploration well",
+    "filterType": ""
+  },
+  {
+    "name": "Field",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Field in which the well is located.",
+    "filterType": ""
+  },
+  {
+    "name": "FindingAndDevelopment_USDPerBOE",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Total well cost divided by gross post-processed EUR ($/boe).",
+    "filterType": ""
+  },
+  {
+    "name": "First12MonthFlaredGas_MCF",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Gas flared in the first 12 months (Mcf).",
+    "filterType": ""
+  },
+  {
+    "name": "First12MonthGas_MCF",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Gas produced in the first 12 months (Mcf), including production reported as 0.",
+    "filterType": ""
+  },
+  {
+    "name": "First12MonthGas_MCFPer1000FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Cumulative wellhead gas production in first 12 months of a wells life per 1  000 ft of lateral (Mcf/1  000 ft).",
+    "filterType": ""
+  },
+  {
+    "name": "First12MonthOil_BBL",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Oil produced in the first 12 months (bbl), including production reported as 0.",
+    "filterType": ""
+  },
+  {
+    "name": "First12MonthOil_BBLPer1000FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Cumulative wellhead oil production in first 12 months of a wells life per 1  000 ft of lateral (bbl/1  000 ft).",
+    "filterType": ""
+  },
+  {
+    "name": "First12MonthProd_BOE",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Barrel of oil equivalent produced in the first 12 months, including production reported as 0. Measured in boe.",
+    "filterType": ""
+  },
+  {
+    "name": "First12MonthProd_BOEPer1000FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Cumulative wellhead boe production in first 12 months of a wells life per 1  000 ft of lateral (boe/1  000 ft).",
+    "filterType": ""
+  },
+  {
+    "name": "First12MonthProd_MCFE",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Mcf gas equivalent produced in the first 12 months, including production reported as 0. Measured in Mcfe.",
+    "filterType": ""
+  },
+  {
+    "name": "First12MonthProd_MCFEPer1000FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Cumulative wellhead Mcfe production in first 12 months of a wells life per 1  000 ft of lateral (Mcfe/1  000 ft).",
+    "filterType": ""
+  },
+  {
+    "name": "First12MonthWater_BBL",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Water produced in the first 12 months (bbl), including production reported as 0.",
+    "filterType": ""
+  },
+  {
+    "name": "First36MonthGas_MCF",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Gas produced in the first 36 months (Mcf), including production reported as 0.",
+    "filterType": ""
+  },
+  {
+    "name": "First36MonthGas_MCFPer1000FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Cumulative wellhead gas production in first 36 months of a wells life per 1  000 ft of lateral (Mcf/1  000 ft).",
+    "filterType": ""
+  },
+  {
+    "name": "First36MonthOil_BBL",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Oil produced in the first 36 months (bbl), including production reported as 0.",
+    "filterType": ""
+  },
+  {
+    "name": "First36MonthOil_BBLPer1000FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Cumulative wellhead oil production in first 36 months of a wells life per 1  000 ft of lateral (bbl/1  000 ft).",
+    "filterType": ""
+  },
+  {
+    "name": "First36MonthProd_BOE",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Barrel of oil equivalent produced in the first 36 months, including production reported as 0. Measured in boe.",
+    "filterType": ""
+  },
+  {
+    "name": "First36MonthProd_BOEPer1000FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Cumulative wellhead boe production in first 36 months of a wells life per 1  000 ft of lateral (boe/1  000 ft).",
+    "filterType": ""
+  },
+  {
+    "name": "First36MonthProd_MCFE",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Mcf gas equivalent produced in the first 36 months, including production reported as 0. Measured in Mcfe.",
+    "filterType": ""
+  },
+  {
+    "name": "First36MonthProd_MCFEPer1000FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Cumulative wellhead Mcfe production in first 36 months of a wells life per 1  000 ft of lateral (Mcfe/1  000 ft).",
+    "filterType": ""
+  },
+  {
+    "name": "First36MonthWater_BBL",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Cumulative wellhead water production in first 36 months of a wells life.",
+    "filterType": ""
+  },
+  {
+    "name": "First36MonthWaterProductionBBLPer1000Ft",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Cumulative wellhead water production in first 36 months of a wells life per 1  000 ft of lateral (bbl/1  000 ft).",
+    "filterType": ""
+  },
+  {
+    "name": "First3MonthFlaredGas_MCF",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Gas flared in the first 3 months (Mcf).",
+    "filterType": ""
+  },
+  {
+    "name": "First3MonthGas_MCF",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Gas produced in the first three months (Mcf), including production reported as 0.",
+    "filterType": ""
+  },
+  {
+    "name": "First3MonthGas_MCFPer1000FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Cumulative wellhead gas production in first three months of a wells life per 1  000 ft of lateral (Mcf/1  000 ft).",
+    "filterType": ""
+  },
+  {
+    "name": "First3MonthOil_BBL",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Oil produced in the first three months (bbl), including production reported as 0.",
+    "filterType": ""
+  },
+  {
+    "name": "First3MonthOil_BBLPer1000FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Cumulative wellhead oil production in first three months of a wells life per 1  000 ft of lateral (bbl/1  000 ft).",
+    "filterType": ""
+  },
+  {
+    "name": "First3MonthProd_BOE",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Barrel of oil equivalent produced in the first three months, including production reported as 0. Measured in boe.",
+    "filterType": ""
+  },
+  {
+    "name": "First3MonthProd_BOEPer1000FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Cumulative wellhead boe production in first three months of a wells life per 1  000 ft of lateral (boe/1  000 ft).",
+    "filterType": ""
+  },
+  {
+    "name": "First3MonthProd_MCFE",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Mcf gas equivalent produced in the first three months, including production reported as 0. Measured in Mcfe.",
+    "filterType": ""
+  },
+  {
+    "name": "First3MonthProd_MCFEPer1000FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Cumulative wellhead Mcfe production in first three months of a wells life per 1  000 ft of lateral (Mcfe/1  000 ft).",
+    "filterType": ""
+  },
+  {
+    "name": "First3MonthWater_BBL",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Water produced in the first three months (bbl), including production reported as 0.",
+    "filterType": ""
+  },
+  {
+    "name": "First6MonthFlaredGas_MCF",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Gas flared in the first 6 months (Mcf).",
+    "filterType": ""
+  },
+  {
+    "name": "First6MonthGas_MCF",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Gas produced in the first six months (Mcf), including production reported as 0.",
+    "filterType": ""
+  },
+  {
+    "name": "First6MonthGas_MCFPer1000FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Cumulative wellhead gas production in first six months of a wells life per 1  000 ft of lateral (Mcf/1  000 ft).",
+    "filterType": ""
+  },
+  {
+    "name": "First6MonthOil_BBL",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Oil produced in the first six months (bbl), including production reported as 0.",
+    "filterType": ""
+  },
+  {
+    "name": "First6MonthOil_BBLPer1000FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Cumulative wellhead oil production in first six months of a wells life per 1  000 ft of lateral (bbl/1  000 ft).",
+    "filterType": ""
+  },
+  {
+    "name": "First6MonthProd_BOE",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Barrel of oil equivalent produced in the first six months, including production reported as 0. Measured in boe.",
+    "filterType": ""
+  },
+  {
+    "name": "First6MonthProd_BOEPer1000FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Cumulative wellhead boe production in first six months of a wells life per 1  000 ft of lateral (boe/1  000 ft).",
+    "filterType": ""
+  },
+  {
+    "name": "First6MonthProd_MCFE",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Mcf gas equivalent produced in the first six months, including production reported as 0. Measured in Mcfe.",
+    "filterType": ""
+  },
+  {
+    "name": "First6MonthProd_MCFEPer1000FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Cumulative wellhead Mcfe production in first six months of a wells life per 1  000 ft of lateral (Mcfe/1  000 ft).",
+    "filterType": ""
+  },
+  {
+    "name": "First6MonthWater_BBL",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Cumulative wellhead water production in first six months of a wells life.",
+    "filterType": ""
+  },
+  {
+    "name": "First9MonthFlaredGas_MCF",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Gas flared in the first 9 months (Mcf).",
+    "filterType": ""
+  },
+  {
+    "name": "First9MonthGas_MCF",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Gas produced in the first nine months (Mcf), including production reported as 0.",
+    "filterType": ""
+  },
+  {
+    "name": "First9MonthGas_MCFPer1000FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Cumulative wellhead gas production in first nine months of a wells life per 1  000 ft of lateral (Mcf/1  000 ft).",
+    "filterType": ""
+  },
+  {
+    "name": "First9MonthOil_BBL",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Oil produced in the first nine months (bbl), including production reported as 0.",
+    "filterType": ""
+  },
+  {
+    "name": "First9MonthOil_BBLPer1000FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Cumulative wellhead oil production in first nine months of a wells life per 1  000 ft of lateral (bbl/1  000 ft).",
+    "filterType": ""
+  },
+  {
+    "name": "First9MonthProd_BOE",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Barrel of oil equivalent produced in the first nine months, including production reported as 0. Measured in boe.",
+    "filterType": ""
+  },
+  {
+    "name": "First9MonthProd_BOEPer1000FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Cumulative wellhead boe production in first nine months of a wells life per 1  000 ft of lateral (boe/1  000 ft).",
+    "filterType": ""
+  },
+  {
+    "name": "First9MonthProd_MCFE",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Mcf gas equivalent produced in the first nine months, including production reported as 0. Measured in Mcfe.",
+    "filterType": ""
+  },
+  {
+    "name": "First9MonthProd_MCFEPer1000FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Cumulative wellhead Mcfe production in first nine months of a wells life per 1  000 ft lateral (Mcfe/1  000 ft).",
+    "filterType": ""
+  },
+  {
+    "name": "First9MonthWater_BBL",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Cumulative wellhead water production in first nine months of a wells life per 1  000 ft of lateral (bbl/1  000 ft).",
+    "filterType": ""
+  },
+  {
+    "name": "FirstDay",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The earliest date of a drilling event (job)",
+    "filterType": ""
+  },
+  {
+    "name": "FirstInjDate",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The first date of reported injection, including where injection is reported by the state as 0.",
+    "filterType": ""
+  },
+  {
+    "name": "FirstProdDate",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be in the RFC3339 format. Example: 2021-01-01",
+    "description": "The first month of reported production, including where production is reported by the state as 0.",
+    "filterType": "request"
+  },
+  {
+    "name": "FirstProdMonth",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Vintage Month in which well had first production",
+    "filterType": ""
+  },
+  {
+    "name": "FirstProdQuarter",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Vintage quarter in which a well first produced",
+    "filterType": ""
+  },
+  {
+    "name": "FirstProdYear",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Vintage year in which well had first production",
+    "filterType": ""
+  },
+  {
+    "name": "FixedOpex_USDPerWELLPerMONTH",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Costs associated with maintaining and producing from a well that do not vary with the level of production.",
+    "filterType": ""
+  },
+  {
+    "name": "FlaredGasRatio",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The Flared Gas ratio calculated is calculated as Cumulative Flared/Cumulative Gas",
+    "filterType": ""
+  },
+  {
+    "name": "FlatHenryhub",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Flat Henry Hub.",
+    "filterType": ""
+  },
+  {
+    "name": "FlatWTI",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Flat WTI",
+    "filterType": ""
+  },
+  {
+    "name": "FlowingTubingPressure_PSI",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Pressure in psi measured at the tubing during the time of the well test.",
+    "filterType": ""
+  },
+  {
+    "name": "FluidIntensity_BBLPerFT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Barrels of fluid used to complete the well on a per foot basis (bbl/ft).",
+    "filterType": ""
+  },
+  {
+    "name": "ForecastWHLiquids_PCT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Estimated ultimate wellhead oil percentage recovery. Calculated as (EUR_Oil/(EUR_Gas*6+EUR_Oil)) (%).",
+    "filterType": ""
+  },
+  {
+    "name": "Formation",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "A list of targeted or currently producing formations for the well. Multiple formations are separated by vertical lines (e.g., One|Two|Three).",
+    "filterType": ""
+  },
+  {
+    "name": "FracRigOnsiteDate",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The day when all frac equipment was rigged in and ready.",
+    "filterType": ""
+  },
+  {
+    "name": "FracRigReleaseDate",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The day when the frac equipment was rigged out.",
+    "filterType": ""
+  },
+  {
+    "name": "FracStages",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Disclosed number of fracture stages for a given completion.",
+    "filterType": ""
+  },
+  {
+    "name": "FrictionReducer_LBS",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Amount of friction reducer used in the completion (lbs).",
+    "filterType": ""
+  },
+  {
+    "name": "GammaRay_API",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Average natural radioactivity (API)",
+    "filterType": ""
+  },
+  {
+    "name": "GAndA_USDPerBOE",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "General and administrative costs as disclosed in the company financial statements divided by the total barrels equivalent of production. Enverus models wells on a half-cycle and therefore does not include G&A in Prism economics.",
+    "filterType": ""
+  },
+  {
+    "name": "GasBFactor",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Wellhead gas type curve b-factor",
+    "filterType": ""
+  },
+  {
+    "name": "GasDailyPeakEURRatio_MCFtoMCFPerDay",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Wellhead gas peak calendar month daily rate to wellhead gas EUR ratio (30-year)",
+    "filterType": ""
+  },
+  {
+    "name": "GasDifferential_PCT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Gas product quality relative to Henry Hub, not including the effect of hedging. Calculated using company-disclosed price realizations at the ENV Play level, excluding GP&T, versus local hub price.",
+    "filterType": ""
+  },
+  {
+    "name": "GasDifferential_USDPerMCF",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Enverus long-term expected differential between the local hub (example:Waha) and index hub (example:Henry Hub).",
+    "filterType": ""
+  },
+  {
+    "name": "GasEURPP_PCT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Post-processed gas percentage of 360-month EUR (%). See Post-Processing Gross Up (%).",
+    "filterType": ""
+  },
+  {
+    "name": "GasEURWH_BCF",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Estimated ultimate wellhead gas recovery without economic cut-off. Measured in Bcf.",
+    "filterType": ""
+  },
+  {
+    "name": "GasEURWH_BCFPer1000FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Estimated ultimate wellhead gas recovery (no economic cutoff; Bcf per 1  000 ft lateral)",
+    "filterType": ""
+  },
+  {
+    "name": "GasFirstTC_MONTH",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The first month that the fitted gas type curve begins",
+    "filterType": ""
+  },
+  {
+    "name": "GasGravity_SG",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Specific gravity factor during IP test.",
+    "filterType": ""
+  },
+  {
+    "name": "GasGroupID",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Unique ID for a given gas type curve reference group",
+    "filterType": ""
+  },
+  {
+    "name": "GasGroupLevel",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Number of well traits used for algorithmic gas type curve fitting",
+    "filterType": ""
+  },
+  {
+    "name": "GasInitialDecline",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Wellhead gas type curve monthly decline from peak (%)",
+    "filterType": ""
+  },
+  {
+    "name": "GasInitialRate",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Ratio of the intial rate of the type curve divided by the peak months production.",
+    "filterType": ""
+  },
+  {
+    "name": "GasRefCompletionUsage",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Determinant on whether a fitted gas type curve refered to reference wells",
+    "filterType": ""
+  },
+  {
+    "name": "GasSeveranceTax_PCT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Severance taxes are levied by the state/province/county and are specific to the three hydrocarbon streams:oil, dry gas and NGLs. Each state has its own set of rules and exemptions. Severance taxes are taken off of revenues in all Enverus modeling and are based on company disclosures at the play level.",
+    "filterType": ""
+  },
+  {
+    "name": "GasShrink_PCT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The difference between the amount of gas produced at the wellhead and gas remaining after natural gas liquid extraction. Units are % of wellhead gas production.",
+    "filterType": ""
+  },
+  {
+    "name": "GasTerminalDecline",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Wellhead gas type curve terminal decline (%)",
+    "filterType": ""
+  },
+  {
+    "name": "GasTestRate_MCFPerDAY",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Initial wellhead gas production test rate (Mcf/d).",
+    "filterType": ""
+  },
+  {
+    "name": "GasTestRate_MCFPerDAYPer1000FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Gas produced during the initial production test normalized per 1  000-ft lateral. Measured in Mcf/d/1  000-ft.",
+    "filterType": ""
+  },
+  {
+    "name": "GellingAgent_LBS",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Amount of gelling agent used in the completion (lbs).",
+    "filterType": ""
+  },
+  {
+    "name": "GeneralComments",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "General comments",
+    "filterType": ""
+  },
+  {
+    "name": "GenericAcreValue10Yr_USD",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Net present value per acre for 10-year development plan ($/acre), assumes constant drilling over 10 years.",
+    "filterType": ""
+  },
+  {
+    "name": "GenericDrainage_AC",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Estimated drilled drainage area of a well based off of actual lateral length and estimated 660-ft interwell spacing (acre).",
+    "filterType": ""
+  },
+  {
+    "name": "GeomBHL_Point",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Geometry point for bottom hole location.",
+    "filterType": ""
+  },
+  {
+    "name": "GeomSHL_Point",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Geometry point for surface hole location.",
+    "filterType": ""
+  },
+  {
+    "name": "GOR_ScfPerBbl",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The Gas Oil ratio calculated is calculated as Cumulative Gas/Cumulative Oil in standard cubic feet per barrel SCF/BBL",
+    "filterType": ""
+  },
+  {
+    "name": "GovernmentWellId",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The government well ID",
+    "filterType": ""
+  },
+  {
+    "name": "HCPV_PCT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Product of Effective Porosity and one minus Water Saturation (V/V)",
+    "filterType": ""
+  },
+  {
+    "name": "HeightOfHCPV_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Hydrocarbon height pore volume (ft)",
+    "filterType": ""
+  },
+  {
+    "name": "HistoricalNPVPerSectionAnyZone",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Historical NPV Per Section in Any Zone",
+    "filterType": ""
+  },
+  {
+    "name": "HistoricalNPVPerSectionSameZone",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Historical NPV Per Section in same Zone",
+    "filterType": ""
+  },
+  {
+    "name": "ImpliedWellSpacingSameZone_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Wells per section implied by closest Hz distance",
+    "filterType": ""
+  },
+  {
+    "name": "InitialOperator",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Initial operator of the well, Enverus normalized to single operator names.",
+    "filterType": ""
+  },
+  {
+    "name": "InjectorWellClass",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Injector wells are classified into six categories (I-VI) by the EPA depending on what compounds are permitted for injection into the well. This field shows the class as well as a sub-classification where available. The availability of sub-classification is state dependent.",
+    "filterType": ""
+  },
+  {
+    "name": "InterwellSpacing",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Inter well spacing in FT.",
+    "filterType": ""
+  },
+  {
+    "name": "IronControl_LBS",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Amount of iron control used in the completion (lbs).",
+    "filterType": ""
+  },
+  {
+    "name": "IRRPerWELLAt50And200_USDMM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Internal rate of return of a well (10%; $50/bbl WTI, @$2.00/Mcf HH). Assumes 360-month well life. Means calculated as EUR-weighted.",
+    "filterType": ""
+  },
+  {
+    "name": "IRRPerWELLAt50And200Historical_USDMM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Internal rate of return of a well modeling historical well cost (10%; $50/bbl WTI, @$2.00/Mcf HH). Assumes 360-month well life. Means calculated as EUR-weighted.",
+    "filterType": ""
+  },
+  {
+    "name": "IRRPerWELLAt55And300_USDMM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Internal rate of return of a well (10%; $55/bbl WTI, @$3.00/Mcf HH). Assumes 360-month well life. Means calculated as EUR-weighted.",
+    "filterType": ""
+  },
+  {
+    "name": "IRRPerWELLAt55And300Historical_USDMM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Internal rate of return of a well modeling historical well cost (10%; $55/bbl WTI, @$3.00/Mcf HH). Assumes 360-month well life. Means calculated as EUR-weighted.",
+    "filterType": ""
+  },
+  {
+    "name": "IRRPerWELLAt60And300_USDMM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Internal rate of return of a well (10%; $60/bbl WTI, @$3.00/Mcf HH). Assumes 360-month well life. Means calculated as EUR-weighted.",
+    "filterType": ""
+  },
+  {
+    "name": "IRRPerWELLAt60And300Historical_USDMM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Internal rate of return of a well modeling historical well cost (10%; $60/bbl WTI, @$3.00/Mcf HH). Means calculated as EUR-weighted.",
+    "filterType": ""
+  },
+  {
+    "name": "IRRPerWELLAt60And350_USDMM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Internal rate of return of a well (10%; $60/bbl WTI, @$3.50/Mcf HH). Assumes 360-month well life. Means calculated as EUR-weighted.",
+    "filterType": ""
+  },
+  {
+    "name": "IRRPerWELLAt60And350Historical_USDMM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Internal rate of return of a well modeling historical well cost (10%; $60/bbl WTI, @$3.50/Mcf HH). Means calculated as EUR-weighted.",
+    "filterType": ""
+  },
+  {
+    "name": "IRRPerWELLAt70And350_USDMM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Internal rate of return of a well (10%; $70/bbl WTI, @$3.50/Mcf HH). Assumes 360-month well life. Means calculated as EUR-weighted.",
+    "filterType": ""
+  },
+  {
+    "name": "IRRPerWELLAt70And350Historical_USDMM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Internal rate of return of a well modeling historical well cost (10%; $70/bbl WTI, @$3.50/Mcf HH). Assumes 360-month well life. Means calculated as EUR-weighted.",
+    "filterType": ""
+  },
+  {
+    "name": "IRRPerWELLAt80And400_USDMM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Internal rate of return of a well (10%; $80/bbl WTI, @$4.00/Mcf HH). Assumes 360-month well life. Means calculated as EUR-weighted.",
+    "filterType": ""
+  },
+  {
+    "name": "IRRPerWELLAt80And400Historical_USDMM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Internal rate of return of a well modeling historical well cost (10%; $80/bbl WTI, @$4.00/Mcf HH). Assumes 360-month well life. Means calculated as EUR-weighted.",
+    "filterType": ""
+  },
+  {
+    "name": "Isopach_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Thickness of formation (ft)",
+    "filterType": ""
+  },
+  {
+    "name": "Last12MonthGasProduction_MCF",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Gas production reported in MCF in the twelve months end with the Last Production Date",
+    "filterType": ""
+  },
+  {
+    "name": "Last12MonthOilProduction_BBL",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Oil (or Condensate) production reported in BBls in the twelve months ending with the Last Production Date",
+    "filterType": ""
+  },
+  {
+    "name": "Last12MonthProduction_BOE",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Total Barrel of Oil equivalent produced in the twelve months ending with the Last Production Date",
+    "filterType": ""
+  },
+  {
+    "name": "Last12MonthWaterProduction_BBL",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Water production reported in BBls in the twelve months ending with the Last Production Date",
+    "filterType": ""
+  },
+  {
+    "name": "Last3DayTelemetryActivity",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Amount of detected human activity on PAD site in the last 3 days.",
+    "filterType": ""
+  },
+  {
+    "name": "Last3MonthISOR",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The ISOR (Steam-Oil-Ratio) per injection pairing for the last 3 months of completion.",
+    "filterType": ""
+  },
+  {
+    "name": "LastInjDate",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Most recent date of injection recorded for the well.",
+    "filterType": ""
+  },
+  {
+    "name": "LastMonthFlaredGas_MCF",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Gas flared in most recent month of recorded production for the well",
+    "filterType": ""
+  },
+  {
+    "name": "LastMonthGasProduction_MCF",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Gas production in most recent month of recorded production for the well",
+    "filterType": ""
+  },
+  {
+    "name": "LastMonthLiquidsProduction_BBL",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Oil production in most recent month of recorded production for the well",
+    "filterType": ""
+  },
+  {
+    "name": "LastMonthTelemetryActivity",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Amount of detected human activity on PAD site in the last month.",
+    "filterType": ""
+  },
+  {
+    "name": "LastMonthWaterProduction_BBL",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Water production in most recent month of recorded production for the well",
+    "filterType": ""
+  },
+  {
+    "name": "LastProducingMonth",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be in the RFC3339 format. Example:2021-01-01",
+    "description": "Most recent month of recorded production for the well.",
+    "filterType": "request"
+  },
+  {
+    "name": "LastWeekTelemetryActivity",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Amount of detected human activity on PAD site in the last week.",
+    "filterType": ""
+  },
+  {
+    "name": "LastYearTelemetryActivity",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Amount of detected human activity on PAD site in the last year.",
+    "filterType": ""
+  },
+  {
+    "name": "LateralLength_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Length of the horizontal portion of the wellbore derived hierarchically from perf interval, directional survey data or MD minus TVD.",
+    "filterType": ""
+  },
+  {
+    "name": "LateralLine",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Geometry representing the wellbore.",
+    "filterType": ""
+  },
+  {
+    "name": "Latitude",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The latitude of the top-hole location (WGS 84).",
+    "filterType": ""
+  },
+  {
+    "name": "Latitude_BH",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The latitude of the bottom-hole location (WGS 84)",
+    "filterType": ""
+  },
+  {
+    "name": "Lease",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The lease number for the well",
+    "filterType": ""
+  },
+  {
+    "name": "LeaseName",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The lease name for the well",
+    "filterType": ""
+  },
+  {
+    "name": "Longitude",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The longitude of the top-hole location (WGS 84).",
+    "filterType": ""
+  },
+  {
+    "name": "Longitude_BH",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The longitude of the bottom-hole location (WGS 84)",
+    "filterType": ""
+  },
+  {
+    "name": "LowerPerf_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Measured depth of lower perforation, closest to the toe of the well; used to calculate perforated lateral length.",
+    "filterType": ""
+  },
+  {
+    "name": "MD_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Total measured depth of the well, including vertical depth and horizontal length.",
+    "filterType": ""
+  },
+  {
+    "name": "MonthsToPeakProduction",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Months to peak production date.",
+    "filterType": ""
+  },
+  {
+    "name": "NearNeighborCount100dVZone",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Count of near neighbors within 100 ft Vertical.",
+    "filterType": ""
+  },
+  {
+    "name": "NearNeighborCountAnyZone",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Count of near neighbors within any ENV Interval.",
+    "filterType": ""
+  },
+  {
+    "name": "NearNeighborCountAtDrillTime100dVZone",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Count of near neighbors within 100 ft Vertical, at time of wellbore target completion.",
+    "filterType": ""
+  },
+  {
+    "name": "NearNeighborCountAtDrillTimeAnyZone",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Count of near neighbors within any ENV Interval, at time of wellbore completion.",
+    "filterType": ""
+  },
+  {
+    "name": "NearNeighborCountAtDrillTimeSameZone",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Count of near neighbors within same ENV Interval, at time of wellbore completion.",
+    "filterType": ""
+  },
+  {
+    "name": "NearNeighborCountSameZone",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Count of near neighbors within the same ENV Interval.",
+    "filterType": ""
+  },
+  {
+    "name": "NetbackPerWELLAt50And200_USDMM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Measure of comparable profitability on a per boe basis of the revenue less cost to bring product to market. Excludes cost to drill a well. Calculated as ([Cash Flow+Total DC&T]/EUR Mboe Post Processed Gross*1  000). ($/boe; $50/bbl WTI, @$2.00/Mcf HH).",
+    "filterType": ""
+  },
+  {
+    "name": "NetbackPerWELLAt55And300_USDMM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Measure of comparable profitability on a per boe basis of the revenue less cost to bring product to market. Excludes cost to drill a well. Calculated as ([Cash Flow+Total DC&T]/EUR Mboe Post Processed Gross*1  000). ($/boe; $55/bbl WTI, @$3.00/Mcf HH).",
+    "filterType": ""
+  },
+  {
+    "name": "NetbackPerWELLAt60And300_USDMM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Measure of comparable profitability on a per boe basis of the revenue less cost to bring product to market. Excludes cost to drill a well. Calculated as ([Cash Flow+Total DC&T]/EUR Mboe Post Processed Gross*1  000). ($/boe; $55/bbl WTI, @$3.00/Mcf HH)",
+    "filterType": ""
+  },
+  {
+    "name": "NetbackPerWELLAt60And350_USDMM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Measure of comparable profitability on a per boe basis of the revenue less cost to bring product to market. Excludes cost to drill a well. Calculated as ([Cash Flow+Total DC&T]/EUR Mboe Post Processed Gross*1  000). ($/boe; $55/bbl WTI, @$3.00/Mcf HH).",
+    "filterType": ""
+  },
+  {
+    "name": "NetbackPerWELLAt70And350_USDMM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Measure of comparable profitability on a per boe basis of the revenue less cost to bring product to market. Excludes cost to drill a well. ($/boe; $70/bbl WTI, @$3.50/Mcf HH).",
+    "filterType": ""
+  },
+  {
+    "name": "NetbackPerWELLAt80And400_USDMM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Measure of comparable profitability on a per boe basis of the revenue less cost to bring product to market. Excludes cost to drill a well. ($/boe; $80/bbl WTI, @$4.00/Mcf HH).",
+    "filterType": ""
+  },
+  {
+    "name": "NGLDifferential_PCT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "NGL product quality relative to WTI, not including the effect of hedging. Calculated using company-disclosed price realizations at the ENV Play level, excluding GP&T, versus local hub price.",
+    "filterType": ""
+  },
+  {
+    "name": "NGLDifferential_USDPerBBL",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Enverus long-term expected differential between the local hub and index hub. Enverus currently assumes no hub versus index differential for NGL pricing.\u00ef\u00bf\u00bd",
+    "filterType": ""
+  },
+  {
+    "name": "NGLEURPP_PCT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Post-processed NGL percentage of 360-month EUR (%). See Post-Processing Gross Up (%).",
+    "filterType": ""
+  },
+  {
+    "name": "NGLSeveranceTax_PCT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Severance taxes are levied by the state/province/county and are specific to the three hydrocarbon streams:oil, dry gas and NGLs. Each state has its own set of rules and exemptions. Severance taxes are taken off of revenues in all Enverus modeling and are based on company disclosures at the play level.",
+    "filterType": ""
+  },
+  {
+    "name": "NGLYield_BBLPerMMCF",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Hydrocarbons (ethane, propane, butanes and  pentanes) extracted from wellhead natural gas stream (bbl/MMcf).",
+    "filterType": ""
+  },
+  {
+    "name": "NonClayVolume_PCT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Remaining rock volume removing clay and effective porosity (V/V)",
+    "filterType": ""
+  },
+  {
+    "name": "NPVPerSectionAnyZone_USDMM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "In any zone, the net present     value per section, calculated as (NPV_50_200 / LateralLengthFt * 5280) * WellSectionAnyZone.",
+    "filterType": ""
+  },
+  {
+    "name": "NPVPerSectionSameZone_USDMM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "In the same zone, the net present     value per section, calculated as (NPV_50_200 /LateralLengthFt * 5280) * WellSectionSameZone.",
+    "filterType": ""
+  },
+  {
+    "name": "NPVPerWELLAt50And200_USDMM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Net present     value of a well ($MM; PV-10, $50/bbl WTI, @$2.00/Mcf HH). Assumes 360-month well life.",
+    "filterType": ""
+  },
+  {
+    "name": "NPVPerWELLAt50And200Historical_USDMM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Net present     value of a well modeling historical well cost ($MM; PV-10, $50/bbl WTI, @$2.00/Mcf HH). Assumes 360-month well life.",
+    "filterType": ""
+  },
+  {
+    "name": "NPVPerWELLAt55And300_USDMM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Net present     value of a well ($MM; PV-10, $55/bbl WTI, @$3.00/Mcf HH). Assumes 360-month well life.",
+    "filterType": ""
+  },
+  {
+    "name": "NPVPerWELLAt55And300Historical_USDMM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Net present     value of a well modeling historical well cost ($MM; PV-10, $55/bbl WTI, @$3.00/Mcf HH). Assumes 360-month well life.",
+    "filterType": ""
+  },
+  {
+    "name": "NPVPerWELLAt60And300_USDMM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Net present     value of a well ($MM; PV-10, $60/bbl WTI, @$3.00/Mcf HH). Assumes 360 month well life.",
+    "filterType": ""
+  },
+  {
+    "name": "NPVPerWELLAt60And300Historical_USDMM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Net present     value of a well modeling historical well cost ($MM; PV-10, $60/bbl WTI, @$3.00/Mcf HH). Assumes 360-month well life.",
+    "filterType": ""
+  },
+  {
+    "name": "NPVPerWELLAt60And350_USDMM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Net present     value of a well ($MM; PV-10, $60/bbl WTI, @$3.50/Mcf HH). Assumes 360-month well life.",
+    "filterType": ""
+  },
+  {
+    "name": "NPVPerWELLAt60And350Historical_USDMM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Net present     value of a well modeling historical well cost ($MM; PV-10, $60/bbl WTI, @$3.50/Mcf HH). Assumes 360-month well life.",
+    "filterType": ""
+  },
+  {
+    "name": "NPVPerWELLAt70And350_USDMM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Net present value of a well ($MM; PV-10, $70/bbl WTI, @$3.50/Mcf HH). Assumes 360-month well life.",
+    "filterType": ""
+  },
+  {
+    "name": "NPVPerWELLAt70And350Historical_USDMM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Net present value of a well modeling historical well cost ($MM; PV-10, $70/bbl WTI, @$3.50/Mcf HH). Assumes 360-month well life.",
+    "filterType": ""
+  },
+  {
+    "name": "NPVPerWELLAt80And400_USDMM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Net present value of a well ($MM; PV-10, $80/bbl WTI, @$4.00/Mcf HH). Assumes 360-month well life.",
+    "filterType": ""
+  },
+  {
+    "name": "NPVPerWELLAt80And400Historical_USDMM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Net present value of a well modeling historical well cost ($MM; PV-10, $80/bbl WTI, @$4.00/Mcf HH). Assumes 360-month well life.",
+    "filterType": ""
+  },
+  {
+    "name": "NumberOfStrings",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "State-disclosed number of casing strings for a specific completion.",
+    "filterType": ""
+  },
+  {
+    "name": "NumberOfWellbores",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The total count of individual bores associated with a single well. This includes all primary and secondary wellbores, such as those in multilateral wells, where multiple wellbores may be drilled from a single surface location to access different parts of the reservoir.",
+    "filterType": ""
+  },
+  {
+    "name": "ObjectiveAge",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The age of the primary well objective",
+    "filterType": ""
+  },
+  {
+    "name": "ObjectiveLithology",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The abbreviated lithology of the primary well objective",
+    "filterType": ""
+  },
+  {
+    "name": "OffConfidentialDate",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Date on which the well will be going off Confidential status.",
+    "filterType": ""
+  },
+  {
+    "name": "OilBFactor",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Oil type curve b-factor",
+    "filterType": ""
+  },
+  {
+    "name": "OilDailyPeakEURRatio_BBLPerDaytoMBBL",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Oil peak calendar month daily rate to wellhead liquids EUR (30-year)",
+    "filterType": ""
+  },
+  {
+    "name": "OilDifferential_PCT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Oil product quality relative to WTI, not including the effect of hedging. Calculated using company-disclosed price realizations at the ENV Play level, excluding GP&T, versus local hub price.",
+    "filterType": ""
+  },
+  {
+    "name": "OilDifferential_USDPerBBL",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Enverus long-term expected differential between the local hub (example:Midland WTI) and the index hub (example:Cushing WTI).",
+    "filterType": ""
+  },
+  {
+    "name": "OilEURPP_PCT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Post-processed oil percentage of 360-month EUR (%). See Post-Processing Gross Up (%).",
+    "filterType": ""
+  },
+  {
+    "name": "OilEURWH_MBBL",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Estimated ultimate wellhead oil recovery without economic cut-off. Measured in Mbbl.",
+    "filterType": ""
+  },
+  {
+    "name": "OilEURWH_MBBLPer1000FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Estimated ultimate oil recovery (no economic cutoff; Mbbl per 1  000 ft lateral)",
+    "filterType": ""
+  },
+  {
+    "name": "OilFirstTC_MONTH",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Determinant on whether a fitted oil type curve refered to reference wells",
+    "filterType": ""
+  },
+  {
+    "name": "OilGravity_API",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Gravity (weight per unit volume) of oil or condensate (API scale).",
+    "filterType": ""
+  },
+  {
+    "name": "OilGroupID",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Unique ID for a given oil type curve reference group",
+    "filterType": ""
+  },
+  {
+    "name": "OilGroupLevel",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Number of well traits used for algorithmic oil type curve fitting",
+    "filterType": ""
+  },
+  {
+    "name": "OilInitialDecline",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Nominal initial decline rate (expressed as % of peak rate)",
+    "filterType": ""
+  },
+  {
+    "name": "OilInitialRate",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Ratio of the intial rate of the type curve divided by the peak months production.",
+    "filterType": ""
+  },
+  {
+    "name": "OilProdPriorTest_BBL",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Amount of oil produced before initial production testing occurred (bbl).",
+    "filterType": ""
+  },
+  {
+    "name": "OilRefCompletionUsage",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Number of well traits used for algorithmic oil type curve fitting",
+    "filterType": ""
+  },
+  {
+    "name": "OilSeveranceTax_PCT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Severance taxes are levied by the state/province/county and are specific to the three hydrocarbon streams:oil, dry gas and NGLs. Each state has its own set of rules and exemptions. Severance taxes are taken off of revenues in all Enverus modeling and are based on company disclosures at the play level.",
+    "filterType": ""
+  },
+  {
+    "name": "OilTerminalDecline",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Oil type curve terminal decline (%)",
+    "filterType": ""
+  },
+  {
+    "name": "OilTestMethodName",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Artificial lift type/flowing type.",
+    "filterType": ""
+  },
+  {
+    "name": "OilTestRate_BBLPerDAY",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Initial oil production test rate (bbl/d).",
+    "filterType": ""
+  },
+  {
+    "name": "OilTestRate_BBLPerDAYPer1000FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Oil produced during the initial production test normalized per 1  000-ft lateral. Measured in bbl/d/1  000 ft.",
+    "filterType": ""
+  },
+  {
+    "name": "OnConfidential",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Y indicates that a well has a Confidential status",
+    "filterType": ""
+  },
+  {
+    "name": "OnOffshore",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Indicator of whether well location is onshore or offshore",
+    "filterType": ""
+  },
+  {
+    "name": "PadConstructDateDetected",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Satellite detection of when pad is cleared.",
+    "filterType": ""
+  },
+  {
+    "name": "PadID",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Enverus-derived primary key for a given well pad.",
+    "filterType": ""
+  },
+  {
+    "name": "ParentChildAnyZone",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "In any zone, classifies bachelorette with no neighbors, parent when all neighbors were drilled after target, child when at least one neighbor was completed before target",
+    "filterType": ""
+  },
+  {
+    "name": "ParentChildAnyZoneAtInitial",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "P \u00e2\u20ac\u201c Parent to well on one side, unbounded on the other  C \u00e2\u20ac\u201c Child to well on one side, unbounded on the other Co \u00e2\u20ac\u201c Co-completed with well on one side, unbounded on the other S \u00e2\u20ac\u201c Standalone well, unbounded on both sides P | P \u00e2\u20ac\u201c Parent to both wells on either side C | C \u00e2\u20ac\u201c Child to both wells on either side, AKA infill well Co | Co \u00e2\u20ac\u201c Co-completed with both wells on either side P | C \u00e2\u20ac\u201c Parent to well on one side, child to well on the other side P | Co \u00e2\u20ac\u201c Parent to well on one side, co-completed on the other side C | Co \u00e2\u20ac\u201c Child to well on one side, co-completed on the other side",
+    "filterType": ""
+  },
+  {
+    "name": "ParentChildSameZone",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "In same zone, classifies bachelorette with no neighbors, parent when all neighbors were drilled after target, child when at least one neighbor was completed before target",
+    "filterType": ""
+  },
+  {
+    "name": "ParentChildSameZoneAtInitial",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "P \u00e2\u20ac\u201c Parent to well on one side, unbounded on the other  C \u00e2\u20ac\u201c Child to well on one side, unbounded on the other Co \u00e2\u20ac\u201c Co-completed with well on one side, unbounded on the other S \u00e2\u20ac\u201c Standalone well, unbounded on both sides P | P \u00e2\u20ac\u201c Parent to both wells on either side C | C \u00e2\u20ac\u201c Child to both wells on either side, AKA infill well Co | Co \u00e2\u20ac\u201c Co-completed with both wells on either side P | C \u00e2\u20ac\u201c Parent to well on one side, child to well on the other side P | Co \u00e2\u20ac\u201c Parent to well on one side, co-completed on the other side C | Co \u00e2\u20ac\u201c Child to well on one side, co-completed on the other side",
+    "filterType": ""
+  },
+  {
+    "name": "ParentChildVertical100",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "P \u00e2\u20ac\u201c Parent to well on one side, unbounded on the other  C \u00e2\u20ac\u201c Child to well on one side, unbounded on the other Co \u00e2\u20ac\u201c Co-completed with well on one side, unbounded on the other S \u00e2\u20ac\u201c Standalone well, unbounded on both sides P | P \u00e2\u20ac\u201c Parent to both wells on either side C | C \u00e2\u20ac\u201c Child to both wells on either side, AKA infill well Co | Co \u00e2\u20ac\u201c Co-completed with both wells on either side P | C \u00e2\u20ac\u201c Parent to well on one side, child to well on the other side P | Co \u00e2\u20ac\u201c Parent to well on one side, co-completed on the other side C | Co \u00e2\u20ac\u201c Child to well on one side, co-completed on the other side",
+    "filterType": ""
+  },
+  {
+    "name": "ParentChildVertical100AtInitial",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "P \u00e2\u20ac\u201c Parent to well on one side, unbounded on the other  C \u00e2\u20ac\u201c Child to well on one side, unbounded on the other Co \u00e2\u20ac\u201c Co-completed with well on one side, unbounded on the other S \u00e2\u20ac\u201c Standalone well, unbounded on both sides P | P \u00e2\u20ac\u201c Parent to both wells on either side C | C \u00e2\u20ac\u201c Child to both wells on either side, AKA infill well Co | Co \u00e2\u20ac\u201c Co-completed with both wells on either side P | C \u00e2\u20ac\u201c Parent to well on one side, child to well on the other side P | Co \u00e2\u20ac\u201c Parent to well on one side, co-completed on the other side C | Co \u00e2\u20ac\u201c Child to well on one side, co-completed on the other side",
+    "filterType": ""
+  },
+  {
+    "name": "ParentWellCountAtDrillTime100dVZone",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Count of Parent wells within 100 ft Vertical.",
+    "filterType": ""
+  },
+  {
+    "name": "ParentWellCountAtDrillTimeAnyZone",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Count of Parent wells within any ENV interval.",
+    "filterType": ""
+  },
+  {
+    "name": "ParentWellCountAtDrillTimeSameZone",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Count of Parent wells within same ENV interval.",
+    "filterType": ""
+  },
+  {
+    "name": "PayoutPeriod_MONTHS",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Time in months for cash flow to recover initial investment ($55/bbl WTI, @$3.00/Mcf HH).",
+    "filterType": ""
+  },
+  {
+    "name": "PeakFlaredGas_MCF",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Peak monthly wellhead gas flared(Mcf)",
+    "filterType": ""
+  },
+  {
+    "name": "PeakGas_MCF",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Peak monthly wellhead gas produced (Mcf)",
+    "filterType": ""
+  },
+  {
+    "name": "PeakGas_MCFPer1000FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Peak monthly well head gas produced per 1000 ft (Mcf/1  000 ft)",
+    "filterType": ""
+  },
+  {
+    "name": "PeakOil_BBL",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Peak monthly barrels of oil produced (bbl)",
+    "filterType": ""
+  },
+  {
+    "name": "PeakOil_BBLPer1000FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Peak monthly oil produced per 1000 ft (bbl/1  000 ft)",
+    "filterType": ""
+  },
+  {
+    "name": "PeakProd_BOE",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Peak barrel of oil equivalent produced (boe) in the month with highest production over the wells life.",
+    "filterType": ""
+  },
+  {
+    "name": "PeakProd_BOEPer1000FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Peak monthly well head boe produced per 1000 ft (boe/1  000 ft)",
+    "filterType": ""
+  },
+  {
+    "name": "PeakProd_MCFE",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Peak monthly MCF equivalent produced (Mcfe)",
+    "filterType": ""
+  },
+  {
+    "name": "PeakProd_MCFEPer1000FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Peak monthly well head Mcfe produced per 1000 ft (Mcfe/1  000 ft)",
+    "filterType": ""
+  },
+  {
+    "name": "PeakProductionDate",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Month in which the highest average daily production occurs, over the wells life.",
+    "filterType": ""
+  },
+  {
+    "name": "PeakWater_BBL",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Peak monthly barrels of water produced (bbl)",
+    "filterType": ""
+  },
+  {
+    "name": "PerfInterval_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The length of perforated interval; LowerPerf_FT minus UpperPerf_FT; for a horizontal well this is analogous to the lateral length (ft).",
+    "filterType": ""
+  },
+  {
+    "name": "PermitApprovedDate",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "First recorded permit-approved date for this well.",
+    "filterType": ""
+  },
+  {
+    "name": "PermitSubmittedDate",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "First recorded permit-submitted date of the well.",
+    "filterType": ""
+  },
+  {
+    "name": "PermitToSpud_DAYS",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Number of days calculated between permit issue date and spud date (days).",
+    "filterType": ""
+  },
+  {
+    "name": "PhiH_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Product of porosity and thickness (ft)",
+    "filterType": ""
+  },
+  {
+    "name": "Platform",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Offshore production and processing facility.",
+    "filterType": ""
+  },
+  {
+    "name": "PlugbackMeasuredDepth_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Measured depth in a wellbore at the top of the plug.",
+    "filterType": ""
+  },
+  {
+    "name": "PlugbackTrueVerticalDepth_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "True vertical depth in a wellbore at the top of the plug.",
+    "filterType": ""
+  },
+  {
+    "name": "PlugDate",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Last recorded date the wellbore was plugged.",
+    "filterType": ""
+  },
+  {
+    "name": "PostProcessingGrossUp_PCT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Gross-up factor going from wellhead to post-processed EUR volume (%). Post-processed % accounts for recovered NGL volumes and shrink on wellhead gas.",
+    "filterType": ""
+  },
+  {
+    "name": "ProcessingFee_USDPerMCF",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The cost to process gas to NGLs, processed wellhead gas only. Where no disclosure is available, we assume $0.35/Mcf.",
+    "filterType": ""
+  },
+  {
+    "name": "Proppant_LBS",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Amount of proppant used to complete the well in pounds reported on either the state completion document or FracFocus disclosure (lbs).",
+    "filterType": ""
+  },
+  {
+    "name": "ProppantIntensity_LBSPerFT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The proppant per lateral foot (lbs/ft).",
+    "filterType": ""
+  },
+  {
+    "name": "ProppantLoading_LBSPerGAL",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Total proppant mass measured in lbs divided by total fluid measured in gallons (lbs/gal).",
+    "filterType": ""
+  },
+  {
+    "name": "Range",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The range for the surface location of the well.",
+    "filterType": ""
+  },
+  {
+    "name": "RawOperator",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The most recently reported operator obtained from the state document, permit, completion or production data source.",
+    "filterType": ""
+  },
+  {
+    "name": "RawVintage",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Raw Vintage year",
+    "filterType": ""
+  },
+  {
+    "name": "RecycleRatioPerWELLAt50And200_USDMM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Netback divided by finding and development costs (@ $50/bbl WTI, $2.00/Mcf HH). If a well has a $30/boe netback and a $10/boe F&D, the recycle ratio is three, meaning for every one boe sold, the firm is able to develop three more.",
+    "filterType": ""
+  },
+  {
+    "name": "RecycleRatioPerWELLAt55And300_USDMM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Netback divided by finding and development costs (@ $55/bbl WTI, $3.00/Mcf HH). If a well has a $30/boe netback and a $10/boe F&D, the recycle ratio is three, meaning for every boe sold, the firm is able to develop three more.",
+    "filterType": ""
+  },
+  {
+    "name": "RecycleRatioPerWELLAt60And300_USDMM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Netback divided by finding and development costs (@ $60/bbl WTI, $3.00/Mcf HH). If a well has a $30/boe netback and a $10/boe F&D, the recycle ratio is three, meaning for every boe sold, the firm is able to develop three more.",
+    "filterType": ""
+  },
+  {
+    "name": "RecycleRatioPerWELLAt60And350_USDMM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Netback divided by finding and development costs (@ $60/bbl WTI, $3.00/Mcf HH). If a well has a $30/boe netback and a $10/boe F&D, the recycle ratio is three, meaning for every boe sold, the firm is able to develop three more.",
+    "filterType": ""
+  },
+  {
+    "name": "RecycleRatioPerWELLAt70And350_USDMM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Netback divided by finding and development costs (@ $70/bbl WTI, $3.50/Mcf HH). If a well has a $30/boe netback and a $10/boe F&D, the recycle ratio is three, meaning for every boe sold, the firm is able to develop three more.",
+    "filterType": ""
+  },
+  {
+    "name": "RecycleRatioPerWELLAt80And400_USDMM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Netback divided by finding and development costs (@ $80/bbl WTI, $4.00/Mcf HH). If a well has a $30/boe netback and a $10/boe F&D, the recycle ratio is three, meaning for every boe sold, the firm is able to develop three more.",
+    "filterType": ""
+  },
+  {
+    "name": "Resistivity_OHMSM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Average resistance of electrical current (ohms*m)",
+    "filterType": ""
+  },
+  {
+    "name": "ResourceMagnitude",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Best Estimate Prospective Resource or Recoverable Resource Magnitude(2C) - barrels of oil equivalent",
+    "filterType": ""
+  },
+  {
+    "name": "ResourceMagnitudeReviewDate",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The date that the resource magnitude data was populated, or last reviewed",
+    "filterType": ""
+  },
+  {
+    "name": "ResourceSourceQualifier",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The quality qualifier related to resource source.",
+    "filterType": ""
+  },
+  {
+    "name": "ResourceVolumeGasBcf",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Gas component in comparable group sizess",
+    "filterType": ""
+  },
+  {
+    "name": "ResourceVolumeLiquidsMMb",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Oil or condensate component - barrels of oil equivalent",
+    "filterType": ""
+  },
+  {
+    "name": "RigNameNumber",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Concatenation of ENVERUS created abbreviation of contractor name and contractor assigned rig name/number.",
+    "filterType": ""
+  },
+  {
+    "name": "RigReleaseDate",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Last reported drilling end date.",
+    "filterType": ""
+  },
+  {
+    "name": "RoyaltyRateGas_PCT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Percentage of total production paid to mineral owner, not including extraction or production costs. Royalties are taken off of volumes in all Enverus modeling and are based on company disclosures at the operator and play level.\u00ef\u00bf\u00bd",
+    "filterType": ""
+  },
+  {
+    "name": "RoyaltyRateNGL_PCT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Percentage of total production paid to mineral owner, not including extraction or production costs. Royalties are taken off of volumes in all Enverus modeling and are based on company disclosures at the operator and play level.\u00ef\u00bf\u00bd",
+    "filterType": ""
+  },
+  {
+    "name": "RoyaltyRateOil_PCT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Percentage of total production paid to mineral owner, not including extraction or production costs. Royalties are taken off of volumes in all Enverus modeling and are based on company disclosures at the operator and play level.\u00ef\u00bf\u00bd",
+    "filterType": ""
+  },
+  {
+    "name": "SandEfficiency_BblRecoveredperMlbs",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Oil recovered over a 30-year type curve per pound of sand used in the frac design.",
+    "filterType": ""
+  },
+  {
+    "name": "SandEfficiency_BoeRecoveredperMlbs",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Wellhead (2-stream) boe recovered over a 30-year type curve per pound of sand used in the frac design.",
+    "filterType": ""
+  },
+  {
+    "name": "SandEfficiency_McfRecoveredperMlbs",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Wellhead gas recovered over a 30-year type curve per pound of sand used in the frac design.",
+    "filterType": ""
+  },
+  {
+    "name": "ScaleInhibitor_LBS",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Amount of scale inhibitor used in the completion (lbs).",
+    "filterType": ""
+  },
+  {
+    "name": "Section",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The section for the surface location of the well.",
+    "filterType": ""
+  },
+  {
+    "name": "Section_Township_Range",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The section, township and range for the surface location of the well.",
+    "filterType": ""
+  },
+  {
+    "name": "ShotsPer1000FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Number of entry points normalized by 1  000 ft of lateral length",
+    "filterType": ""
+  },
+  {
+    "name": "ShotsPerStage",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Average number of entry points per stage. For perforating guns, each shot is an entry point.",
+    "filterType": ""
+  },
+  {
+    "name": "ShutInPressure_PSI",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Pressure in psi measured at the Initial Shut In period of the well test.",
+    "filterType": ""
+  },
+  {
+    "name": "SoakTime_DAYS",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Number of days calculated between test date and completion date.",
+    "filterType": ""
+  },
+  {
+    "name": "SpudDate",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "First recorded spud date.",
+    "filterType": ""
+  },
+  {
+    "name": "SpudDateDetected",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Boolean idetifing if a spud date was detected",
+    "filterType": ""
+  },
+  {
+    "name": "SpudDateQualifier",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The quality qualifier relating to Spud date",
+    "filterType": ""
+  },
+  {
+    "name": "SpudDateSource",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Which data source was SpudDate derived from.",
+    "filterType": ""
+  },
+  {
+    "name": "SpudToCompletion_DAYS",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Number of days calculated between spud date and completion date (days)",
+    "filterType": ""
+  },
+  {
+    "name": "SpudToRigRelease_DAYS",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Number of days calculated between spud date and rig release date (days).",
+    "filterType": ""
+  },
+  {
+    "name": "SpudToSales_DAYS",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Number of days calculated between spud date and middle of first producing month (days)",
+    "filterType": ""
+  },
+  {
+    "name": "StateFileNumber",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The file number on the state completion document.",
+    "filterType": ""
+  },
+  {
+    "name": "StateProvince",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be alphanumeric.",
+    "description": "Location of the well by country, derived from API for US data.",
+    "filterType": "request"
+  },
+  {
+    "name": "StateWellType",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Most recent well classification as reported by the state.",
+    "filterType": ""
+  },
+  {
+    "name": "StimulatedStages",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Number of stages with a unique depth, not assumed as abandoned by the operator, where proppant was placed in the formation.",
+    "filterType": ""
+  },
+  {
+    "name": "SubseaBaseDepth_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Base depth of the formation with respect to sea level (ft)",
+    "filterType": ""
+  },
+  {
+    "name": "SubseaDepth_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Top depth of the formation with respect to sea level (ft)",
+    "filterType": ""
+  },
+  {
+    "name": "SurfaceLatLongSource",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Source used to determine Surface Latitude and Surface Longitude, if not reported county center was used: County Center, Reported, STR Center.",
+    "filterType": ""
+  },
+  {
+    "name": "Surfactant_LBS",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Amount of surfactant used in the completion (lbs).",
+    "filterType": ""
+  },
+  {
+    "name": "Survey",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "A survey is a certified measured description of a piece of land in Texas.",
+    "filterType": ""
+  },
+  {
+    "name": "TestComments",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Comments related to the tests.",
+    "filterType": ""
+  },
+  {
+    "name": "TestDate",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Date of oil or gas initial production test.",
+    "filterType": ""
+  },
+  {
+    "name": "TestRate_BOEPerDAY",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Total oil and gas produced during the initial production test. Measured in boe/d. Calculated as:Oil Test Rate + (Gas Test Rate/6).",
+    "filterType": ""
+  },
+  {
+    "name": "TestRate_BOEPerDAYPer1000FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Total oil and gas produced during the initial production test normalized per 1  000-ft lateral. Measured in boe/d/1  000 ft. Calculated as:Lateral Normalized Oil Test Rate + (Gas Test Rate/6)/1  000.",
+    "filterType": ""
+  },
+  {
+    "name": "TestRate_MCFEPerDAY",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Total gas produced during the initial production test. Measured in Mcfe/d. Calculated as:(Oil Test Rate *6) + Gas Test Rate .",
+    "filterType": ""
+  },
+  {
+    "name": "TestRate_MCFEPerDAYPer1000FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Total gas produced during the initial production test normalized per 1  000-ft lateral. Measured in Mcfe/d/1  000 ft. Calculated as:Lateral Normalized Oil Test Rate + (Gas Test Rate/6)/1  000.",
+    "filterType": ""
+  },
+  {
+    "name": "TestWHLiquids_PCT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Initial oil production test as a percentage of oil and gas test (%).",
+    "filterType": ""
+  },
+  {
+    "name": "TieInCost_USDMM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Current tie-in & facility cost ($MM);  the cost to tie-in as of today.",
+    "filterType": ""
+  },
+  {
+    "name": "TieInCostHistorical_USDMM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Historical tie-in & facility cost ($MM); the cost to tie-in a well at the time corresponding to that wells completion date.",
+    "filterType": ""
+  },
+  {
+    "name": "ToeAngle_DEG",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Angle against ground plane. Negative means down (into Earth), Positive means up (away from Earth) (degree)",
+    "filterType": ""
+  },
+  {
+    "name": "TopOfZone_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "True vertical depth to the top of formation (ft)",
+    "filterType": ""
+  },
+  {
+    "name": "Tortuosity",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Ratio of the actual distance over the straight line distance of the wellbore.",
+    "filterType": ""
+  },
+  {
+    "name": "TotalClusters",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Total number of clusters contained in the wellbore. A cluster is defined as a frac port, a sliding sleeve, or a perforating gun.",
+    "filterType": ""
+  },
+  {
+    "name": "TotalFluidPumped_BBL",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Barrels of fluid used to complete the well reported on the state completion document (bbl).",
+    "filterType": ""
+  },
+  {
+    "name": "TotalOpex_USDPerBOE",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The sum of Variable Opex, Transportation Costs, Processing Fee and Fixed Costs, on a gross BOE basis.",
+    "filterType": ""
+  },
+  {
+    "name": "TotalOrganicCarbon_WTPCT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Total organic carbon (wt%)",
+    "filterType": ""
+  },
+  {
+    "name": "TotalProducingMonths",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Total number of producing months for a given well",
+    "filterType": ""
+  },
+  {
+    "name": "TotalShots",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Total number of entry points contained in the wellbore. For perforating guns, each shot is an entry point.",
+    "filterType": ""
+  },
+  {
+    "name": "TotalWaterPumped_GAL",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Total water volume used to complete the well (not water volume produced), reported in gallons (gal).",
+    "filterType": ""
+  },
+  {
+    "name": "TotalWellCost_USDMM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Total well cost ($MM) (Drill Cost + Completion Cost + Tie-in & facilities); the DC&T cost as of today.",
+    "filterType": ""
+  },
+  {
+    "name": "TotalWellCostHistorical_USDMM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Historical total well cost ($MM) (Drill Cost + Completion Cost + Tie-in & facilities); the DC&T cost at the time corresponding to that wells completion date.",
+    "filterType": ""
+  },
+  {
+    "name": "Township",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The township for the surface location of the well.",
+    "filterType": ""
+  },
+  {
+    "name": "Trajectory",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be alphanumeric.",
+    "description": "The most recent reported trajectory from state-disclosed production, completion or permit data. Enverus derives trajectory where state data is not available or incorrectly disclosed.",
+    "filterType": "request"
+  },
+  {
+    "name": "TransportationCost_USDPerBOE",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Costs associated with transporting oil, gas and NGLs from wellhead to local hub. RSEG uses company disclosures at the play level to create a regression of transport cost versus wellhead liquid % and applies this on a well-by-well basis.",
+    "filterType": ""
+  },
+  {
+    "name": "TVD_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "True vertical depth measurement of the surface to the bottom of the wellbore.",
+    "filterType": ""
+  },
+  {
+    "name": "UnconventionalFlag",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Indicator if well is unconventional",
+    "filterType": ""
+  },
+  {
+    "name": "UnconventionalType",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Unconventional hydrocarbon type, such as Shale gas of CBM",
+    "filterType": ""
+  },
+  {
+    "name": "Unit_Name",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Name of LandTrac Unit.",
+    "filterType": ""
+  },
+  {
+    "name": "UpdatedDate",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be in the RFC3339 format. Example: 2021-01-01",
+    "description": "Date the record was updated.",
+    "filterType": "request"
+  },
+  {
+    "name": "UpperPerf_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Measured depth of upper perforation, closest to the heel of the well; used to calculate perforated lateral length.",
+    "filterType": ""
+  },
+  {
+    "name": "VariableOpex_USDPerBOE",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Production costs associated with maintaining and producing from a well. Variable cost inputs in Enverus model are applied to gross post-processed volumes. Enverus uses company disclosures at the play level to create a regression of operating cost versus wellhead liquid % and applies this on a well-by-well basis.\u00ef\u00bf\u00bd",
+    "filterType": ""
+  },
+  {
+    "name": "VerticalBounded100dVZone",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Outside 100 ft Vertical, classifies unbounded with no neighbors above or below, half bounded with a neighbor either above or below, and fully bounded if neighbors both above and below.",
+    "filterType": ""
+  },
+  {
+    "name": "VerticalBoundedAnyZone",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "In any ENV Interval, classifies unbounded with no neighbors above or below, half bounded with a neighbor either above or below, and fully bounded if neighbors both above and below.",
+    "filterType": ""
+  },
+  {
+    "name": "VerticalBoundedAtDrillTime100dVZone",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Outside 100 ft Vertical, at time of wellbore target completion, classifies unbounded with no neighbors above or below, half bounded with a neighbor either above or below, and fully bounded if neighbors both above and below.",
+    "filterType": ""
+  },
+  {
+    "name": "VerticalBoundedAtDrillTimeAnyZone",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "In any ENV Interval, at time of wellbore completion, classifies unbounded with no neighbors above or below, half bounded with a neighbor either above or below, and fully bounded if neighbors both above and below.",
+    "filterType": ""
+  },
+  {
+    "name": "VerticalBoundedSameZone",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "In the same ENV Interval, classifies unbounded with no neighbors above or below, half bounded with a neighbor either above or below, and fully bounded if neighbors both above and below.",
+    "filterType": ""
+  },
+  {
+    "name": "VerticalBoundedSameZoneAtInitial",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "In the same ENV Interval, classifies unbounded with no neighbors above or below, half bounded with a neighbor either above or below, and fully bounded if neighbors both above and below.",
+    "filterType": ""
+  },
+  {
+    "name": "VerticalParentChild100dVZone",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Outside 100 ft vertically and inside 700 ft vertically, at current, classifies standalone with no neighbors in the vertical plane, parent when all neighbors in the vertical plane were drilled after target, co-completed when at least one neighbor in the vertical plane was completed within 90 days of the target or child when at least one neighbor in the vertical plane was completed before target.",
+    "filterType": ""
+  },
+  {
+    "name": "VerticalParentChildAnyZone",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Within the buffer radius, at current, classifies standalone with no neighbors in the vertical plane, parent when all neighbors in the vertical plane were drilled after target, co-completed when at least one neighbor in the vertical plane was completed within 90 days of the target or child when at least one neighbor in the vertical plane was completed before target.",
+    "filterType": ""
+  },
+  {
+    "name": "VerticalParentChildAtDrillTime100dVZone",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Outside 100 ft vertically and inside 700 ft vertically, at drill time, classifies standalone with no neighbors in the vertical plane, parent when all neighbors in the vertical plane were drilled after target, co-completed when at least one neighbor in the vertical plane was completed within 90 days of the target or child when at least one neighbor in the vertical plane was completed before target.",
+    "filterType": ""
+  },
+  {
+    "name": "VerticalParentChildAtDrillTimeAnyZone",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Within the buffer radius, at drill time, classifies standalone with no neighbors in the vertical plane, parent when all neighbors in the vertical plane were drilled after target, co-completed when at least one neighbor in the vertical plane was completed within 90 days of the target or child when at least one neighbor in the vertical plane was completed before target.",
+    "filterType": ""
+  },
+  {
+    "name": "VerticalParentChildAtDrillTimeSameZone",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "In the same ENV Interval, at drill time, classifies standalone with no neighbors in the vertical plane, parent when all neighbors in the vertical plane were drilled after target, co-completed when at least one neighbor in the vertical plane was completed within 90 days of the target or child when at least one neighbor in the vertical plane was completed before target.",
+    "filterType": ""
+  },
+  {
+    "name": "VerticalParentChildSameZone",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "In the same ENV Interval, at current, classifies standalone with no neighbors in the vertical plane, parent when all neighbors in the vertical plane were drilled after target, co-completed when at least one neighbor in the vertical plane was completed within 90 days of the target or child when at least one neighbor in the vertical plane was completed before target.",
+    "filterType": ""
+  },
+  {
+    "name": "Viability_Percentage",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The percentage of viability.",
+    "filterType": ""
+  },
+  {
+    "name": "Vintage",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Vintage year in which a well first produced",
+    "filterType": ""
+  },
+  {
+    "name": "WaterDepth",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Water Depth for offshore wells in the Gulf of Mexico",
+    "filterType": ""
+  },
+  {
+    "name": "WaterEfficiency_BblRecoveredperBbl",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Oil recovered over a 30-year type curve per bbl of water used in the frac design.",
+    "filterType": ""
+  },
+  {
+    "name": "WaterEfficiency_BoeRecoveredperBbl",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Wellhead (2-stream) boe recovered over a 30-year type curve per bbl of water used in the frac design.",
+    "filterType": ""
+  },
+  {
+    "name": "WaterEfficiency_McfRecoveredperBbl",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Wellhead gas recovered over a 30-year type curve per bbl of water used in the frac design.",
+    "filterType": ""
+  },
+  {
+    "name": "WaterIntensity_GALPerFT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Total water volume used to complete the well on a per foot basis (gal/ft).",
+    "filterType": ""
+  },
+  {
+    "name": "WaterSaturation_PCT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Average water saturation (V/V)",
+    "filterType": ""
+  },
+  {
+    "name": "WaterTestRate_BBLPerDAY",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Initial water production test rate (bbl/d).",
+    "filterType": ""
+  },
+  {
+    "name": "WaterTestRate_BBLPerDAYPer1000FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Water produced during the initial production test normalized per 1  000-ft lateral. Measured in bbl/d/1  000 ft.",
+    "filterType": ""
+  },
+  {
+    "name": "WellboreID",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Enverus-generated unique wellbore identifier.",
+    "filterType": ""
+  },
+  {
+    "name": "WellDensityAnyZone",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "In any zone, well density quantifies how tightly neighbors cluster around the target, including anisotropy via a factor. Currently, vertical distance is discounted by a factor of 4 and contributions fall off exponentially.",
+    "filterType": ""
+  },
+  {
+    "name": "WellDensitySameZone",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "In same zone, well density quantifies how tightly neighbors cluster around the target, including anisotropy via a factor. Currently, vertical distance is discounted by a factor of 4 and contributions fall off exponentially.",
+    "filterType": ""
+  },
+  {
+    "name": "WellName",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Most recently reported well name from the permit, completion or production data source.",
+    "filterType": ""
+  },
+  {
+    "name": "WellNumber",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Most recently reported well number from the permit, completion or production data source.",
+    "filterType": ""
+  },
+  {
+    "name": "WellPadDirection",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Direction the horizontal wells are drilled on a pad, as derived from directional surveys.",
+    "filterType": ""
+  },
+  {
+    "name": "WellPadID",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Enverus-derived primary key for a given well pad.",
+    "filterType": ""
+  },
+  {
+    "name": "WellsPerSectionAnyZone",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "In any zone, well section is the number of wells in the overall buffer per linear bore mile",
+    "filterType": ""
+  },
+  {
+    "name": "WellsPerSectionSameZone",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "In same zone, well section is the number of wells in the overall buffer per linear bore mile",
+    "filterType": ""
+  },
+  {
+    "name": "WellSymbols",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Standard International Well symbols",
+    "filterType": ""
+  },
+  {
+    "name": "WHLiquids_PCT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Percent of wellhead oil & condensate being produced from total output ((oil+condensate)/(oil+condensate+gas/6)) (%)",
+    "filterType": ""
+  },
+  {
+    "name": "WellID",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be numeric.",
+    "description": "Enverus-generated unique well identifier.",
+    "filterType": "path"
+  },
+  {
+    "name": "CompletionID",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be numeric.",
+    "description": "Enverus-generated unique completion identifier.",
+    "filterType": "path"
+  }
+]

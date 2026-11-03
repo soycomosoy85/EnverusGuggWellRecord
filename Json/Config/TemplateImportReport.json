@@ -1,0 +1,7 @@
+{
+  "columns": 99,
+  "duplicateHeadersOmitted": [
+    "EnvWellId"
+  ],
+  "template": "Well Template.xlsx"
+}

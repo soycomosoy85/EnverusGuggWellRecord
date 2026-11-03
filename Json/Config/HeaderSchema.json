@@ -1,0 +1,666 @@
+{
+  "status": "TemplateApplied",
+  "usesExampleRecords": false,
+  "geometry": {
+    "type": "Polyline",
+    "hasZ": false
+  },
+  "aliasDelivery": "Geodatabase and ArcGIS layer file; shapefile uses dictionary",
+  "columnGroups": [
+    "EnverusHeader",
+    "GuggNomenclature",
+    "GuggTca",
+    "GuggFluidWindows",
+    "GuggCalculations"
+  ],
+  "calculatedFields": [
+    {
+      "fieldName": "Spacing_Ft",
+      "alias": "Well Spacing Ft",
+      "exportType": "DOUBLE",
+      "formula": "5280 / WPS",
+      "inputSource": "Assigned TCA.WPS",
+      "unit": "Feet"
+    },
+    {
+      "fieldName": "DA_Ft",
+      "alias": "Well Drainage Area FT",
+      "exportType": "DOUBLE",
+      "formula": "Spacing_Ft / 2",
+      "unit": "Feet"
+    }
+  ],
+  "guggColumns": {
+    "placement": "Append after all Enverus header fields",
+    "status": "Append configured Gugg fields"
+  },
+  "fields": [
+    {
+      "order": 1,
+      "fieldName": "ApiUwi",
+      "alias": "API 10",
+      "internalField": "ApiUwi",
+      "exportType": "TEXT",
+      "textLength": 32,
+      "directApiField": "API_UWI"
+    },
+    {
+      "order": 2,
+      "fieldName": "UApiUwi10",
+      "alias": "Unformat API 10",
+      "internalField": "UApiUwi10",
+      "exportType": "TEXT",
+      "textLength": 64,
+      "directApiField": "API_UWI_Unformatted"
+    },
+    {
+      "order": 3,
+      "fieldName": "ApiUwi12",
+      "alias": "API 12",
+      "internalField": "ApiUwi12",
+      "exportType": "TEXT",
+      "textLength": 64,
+      "directApiField": "API_UWI_12"
+    },
+    {
+      "order": 4,
+      "fieldName": "UApiUwi12",
+      "alias": "Unformat API 12",
+      "internalField": "UApiUwi12",
+      "exportType": "TEXT",
+      "textLength": 64,
+      "directApiField": "API_UWI_12_Unformatted"
+    },
+    {
+      "order": 5,
+      "fieldName": "ApiUwi14",
+      "alias": "API 14",
+      "internalField": "ApiUwi14",
+      "exportType": "TEXT",
+      "textLength": 32,
+      "directApiField": "API_UWI_14"
+    },
+    {
+      "order": 6,
+      "fieldName": "UApiUwi14",
+      "alias": "Unformat API 14",
+      "internalField": "UApiUwi14",
+      "exportType": "TEXT",
+      "textLength": 64,
+      "directApiField": "API_UWI_14_Unformatted"
+    },
+    {
+      "order": 7,
+      "fieldName": "EnvWellId",
+      "alias": "Enverus Well ID",
+      "internalField": "EnvWellId",
+      "exportType": "TEXT",
+      "textLength": 32,
+      "directApiField": "WellID"
+    },
+    {
+      "order": 8,
+      "fieldName": "WellName",
+      "alias": "Well Name",
+      "internalField": "WellName",
+      "exportType": "TEXT",
+      "textLength": 128,
+      "directApiField": "WellName"
+    },
+    {
+      "order": 9,
+      "fieldName": "WellNumber",
+      "alias": "Well Number",
+      "internalField": "WellNumber",
+      "exportType": "TEXT",
+      "textLength": 32,
+      "directApiField": "WellNumber"
+    },
+    {
+      "order": 10,
+      "fieldName": "LeaseName",
+      "alias": "Lease Name",
+      "internalField": "LeaseName",
+      "exportType": "TEXT",
+      "textLength": 128,
+      "directApiField": "LeaseName"
+    },
+    {
+      "order": 11,
+      "fieldName": "LeaseId",
+      "alias": "Lease ID",
+      "internalField": "LeaseId",
+      "exportType": "TEXT",
+      "textLength": 32,
+      "directApiField": "Lease"
+    },
+    {
+      "order": 12,
+      "fieldName": "UnitName",
+      "alias": "Unit Name",
+      "internalField": "UnitName",
+      "exportType": "TEXT",
+      "textLength": 128,
+      "directApiField": "Unit_Name"
+    },
+    {
+      "order": 14,
+      "fieldName": "EnvSpcAsmp",
+      "alias": "ENV Spacing Assumption",
+      "internalField": "EnvSpcAsmp",
+      "exportType": "TEXT",
+      "textLength": 128,
+      "directApiField": "ENVSpacingAssumption"
+    },
+    {
+      "order": 15,
+      "fieldName": "EnvOper",
+      "alias": "ENV Operator",
+      "internalField": "EnvOper",
+      "exportType": "TEXT",
+      "textLength": 128,
+      "directApiField": "ENVOperator"
+    },
+    {
+      "order": 16,
+      "fieldName": "EnvTicker",
+      "alias": "ENV Ticker",
+      "internalField": "EnvTicker",
+      "exportType": "TEXT",
+      "textLength": 32,
+      "directApiField": "ENVTicker"
+    },
+    {
+      "order": 17,
+      "fieldName": "InitOper",
+      "alias": "Initial Operator",
+      "internalField": "InitOper",
+      "exportType": "TEXT",
+      "textLength": 128,
+      "directApiField": "InitialOperator"
+    },
+    {
+      "order": 18,
+      "fieldName": "EnvPeerGrp",
+      "alias": "ENV Peer Group",
+      "internalField": "EnvPeerGrp",
+      "exportType": "TEXT",
+      "textLength": 128,
+      "directApiField": "ENVPeerGroup"
+    },
+    {
+      "order": 19,
+      "fieldName": "EnvCmpTyp",
+      "alias": "ENV Company Type",
+      "internalField": "EnvCmpTyp",
+      "exportType": "TEXT",
+      "textLength": 128,
+      "directApiField": "ENVCompanyType"
+    },
+    {
+      "order": 20,
+      "fieldName": "EnvType",
+      "alias": "ENV Well Type",
+      "internalField": "EnvType",
+      "exportType": "TEXT",
+      "textLength": 32,
+      "directApiField": "ENVWellType"
+    },
+    {
+      "order": 21,
+      "fieldName": "EnvFldTyp",
+      "alias": "ENV Fluid Type",
+      "internalField": "EnvFldTyp",
+      "exportType": "TEXT",
+      "textLength": 128,
+      "directApiField": "ENVFluidType"
+    },
+    {
+      "order": 22,
+      "fieldName": "Trajectory",
+      "alias": "Trajectory",
+      "internalField": "Trajectory",
+      "exportType": "TEXT",
+      "textLength": 32,
+      "directApiField": "Trajectory"
+    },
+    {
+      "order": 23,
+      "fieldName": "EnvStatus",
+      "alias": "ENV Well Status",
+      "internalField": "EnvStatus",
+      "exportType": "TEXT",
+      "textLength": 32,
+      "directApiField": "ENVWellStatus"
+    },
+    {
+      "order": 24,
+      "fieldName": "PermtSubDt",
+      "alias": "Permit Submitted Date",
+      "internalField": "PermtSubDt",
+      "exportType": "DATE",
+      "textLength": null,
+      "directApiField": "PermitSubmittedDate"
+    },
+    {
+      "order": 25,
+      "fieldName": "PermitDate",
+      "alias": "Permit Approved Date",
+      "internalField": "PermitDate",
+      "exportType": "DATE",
+      "textLength": null,
+      "directApiField": "PermitApprovedDate"
+    },
+    {
+      "order": 26,
+      "fieldName": "SpudDate",
+      "alias": "Spud Date",
+      "internalField": "SpudDate",
+      "exportType": "DATE",
+      "textLength": null,
+      "directApiField": "SpudDate"
+    },
+    {
+      "order": 27,
+      "fieldName": "ComplDate",
+      "alias": "Completion Date",
+      "internalField": "ComplDate",
+      "exportType": "DATE",
+      "textLength": null,
+      "directApiField": "CompletionDate"
+    },
+    {
+      "order": 28,
+      "fieldName": "FirstProd",
+      "alias": "First Prod Date",
+      "internalField": "FirstProd",
+      "exportType": "DATE",
+      "textLength": null,
+      "directApiField": "FirstProdDate"
+    },
+    {
+      "order": 29,
+      "fieldName": "LastProd",
+      "alias": "Last Prod Date",
+      "internalField": "LastProd",
+      "exportType": "DATE",
+      "textLength": null,
+      "directApiField": "LastProducingMonth"
+    },
+    {
+      "order": 30,
+      "fieldName": "Vintage",
+      "alias": "Vintage",
+      "internalField": "Vintage",
+      "exportType": "TEXT",
+      "textLength": 16,
+      "directApiField": "Vintage"
+    },
+    {
+      "order": 31,
+      "fieldName": "EnvRegion",
+      "alias": "ENV Region",
+      "internalField": "EnvRegion",
+      "exportType": "TEXT",
+      "textLength": 128,
+      "directApiField": "ENVRegion"
+    },
+    {
+      "order": 32,
+      "fieldName": "EnvBasin",
+      "alias": "ENV Basin",
+      "internalField": "EnvBasin",
+      "exportType": "TEXT",
+      "textLength": 32,
+      "directApiField": "ENVBasin"
+    },
+    {
+      "order": 33,
+      "fieldName": "EnvPlay",
+      "alias": "ENV Play",
+      "internalField": "EnvPlay",
+      "exportType": "TEXT",
+      "textLength": 128,
+      "directApiField": "ENVPlay"
+    },
+    {
+      "order": 34,
+      "fieldName": "EnvSubPlay",
+      "alias": "ENV Sub Play",
+      "internalField": "EnvSubPlay",
+      "exportType": "TEXT",
+      "textLength": 128,
+      "directApiField": "ENVSubPlay"
+    },
+    {
+      "order": 35,
+      "fieldName": "EnvIntvl",
+      "alias": "ENV Interval",
+      "internalField": "EnvIntvl",
+      "exportType": "TEXT",
+      "textLength": 80,
+      "directApiField": "ENVInterval"
+    },
+    {
+      "order": 36,
+      "fieldName": "Formation",
+      "alias": "Formation",
+      "internalField": "Formation",
+      "exportType": "TEXT",
+      "textLength": 254,
+      "directApiField": "Formation"
+    },
+    {
+      "order": 37,
+      "fieldName": "Country",
+      "alias": "Country",
+      "internalField": "Country",
+      "exportType": "TEXT",
+      "textLength": 128,
+      "directApiField": "Country"
+    },
+    {
+      "order": 38,
+      "fieldName": "StateProv",
+      "alias": "State Province",
+      "internalField": "StateProv",
+      "exportType": "TEXT",
+      "textLength": 32,
+      "directApiField": "StateProvince"
+    },
+    {
+      "order": 39,
+      "fieldName": "County",
+      "alias": "County",
+      "internalField": "County",
+      "exportType": "TEXT",
+      "textLength": 64,
+      "directApiField": "County"
+    },
+    {
+      "order": 40,
+      "fieldName": "District",
+      "alias": "District",
+      "internalField": "District",
+      "exportType": "TEXT",
+      "textLength": 128,
+      "directApiField": "District"
+    },
+    {
+      "order": 41,
+      "fieldName": "Field",
+      "alias": "Field",
+      "internalField": "Field",
+      "exportType": "TEXT",
+      "textLength": 128,
+      "directApiField": "Field"
+    },
+    {
+      "order": 42,
+      "fieldName": "Survey",
+      "alias": "Survey",
+      "internalField": "Survey",
+      "exportType": "TEXT",
+      "textLength": 128,
+      "directApiField": "Survey"
+    },
+    {
+      "order": 43,
+      "fieldName": "Block",
+      "alias": "Block",
+      "internalField": "Block",
+      "exportType": "TEXT",
+      "textLength": 128,
+      "directApiField": "Block"
+    },
+    {
+      "order": 44,
+      "fieldName": "Abstract",
+      "alias": "Abstract",
+      "internalField": "Abstract",
+      "exportType": "TEXT",
+      "textLength": 128,
+      "directApiField": "Abstract"
+    },
+    {
+      "order": 45,
+      "fieldName": "Platform",
+      "alias": "Platform",
+      "internalField": "Platform",
+      "exportType": "TEXT",
+      "textLength": 128,
+      "directApiField": "Platform"
+    },
+    {
+      "order": 46,
+      "fieldName": "Section",
+      "alias": "Section",
+      "internalField": "Section",
+      "exportType": "TEXT",
+      "textLength": 128,
+      "directApiField": "Section"
+    },
+    {
+      "order": 47,
+      "fieldName": "Township",
+      "alias": "Township",
+      "internalField": "Township",
+      "exportType": "TEXT",
+      "textLength": 128,
+      "directApiField": "Township"
+    },
+    {
+      "order": 48,
+      "fieldName": "Range",
+      "alias": "Range",
+      "internalField": "Range",
+      "exportType": "TEXT",
+      "textLength": 128,
+      "directApiField": "Range"
+    },
+    {
+      "order": 49,
+      "fieldName": "SecTwnRng",
+      "alias": "Sect-Town-Rng",
+      "internalField": "SecTwnRng",
+      "exportType": "TEXT",
+      "textLength": 128,
+      "directApiField": "Section_Township_Range"
+    },
+    {
+      "order": 50,
+      "fieldName": "EnvOilGath",
+      "alias": "ENV Oil Gather Syst",
+      "internalField": "EnvOilGath",
+      "exportType": "TEXT",
+      "textLength": 128,
+      "directApiField": "ENVOilGatheringSystem"
+    },
+    {
+      "order": 51,
+      "fieldName": "EnvGasGath",
+      "alias": "ENV Gas Gather Syst",
+      "internalField": "EnvGasGath",
+      "exportType": "TEXT",
+      "textLength": 128,
+      "directApiField": "ENVGasGatheringSystem"
+    },
+    {
+      "order": 52,
+      "fieldName": "EnvElvKbFt",
+      "alias": "ENV Elev KB FT",
+      "internalField": "EnvElvKbFt",
+      "exportType": "DOUBLE",
+      "textLength": null,
+      "directApiField": "ENVElevationKB_FT"
+    },
+    {
+      "order": 53,
+      "fieldName": "TvdFt",
+      "alias": "TVD FT",
+      "internalField": "TvdFt",
+      "exportType": "DOUBLE",
+      "textLength": null,
+      "directApiField": "TVD_FT"
+    },
+    {
+      "order": 54,
+      "fieldName": "MdFt",
+      "alias": "MD FT",
+      "internalField": "MdFt",
+      "exportType": "DOUBLE",
+      "textLength": null,
+      "directApiField": "MD_FT"
+    },
+    {
+      "order": 55,
+      "fieldName": "UpPerfFt",
+      "alias": "Upper Perf FT",
+      "internalField": "UpPerfFt",
+      "exportType": "DOUBLE",
+      "textLength": null,
+      "directApiField": "UpperPerf_FT"
+    },
+    {
+      "order": 56,
+      "fieldName": "LoPerfFt",
+      "alias": "Lower Perf FT",
+      "internalField": "LoPerfFt",
+      "exportType": "DOUBLE",
+      "textLength": null,
+      "directApiField": "LowerPerf_FT"
+    },
+    {
+      "order": 57,
+      "fieldName": "LatLenFt",
+      "alias": "Lateral Length FT",
+      "internalField": "LatLenFt",
+      "exportType": "DOUBLE",
+      "textLength": null,
+      "directApiField": "LateralLength_FT"
+    },
+    {
+      "order": 58,
+      "fieldName": "EffLatLen",
+      "alias": "ENV Effective Lat Length",
+      "internalField": "EffLatLen",
+      "exportType": "DOUBLE",
+      "textLength": null,
+      "directApiField": "ENVEffectiveLateralLength"
+    },
+    {
+      "order": 59,
+      "fieldName": "PkProdBoe",
+      "alias": "Peak Prod BOE",
+      "internalField": "PkProdBoe",
+      "exportType": "DOUBLE",
+      "textLength": null,
+      "directApiField": "PeakProd_BOE"
+    },
+    {
+      "order": 60,
+      "fieldName": "PkGasMcf",
+      "alias": "Peak Gas MCF",
+      "internalField": "PkGasMcf",
+      "exportType": "DOUBLE",
+      "textLength": null,
+      "directApiField": "PeakGas_MCF"
+    },
+    {
+      "order": 61,
+      "fieldName": "PkPrdMcfe",
+      "alias": "Peak Prod MCFE",
+      "internalField": "PkPrdMcfe",
+      "exportType": "DOUBLE",
+      "textLength": null,
+      "directApiField": "PeakProd_MCFE"
+    },
+    {
+      "order": 62,
+      "fieldName": "PkOilBbl",
+      "alias": "Peak Oil BBL",
+      "internalField": "PkOilBbl",
+      "exportType": "DOUBLE",
+      "textLength": null,
+      "directApiField": "PeakOil_BBL"
+    },
+    {
+      "order": 63,
+      "fieldName": "CumProdBoe",
+      "alias": "Cum Prod BOE",
+      "internalField": "CumProdBoe",
+      "exportType": "DOUBLE",
+      "textLength": null,
+      "directApiField": "CumProd_BOE"
+    },
+    {
+      "order": 64,
+      "fieldName": "CumGasMcf",
+      "alias": "CumGas_MCF",
+      "internalField": "CumGasMcf",
+      "exportType": "DOUBLE",
+      "textLength": null,
+      "directApiField": "CumGas_MCF"
+    },
+    {
+      "order": 65,
+      "fieldName": "CumPrdMcfe",
+      "alias": "CumProd_MCFE",
+      "internalField": "CumPrdMcfe",
+      "exportType": "DOUBLE",
+      "textLength": null,
+      "directApiField": "CumProd_MCFE"
+    },
+    {
+      "order": 66,
+      "fieldName": "CumOilBbl",
+      "alias": "CumOil_BBL",
+      "internalField": "CumOilBbl",
+      "exportType": "DOUBLE",
+      "textLength": null,
+      "directApiField": "CumOil_BBL"
+    },
+    {
+      "order": 67,
+      "fieldName": "ShlLat",
+      "alias": "Latitude",
+      "internalField": "ShlLat",
+      "exportType": "DOUBLE",
+      "textLength": null,
+      "directApiField": "Latitude"
+    },
+    {
+      "order": 68,
+      "fieldName": "ShlLon",
+      "alias": "Longitude",
+      "internalField": "ShlLon",
+      "exportType": "DOUBLE",
+      "textLength": null,
+      "directApiField": "Longitude"
+    },
+    {
+      "order": 69,
+      "fieldName": "BhlLat",
+      "alias": "Latitude_BH",
+      "internalField": "BhlLat",
+      "exportType": "DOUBLE",
+      "textLength": null,
+      "directApiField": "Latitude_BH"
+    },
+    {
+      "order": 70,
+      "fieldName": "BhlLon",
+      "alias": "Longitude_BH",
+      "internalField": "BhlLon",
+      "exportType": "DOUBLE",
+      "textLength": null,
+      "directApiField": "Longitude_BH"
+    }
+  ],
+  "pendingDecisions": [
+    "Confirm Gugg nomenclature, TCA, fluid-window, and provenance field order.",
+    "Choose shapefile missing-value encoding without treating missing numerics as real zeros.",
+    "Validate text widths and numeric precision against current data; never silently truncate."
+  ],
+  "template": "Well Template.xlsx"
+}
