@@ -21,3 +21,4 @@ jobs:
       - run: python -m unittest discover -s Py -p TestMigration.py -v
       - run: python -m unittest discover -s Py -p TestContext.py -v
       - run: python -m unittest discover -s Py -p TestAgolPreflight.py -v
+      - run: python -m unittest discover -s Py -p TestSourceDates.py -v

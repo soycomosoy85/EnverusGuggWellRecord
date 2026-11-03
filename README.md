@@ -92,6 +92,8 @@ Each refresh reads a thin identifier/timestamp inventory, requests only new/chan
 
 Context output retains source attributes with short field names and full source aliases; raw payloads remain in SQLite. Field dictionaries are stored under `Json/<Profile>/Context`. Context exports use a GDB rather than shapefiles: the M&A source has more than the shapefile column limit. Missing/invalid geometries are counted while source records remain cached.
 
+Partial context dates use date-only values with explicit precision in `DateInfo`: a year uses January 1 and a year/month uses day 1, with the original source text retained alongside the precision. Unparseable dates remain NULL and their source text is retained for review. The source cache always preserves the unconverted value. Context reports distinguish total source records from records with a usable mapped feature.
+
 The nightly launcher now runs the well workflow and context refreshes, followed by a local AGOL readiness check. It does not upload data. Context refreshes can proceed independently while an initial well build is still running.
 
 ### ArcGIS Online test publication

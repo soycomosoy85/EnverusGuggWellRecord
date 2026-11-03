@@ -5,9 +5,10 @@ from pathlib import Path
 import arcpy
 from WellGeometry import SR
 from ContextSync import packed
+from SourceDates import source_date
 
 def field_map(names,id_field,hints,samples):
-    used={'reckey','srcid'};result=[]
+    used={'reckey','srcid','dateinfo'};result=[]
     for name in sorted(names):
         if name.lower().startswith('geom'):continue
         base=re.sub('[^A-Za-z0-9_]','',name)
@@ -24,7 +25,7 @@ def field_map(names,id_field,hints,samples):
         result.append(dict(source=name,fieldName=short,alias=name,exportType=kind,textLength=65535 if kind=='TEXT' else None))
     return result
 
-def encode(row,fields):
+def encode(row,fields,date_info=None):
     values=[]
     for f in fields:
         value=row.get(f['source']);kind=f['exportType']
@@ -33,7 +34,9 @@ def encode(row,fields):
             if kind=='TEXT':
                 value=packed(value) if isinstance(value,(dict,list)) else str(value)
                 if len(value)>65535:raise RuntimeError('Context text exceeds configured GDB width; full value remains in source cache')
-            elif kind=='DATE':value=datetime.fromisoformat(str(value).replace('Z','+00:00')).replace(hour=0,minute=0,second=0,microsecond=0,tzinfo=None)
+            elif kind=='DATE':
+                value,precision=source_date(value)
+                if precision is not None and date_info is not None:date_info[f['source']]=precision
             elif kind=='SHORT' and isinstance(value,bool):value=int(value)
             elif kind in ['DOUBLE','LONG','SHORT']:value=float(value) if kind=='DOUBLE' else int(value)
         values.append(value)
@@ -74,9 +77,10 @@ def build(root,path,layer,config):
             if f['fieldName'] not in existing:arcpy.management.AddField(fc,f['fieldName'],f['exportType'],field_length=f['textLength'],field_alias=f['alias'])
         for name,length in [('SrcId',254),('RecKey',32)]:
             if name not in existing:arcpy.management.AddField(fc,name,'TEXT',field_length=length)
+        if 'DateInfo' not in existing:arcpy.management.AddField(fc,'DateInfo','TEXT',field_length=65535,field_alias='Source Date Precision and Review')
         if not arcpy.ListIndexes(fc,'RecKeyIdx'):arcpy.management.AddIndex(fc,'RecKey','RecKeyIdx')
         if fresh:db.execute('INSERT OR IGNORE INTO Dirty SELECT Id FROM Records');db.commit()
-        changes=dict(inserted=0,updated=0,deleted=0,missingGeometry=0);columns=[f['fieldName'] for f in fields]
+        changes=dict(inserted=0,updated=0,deleted=0,missingGeometry=0,partialDates=0,dateReview=0);columns=[f['fieldName'] for f in fields]
         while batch:=db.execute('SELECT d.Id,r.Payload,s.Hash FROM Dirty d LEFT JOIN Records r ON d.Id=r.Id LEFT JOIN GisState s ON d.Id=s.Id ORDER BY d.Id LIMIT 500').fetchall():
             if shutil.disk_usage(root).free<config.get('minimumFreeDiskGb',20)*1024**3:raise RuntimeError('Disk reserve reached; context GIS dirty queue remains')
             desired={};retired={};ack=[]
@@ -87,20 +91,26 @@ def build(root,path,layer,config):
                 try:shape=geometry(row,layer)
                 except (RuntimeError,ValueError,TypeError):shape=None
                 if shape is None:retired[rec]=ident;changes['missingGeometry']+=1;continue
-                vals=encode(row,fields);digest=hashlib.sha256(packed([[v.isoformat() if isinstance(v,datetime) else v for v in vals],shape.JSON]).encode()).hexdigest()
-                if digest!=prior_hash:desired[rec]=(ident,digest,shape,vals)
+                date_info={};vals=encode(row,fields,date_info);encoded_dates=packed(date_info) if date_info else None
+                if any(v['precision'] in ['Year','Month'] for v in date_info.values()):changes['partialDates']+=1
+                if any(v['precision']=='Unparsed' for v in date_info.values()):changes['dateReview']+=1
+                hash_values=[[v.isoformat() if isinstance(v,datetime) else v for v in vals],shape.JSON]
+                if encoded_dates:hash_values.append(encoded_dates)
+                digest=hashlib.sha256(packed(hash_values).encode()).hexdigest()
+                if digest!=prior_hash:desired[rec]=(ident,digest,shape,vals,encoded_dates)
             keys=set(desired)|set(retired);found=set()
             if keys:
                 where='RecKey IN ('+','.join("'"+k+"'" for k in keys)+')'
-                with arcpy.da.UpdateCursor(fc,['OID@','RecKey','SrcId','SHAPE@']+columns,where) as write:
+                with arcpy.da.UpdateCursor(fc,['OID@','RecKey','SrcId','SHAPE@']+columns+['DateInfo'],where) as write:
                     for row in write:
                         rec=row[1]
                         if rec in retired:write.deleteRow();changes['deleted']+=1;continue
-                        ident,digest,shape,vals=desired[rec];write.updateRow([row[0],rec,ident,shape]+vals);found.add(rec);changes['updated']+=1;db.execute('INSERT OR REPLACE INTO GisState VALUES(?,?,?)',(ident,digest,int(row[0])))
-                with arcpy.da.InsertCursor(fc,['RecKey','SrcId','SHAPE@']+columns) as write:
-                    for rec,(ident,digest,shape,vals) in desired.items():
+                        ident,digest,shape,vals,date_json=desired[rec];write.updateRow([row[0],rec,ident,shape]+vals+[date_json]);found.add(rec);changes['updated']+=1;db.execute('INSERT OR REPLACE INTO GisState VALUES(?,?,?)',(ident,digest,int(row[0])))
+                with arcpy.da.InsertCursor(fc,['RecKey','SrcId','SHAPE@']+columns+['DateInfo']) as write:
+                    for rec,(ident,digest,shape,vals,date_json) in desired.items():
                         if rec in found:continue
-                        oid=write.insertRow([rec,ident,shape]+vals);db.execute('INSERT OR REPLACE INTO GisState VALUES(?,?,?)',(ident,digest,int(oid)));changes['inserted']+=1
+                        oid=write.insertRow([rec,ident,shape]+vals+[date_json]);db.execute('INSERT OR REPLACE INTO GisState VALUES(?,?,?)',(ident,digest,int(oid)));changes['inserted']+=1
             db.executemany('DELETE FROM GisState WHERE Id=?',[(ident,) for ident in retired.values()]);db.executemany('DELETE FROM Dirty WHERE Id=?',ack);db.commit()
-        return dict(dataset=layer['dataset'],featureClass=fc,features=db.execute('SELECT count(*) FROM GisState').fetchone()[0],changes=changes,gisWrites=sum(changes[k] for k in ['inserted','updated','deleted']),fieldDictionary=str(fields_path))
+        features=db.execute('SELECT count(*) FROM GisState').fetchone()[0];source_records=db.execute('SELECT count(*) FROM Records').fetchone()[0]
+        return dict(dataset=layer['dataset'],featureClass=fc,features=features,sourceRecords=source_records,sourceRecordsWithoutFeature=max(0,source_records-features),changes=changes,gisWrites=sum(changes[k] for k in ['inserted','updated','deleted']),fieldDictionary=str(fields_path))
     finally:db.close()
