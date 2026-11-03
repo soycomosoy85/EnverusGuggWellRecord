@@ -1,0 +1,21 @@
+{
+  "enabled": false,
+  "authentication": "ArcGISPro",
+  "sharing": "private",
+  "profile": "NorthAmerica",
+  "scope": {
+    "mode": "GuggGisBasins",
+    "featureClass": "Gdb/Reference/GuggenheimReference.gdb/GUGG_GIS_Basin",
+    "nameField": "GuggGisBsn",
+    "wellFieldName": "GuggGisBsn",
+    "wellFieldAlias": "Gugg GIS Basin",
+    "lineAssignment": "LongestPositiveLateralOverlap",
+    "pointAssignment": "SurfaceHoleContainment",
+    "preserveWholeGeometries": true
+  },
+  "requireSizeAndCountReport": true,
+  "publishFullNationalDataset": false,
+  "localIdentityConfig": "Json/Config/ArcGisOnline.Local.json",
+  "note": "GIS basin boundary configured. Publishing and subset staging await user QC after source sync and Gugg calculations.",
+  "awaitUserQualityControl": true
+}

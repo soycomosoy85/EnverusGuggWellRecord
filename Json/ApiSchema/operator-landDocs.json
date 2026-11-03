@@ -1,0 +1,250 @@
+[
+  {
+    "name": "CalcAc",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Calculated acreage.",
+    "filterType": ""
+  },
+  {
+    "name": "County",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be alphanumeric.",
+    "description": "Location of the well by county, derived from API for US data.",
+    "filterType": "request"
+  },
+  {
+    "name": "DeletedDate",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be in the RFC3339 format. Example: 2021-01-01",
+    "description": "Date the record was deleted.",
+    "filterType": "request"
+  },
+  {
+    "name": "ENVBasin",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be alphanumeric.",
+    "description": "ENV Basin as defined by a well's location within one of 32 ENV Basin Shapefiles. Basins are defined by EIA Shapefiles and Enverus-defined geological prospectivity.",
+    "filterType": "request"
+  },
+  {
+    "name": "ENVOperator",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be alphanumeric.",
+    "description": "The name of the operator as it appears in Prism.",
+    "filterType": "request"
+  },
+  {
+    "name": "ENVPeerGroup",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The respective group a company belongs based on market capitalization for public companies, and for private companies either private equity backed or non-private equity backed private distinctions.",
+    "filterType": ""
+  },
+  {
+    "name": "ENVPlay",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be alphanumeric.",
+    "description": "The play level intersect removes areas of overlap of operator land to not double count inventory.",
+    "filterType": "request"
+  },
+  {
+    "name": "ENVRegion",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "ENV Region as defined by a well's location within one of nine ENV Region Shapefiles. ENV Region inclusively covers North America.",
+    "filterType": ""
+  },
+  {
+    "name": "ENVSubPlay",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "ENV Sub Play as defined by a well's location within an Enverus-defined Sub Play Shapefile. Sub Play is a subset of a play where all Sub Plays inclusively make up a play.",
+    "filterType": ""
+  },
+  {
+    "name": "ENVTicker",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be alphanumeric.",
+    "description": "Ticker symbol for the most recent reported operator based on Enverus-normalized ENV Operator field. Public companies follow the convention of \"-US\" for US-listed stocks and \"-CA\" for Canadian-listed stocks. Private operators are followed by an asterisk*.",
+    "filterType": "request"
+  },
+  {
+    "name": "EstimatedNetAcreage_AC",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Weighted net acreage estimate of a single record based on the disclosed values.",
+    "filterType": ""
+  },
+  {
+    "name": "EstWorkingInterest_PCT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Disclosed or calculated working interest of the entire operator region.",
+    "filterType": ""
+  },
+  {
+    "name": "Geom_Poly",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Geometry of operator land.",
+    "filterType": ""
+  },
+  {
+    "name": "GeomBBox_Poly",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Geometry of bounding box.",
+    "filterType": ""
+  },
+  {
+    "name": "OperatorRegion",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Operator region.",
+    "filterType": ""
+  },
+  {
+    "name": "OpNonOp",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Calculated op/non-op acreage.",
+    "filterType": ""
+  },
+  {
+    "name": "OpRegGross",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Disclosed or calculated gross acreage within the entire operator region.",
+    "filterType": ""
+  },
+  {
+    "name": "OpRegNet",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Disclosed or calculated net acreage within the entire operator region.",
+    "filterType": ""
+  },
+  {
+    "name": "PECompanyWideEquityCommitment_MM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The total equity PE Sponsor Committed.",
+    "filterType": ""
+  },
+  {
+    "name": "PEInitialFundingYear",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Year of initial PE funding.",
+    "filterType": ""
+  },
+  {
+    "name": "PESponsors",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The name of the PE Sponsors who are backing companies.",
+    "filterType": ""
+  },
+  {
+    "name": "PEStatus",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Current PE status.",
+    "filterType": ""
+  },
+  {
+    "name": "PETargetRegion",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The targeted region.",
+    "filterType": ""
+  },
+  {
+    "name": "RAWOperator",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The most recently reported operator obtained from the state document, permit, completion or production data source.",
+    "filterType": ""
+  },
+  {
+    "name": "Reg_PCT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Operator region percentage in the play acreage position.",
+    "filterType": ""
+  },
+  {
+    "name": "ShapefileUpdateDate",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Date the shape file was updated.",
+    "filterType": ""
+  },
+  {
+    "name": "SPOpReg_PCT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Estimated net acreage percentage of the entire play.",
+    "filterType": ""
+  },
+  {
+    "name": "StateProvince",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be alphanumeric.",
+    "description": "Location of the well by country, derived from API for US data.",
+    "filterType": "request"
+  },
+  {
+    "name": "TOpRegNet",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Disclosed or calculated net acreage within the entire play.",
+    "filterType": ""
+  },
+  {
+    "name": "UpdatedDate",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be in the RFC3339 format. Example: 2021-01-01",
+    "description": "Date the record was updated.",
+    "filterType": "request"
+  },
+  {
+    "name": "UniqueID",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be numeric.",
+    "description": "Enverus generated unique operator land ID.",
+    "filterType": "path"
+  }
+]

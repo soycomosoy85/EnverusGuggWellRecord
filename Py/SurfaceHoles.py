@@ -7,6 +7,13 @@ import ManagedProducts as managed
 
 NAME='EnvSH_Gugg'
 
+def ensure_defaults(path,fields):
+    wanted=[f for f in fields if f.get('defaultValue') is not None]
+    if not wanted:return
+    values=next(iter(arcpy.da.ListSubtypes(path).values()))['FieldValues']
+    for f in wanted:
+        if values[f['fieldName']][0]!=f['defaultValue']:arcpy.management.AssignDefaultToField(path,f['fieldName'],f['defaultValue'])
+
 def ensure_project(report,fields):
     project=arcpy.mp.ArcGISProject(report['project'])
     if not any(layer.name==NAME for m in project.listMaps() for layer in m.listLayers()):
@@ -55,6 +62,7 @@ def sync_surface(root,config,report):
         existing={f.name for f in arcpy.ListFields(path)}
         for f in fields:
             if f['fieldName'] not in existing:arcpy.management.AddField(path,f['fieldName'],f['exportType'],field_length=f.get('textLength'),field_alias=f['alias'])
+        ensure_defaults(path,fields)
         if not arcpy.ListIndexes(path,'RecKeyIdx'):arcpy.management.AddIndex(path,'RecKey','RecKeyIdx')
         qa=Path(report['qaFolder'])/'SurfaceHoles';qa.mkdir(parents=True,exist_ok=True)
         previous=managed.SPECS

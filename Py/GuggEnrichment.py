@@ -11,7 +11,14 @@ def extent_intersects(a,b):return a.XMin<=b.XMax and a.XMax>=b.XMin and a.YMin<=
 
 class References:
     def __init__(self,gdb):
-        self.nom=defaultdict(list);self.tcas=defaultdict(list);self.fluids=[];self.geometry={}
+        self.nom=defaultdict(list);self.tcas=defaultdict(list);self.fluids=[];self.geometry={};self.basins=[]
+        if arcpy.Exists(str(gdb/'GUGG_GIS_Basin')):
+            grouped={}
+            for name,shape in arcpy.da.SearchCursor(str(gdb/'GUGG_GIS_Basin'),['GuggGisBsn','SHAPE@']):
+                if not str(name or '').strip():raise RuntimeError('Gugg GIS basin names must be populated')
+                shape=shape.projectAs(SR);grouped[name]=grouped[name].union(shape) if name in grouped else shape
+            for i,(name,shape) in enumerate(sorted(grouped.items())):
+                token='B'+str(i);self.geometry[token]=shape;self.basins.append(dict(name=name,token=token,extent=shape.extent))
         for r in rows(gdb/'GUGG_Nomenclature',['ENVRegion','ENVBasin','ENVInterval','GUGG_BASIN','GUGG_LANDING_ZONE','GUGG_BENCH','GUGG_TCA_PREFIX']):self.nom[tuple(norm(r[k]) for k in ['ENVRegion','ENVBasin','ENVInterval'])].append(r)
         tcas=rows(gdb/'GUGG_TCAs',['TCA_NAME','TCA_ID','GUGG_BASIN','GUGG_BENCH','WPS','FLUID_TYPE','AVG_TVD','IRR','PRIM_SEC','CAPEX_FT','UPSIDE','SHAPE@'])
         names=[norm(r['TCA_NAME']) for r in tcas]
@@ -28,14 +35,22 @@ class References:
             a.update({n:matches[0][k] for n,k in [('GuggBasin','GUGG_BASIN'),('GuggZone','GUGG_LANDING_ZONE'),('GuggBench','GUGG_BENCH'),('GuggPrefix','GUGG_TCA_PREFIX')]})
         else:flags.add('NomenclatureUnmatched' if not matches else 'NomenclatureAmbiguous')
     def assign(self,geom,a,flags,sr):
-        projected=geom.projectAs(sr);length=projected.length;a['LatGeomFt']=length*FT_PER_M
+        projected=geom.projectAs(sr);length=projected.length;a['LatGeomFt']=length*FT_PER_M;a['WellConstr']='N'
+        trajectory=norm(a.get('Trajectory'))
+        constraint_eligible=geom.type=='polyline' and length>1e-6 and trajectory not in {'','VERTICAL','UNKNOWN','UNSPECIFIED','UNDETERMINED'} and bool(norm(a.get('GuggBasin'))) and bool(norm(a.get('GuggBench')))
+        self.assign_gis_basin(geom,a,flags,sr,projected)
         for kind,polygons in [('Tca',self.tcas.get((norm(a.get('GuggBasin')),norm(a.get('GuggBench'))),[])),('Fluid',self.fluids)]:
             overlaps=[]
             for poly in polygons:
                 if not extent_intersects(geom.extent,poly['extent']):continue
+                constraint_hit=kind=='Tca' and constraint_eligible and not geom.disjoint(self.projected(poly['token'],SR.factoryCode))
+                if constraint_hit:a['WellConstr']='Y'
                 shape=self.projected(poly['token'],sr.factoryCode)
-                if not extent_intersects(projected.extent,shape.extent):continue
+                if not extent_intersects(projected.extent,shape.extent):
+                    if constraint_hit:flags.add('ConstraintTcaBoundaryContact')
+                    continue
                 overlap=projected.intersect(shape,2).length
+                if constraint_hit and overlap<=1e-6:flags.add('ConstraintTcaBoundaryContact')
                 if overlap<=1e-6:continue
                 if overlap>length+.001:flags.add(kind+'PrecisionReview');continue
                 overlaps.append((min(overlap,length),poly))
@@ -48,3 +63,25 @@ class References:
             else:a.update(FluidType=p['Type'],FluidPlay=p['Play'],FluidSub=p['SubPlay'],FluidPct=100*overlap/length)
         calc=calculate_spacing(a.get('TcaWps'));a.update(Spacing_Ft=calc['Spacing_Ft'],DA_Ft=calc['DA_Ft'])
         if calc['status']!='Calculated':flags.add(calc['status'])
+
+    def assign_gis_basin(self,geom,a,flags,sr=None,projected=None):
+        a['GuggGisBsn']=None
+        if not self.basins:return
+        if str(a.get('Trajectory') or '').upper()=='VERTICAL':
+            x,y=number(a.get('ShlLon')),number(a.get('ShlLat'))
+            if x is None or y is None or not (-180<=x<=180 and -90<=y<=90):return
+            geom=arcpy.PointGeometry(arcpy.Point(x,y),SR)
+        point=geom.type=='point';matches=[]
+        for basin in self.basins:
+            if not extent_intersects(geom.extent,basin['extent']):continue
+            if point:
+                if not geom.disjoint(self.geometry[basin['token']]):matches.append((1,basin['name']))
+            else:
+                length=(projected if projected is not None else geom.projectAs(sr)).intersect(self.projected(basin['token'],sr.factoryCode),2).length
+                if length>1e-6:matches.append((length,basin['name']))
+        matches.sort(reverse=True)
+        if not matches:return
+        if len(matches)>1:
+            flags.add('GisBasinMultiple')
+            if abs(matches[0][0]-matches[1][0])<1e-6:flags.add('GisBasinTie');return
+        a['GuggGisBsn']=matches[0][1]

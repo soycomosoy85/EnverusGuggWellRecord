@@ -1,0 +1,1386 @@
+[
+  {
+    "name": "AERFacID",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "AER Alberta Facility ID from the AER.",
+    "filterType": ""
+  },
+  {
+    "name": "BCFacID",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "BC Facility ID from the BCOGC.",
+    "filterType": ""
+  },
+  {
+    "name": "BDCRCommodity",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Pipeline Commodity.",
+    "filterType": ""
+  },
+  {
+    "name": "BDCRDiameter",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Pipeline Diameter.",
+    "filterType": ""
+  },
+  {
+    "name": "BDCRFromCountry",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "From Country.",
+    "filterType": ""
+  },
+  {
+    "name": "BDCRFromState",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "From State.",
+    "filterType": ""
+  },
+  {
+    "name": "BDCRPipeline",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Pipeline that crosses the border.",
+    "filterType": ""
+  },
+  {
+    "name": "BDCRToCountry",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "To Country.",
+    "filterType": ""
+  },
+  {
+    "name": "BDCRToState",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "To State.",
+    "filterType": ""
+  },
+  {
+    "name": "BDCRVolume_MMCFD",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Gas volume through pipeline (MMcfd).",
+    "filterType": ""
+  },
+  {
+    "name": "City",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be alphanumeric.",
+    "description": "The city in which the Facility/Infrastructure location falls.",
+    "filterType": "request"
+  },
+  {
+    "name": "Country",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The country in which the Facility/Infrastructure location falls.",
+    "filterType": ""
+  },
+  {
+    "name": "County",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be alphanumeric.",
+    "description": "The county in which the Facility/Infrastructure location falls.",
+    "filterType": "request"
+  },
+  {
+    "name": "CRTMHandling",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Handling.",
+    "filterType": ""
+  },
+  {
+    "name": "CRTMStationType",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Terminal Station Type.",
+    "filterType": ""
+  },
+  {
+    "name": "DeletedDate",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be in the RFC3339 format. Example: 2021-01-01",
+    "description": "Date the record was deleted.",
+    "filterType": "request"
+  },
+  {
+    "name": "ENVBasin",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The Enverus defined basin in which the Facility/Infrastructure location falls.",
+    "filterType": ""
+  },
+  {
+    "name": "ENVOperator",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be alphanumeric.",
+    "description": "Enverus normalized Operator of Facility/Infrastructure Location.",
+    "filterType": "request"
+  },
+  {
+    "name": "ENVPlay",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The Enverus defined play in which the Facility/Infrastructure location falls.",
+    "filterType": ""
+  },
+  {
+    "name": "ENVRegion",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be alphanumeric.",
+    "description": "The Enverus defined region in which the Facility/Infrastructure location falls.",
+    "filterType": "request"
+  },
+  {
+    "name": "ENVTicker",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be alphanumeric.",
+    "description": "Enverus normalized Ticker of Facility/Infrastructure Location.",
+    "filterType": "request"
+  },
+  {
+    "name": "FacilityName",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Name of Facility.",
+    "filterType": ""
+  },
+  {
+    "name": "FacilityStatus",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be alphanumeric.",
+    "description": "Status of Facility/Infrastructure Location.",
+    "filterType": "request"
+  },
+  {
+    "name": "FacilitySubType",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Facility/Infrastructure Sub-Type.",
+    "filterType": ""
+  },
+  {
+    "name": "FacilityType",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Facility/Infrastructure Type.",
+    "filterType": ""
+  },
+  {
+    "name": "Geom_Point",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Facility location.",
+    "filterType": ""
+  },
+  {
+    "name": "HubAverageDaily",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Average Daily amount of commidty through Hub.",
+    "filterType": ""
+  },
+  {
+    "name": "HubMaxThru",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Maximum amount of commodity through Hub.",
+    "filterType": ""
+  },
+  {
+    "name": "HubNotes",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Notes/Updates on Hub.",
+    "filterType": ""
+  },
+  {
+    "name": "HubPlatform",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Natural Gas Trading Exchange.",
+    "filterType": ""
+  },
+  {
+    "name": "HubYearActivated",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Year of Activation.",
+    "filterType": ""
+  },
+  {
+    "name": "Latitude",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The latitude of the top-hole location (WGS 84).",
+    "filterType": ""
+  },
+  {
+    "name": "LNGIEApprovedCap_BCFPerDay",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Approved future capacity of the feature (Bcf/day).",
+    "filterType": ""
+  },
+  {
+    "name": "LNGIEBerths",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Number of berths at the feature.",
+    "filterType": ""
+  },
+  {
+    "name": "LNGIECurrentCap_BCFPerDay",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Current send-out capacity of the feature (Bcf/day).",
+    "filterType": ""
+  },
+  {
+    "name": "LNGIEStorage",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Number of storage tanks at the feature.",
+    "filterType": ""
+  },
+  {
+    "name": "LNGIEStorageCapacity",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Storage capacity of the feature.",
+    "filterType": ""
+  },
+  {
+    "name": "LNGIETermID",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Liquified Natural Gas Import/Export Terminal Unique ID.",
+    "filterType": ""
+  },
+  {
+    "name": "Longitude",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The longitude of the top-hole location (WGS 84).",
+    "filterType": ""
+  },
+  {
+    "name": "NGCSElecCompr_kWH",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Electricity for compressor station (kWh).",
+    "filterType": ""
+  },
+  {
+    "name": "NGCSExpFuel",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Annual fuel expense ($).",
+    "filterType": ""
+  },
+  {
+    "name": "NGCSExpOther",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Annual other expenses ($).",
+    "filterType": ""
+  },
+  {
+    "name": "NGCSExpPower",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Annual power expenses ($).",
+    "filterType": ""
+  },
+  {
+    "name": "NGCSGasCompre",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Gas for Compressor Fuel (Dth).",
+    "filterType": ""
+  },
+  {
+    "name": "NGCSGCompID",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Compressor Station Unique ID.",
+    "filterType": ""
+  },
+  {
+    "name": "NGCSNumUnits",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Number of compressor units at the feature.",
+    "filterType": ""
+  },
+  {
+    "name": "NGCSOpComp_HR",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Total Compressor hours of operation during year.",
+    "filterType": ""
+  },
+  {
+    "name": "NGCSOpNumCom",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Number of compressors operated at time of station peak.",
+    "filterType": ""
+  },
+  {
+    "name": "NGCSPipelineCompany",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Name of natural gas pipeline company that the feature supports.",
+    "filterType": ""
+  },
+  {
+    "name": "NGCSPlantCost",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Original compressor station cost ($).",
+    "filterType": ""
+  },
+  {
+    "name": "NGIECAMXST",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Foreign State or Province in which the feature is located.",
+    "filterType": ""
+  },
+  {
+    "name": "NGIEFOLOCN",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The city where gas import/export is located.",
+    "filterType": ""
+  },
+  {
+    "name": "NGIEForeignPipeline",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Name of foreign pipeline connected to the feature.",
+    "filterType": ""
+  },
+  {
+    "name": "NGIEID",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Natural Gas Import/Export Unique ID.",
+    "filterType": ""
+  },
+  {
+    "name": "NGIEInServiceDate",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "In Service Date.",
+    "filterType": ""
+  },
+  {
+    "name": "NGIEPipeDiameter",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Diameter(s) of pipeline(s) connected to the feature.",
+    "filterType": ""
+  },
+  {
+    "name": "NGIETOCOUNTRY",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Country with which the import/export is occurring. Country Code (3 character).",
+    "filterType": ""
+  },
+  {
+    "name": "NGIEUSPipeline",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Name of the U.S. pipeline connected to the feature.",
+    "filterType": ""
+  },
+  {
+    "name": "NGPPContent_BTU",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Average annual BTU content of natural gas (BTU/cubic feet) of the feature.",
+    "filterType": ""
+  },
+  {
+    "name": "NGPPGasCap_MMCFPerDay",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Gas capacity of the feature in million cubic feet per day (MMcf/day).",
+    "filterType": ""
+  },
+  {
+    "name": "NGPPGasStorage_MMcf",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Storage capacity, dry natural gas in million cubic feet (MMcf) of the feature.",
+    "filterType": ""
+  },
+  {
+    "name": "NGPPLiquidStorage_BBL",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Storage capacity, natural gas liquids (barrels) of the feature.",
+    "filterType": ""
+  },
+  {
+    "name": "NGPPNGPPID",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Gas Processing Plant Unique ID.",
+    "filterType": ""
+  },
+  {
+    "name": "NGPPPlantFlow_MMCFPerDay",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Annual average natural gas flow in million cubic feet per day (MMcf/day) at the feature.",
+    "filterType": ""
+  },
+  {
+    "name": "NGPPPROCAMT_LBS",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The total amount of RMP regulated chemicals held in the feature processes (in pounds).",
+    "filterType": ""
+  },
+  {
+    "name": "NGRDAvailCapacity_MCFPerDay",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Annual average available capacity at the feature (Mcf/day).",
+    "filterType": ""
+  },
+  {
+    "name": "NGRDMaxCapacity_MCFPerDay",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Maximum capacity of the feature (Mcf/day).",
+    "filterType": ""
+  },
+  {
+    "name": "NGRDSchedCapacity_MCFPerDay",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Annual average scheduled volume at the feature (Mcf/day).",
+    "filterType": ""
+  },
+  {
+    "name": "NGRDUID",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Receipt/Delivery Location Unique ID.",
+    "filterType": ""
+  },
+  {
+    "name": "NGRDZoneName",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Pipeline zone in which the feature is located. This is provided by the pipeline company.",
+    "filterType": ""
+  },
+  {
+    "name": "NGSFMaxDeliverability_MCFPerDay",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Maximum deliverability of the feature (in Mcf/day).",
+    "filterType": ""
+  },
+  {
+    "name": "NGSFOwner_PCT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Percent ownership by primary company.",
+    "filterType": ""
+  },
+  {
+    "name": "NGSFPropMaxDeliverability_MCF",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Proposed maximum deliverability of the feature (in Mcf/day).",
+    "filterType": ""
+  },
+  {
+    "name": "NGSFPropTotalCapacity_MCF",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Proposed storage capacity of the feature (in Mcf).",
+    "filterType": ""
+  },
+  {
+    "name": "NGSFPropWorkingCapacity_MCF",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Proposed working capacity of the feature (in Mcf).",
+    "filterType": ""
+  },
+  {
+    "name": "NGSFReservoir",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The EIA name for the reservoir in US Natural Gas Underground Storage Facility and the IGU name for the storage formation in Canadian Natural Gas Underground Storage Facility.",
+    "filterType": ""
+  },
+  {
+    "name": "NGSFSTFID",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Storage Facility Unique ID.",
+    "filterType": ""
+  },
+  {
+    "name": "NGSFTotalFieldCapacity_MCF",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Total storage field capacity of the feature (in Mcf).",
+    "filterType": ""
+  },
+  {
+    "name": "NGSFWorkingFieldCapacity_MCF",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Working field capacity of the feature (in Mcf).",
+    "filterType": ""
+  },
+  {
+    "name": "OFSPBedCount",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The number of beds in the living quarters of a platform complex.",
+    "filterType": ""
+  },
+  {
+    "name": "OFSPBlockNo",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The number used to identify a particular block within an OCS area where a platform complex is located.",
+    "filterType": ""
+  },
+  {
+    "name": "OFSPCommodity",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Commodity produced by the platform.",
+    "filterType": ""
+  },
+  {
+    "name": "OFSPInstallDate",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The date the platform was installed.",
+    "filterType": ""
+  },
+  {
+    "name": "OFSPLeaseNo",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The number used to identify a mineral lease on the OCS.",
+    "filterType": ""
+  },
+  {
+    "name": "OFSPPlatformID",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Offshore Platform Unique ID.",
+    "filterType": ""
+  },
+  {
+    "name": "OFSPRemovalDate",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The date the platform was removed.",
+    "filterType": ""
+  },
+  {
+    "name": "OFSPWaterDepth_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The distance in feet from mean sea level to the mud line.",
+    "filterType": ""
+  },
+  {
+    "name": "OREFAlky_BPD",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Alkylates production capacity in barrels per day (BPD) of the feature.",
+    "filterType": ""
+  },
+  {
+    "name": "OREFAromatic_BPD",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Aromatics production capacity in barrels per day (BPD) of the feature.",
+    "filterType": ""
+  },
+  {
+    "name": "OREFAsphalt_KTONSPerDay",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Sulfur production capacity in short tons per day of the feature.",
+    "filterType": ""
+  },
+  {
+    "name": "OREFCapacity_BPD",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Distillation capacity of the feature in barrels per day (BPD). Refineries with a '0' capacity do not have an atmospheric distillation tower.",
+    "filterType": ""
+  },
+  {
+    "name": "OREFCatCrack_BPD",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Catalytic Cracking capacity in barrels per day (BPD) of the feature.",
+    "filterType": ""
+  },
+  {
+    "name": "OREFCatHydCrck_BPD",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Catalytic Hydrocracking (distillate, gas oil, and residual) capacity in barrels per day (BPD) of the feature.",
+    "filterType": ""
+  },
+  {
+    "name": "OREFCatHydTrt_BPD",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Catalytic Hydrotreating / Desulfurization capacity in barrels per day (BPD) of the feature.",
+    "filterType": ""
+  },
+  {
+    "name": "OREFCatReform_BPD",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Catalytic Reforming (low- and high-pressure) capacity in barrels per day (BPD) of the feature.",
+    "filterType": ""
+  },
+  {
+    "name": "OREFCoke_BPD",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Coke - Marketable production capacity in barrels per day (BPD) of the feature.",
+    "filterType": ""
+  },
+  {
+    "name": "OREFCoking_BPD",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Coking capacity in barrels per day (BPD) of the feature.",
+    "filterType": ""
+  },
+  {
+    "name": "OREFCrude_BPD",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Atmospheric Crude Oil Distillation Capacity in barrels per day (BPD) of the feature.",
+    "filterType": ""
+  },
+  {
+    "name": "OREFHydrgn_MMFCPerDay",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Hydrogen production capacity in million cubic ft. per day (MMcf/day) of the feature.",
+    "filterType": ""
+  },
+  {
+    "name": "OREFIsomer_BPD",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Isomerization production capacity in barrels per day (BPD) of the feature.",
+    "filterType": ""
+  },
+  {
+    "name": "OREFLubes_BPD",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Lubricants production capacity in barrels per day (BPD) of the feature.",
+    "filterType": ""
+  },
+  {
+    "name": "OREFOxygenates_BPD",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Oxygenates production capacity in barrels per day (BPD) of the feature.",
+    "filterType": ""
+  },
+  {
+    "name": "OREFPolDim_BPD",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Polymerization / Dimerization production capacity in barrels per day (BPD) of the feature.",
+    "filterType": ""
+  },
+  {
+    "name": "OREFREFID",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Oil Refinery Unique ID.",
+    "filterType": ""
+  },
+  {
+    "name": "OREFThermalOP_BPD",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Thermal Cracking capacity in barrels per day (BPD) of the feature.",
+    "filterType": ""
+  },
+  {
+    "name": "OREFUSRank",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Ranking of the feature within the USA. Ranking determined by EIA based on the Capacity of the Oil Refinery. No ranking for Canadian or Mexican features.",
+    "filterType": ""
+  },
+  {
+    "name": "OREFVacDist_BPD",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Vacuum Distillation Capacity in barrels per day (BPD) of the feature.",
+    "filterType": ""
+  },
+  {
+    "name": "Owner",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be alphanumeric.",
+    "description": "Owner of Facility/Infrastructure Location.",
+    "filterType": "request"
+  },
+  {
+    "name": "PINTCommodity",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Commodity type handled by the interconnect (CRUDE OIL, NATURAL GAS, REFINED PRODUCTS, etc.).",
+    "filterType": ""
+  },
+  {
+    "name": "PINTConnName",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Name of interconnection company that connects to the feature.",
+    "filterType": ""
+  },
+  {
+    "name": "PINTConnName2",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Name of second interconnection company that connects to the feature if a second connection exists.",
+    "filterType": ""
+  },
+  {
+    "name": "PINTConnName3",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Name of third interconnection company that connects to the feature if a third connection exists.",
+    "filterType": ""
+  },
+  {
+    "name": "PINTUID",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Pipeline Interconnect Unique ID.",
+    "filterType": ""
+  },
+  {
+    "name": "POLPCommodity",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Identifies whether the feature supports 'CRUDE' or 'REFINED' product movements.",
+    "filterType": ""
+  },
+  {
+    "name": "POLPEPAID",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "EPA Facility ID for the feature.",
+    "filterType": ""
+  },
+  {
+    "name": "POLPOperatorID",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "ID of the company that operates the feature.",
+    "filterType": ""
+  },
+  {
+    "name": "POLPPumpID",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "POL Pumping Station Unique ID.",
+    "filterType": ""
+  },
+  {
+    "name": "POLPUnitID",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "ID of the Unit of Pipeline the feature is located on.",
+    "filterType": ""
+  },
+  {
+    "name": "POLPUnitName",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Regional sub-unit of a primary Interstate Pipeline which the feature is located on.",
+    "filterType": ""
+  },
+  {
+    "name": "PPRTAsph_KBBLS",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Freight traffic of Asphalt, Tar & Pitch - Barrels handled by feature (thousand barrels).",
+    "filterType": ""
+  },
+  {
+    "name": "PPRTAsph_KTONS",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Freight traffic of Asphalt, Tar & Pitch - Short Tons handled by feature (thousand short tons).",
+    "filterType": ""
+  },
+  {
+    "name": "PPRTCrude_KBBLS",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Freight traffic of Crude Petroleum - Barrels handled by feature (thousand barrels).",
+    "filterType": ""
+  },
+  {
+    "name": "PPRTCrude_KTONS",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Freight traffic of Crude Petroleum - Short Tons handled by feature (thousand short tons).",
+    "filterType": ""
+  },
+  {
+    "name": "PPRTDist_KBBLS",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Freight traffic of Distillate Fuel Oil - Barrels handled by feature (thousand barrels).",
+    "filterType": ""
+  },
+  {
+    "name": "PPRTDist_KTONS",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Freight traffic of Distillate Fuel Oil - Short Tons handled by feature (thousand short tons).",
+    "filterType": ""
+  },
+  {
+    "name": "PPRTGas_KBBLS",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Freight traffic of Gasoline - Barrels handled by feature (thousand barrels).",
+    "filterType": ""
+  },
+  {
+    "name": "PPRTGas_KTONS",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Freight traffic of Gasoline - Short Tons handled by feature (thousand short tons).",
+    "filterType": ""
+  },
+  {
+    "name": "PPRTJelly_KBBLS",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Freight traffic of Petro. Jelly & Waxes - Barrels handled by feature (thousand barrels).",
+    "filterType": ""
+  },
+  {
+    "name": "PPRTJelly_KTONS",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Freight traffic of Petro. Jelly & Waxes - Short Tons handled by feature (thousand short tons).",
+    "filterType": ""
+  },
+  {
+    "name": "PPRTKero_KBBLS",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Freight traffic of Kerosene - Barrels handled by feature (thousand barrels).",
+    "filterType": ""
+  },
+  {
+    "name": "PPRTKero_KTONS",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Freight traffic of Kerosene - Short Tons handled by feature (thousand short tons).",
+    "filterType": ""
+  },
+  {
+    "name": "PPRTLPG_KBBLS",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Freight traffic of Liquid Petroleum Gas - Barrels handled by feature (thousand barrels).",
+    "filterType": ""
+  },
+  {
+    "name": "PPRTLPG_KTONS",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Freight traffic of Liquid Petroleum Gas - Short Tons handled by feature (thousand short tons).",
+    "filterType": ""
+  },
+  {
+    "name": "PPRTLube_KBBLS",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Freight traffic of Lube Oil & Greases - Barrels handled by feature (thousand barrels).",
+    "filterType": ""
+  },
+  {
+    "name": "PPRTLube_KTONS",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Freight traffic of Lube Oil & Greases - Short Tons handled by feature (thousand short tons).",
+    "filterType": ""
+  },
+  {
+    "name": "PPRTMisc_KBBLS",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Freight traffic of Petro. Products NEC - Barrels handled by feature (thousand barrels).",
+    "filterType": ""
+  },
+  {
+    "name": "PPRTMisc_KTONS",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Freight traffic of Petro. Products NEC - Short Tons handled by feature (thousand short tons).",
+    "filterType": ""
+  },
+  {
+    "name": "PPRTNaph_KBBLS",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Freight traffic of Naphtha & Solvents - Barrels handled by feature (thousand barrels).",
+    "filterType": ""
+  },
+  {
+    "name": "PPRTNaph_KTONS",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Freight traffic of Naphtha & Solvents - Short Tons handled by feature (thousand short tons).",
+    "filterType": ""
+  },
+  {
+    "name": "PPRTPcok_KBBLS",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Freight traffic of Petroleum Coke - Barrels handled by feature (thousand barrels).",
+    "filterType": ""
+  },
+  {
+    "name": "PPRTPcok_KTONS",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Freight traffic of Petroleum Coke - Short Tons handled by feature (thousand short tons).",
+    "filterType": ""
+  },
+  {
+    "name": "PPRTPortID",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "ID for the feature.",
+    "filterType": ""
+  },
+  {
+    "name": "PPRTPPID",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Petroleum Port Unique ID.",
+    "filterType": ""
+  },
+  {
+    "name": "PPRTResd_KBBLS",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Freight traffic of Residual Fuel Oil - Barrels handled by feature (thousand barrels).",
+    "filterType": ""
+  },
+  {
+    "name": "PPRTResd_KTONS",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Freight traffic of Residual Fuel Oil - Short Tons handled by feature (thousand short tons).",
+    "filterType": ""
+  },
+  {
+    "name": "PTRMAsphalt",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Does the feature store Asphalt? (YES/NO).",
+    "filterType": ""
+  },
+  {
+    "name": "PTRMAvGas",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Does the feature store AVGAS (aviation Gasoline)? (YES/NO).",
+    "filterType": ""
+  },
+  {
+    "name": "PTRMBioDiesel",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Does the feature store BioDiesel? (YES/NO).",
+    "filterType": ""
+  },
+  {
+    "name": "PTRMButane",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Does the feature store Butane? (YES/NO).",
+    "filterType": ""
+  },
+  {
+    "name": "PTRMCapacity",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Total Storage Capacity (in barrels) of the feature.",
+    "filterType": ""
+  },
+  {
+    "name": "PTRMChemicals",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Does the feature store Chemicals? (YES/NO).",
+    "filterType": ""
+  },
+  {
+    "name": "PTRMCommodity",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Major commodity stored at the feature.",
+    "filterType": ""
+  },
+  {
+    "name": "PTRMCrudeOil",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Does the feature store Crude Oil? (YES/NO).",
+    "filterType": ""
+  },
+  {
+    "name": "PTRMDistillate",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Does the feature store Distillate? (YES/NO).",
+    "filterType": ""
+  },
+  {
+    "name": "PTRMEthanol",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Does the feature store Ethanol? (YES/NO).",
+    "filterType": ""
+  },
+  {
+    "name": "PTRMGasoline",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Does the feature store Gasoline? (YES/NO).",
+    "filterType": ""
+  },
+  {
+    "name": "PTRMJetFuel",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Does the feature store Jet Fuel? (YES/NO).",
+    "filterType": ""
+  },
+  {
+    "name": "PTRMMarineIn",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Feature supplied by Marine? (YES/NO).",
+    "filterType": ""
+  },
+  {
+    "name": "PTRMMarineOut",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Feature outloaded by Marine? (YES/NO).",
+    "filterType": ""
+  },
+  {
+    "name": "PTRMPipeIn",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Feature supplied by Pipeline? (YES/NO).",
+    "filterType": ""
+  },
+  {
+    "name": "PTRMPipeOut",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Feature outloaded by Pipeline? (YES/NO).",
+    "filterType": ""
+  },
+  {
+    "name": "PTRMPropane",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Does the feature store Propane? (YES/NO).",
+    "filterType": ""
+  },
+  {
+    "name": "PTRMRailIn",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Feature supplied by rail? (YES/NO).",
+    "filterType": ""
+  },
+  {
+    "name": "PTRMRailOut",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Feature outloaded by rail? (YES/NO).",
+    "filterType": ""
+  },
+  {
+    "name": "PTRMRefined",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Does the feature store Refined Products? (YES/NO).",
+    "filterType": ""
+  },
+  {
+    "name": "PTRMTermID",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Petroleum Terminal Unique ID.",
+    "filterType": ""
+  },
+  {
+    "name": "PTRMTruckIn",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Feature supplied by Truck? (YES/NO).",
+    "filterType": ""
+  },
+  {
+    "name": "PTRMTruckOut",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Feature outloaded by Truck? (YES/NO).",
+    "filterType": ""
+  },
+  {
+    "name": "RawOperator",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Displayed Operator of Facility/Infrastructure Location.",
+    "filterType": ""
+  },
+  {
+    "name": "Source",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Source of the Data.",
+    "filterType": ""
+  },
+  {
+    "name": "StateProvince",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be alphanumeric.",
+    "description": "The state in which the Facility/Infrastructure location falls.",
+    "filterType": "request"
+  },
+  {
+    "name": "UpdatedDate",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be in the RFC3339 format. Example: 2021-01-01",
+    "description": "Date the record was updated.",
+    "filterType": "request"
+  },
+  {
+    "name": "UniqueID",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be alphanumeric.",
+    "description": "Enverus generated unique ID for facility.",
+    "filterType": "path"
+  }
+]

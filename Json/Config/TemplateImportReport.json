@@ -1,7 +1,12 @@
 {
-  "columns": 99,
+  "columns": 101,
   "duplicateHeadersOmitted": [
     "EnvWellId"
   ],
-  "template": "Well Template.xlsx"
+  "template": "Well Template.xlsx",
+  "templateColumns": 99,
+  "additionalDerivedFields": [
+    "GuggGisBsn",
+    "WellConstr"
+  ]
 }

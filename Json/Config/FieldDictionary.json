@@ -638,7 +638,24 @@
     "textLength": 32
   },
   {
-    "order": 72,
+    "fieldName": "GuggGisBsn",
+    "internalField": "GuggGisBsn",
+    "alias": "Gugg GIS Basin",
+    "exportType": "TEXT",
+    "textLength": 128,
+    "order": 72
+  },
+  {
+    "fieldName": "WellConstr",
+    "internalField": "WellConstr",
+    "alias": "Well Constraint",
+    "exportType": "TEXT",
+    "textLength": 1,
+    "defaultValue": "N",
+    "order": 73
+  },
+  {
+    "order": 74,
     "fieldName": "GuggZone",
     "alias": "GUGG_LANDING_ZONE",
     "internalField": "GuggZone",
@@ -646,7 +663,7 @@
     "textLength": 80
   },
   {
-    "order": 73,
+    "order": 75,
     "fieldName": "GuggBench",
     "alias": "GUGG_BENCH",
     "internalField": "GuggBench",
@@ -654,7 +671,7 @@
     "textLength": 32
   },
   {
-    "order": 74,
+    "order": 76,
     "fieldName": "GuggTcaPre",
     "alias": "GUGG_TCA_PREFIX",
     "internalField": "GuggPrefix",
@@ -662,7 +679,7 @@
     "textLength": 32
   },
   {
-    "order": 75,
+    "order": 77,
     "fieldName": "TcaName",
     "alias": "TCA_NAME",
     "internalField": "TcaName",
@@ -670,7 +687,7 @@
     "textLength": 80
   },
   {
-    "order": 76,
+    "order": 78,
     "fieldName": "TcaId",
     "alias": "TCA_ID",
     "internalField": "TcaId",
@@ -678,7 +695,7 @@
     "textLength": null
   },
   {
-    "order": 77,
+    "order": 79,
     "fieldName": "TcaWps",
     "alias": "TCA Wells Per Section",
     "internalField": "TcaWps",
@@ -686,7 +703,7 @@
     "textLength": null
   },
   {
-    "order": 78,
+    "order": 80,
     "fieldName": "TcaFluid",
     "alias": "TCA FLUID_TYPE",
     "internalField": "TcaFluid",
@@ -694,7 +711,7 @@
     "textLength": 32
   },
   {
-    "order": 79,
+    "order": 81,
     "fieldName": "TcaTvd",
     "alias": "TCA AVG_TVD",
     "internalField": "TcaTvd",
@@ -702,7 +719,7 @@
     "textLength": null
   },
   {
-    "order": 80,
+    "order": 82,
     "fieldName": "TcaIrr",
     "alias": "TCA IRR",
     "internalField": "TcaIrr",
@@ -710,7 +727,7 @@
     "textLength": null
   },
   {
-    "order": 81,
+    "order": 83,
     "fieldName": "TcaPrimSec",
     "alias": "TCA PRIM_SEC",
     "internalField": "TcaPrimSec",
@@ -718,7 +735,7 @@
     "textLength": 32
   },
   {
-    "order": 82,
+    "order": 84,
     "fieldName": "TcaCapexFt",
     "alias": "TCA CAPEX_FT",
     "internalField": "TcaCapexFt",
@@ -726,7 +743,7 @@
     "textLength": null
   },
   {
-    "order": 83,
+    "order": 85,
     "fieldName": "TcaUpside",
     "alias": "TCA UPSIDE",
     "internalField": "TcaUpside",
@@ -734,7 +751,7 @@
     "textLength": 80
   },
   {
-    "order": 84,
+    "order": 86,
     "fieldName": "FluidType",
     "alias": "Fluid Window Type",
     "internalField": "FluidType",
@@ -742,7 +759,7 @@
     "textLength": 32
   },
   {
-    "order": 85,
+    "order": 87,
     "fieldName": "FluidPlay",
     "alias": "Fluid Window Play",
     "internalField": "FluidPlay",
@@ -750,7 +767,7 @@
     "textLength": 32
   },
   {
-    "order": 86,
+    "order": 88,
     "fieldName": "FluidSub",
     "alias": "Fluid Window SubPlay",
     "internalField": "FluidSub",
@@ -758,7 +775,7 @@
     "textLength": 100
   },
   {
-    "order": 87,
+    "order": 89,
     "fieldName": "Spacing_Ft",
     "alias": "Well Spacing Ft",
     "internalField": "Spacing_Ft",
@@ -766,7 +783,7 @@
     "textLength": null
   },
   {
-    "order": 88,
+    "order": 90,
     "fieldName": "DA_Ft",
     "alias": "Well Drainage Area FT",
     "internalField": "DA_Ft",
@@ -774,7 +791,7 @@
     "textLength": null
   },
   {
-    "order": 89,
+    "order": 91,
     "fieldName": "WellKey",
     "alias": "Unique Record Key",
     "internalField": "WellKey",
@@ -782,7 +799,7 @@
     "textLength": 32
   },
   {
-    "order": 90,
+    "order": 92,
     "fieldName": "GeomSrc",
     "alias": "Geometry Source",
     "internalField": "GeomSrc",
@@ -790,7 +807,7 @@
     "textLength": 32
   },
   {
-    "order": 91,
+    "order": 93,
     "fieldName": "SurveySrc",
     "alias": "Survey Coordinate Source",
     "internalField": "SurveySrc",
@@ -798,7 +815,7 @@
     "textLength": 32
   },
   {
-    "order": 92,
+    "order": 94,
     "fieldName": "TrimMethod",
     "alias": "Lateral Trim Method",
     "internalField": "TrimMethod",
@@ -806,7 +823,7 @@
     "textLength": 32
   },
   {
-    "order": 93,
+    "order": 95,
     "fieldName": "TrimTopFt",
     "alias": "Trim Top Measured Depth Ft",
     "internalField": "TrimTopFt",
@@ -814,7 +831,7 @@
     "textLength": null
   },
   {
-    "order": 94,
+    "order": 96,
     "fieldName": "TrimBotFt",
     "alias": "Trim Bottom Measured Depth Ft",
     "internalField": "TrimBotFt",
@@ -822,7 +839,7 @@
     "textLength": null
   },
   {
-    "order": 95,
+    "order": 97,
     "fieldName": "LatGeomFt",
     "alias": "Plan View Lateral Length Ft",
     "internalField": "LatGeomFt",
@@ -830,7 +847,7 @@
     "textLength": null
   },
   {
-    "order": 96,
+    "order": 98,
     "fieldName": "TcaPct",
     "alias": "Lateral Percent In Primary TCA",
     "internalField": "TcaPct",
@@ -838,7 +855,7 @@
     "textLength": null
   },
   {
-    "order": 97,
+    "order": 99,
     "fieldName": "FluidPct",
     "alias": "Lateral Percent In Primary Fluid Window",
     "internalField": "FluidPct",
@@ -846,7 +863,7 @@
     "textLength": null
   },
   {
-    "order": 98,
+    "order": 100,
     "fieldName": "QaStatus",
     "alias": "Run Review Flags",
     "internalField": "QaStatus",
@@ -854,7 +871,7 @@
     "textLength": 254
   },
   {
-    "order": 99,
+    "order": 101,
     "fieldName": "RecKey",
     "alias": "Internal Stable Feature Record Key",
     "internalField": "RecKey",

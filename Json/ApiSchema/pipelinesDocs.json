@@ -1,0 +1,178 @@
+[
+  {
+    "name": "BlockOrigin",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Gulf of Mexico block identification of where the pipeline originates.",
+    "filterType": ""
+  },
+  {
+    "name": "Commodity",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be alphanumeric.",
+    "description": "Primary commodity carried by the pipeline system.",
+    "filterType": "request"
+  },
+  {
+    "name": "County",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The county in which the pipeline segment is located.",
+    "filterType": ""
+  },
+  {
+    "name": "DeletedDate",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be in the RFC3339 format. Example: 2021-01-01",
+    "description": "Date the record was deleted.",
+    "filterType": "request"
+  },
+  {
+    "name": "Diameter_IN",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The outside diameter of the pipeline (inches).",
+    "filterType": ""
+  },
+  {
+    "name": "ENVBasin",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be alphanumeric.",
+    "description": "The basin in which the pipeline segment is located.",
+    "filterType": "request"
+  },
+  {
+    "name": "ENVPlay",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The play in which the pipeline segment is located.",
+    "filterType": ""
+  },
+  {
+    "name": "ENVRegion",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The region in which the pipeline segment is located.",
+    "filterType": ""
+  },
+  {
+    "name": "FacilityOrigin",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Name of facility where pipeline originates.",
+    "filterType": ""
+  },
+  {
+    "name": "FinalOperator",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be alphanumeric.",
+    "description": "The operator of the pipeline. The name of the operator as it appears in Prism (Enverus derived operator).",
+    "filterType": "request"
+  },
+  {
+    "name": "FinalTicker",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The pipeline operators ticker symbol. The stock exchange ticker for publicly traded companies or the shortened/other company name for private companies.",
+    "filterType": ""
+  },
+  {
+    "name": "Geom_Line",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Well-known text string. Provides the line geometry coordinates of the pipeline.",
+    "filterType": ""
+  },
+  {
+    "name": "GeomBbox_Poly",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Geometry representing the bounding box of the pipeline.",
+    "filterType": ""
+  },
+  {
+    "name": "InterstateCode",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Identifies if a pipeline segment is Interstate or Intrastate (YES = Interstate; NO = Intrastate).",
+    "filterType": ""
+  },
+  {
+    "name": "Length_MI",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Length of pipeline segment (miles).",
+    "filterType": ""
+  },
+  {
+    "name": "StateProvince",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be alphanumeric.",
+    "description": "The state or province in which the pipeline segment is located.",
+    "filterType": "request"
+  },
+  {
+    "name": "Status",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be alphanumeric.",
+    "description": "The operational status of the pipeline segment.",
+    "filterType": "request"
+  },
+  {
+    "name": "SubsystemName",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The subsystem name of the pipeline - name for a smaller sub-section of the pipeline.",
+    "filterType": ""
+  },
+  {
+    "name": "SystemName",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be alphanumeric.",
+    "description": "The name of the pipeline system.",
+    "filterType": "request"
+  },
+  {
+    "name": "SystemType",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The system type of the pipeline.",
+    "filterType": ""
+  },
+  {
+    "name": "UpdatedDate",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be in the RFC3339 format. Example: 2021-01-01",
+    "description": "Date the record was updated.",
+    "filterType": "request"
+  },
+  {
+    "name": "UniqueID",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be alphanumeric.",
+    "description": "Unique string ID. Used as a consistent identifier for pipeline segments.",
+    "filterType": "path"
+  }
+]

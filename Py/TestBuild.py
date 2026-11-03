@@ -18,6 +18,12 @@ class BuildTests(unittest.TestCase):
         with tempfile.TemporaryDirectory(prefix='WellRecordTest',ignore_cleanup_errors=True) as folder:
             root=Path(folder)
             for name in ['Py','Json/Config','Gdb/Reference','Aprx/Template','Atbx']:shutil.copytree(source_root/name,root/name,ignore=shutil.ignore_patterns('__pycache__','*.lock'))
+            # A synthetic basin/bench pair tests propagation of a true
+            # constraint through all four final products.
+            ref=root/'Gdb/Reference/GuggenheimReference.gdb'
+            with arcpy.da.InsertCursor(str(ref/'GUGG_Nomenclature'),['ENVRegion','ENVBasin','ENVInterval','GUGG_BASIN','GUGG_LANDING_ZONE','GUGG_BENCH','GUGG_TCA_PREFIX']) as cursor:cursor.insertRow(['SYNTHETIC','SYNTHETIC','SYNTHETIC','SYNTHETIC','SYNTHETIC','SYNTHETIC','SYNTHETIC'])
+            from WellGeometry import SR
+            with arcpy.da.InsertCursor(str(ref/'GUGG_TCAs'),['TCA_NAME','GUGG_BASIN','GUGG_BENCH','WPS','SHAPE@']) as cursor:cursor.insertRow(['SyntheticConstraint','SYNTHETIC','SYNTHETIC',4,arcpy.FromWKT('POLYGON((-104.1 31.9,-103.8 31.9,-103.8 32.1,-104.1 32.1,-104.1 31.9))',SR)])
             cfg=json.loads((root/'Json/Config/Workflow.json').read_text());cfg.update(profile='Synthetic',shapefileMaximumRecords=2)
             cache=root/'Sqlite/Synthetic/Cache/EnverusCache.sqlite';cache.parent.mkdir(parents=True);db=sqlite3.connect(cache);initialize(db)
             def well(uwi,bore,country,state,x,y,status='PRODUCING',kind='HORIZONTAL'):
@@ -41,6 +47,9 @@ class BuildTests(unittest.TestCase):
             for dataset in ['EnvLateral_Gugg','EnvWell_Gugg','EnvWellCentroid_Gugg','EnvSH_Gugg']:
                 fs=[f for f in arcpy.ListFields(str(Path(report['geodatabase'])/dataset)) if f.type not in ['OID','Geometry'] and f.name not in ['Shape_Length','Shape_Area']]
                 self.assertEqual([f.name for f in fs],[f['fieldName'] for f in template]);self.assertEqual([f.aliasName for f in fs],[f['alias'] for f in template])
+                constraint=next(f for f in fs if f.name=='WellConstr');self.assertEqual(constraint.length,1)
+                subtype=next(iter(arcpy.da.ListSubtypes(str(Path(report['geodatabase'])/dataset)).values()));self.assertEqual(subtype['FieldValues']['WellConstr'][0],'N')
+                flags={v for v, in arcpy.da.SearchCursor(str(Path(report['geodatabase'])/dataset),['WellConstr'])};self.assertEqual(flags,{'Y','N'})
             self.assertEqual(report['counts']['EnvSH_Gugg'],5)
             for point,x,y in arcpy.da.SearchCursor(str(Path(report['geodatabase'])/'EnvSH_Gugg'),['SHAPE@','ShlLon','ShlLat']):
                 self.assertAlmostEqual(point.firstPoint.X,x);self.assertAlmostEqual(point.firstPoint.Y,y)
@@ -82,6 +91,10 @@ class BuildTests(unittest.TestCase):
             transfer=export_runtime(root,cfg,part_bytes=4096)
             relocated=root/'MovedInstallation'
             for name in ['Py','Json/Config','Gdb/Reference','Aprx/Template','Atbx']:shutil.copytree(source_root/name,relocated/name,ignore=shutil.ignore_patterns('__pycache__','*.lock'))
+            # Relocation carries the exact same references, including test rows.
+            arcpy.management.Delete(str(relocated/'Gdb/Reference/GuggenheimReference.gdb'))
+            arcpy.management.ClearWorkspaceCache(str(ref))
+            shutil.copytree(ref,relocated/'Gdb/Reference/GuggenheimReference.gdb',ignore=shutil.ignore_patterns('*.lock'))
             imported=import_runtime(relocated,cfg,transfer['manifest']);self.assertTrue(imported['includesGIS'])
             # Git may normalize source line endings on the work computer.
             code=relocated/'Py/Identity.py';code.write_text(code.read_text(),newline='\n')

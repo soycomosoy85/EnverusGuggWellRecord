@@ -32,5 +32,6 @@ __pycache__/
 *.sbx
 .env
 .env.*
+*.Local.json
 *credentials*.json
 *token*.json

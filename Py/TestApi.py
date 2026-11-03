@@ -12,6 +12,13 @@ class StubApi(Api):
         return [dict(ENVWellStatus='PRODUCING')],{}
 
 class ApiTests(unittest.TestCase):
+    def test_authentication_retries_server_error_without_logging_credential(self):
+        import io
+        from unittest.mock import patch
+        from urllib.error import HTTPError
+        response=io.BytesIO(b'{"token":"synthetic-token"}')
+        with patch('EnverusApi.load_local_credentials',return_value={'SecretKey':'synthetic-secret'}),patch('EnverusApi.urlopen',side_effect=[HTTPError(BASE+'tokens',500,'Server error',{},None),response]),patch('EnverusApi.time.sleep') as pause:
+            api=Api();self.assertEqual(api.token,'synthetic-token');pause.assert_called_once()
     def test_relative_pagination_preserves_status_and_field_scope(self):
         api=StubApi();rows=list(api.pages('wells',dict(fields='ENVWellStatus',country='CA')));self.assertEqual(len(rows),3)
         for url in api.urls:

@@ -1,0 +1,2434 @@
+[
+  {
+    "name": "AcreageReportedBy",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Details on how we procured the Acreage Number, Options include Buyer, Seller, Third Party, Marketing Brochure",
+    "filterType": ""
+  },
+  {
+    "name": "AcresGross",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Amount of gross acres involved in a transaction of assets.",
+    "filterType": ""
+  },
+  {
+    "name": "AcresGrossUndeveloped",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Amount of gross acres that are undeveloped.",
+    "filterType": ""
+  },
+  {
+    "name": "AcresHBP_PCT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Amount of net acres that are held by production.",
+    "filterType": ""
+  },
+  {
+    "name": "AcresNet",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The number of Net Acres involved in the transaction.",
+    "filterType": ""
+  },
+  {
+    "name": "Assets",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "List of prospects, discoveries, and fields included in the transaction for Canadian and International upstream transactions.",
+    "filterType": ""
+  },
+  {
+    "name": "AssetType",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "More granular categorization than Segment. Categorizes assets across non-upstream datasets (Midstream, Downstream, OFS, Power & Utilities, LNG) with different options for each.",
+    "filterType": ""
+  },
+  {
+    "name": "Blocks",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "List of acreage blocks included in the transaction for Canadian and International upstream transactions.",
+    "filterType": ""
+  },
+  {
+    "name": "Buyers",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The name of the buyer(s).",
+    "filterType": ""
+  },
+  {
+    "name": "BuyersAsReported",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The name of the buyer(s) as disclosed in the public domain.",
+    "filterType": ""
+  },
+  {
+    "name": "BuyersFinancialAdvisors",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Financial Advisors of the buyers.",
+    "filterType": ""
+  },
+  {
+    "name": "BuyersHeadquarters",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The country headquarters of the buyers.",
+    "filterType": ""
+  },
+  {
+    "name": "BuyersLegalAdvisors",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Legal Advisors of the buyers.",
+    "filterType": ""
+  },
+  {
+    "name": "BuyersPeerGroup",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "This field Specifies which Peer Group did the Buyers belong to, Options include - Public E&P, Private, Private Equity backed, etc.",
+    "filterType": ""
+  },
+  {
+    "name": "BuyersRegionsOfOrigin",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Global region of buyer determined by its headquarters.",
+    "filterType": ""
+  },
+  {
+    "name": "BuyerTicker",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The ticker symbol for the buyer at the time of the transaction.",
+    "filterType": ""
+  },
+  {
+    "name": "CanadaProvince",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The Canadian province where the transacted assets are located.",
+    "filterType": ""
+  },
+  {
+    "name": "CashFlowOrEBITDA_MM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Description of Cash Flow or EBITDA- often includes the pertaining time period or assumptions.",
+    "filterType": ""
+  },
+  {
+    "name": "CashFlowOrEBITDAComment",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Cash Flow or EBITDA associated with the transaction reported in $ millions.",
+    "filterType": ""
+  },
+  {
+    "name": "CashFlowOrEBITDAMultiple",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Deal value divided by Cash Flow or EBITDA.",
+    "filterType": ""
+  },
+  {
+    "name": "CashFlowOrEBITDAMultipleComment",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Description of Cash Flow or EBITDA used to arrive at the multiple- often includes relevant time period or assumptions.",
+    "filterType": ""
+  },
+  {
+    "name": "Counties",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The Counties where the transacted assets are located.",
+    "filterType": ""
+  },
+  {
+    "name": "Dataset",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Classified as USA Upstream, Canada Upstream, International Upstream, Midstream, Downstream, OFS, LNG, Power &Utilities based on energy vertical or location (for upstream transactions).",
+    "filterType": ""
+  },
+  {
+    "name": "DateAnnounced",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be in the RFC3339 format. Example: 2021-01-01",
+    "description": "Date that the transaction is publicly announced.",
+    "filterType": "request"
+  },
+  {
+    "name": "DateClosed",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be in the RFC3339 format. Example: 2021-01-01",
+    "description": "The Date that the deal closed.",
+    "filterType": "request"
+  },
+  {
+    "name": "DateEffective",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The financial effective date of the transaction.",
+    "filterType": ""
+  },
+  {
+    "name": "DateModified",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The date that a particular transaction was updated by a market research analyst.",
+    "filterType": ""
+  },
+  {
+    "name": "DealHighlights",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "A good summary of the transaction, that provides an overview of the assets, agreement, structure and financing of the transaction.",
+    "filterType": ""
+  },
+  {
+    "name": "DealID",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "A unique key associated with every transaction.",
+    "filterType": ""
+  },
+  {
+    "name": "DealInsight",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "In-depth analysis and commentary for a particular transaction, often includes transaction comps and comparable transactions maps.",
+    "filterType": ""
+  },
+  {
+    "name": "DealInsightMap",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Map image used in the respective Deal Insight for the transaction..",
+    "filterType": ""
+  },
+  {
+    "name": "DealStatus",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be alphanumeric.",
+    "description": "The current status of the deal classified as announced, closed, or terminated.",
+    "filterType": "request"
+  },
+  {
+    "name": "DealType",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be alphanumeric.",
+    "description": "The type of deal based on following criteria: Acreage - Asset for sale expected to have >70% of value is attributed to acreage (and therefore not production); Corporate - Buyer acquires another company or stake in a company; Farm In/Farm Out - Deals where the buyer will earn a working interest that isn't subject to return hurdles and is generally participating more in drilling risk/upside; JV - Partnership done with some kind of promoted basis, most commonly seen with drillco structures where there are return hurdles and substantial cutbacks in the buyer's working interest; Property - Asset for sale where at least 30% of expected deal value is attributed to production (this value is derived from our production multiples for oil, NGLs, and gas, multiplied by the production of the deal); Royalty - Deals for sale in which royalty interests are being marketed, includes ORRIs; VPP - Volumetric Production Payment - Deal for sale in which an interest in a specific volume of production from an asset is being marketed.",
+    "filterType": "request"
+  },
+  {
+    "name": "DealValueCash_MM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Amount of Cash consideration paid by the buyer to the seller in the total deal value.",
+    "filterType": ""
+  },
+  {
+    "name": "DealValueComplexityBarrelDollarPerBBL",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Deal value divided by Refinery Complexity (metric only given when Segment = Refining).",
+    "filterType": ""
+  },
+  {
+    "name": "DealValueDailyCapacityDollarPerBBL",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Deal value divided by total refining capacity of transacted assets (metric only given when Segment = Refining).",
+    "filterType": ""
+  },
+  {
+    "name": "DealValueDebt_MM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Amount of Debt assumed in transaction as part of the total deal value.",
+    "filterType": ""
+  },
+  {
+    "name": "DealValueEquity_MM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Amount of Equity involved in the total deal value.",
+    "filterType": ""
+  },
+  {
+    "name": "DealValueFCCEquiv",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Deal value divided by Fluid Catalytic Cracking conversion capacity of a refinery.",
+    "filterType": ""
+  },
+  {
+    "name": "DealValueNetDebtAssumed_MM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Seller's net debt assumed by the Buyer in an acquisition (reported by company, or calculated from financials statements)",
+    "filterType": ""
+  },
+  {
+    "name": "DealValueOther_MM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Portion of deal value not attributable to cash, equity, debt, working capital. Examples include noncontrolling interests, value of carry received in a transaction, certain P&A liabilities, etc.",
+    "filterType": ""
+  },
+  {
+    "name": "DealValuePerAcreage",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Deal value divided by total net acres acquired or sometimes total net acres of acquired in a particular play.",
+    "filterType": ""
+  },
+  {
+    "name": "DealValueProductionBOEPerDay",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Deal value divided by daily production acquired.",
+    "filterType": ""
+  },
+  {
+    "name": "DealValueProvedReservesBOE",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Deal value divided by proved reserves acquired.",
+    "filterType": ""
+  },
+  {
+    "name": "DealValueRCIRefining",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Deal value divided by the Replacement Cost Index of transacted refining assets.",
+    "filterType": ""
+  },
+  {
+    "name": "DealValueRCITerminal",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Deal value divided by the Replacement Cost Index of transacted terminal assets.",
+    "filterType": ""
+  },
+  {
+    "name": "DealValueStorageCapacityDollarPerBBL",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Deal value divided by total storage capacity of transacted assets (metric only given when Segment = Storage).",
+    "filterType": ""
+  },
+  {
+    "name": "DealValueWorkingCapital_MM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Working capital deficit/surplus of the seller assumed by buyer. Calculated as current assets minus current liabilities.",
+    "filterType": ""
+  },
+  {
+    "name": "DeletedDate",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be in the RFC3339 format. Example: 2021-01-01",
+    "description": "Date the record was deleted. *Deleted records should not be used in an analysis.",
+    "filterType": "request"
+  },
+  {
+    "name": "DollarPer2PBOE",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Deal value associated to a unit of 2P BOE of Reserves (after royalties).",
+    "filterType": ""
+  },
+  {
+    "name": "DollarPer2PBOEWI",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Deal value associated to a unit of 2P BOE of Reserves (before royalties).",
+    "filterType": ""
+  },
+  {
+    "name": "DollarPer2PMCFE",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Deal value associated to a unit of 2P Mcfe of Reserves (after royalties).",
+    "filterType": ""
+  },
+  {
+    "name": "DollarPer2PMCFEWI",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Deal value associated to a unit of 2P Mcfe of Reserves (before royalties).",
+    "filterType": ""
+  },
+  {
+    "name": "DollarPer3PBOE",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Deal value associated to a unit of 3P BOE of Reserves (after royalties).",
+    "filterType": ""
+  },
+  {
+    "name": "DollarPer3PBOEWI",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Deal value associated to a unit of 3P BOE of Reserves (before royalties).",
+    "filterType": ""
+  },
+  {
+    "name": "DollarPer3PMCFE",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Deal value associated to a unit of 3P Mcfe of Reserves (after royalties).",
+    "filterType": ""
+  },
+  {
+    "name": "DollarPer3PMCFEWI",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Deal value associated to a unit of 3P Mcfe of Reserves (before royalties).",
+    "filterType": ""
+  },
+  {
+    "name": "DollarPerAcreDollarPerSurfaceAcre",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Deal value associated to each net acre, this is done by first assigning a value to PDP (Production) and then assigning the remaining value to acreage and dividing by net acres.",
+    "filterType": ""
+  },
+  {
+    "name": "DollarPerbblLiquidsStorageCapacity",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Deal value divided by liquids storage capacity (no valuation done if other non-liquids storage assets are transacted).",
+    "filterType": ""
+  },
+  {
+    "name": "DollarPerContingentBOE",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Deal value associated to a unit of Contingent BOE of Reserves (after royalties).",
+    "filterType": ""
+  },
+  {
+    "name": "DollarPerContingentBOEWI",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Deal value associated to a unit of Contingent BOE of Reserves (before royalties).",
+    "filterType": ""
+  },
+  {
+    "name": "DollarPerContingentMCFE",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Deal value associated to a unit of Contingent Mcfe of Reserves (after royalties).",
+    "filterType": ""
+  },
+  {
+    "name": "DollarPerContingentMCFEWI",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Deal value associated to a unit of Contingent Mcfe of Reserves (before royalties).",
+    "filterType": ""
+  },
+  {
+    "name": "DollarPerDailyBBLLiquidsGatheringCapacity",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Deal value divided by liquids gathering capacity (no valuation done if other non-liquids gathering assets are transacted).",
+    "filterType": ""
+  },
+  {
+    "name": "DollarPerDailyBBLLiquidsPipelineCapacity",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Deal value divided by liquids pipeline transportation capacity (no valuation done if other non-liquids pipeline assets are transacted).",
+    "filterType": ""
+  },
+  {
+    "name": "DollarPerDailyBOE",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Deal value associated to a unit of Daily BOE of Production after royalties (deal value divided by daily production if all value is allocated to production. If deal value is allocated beyond produciton (i.e. acreage, midstream assets, etc.) then it is a blended metric based on Enverus production multiples).",
+    "filterType": ""
+  },
+  {
+    "name": "DollarPerDailyBOEWI",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Deal value associated to a unit of Daily BOE of Production before royalties (deal value divided by daily production if all value is allocated to production. If deal value is allocated beyond produciton (i.e. acreage, midstream assets, etc.) then it is a blended metric based on Enverus production multiples).",
+    "filterType": ""
+  },
+  {
+    "name": "DollarPerDailyMCFE",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Deal value divided by natural gas gathering and processing capacity (no valuation done if other non-gas pipeline assets are transacted).",
+    "filterType": ""
+  },
+  {
+    "name": "DollarPerDailyMCFEWI",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Deal value divided by natural gas pipeline transportation capacity (no valuation done if other non-gas pipeline assets are transacted).",
+    "filterType": ""
+  },
+  {
+    "name": "DollarPerDailyMCFGasGatheringandProcessing",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Deal value associated to a unit of Daily Mcfe of Production (after royalties).",
+    "filterType": ""
+  },
+  {
+    "name": "DollarPerDailyMCFGasPipeline",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Deal value associated to a unit of Daily Mcfe of Production (before royalties).",
+    "filterType": ""
+  },
+  {
+    "name": "DollarPerLocation",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Acreage value associated to a unit of Net Risked Remaining Locations (drilling inventory acquired in the transaction); acreage value divided by Net Unrisked Remaining Locations.",
+    "filterType": ""
+  },
+  {
+    "name": "DollarPerMCFGasStorageCapacity",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Deal value divided by natural gas storage capacity (no valuation done if other non-gas storage assets are transacted).",
+    "filterType": ""
+  },
+  {
+    "name": "DollarPerMWGenerationCapacity",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Deal value divided by generation capacity. ",
+    "filterType": ""
+  },
+  {
+    "name": "DollarPerProvedBOE",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Deal value associated to a unit of Proved BOE of Reserves (after royalties).",
+    "filterType": ""
+  },
+  {
+    "name": "DollarPerProvedBOEWI",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Deal value associated to a unit of Proved BOE of Reserves (before royalties).",
+    "filterType": ""
+  },
+  {
+    "name": "DollarPerProvedMCFE",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Deal value associated to a unit of Proved Mcfe of Reserves (after royalties).",
+    "filterType": ""
+  },
+  {
+    "name": "DollarPerProvedMCFEWI",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Deal value associated to a unit of Proved Mcfe of Reserves (before royalties).",
+    "filterType": ""
+  },
+  {
+    "name": "DrillingLocationsComment",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Description of net drilling locations (assumptions, spacing, benches, etc.).",
+    "filterType": ""
+  },
+  {
+    "name": "DUCCount",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Drilled but uncompleted well count at the time of the transaction.",
+    "filterType": ""
+  },
+  {
+    "name": "ENVBasin",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be alphanumeric.",
+    "description": "The geographic basin where the deal for sale assets are located, as derived by RSEG. If a deal is associated with more than one basin it is tagged as Multiple.",
+    "filterType": "request"
+  },
+  {
+    "name": "ENVClosingStory",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "A&D Transactions Closing Story Write-Up.",
+    "filterType": ""
+  },
+  {
+    "name": "ENVNarrative",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "A&D Transactions Write-Up.",
+    "filterType": ""
+  },
+  {
+    "name": "ENVOperatorBuyer",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be alphanumeric.",
+    "description": "Buyer. Data has been normalized and standardized by Enverus to aggregate into single operator names as well as roll subsidiaries up to the parent company where public data is disclosed.",
+    "filterType": "request"
+  },
+  {
+    "name": "ENVOperatorBuyerTicker",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Ticker symbol for the buyer based on Enverus-normalized ENV Operator field. Public companies follow the convention of \"-US\" for US-listed stocks and \"-CA\" for Canadian-listed stocks. Private operators are followed by an asterisk*.",
+    "filterType": ""
+  },
+  {
+    "name": "ENVOperatorSeller",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be alphanumeric.",
+    "description": "Seller. Data has been normalized and standardized by Enverus to aggregate into single operator names as well as roll subsidiaries up to the parent company where public data is disclosed.",
+    "filterType": "request"
+  },
+  {
+    "name": "ENVOperatorSellerTicker",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Ticker symbol for the seller based on Enverus-normalized ENV Operator field. Public companies follow the convention of \"-US\" for US-listed stocks and \"-CA\" for Canadian-listed stocks. Private operators are followed by an asterisk*.",
+    "filterType": ""
+  },
+  {
+    "name": "ENVPlay",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "ENV Play as defined by the location within an Enverus-defined Play Shapefile AND meets criteria to be assigned an ENV Interval within that play.",
+    "filterType": ""
+  },
+  {
+    "name": "ENVRegion",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "ENV Region as defined by the location within one of nine ENV Region Shapefiles. ENV Region inclusively covers North America.",
+    "filterType": ""
+  },
+  {
+    "name": "ExchangeCurrency",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The reported currency used in the transaction, which is being converted to USD.",
+    "filterType": ""
+  },
+  {
+    "name": "ExchangeRate",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The currency exchange rate for the Exchange Currency in terms of USD.",
+    "filterType": ""
+  },
+  {
+    "name": "ExchangeRateDate",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The date of the Exchange Rate being applied to the Exchange Currency.",
+    "filterType": ""
+  },
+  {
+    "name": "ExecutiveDealSummary",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Source doc attachment for select USA Upstream deals with a map. Includes transaction overview, comparable assets, offset production, permiting, etc.",
+    "filterType": ""
+  },
+  {
+    "name": "GasGatheringProcessingCapacity_MMCFD",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Natural gas gathering and processing capacity of the transacted assets.",
+    "filterType": ""
+  },
+  {
+    "name": "GasPipelineCapacity_MMCFD",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Natural gas pipeline transportation capacity of the transacted assets.",
+    "filterType": ""
+  },
+  {
+    "name": "GasStorageCapacity_BCF",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Natural gas storage capacity of the transacted assets.",
+    "filterType": ""
+  },
+  {
+    "name": "GenerationCapacity_MW",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Total megawatt capacity of the power generation assets the buyer acquires.",
+    "filterType": ""
+  },
+  {
+    "name": "Geom_Poly",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Geospatial component, polygon.",
+    "filterType": ""
+  },
+  {
+    "name": "Headline",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The Headline of the transaction usually highlighting buyer, seller and transacted assets.",
+    "filterType": ""
+  },
+  {
+    "name": "Hydrocarbon",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The type of hydrocarbon - Oil, Gas or Oil+Gas. Deals with production =70% oil are classified as oil and same for gas. If it is <70% for both then it is taken as Oil+Gas",
+    "filterType": ""
+  },
+  {
+    "name": "Key_Assets",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Highlights key assets acquired by buyer- used in Midstream, Downstream, and Power & Utilities datasets.",
+    "filterType": ""
+  },
+  {
+    "name": "Latitude",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Latitude co-ordinates of the transaction.",
+    "filterType": ""
+  },
+  {
+    "name": "Licences",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "List of licencses included in the transaction for Canadian and International upstream transactions.",
+    "filterType": ""
+  },
+  {
+    "name": "LiquidsGatheringProcessingCapacity_MMBBLD",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Liquids gathering and processing capacity of the transacted assets.",
+    "filterType": ""
+  },
+  {
+    "name": "LiquidsPipelineCapacity_MMBBLD",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Liquids pipeline transportation capacity of the transacted assets.",
+    "filterType": ""
+  },
+  {
+    "name": "LiquidsStorageCapacity_MMBBL",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Liquids storage capacity of the transacted assets.",
+    "filterType": ""
+  },
+  {
+    "name": "Longitude",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Longitude co-ordinates of the transaction.",
+    "filterType": ""
+  },
+  {
+    "name": "MajorProductsHeld",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Description of products stored in storage assets.",
+    "filterType": ""
+  },
+  {
+    "name": "MarketCommentary",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Buyer and seller management quotes and commentary from press releases or transcripts.",
+    "filterType": ""
+  },
+  {
+    "name": "OnshoreOffshore",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Location of the assets - if they were onshore, offshore or both",
+    "filterType": ""
+  },
+  {
+    "name": "OperatorDisclosedField",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The field where the transacted assets are located, as disclosed by the operator.",
+    "filterType": ""
+  },
+  {
+    "name": "OperatorDisclosedInterval",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The interval the transacted wells target, as disclosed by the operator.",
+    "filterType": ""
+  },
+  {
+    "name": "OpNonOp",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "If the assets that were transacted were operated or non-operated, \"operated\" is selected when there is a change of operatorship in the transaction (so if the seller was the operator and sold a portion of its WI but will remain as operator then it would be \"non-operated\")",
+    "filterType": ""
+  },
+  {
+    "name": "PremiumDiscount",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The closing share price of the Seller's stock for the last closing price prior to the deal announcement ",
+    "filterType": ""
+  },
+  {
+    "name": "PremiumDiscount30Day",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Premium or discount paid by Buyer to acquire the Seller's stock based on average closing share price for the 30 trading days prior to the deal announcement.",
+    "filterType": ""
+  },
+  {
+    "name": "PremiumDiscount30DayPriorAvg",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The average closing share price of the Seller's stock for the 30 trading days prior to the deal announcement.",
+    "filterType": ""
+  },
+  {
+    "name": "PremiumDiscount60Day",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Premium or discount paid by Buyer to acquire the Seller's stock based on average closing share price for the 60 trading days prior to the deal announcement.",
+    "filterType": ""
+  },
+  {
+    "name": "PremiumDiscount60DayPriorAvg",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The average closing share price of the Seller's stock for the 60 trading days prior to the deal announcement.",
+    "filterType": ""
+  },
+  {
+    "name": "PremiumDiscount90Day",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Premium or discount paid by Buyer to acquire the Seller's stock based on average closing share price for the 90 trading days prior to the deal announcement ",
+    "filterType": ""
+  },
+  {
+    "name": "PremiumDiscount90DayPriorAvg",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The average closing share price of the Seller's stock for the 90 trading days prior to the deal announcement .",
+    "filterType": ""
+  },
+  {
+    "name": "PremiumDiscountOffer",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Describes how the Buyer is offering to pay for the Seller's stock, options include - Cash, Stock, Cash & Stock.",
+    "filterType": ""
+  },
+  {
+    "name": "PremiumDiscountOfferDate",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The date of the last closing price before the transaction was announced.",
+    "filterType": ""
+  },
+  {
+    "name": "PremiumDiscountOfferPrice",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The per share price paid by the Buyer to acquire a share of the Seller's stock.",
+    "filterType": ""
+  },
+  {
+    "name": "PremiumDiscountPreDeal",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Premium or discount paid by Buyer to acquire the Seller's stock based on last closing share price prior to the deal announcement.",
+    "filterType": ""
+  },
+  {
+    "name": "PriceAecoSpotCDollarPerMCF",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Closing Aeco spot price for the day of the transaction announcement.",
+    "filterType": ""
+  },
+  {
+    "name": "PriceAecoStripCDollarPerMCF",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Closing Aeco strip price for the day of the transaction announcement.",
+    "filterType": ""
+  },
+  {
+    "name": "PriceBrent12monthFutureDollarPerBBL",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Closing Brent 12-month future price for the day of the transaction announcement.",
+    "filterType": ""
+  },
+  {
+    "name": "PriceBrentSpotDollarPerBBL",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Closing Brent spot price for the day of the transaction announcement.",
+    "filterType": ""
+  },
+  {
+    "name": "PriceHenryHubSpotDollarPerMMBTU",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Price of Henry Hub Spot ($/MMbtu) on the day the deal was announced",
+    "filterType": ""
+  },
+  {
+    "name": "PriceNYMEXGas12MonthStripDollarPerMMBTU",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Price of NYMEX Gas 12-Month Strip ($/MMbtu) on the day the deal was announced",
+    "filterType": ""
+  },
+  {
+    "name": "PriceNYMEXOil12MonthStripDollarPerBBL",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Price of NYMEX Oil 12-Month Strip ($/bbl) on the day the deal was announced",
+    "filterType": ""
+  },
+  {
+    "name": "PriceUKNG1monthFuturePerTherm",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Closing UK natural gas 1-month future price for the day of the transaction announcement.",
+    "filterType": ""
+  },
+  {
+    "name": "PriceUKNGSpotPerTherm",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Closing UK natural gas spot price for the day of the transaction announcement.",
+    "filterType": ""
+  },
+  {
+    "name": "PriceWesternCanadaSelectSpotCDollarPerBBL",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Closing Western Canada Select spot price for the day of the transaction announcement.",
+    "filterType": ""
+  },
+  {
+    "name": "PriceWesternCanadaSelectStripCDollarPerBBL",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Closing Western Canada Select strip price for the day of the transaction announcement.",
+    "filterType": ""
+  },
+  {
+    "name": "PriceWTISpotDollarPerBBL",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Price of WTI Spot ($/bbl) on the day the deal was announced.",
+    "filterType": ""
+  },
+  {
+    "name": "PrimaryCountry",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The primary country where the transacted assets are located.",
+    "filterType": ""
+  },
+  {
+    "name": "PrimaryCounty",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The primary county where the transacted upstream assets are located.",
+    "filterType": ""
+  },
+  {
+    "name": "PrimaryRegion",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The primary global region where the transacted assets are located.",
+    "filterType": ""
+  },
+  {
+    "name": "PrimaryState",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The primary state where the transacted assets are located.",
+    "filterType": ""
+  },
+  {
+    "name": "PrivateEquitySponsorBuyer",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The private equity sponsor/financier backing the buyer.",
+    "filterType": ""
+  },
+  {
+    "name": "PrivateEquitySponsorSeller",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The private equity sponsor/financier backing the seller.",
+    "filterType": ""
+  },
+  {
+    "name": "Production_MBBLD",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Oil Production (after royalties) reported in Mbbld.",
+    "filterType": ""
+  },
+  {
+    "name": "Production_MMCFD",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Gas Production (after royalties) reported in MMcfd.",
+    "filterType": ""
+  },
+  {
+    "name": "Production_MMCFED",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Total Production (after royalties) reported in MMcfed.",
+    "filterType": ""
+  },
+  {
+    "name": "Production_NGL_MBBLD",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "NGL Production reported in Mbbld.",
+    "filterType": ""
+  },
+  {
+    "name": "ProductionComment",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Comments to describe the production number used (often time related, i.e. Q1-2019 production).",
+    "filterType": ""
+  },
+  {
+    "name": "ProductionCommentWI",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Description of daily production transacted.",
+    "filterType": ""
+  },
+  {
+    "name": "ProductionGas_PCT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Gas percentage in Production (after royalties) Stream.",
+    "filterType": ""
+  },
+  {
+    "name": "ProductionNGLIncludedWithCrude",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Indication of whether NGLs were included with Oil in \"ProductionMbbld\" field",
+    "filterType": ""
+  },
+  {
+    "name": "ProductionNGLs_PCT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "NGLs percentage in Production (after royalties) Stream.",
+    "filterType": ""
+  },
+  {
+    "name": "ProductionOil_PCT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Oil percentage in Production (after royalties) Stream.",
+    "filterType": ""
+  },
+  {
+    "name": "ProductionOilAndNGLs_PCT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Oil and NGLs percentage in Production Stream.",
+    "filterType": ""
+  },
+  {
+    "name": "ProductionOilWI_PCT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Oil and NGLs percentage in Production (before royalties) Stream.",
+    "filterType": ""
+  },
+  {
+    "name": "ProductionReportedBy",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Details on how we procured the Production number, Options include Buyer, Seller, Third Party, Marketing Brochure",
+    "filterType": ""
+  },
+  {
+    "name": "ProductionReportedByWI",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Source of production information.",
+    "filterType": ""
+  },
+  {
+    "name": "ProductionWI_MBBLD",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Oil Production (before royalties) reported in Mbbld.",
+    "filterType": ""
+  },
+  {
+    "name": "ProductionWI_MBOED",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Total Production (before royalties) reported in MBOED.",
+    "filterType": ""
+  },
+  {
+    "name": "ProductionWI_MMCFD",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Gas Production (before royalties) reported in MMcfd.",
+    "filterType": ""
+  },
+  {
+    "name": "ProductionWI_MMCFED",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Total Production (before royalties) reported in MMcfed.",
+    "filterType": ""
+  },
+  {
+    "name": "PV102P_MM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "PV10 Value of 2P Reserves in $MM",
+    "filterType": ""
+  },
+  {
+    "name": "PV102PWI_MM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "PV10 of 2P reserves (in $ millions) as reported by buyer, seller, or marketing brochure.",
+    "filterType": ""
+  },
+  {
+    "name": "PV103P_MM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "PV10 Value of 3P Reserves in $MM",
+    "filterType": ""
+  },
+  {
+    "name": "PV103PWI_MM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "PV10 of 3P reserves (in $ millions) as reported by buyer, seller, or marketing brochure.",
+    "filterType": ""
+  },
+  {
+    "name": "PV10Comment",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "PV10 Comments to describe how the reported PV10 numbers were calculated (i.e. pricing assumptions, effective dates, who reported the PV10 numbers)",
+    "filterType": ""
+  },
+  {
+    "name": "PV10CommentWI",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Description of PV10 values of reserves transacted- can include pricing, development and effective date assumptions as reported by buyer or seller.",
+    "filterType": ""
+  },
+  {
+    "name": "PV10Contingent_MM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "PV10 Value of Contingent Reserves in $MM",
+    "filterType": ""
+  },
+  {
+    "name": "PV10ContingentWI_MM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "PV10 of contingent reserves (in $ millions) as reported by buyer, seller, or marketing brochure.",
+    "filterType": ""
+  },
+  {
+    "name": "PV10PD_MM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "PV10 Value of Proved Developed Reserves in $MM",
+    "filterType": ""
+  },
+  {
+    "name": "PV10PDProved_PCT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "PV10 Proved Developed Percent of PV10 Value of Proved Reserves",
+    "filterType": ""
+  },
+  {
+    "name": "PV10PDWI_MM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "PV10 of proved developed reserves (in $ millions) as reported by buyer, seller, or marketing brochure.",
+    "filterType": ""
+  },
+  {
+    "name": "PV10Possible_MM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "PV10 Value of Possible Reserves in $MM",
+    "filterType": ""
+  },
+  {
+    "name": "PV10PossibleWI_MM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "PV10 of possible reserves (in $ millions) as reported by buyer, seller, or marketing brochure.",
+    "filterType": ""
+  },
+  {
+    "name": "PV10Probable_MM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "PV10 Value of Probable Reserves in $MM",
+    "filterType": ""
+  },
+  {
+    "name": "PV10ProbableWI_MM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "PV10 of probable reserves (in $ millions) as reported by buyer, seller, or marketing brochure.",
+    "filterType": ""
+  },
+  {
+    "name": "PV10Proved_MM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "PV10 Value of Proved Reserves in $MM",
+    "filterType": ""
+  },
+  {
+    "name": "PV10ProvedWI_MM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "PV10 of proved reserves (in $ millions) as reported by buyer, seller, or marketing brochure.",
+    "filterType": ""
+  },
+  {
+    "name": "PV10PUD_MM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "PV10 Value of Proved Undeveloped Reserves in $MM",
+    "filterType": ""
+  },
+  {
+    "name": "PV10PUDWI_MM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "PV10 of proved undeveloped reserves (in $ millions) as reported by buyer, seller, or marketing brochure.",
+    "filterType": ""
+  },
+  {
+    "name": "RefineryCapacity_BBLD",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Refining capacity of the transacted assets.",
+    "filterType": ""
+  },
+  {
+    "name": "RefineryComplexity",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Nelson refinery complexity rating. ",
+    "filterType": ""
+  },
+  {
+    "name": "RefineryConversionCapacityFCCEquiv",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Fluid Catalytic Cracking conversion capacity of a refinery.",
+    "filterType": ""
+  },
+  {
+    "name": "RefineryType",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Description of refinery classified as asphalt, coking, cracking, hydroskimming, topping, and other.",
+    "filterType": ""
+  },
+  {
+    "name": "ReplacementCostIndexRCIRefinery",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Replacement Cost Index of transacted refineries. RCI value less than 1.0 means the cost to replace the existing facilities is less than the cost to maintain them.",
+    "filterType": ""
+  },
+  {
+    "name": "ReplacementCostIndexRCITerminal",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Replacement Cost Index of transacted terminal assets. RCI value less than 1.0 means the cost to replace the existing facilities is less than the cost to maintain them.",
+    "filterType": ""
+  },
+  {
+    "name": "ReplacementCostStorageCapacity",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Replacement Cost Index of transacted terminal assets divided by their storage capacity.",
+    "filterType": ""
+  },
+  {
+    "name": "ReserveComment",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Comments to describe the reserves number used (usually gives effective date of reserves)",
+    "filterType": ""
+  },
+  {
+    "name": "ReserveCommentWI",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Description of reserves.",
+    "filterType": ""
+  },
+  {
+    "name": "Reserves2P_BCF",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "2P Reserves (proved plus probable) of natural gas (after royalties) in unit Bcf.",
+    "filterType": ""
+  },
+  {
+    "name": "Reserves2P_BCFE",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "2P Reserves (proved plus probable) after royalties in unit Bcfe.",
+    "filterType": ""
+  },
+  {
+    "name": "Reserves2P_MMBBL",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "2P Reserves (proved plus probable) of Oil after royalties; in unit MMbbl.",
+    "filterType": ""
+  },
+  {
+    "name": "Reserves2P_MMBOE",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "2P Reserves (proved plus probable) before royalties in unit MMboe.",
+    "filterType": ""
+  },
+  {
+    "name": "Reserves2PNGL_MMBBL",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "2P Reserves (proved plus probable) of NGLs; in unit MMbbl.",
+    "filterType": ""
+  },
+  {
+    "name": "Reserves2POil_PCT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "2P Reserves (before royalties) Percentage of Oil.",
+    "filterType": ""
+  },
+  {
+    "name": "Reserves2PWI_BCF",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "2P Reserves (proved plus probable) of natural gas (before royalties) in unit Bcf.",
+    "filterType": ""
+  },
+  {
+    "name": "Reserves2PWI_BCFE",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "2P Reserves (proved plus probable) before royalties in unit Bcfe.",
+    "filterType": ""
+  },
+  {
+    "name": "Reserves2PWI_MMBBL",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "2P Reserves (proved plus probable) of Oil before royalties; in unit MMbbl.",
+    "filterType": ""
+  },
+  {
+    "name": "Reserves2PWI_MMBOE",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "2P Reserves (proved plus probable) after royalties in unit MMboe.",
+    "filterType": ""
+  },
+  {
+    "name": "Reserves2PWIBCF_PCT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "2P Reserves of Gas as a percentage of total 2P Reserves (before royalties).",
+    "filterType": ""
+  },
+  {
+    "name": "Reserves2PWIMMBBL_PCT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "2P Reserves of Oil as a percentage of total 2P Reserves (before royalties).",
+    "filterType": ""
+  },
+  {
+    "name": "Reserves2PWIMMBOE_PCT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Sum of 2P Reserves Percent of Oil, 2P Reserves Percent of NGLs, and 2P Reserves of Gas; should equal 100%.",
+    "filterType": ""
+  },
+  {
+    "name": "Reserves2PWIOil_PCT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "2P Reserves (before royalties) Percentage of Oil.",
+    "filterType": ""
+  },
+  {
+    "name": "Reserves3P_BCF",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "3P Reserves (proved plus probable plus possible) of natural gas (after royalties); in unit Bcf.",
+    "filterType": ""
+  },
+  {
+    "name": "Reserves3P_BCFE",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "3P Reserves (proved plus probable plus possible) in unit Bcfe (after royalties).",
+    "filterType": ""
+  },
+  {
+    "name": "Reserves3P_MMBBL",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "3P Reserves (proved plus probable) of Oil in unit MMbbl (after royalties).",
+    "filterType": ""
+  },
+  {
+    "name": "Reserves3P_MMBOE",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "3P Reserves (proved plus probable plus possible) in unit MMboe (after royalties).",
+    "filterType": ""
+  },
+  {
+    "name": "Reserves3PNGL_MMBBL",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "3P Reserves (proved plus probable plus possible) of NGLs in unit MMbbl.",
+    "filterType": ""
+  },
+  {
+    "name": "Reserves3PWI_BCF",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "3P Reserves (proved plus probable plus possible) of natural gas (before royalties); in unit Bcf.",
+    "filterType": ""
+  },
+  {
+    "name": "Reserves3PWI_BCFE",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "3P Reserves (proved plus probable plus possible) in unit Bcfe (before royalties).",
+    "filterType": ""
+  },
+  {
+    "name": "Reserves3PWI_MMBBL",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "3P Reserves (proved plus probable) of Oil in unit MMbbl (before royalties).",
+    "filterType": ""
+  },
+  {
+    "name": "Reserves3PWI_MMBOE",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "3P Reserves (proved plus probable plus possible) in unit MMboe (before royalties).",
+    "filterType": ""
+  },
+  {
+    "name": "ReservesContingent_BCF",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Contingent Reserves Gas value in unit Bcf (after royalties).",
+    "filterType": ""
+  },
+  {
+    "name": "ReservesContingent_BCFE",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Contingent Reserves value in unit Bcfe (after royalties).",
+    "filterType": ""
+  },
+  {
+    "name": "ReservesContingent_MMBBL",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Contingent oil reserves (after royalties) in unit MMbbl.",
+    "filterType": ""
+  },
+  {
+    "name": "ReservesContingent_MMBOE",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Contingent oil reserves (after royalties) in unit MMboe.",
+    "filterType": ""
+  },
+  {
+    "name": "ReservesContingentNGL_MMBBL",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Contingent NGL reserves (after royalties) in unit MMbbl.",
+    "filterType": ""
+  },
+  {
+    "name": "ReservesContingentWI_BCF",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Contingent Reserves Gas value in unit Bcf (before royalties).",
+    "filterType": ""
+  },
+  {
+    "name": "ReservesContingentWI_BCFE",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Contingent Reserves value in unit Bcfe (before royalties).",
+    "filterType": ""
+  },
+  {
+    "name": "ReservesContingentWI_MMBBL",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Contingent Reserves Oil value in unit MMbbl (before royalties).",
+    "filterType": ""
+  },
+  {
+    "name": "ReservesContingentWI_MMBOE",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Contingent oil reserves (before royalties) in unit MMboe.",
+    "filterType": ""
+  },
+  {
+    "name": "ReservesNGLIncludedWithCrude_MMBBLD",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Indication of whether NGLs were included with Oil in Reserves Proved (Mbbl/d) field.",
+    "filterType": ""
+  },
+  {
+    "name": "ReservesPossible_BCF",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Possible Reserves Gas value in unit Bcf.",
+    "filterType": ""
+  },
+  {
+    "name": "ReservesPossible_MMBBL",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Possible Reserves Oil value in unit MMbbl.",
+    "filterType": ""
+  },
+  {
+    "name": "ReservesPossible_MMBOE",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Possible Reserves value in unit MMboe.",
+    "filterType": ""
+  },
+  {
+    "name": "ReservesPossibleNGL_MMBBL",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Possible Reserves NGL value in unit MMbbl.",
+    "filterType": ""
+  },
+  {
+    "name": "ReservesProbable_BCF",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Probable Reserves Gas value in unit Bcf.",
+    "filterType": ""
+  },
+  {
+    "name": "ReservesProbable_MMBBL",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Probable Reserves of Oil value in unit MMbbl.",
+    "filterType": ""
+  },
+  {
+    "name": "ReservesProbableNGL_MMBBL",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Probable Reserves of NGL value in unit MMbbl.",
+    "filterType": ""
+  },
+  {
+    "name": "ReservesProved_BCF",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Proved Reserves of natural gas (after royalties) in unit Bcf.",
+    "filterType": ""
+  },
+  {
+    "name": "ReservesProved_BCFE",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Proved Reserves (after royalties) in unit Bcfe.",
+    "filterType": ""
+  },
+  {
+    "name": "ReservesProved_MMBBL",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Proved Reserves of Oil (after royalties) in unit MMbbl.",
+    "filterType": ""
+  },
+  {
+    "name": "ReservesProved_MMBOE",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Proved Reserves (after royalties) in unit MMboe.",
+    "filterType": ""
+  },
+  {
+    "name": "ReservesProvedBCF_PCT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Proved Reserves of natural gas as a percentage of Proved Reserves.",
+    "filterType": ""
+  },
+  {
+    "name": "ReservesProvedDeveloped_BCF",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Proved Developed Reserves of natural gas (after royalties) in unit Bcf.",
+    "filterType": ""
+  },
+  {
+    "name": "ReservesProvedDeveloped_BCFE",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Proved Developed Reserves (after royalties) in unit Bcfe.",
+    "filterType": ""
+  },
+  {
+    "name": "ReservesProvedDeveloped_MMBBL",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Proved Developed Reserves of Oil in unit MMbbl.",
+    "filterType": ""
+  },
+  {
+    "name": "ReservesProvedDeveloped_MMBOE",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Proved Developed Reserves (after royalties) in unit MMboe.",
+    "filterType": ""
+  },
+  {
+    "name": "ReservesProvedDevelopedBCF_PCT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Proved Developed Reserves of natural gas as a percentage of Proved Reserves of natural gas.",
+    "filterType": ""
+  },
+  {
+    "name": "ReservesProvedDevelopedMMBBL_PCT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Proved Developed Reserves of oil (after royalties) as a percentage of Proved Reserves of oil.",
+    "filterType": ""
+  },
+  {
+    "name": "ReservesProvedDevelopedMMBOE_PCT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Proved Developed Reserves as a percentage of Proved Reserves.",
+    "filterType": ""
+  },
+  {
+    "name": "ReservesProvedDevelopedNGL_MMBBL",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Proved Developed Reserves of NGL value in unit MMbbl.",
+    "filterType": ""
+  },
+  {
+    "name": "ReservesProvedDevelopedWI_BCFE",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Proved Developed Reserves (before royalties) in unit Bcfe.",
+    "filterType": ""
+  },
+  {
+    "name": "ReservesProvedDevelopedWI_MMBOE",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Proved Developed Reserves (before royalties) in unit MMboe.",
+    "filterType": ""
+  },
+  {
+    "name": "ReservesProvedDevelopedWIMMBOE_PCT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Proved Developed Reserves of oil (before royalties) as a percentage of Proved Reserves of oil.",
+    "filterType": ""
+  },
+  {
+    "name": "ReservesProvedMMBBL_PCT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Proved Reserves of oil as a percentage of Proved Reserves.",
+    "filterType": ""
+  },
+  {
+    "name": "ReservesProvedMMBOE_PCT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Sum of Proved Reserves Percent Oil, Proved Reserves Percent NGLs, and Proved Reserves of Gas; should equal 100%.",
+    "filterType": ""
+  },
+  {
+    "name": "ReservesProvedNGL_MMBBL",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Proved Reserves of NGL value in unit MMbbl",
+    "filterType": ""
+  },
+  {
+    "name": "ReservesProvedNGLMMBBL_PCT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Proved Reserves of NGL as a percentage of total proved reserves.",
+    "filterType": ""
+  },
+  {
+    "name": "ReservesProvedOil_PCT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Proved Reserves (after royalties) Percentage of Oil.",
+    "filterType": ""
+  },
+  {
+    "name": "ReservesProvedOilWI_PCT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Proved Reserves (before royalties) Percentage of Oil.",
+    "filterType": ""
+  },
+  {
+    "name": "ReservesProvedUndeveloped_BCF",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Proved Undeveloped Reserves of natural gas value in unit Bcf.",
+    "filterType": ""
+  },
+  {
+    "name": "ReservesProvedUndeveloped_MMBBL",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Proved Undeveloped Reserves of oil value in unit MMbbl.",
+    "filterType": ""
+  },
+  {
+    "name": "ReservesProvedUndeveloped_MMBOE",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Proved Undeveloped Reserves value in unit MMboe.",
+    "filterType": ""
+  },
+  {
+    "name": "ReservesProvedUndevelopedNGL_MMBBL",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Proved Undeveloped Reserves of NGL value in unit MMbbl.",
+    "filterType": ""
+  },
+  {
+    "name": "ReservesProvedWI_BCF",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Proved Reserves of natural gas (before royalties) in unit Bcf.",
+    "filterType": ""
+  },
+  {
+    "name": "ReservesProvedWI_BCFE",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Proved Reserves (before royalties) in unit Bcfe.",
+    "filterType": ""
+  },
+  {
+    "name": "ReservesProvedWI_MMBBL",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Proved Reserves of Oil (before royalties) in unit MMbbl.",
+    "filterType": ""
+  },
+  {
+    "name": "ReservesProvedWI_MMBOE",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Proved Reserves (before royalties) in unit MMboe.",
+    "filterType": ""
+  },
+  {
+    "name": "ReservesReportedBy",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The Entity who reported the reserve figures.",
+    "filterType": ""
+  },
+  {
+    "name": "ReservoirEngineering",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The engineering firm that did the reservoir engineering studies",
+    "filterType": ""
+  },
+  {
+    "name": "ResourceType",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Description of whether the assets are conventional or unconventional.",
+    "filterType": ""
+  },
+  {
+    "name": "RoyaltyRate_PCT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Royalty rate acquired by the buyer.",
+    "filterType": ""
+  },
+  {
+    "name": "RP2PReservesNet",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "2P Reserves divided by annual production (barrels of Daily Production multiplied by 365).",
+    "filterType": ""
+  },
+  {
+    "name": "RP2PReservesWI",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "2P Reserves divided by annual production (barrels of Daily Production multiplied by 365).",
+    "filterType": ""
+  },
+  {
+    "name": "RPProvedDeveloped",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Proved Developed Reserves divided by annual production (barrels of Daily Production multiplied by 365).",
+    "filterType": ""
+  },
+  {
+    "name": "RPProvedDevelopedWI",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Proved Developed Reserves divided by annual production (barrels of Daily Production multiplied by 365).",
+    "filterType": ""
+  },
+  {
+    "name": "RPProvedReserves",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Proved Reserves divided by annual production (barrels of Daily Production multiplied by 365).",
+    "filterType": ""
+  },
+  {
+    "name": "RPProvedReservesWI",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Proved Reserves divided by annual production (barrels of Daily Production multiplied by 365).",
+    "filterType": ""
+  },
+  {
+    "name": "SalesValueBasisRefinery_MM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Sales Value Basis allocated to refineries. ",
+    "filterType": ""
+  },
+  {
+    "name": "SalesValueBasisTerminal_MM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Sales Value Basis allocated to terminals. ",
+    "filterType": ""
+  },
+  {
+    "name": "SecondaryCountry",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The secondary country where the transacted assets are located.",
+    "filterType": ""
+  },
+  {
+    "name": "SecondaryRegion",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The secondary global region where the transacted assets are located.",
+    "filterType": ""
+  },
+  {
+    "name": "Segment",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Used to categorize assets across non-upstream datasets (Midstream, Downstream, OFS, Power & Utilities, LNG) with different options for each.",
+    "filterType": ""
+  },
+  {
+    "name": "Sellers",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The name of the seller(s).",
+    "filterType": ""
+  },
+  {
+    "name": "SellersAsReported",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The name of the seller(s) as disclosed in the public domain",
+    "filterType": ""
+  },
+  {
+    "name": "SellersFinancialAdvisors",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Financial Advisors of the sellers",
+    "filterType": ""
+  },
+  {
+    "name": "SellersHeadquarters",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The country headquarters of the sellers",
+    "filterType": ""
+  },
+  {
+    "name": "SellersLegalAdvisors",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Legal Advisors of the sellers",
+    "filterType": ""
+  },
+  {
+    "name": "SellersPeerGroup",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "This field Specifies which Peer Group did the Sellers belong to, Options include - Public, Private, Private Equity backed etc",
+    "filterType": ""
+  },
+  {
+    "name": "SellersRegionsOfOrigin",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Global region of seller determined by its headquarters",
+    "filterType": ""
+  },
+  {
+    "name": "SellersTicker",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The ticker symbol for the seller at the time of the transaction.",
+    "filterType": ""
+  },
+  {
+    "name": "ShapeFileType",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Description of shape file classified as geometry or location point.",
+    "filterType": ""
+  },
+  {
+    "name": "StateCode",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "State abbreviation for the states where the transacted assets are located; if there is county information then each state code is specific to each county listed therefore there can be repeating state codes.",
+    "filterType": ""
+  },
+  {
+    "name": "StateCountyGrouped",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The county and the state where the transacted assets are located.",
+    "filterType": ""
+  },
+  {
+    "name": "States",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The states where the transacted assets are located.",
+    "filterType": ""
+  },
+  {
+    "name": "StorageCapacity_MMbbl",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Total storage capacity for refined products of the transacted assets.",
+    "filterType": ""
+  },
+  {
+    "name": "SupplyDeliveryModes",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Description of the means in which the assets supply/deliver products.",
+    "filterType": ""
+  },
+  {
+    "name": "TerminalType",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Description of products held in a storage terminal; classified as crude oil, refined products, or crude oil & refined products.",
+    "filterType": ""
+  },
+  {
+    "name": "TransactionNotes",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Quick one liner highlighting key points/details or additional info related to the transaction.",
+    "filterType": ""
+  },
+  {
+    "name": "TransactionType",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The type of deal for sale based on following criteria:New Exploration Awards - licences awarded by the Government; Corporate M&A - Buyer acquires another company or stake in a company; Exploration blocks previously awarded - licences have already been awarded by the government, but they have not been developed in any way; Discoveries, Fields under Development, Producing fields - Depends on the phase of developement of the acreage (discovery is least developed, producing fields is most developed).",
+    "filterType": ""
+  },
+  {
+    "name": "UpdatedDate",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be in the RFC3339 format. Example: 2021-01-01",
+    "description": "Date the record was updated.",
+    "filterType": "request"
+  },
+  {
+    "name": "USSubregion",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The US Subregion that the deal is associated with",
+    "filterType": ""
+  },
+  {
+    "name": "ValuationNotes",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Information on the valuation methodology for a particular transaction. Shows calculation on the breakdown of how value is allocated in a deal including details on the oil, gas and NGL multiples used to arrive at the production value",
+    "filterType": ""
+  },
+  {
+    "name": "Value2P_MM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The portion of total deal value allocated to 2P Reserves",
+    "filterType": ""
+  },
+  {
+    "name": "Value3P_MM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The portion of total deal value allocated to 3P Reserves",
+    "filterType": ""
+  },
+  {
+    "name": "Value_MM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The total value for which the deal transacted in millions of dollars.",
+    "filterType": ""
+  },
+  {
+    "name": "Value_MM_As_Reported",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The total value for which the deal transacted in millions of dollars as reported in the public domain",
+    "filterType": ""
+  },
+  {
+    "name": "ValueAcreage_MM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The portion of total deal value allocated to Acreage (most often caluclated as total deal value less production value)",
+    "filterType": ""
+  },
+  {
+    "name": "ValueContingent_MM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The portion of total deal value allocated to Contingent Reserves",
+    "filterType": ""
+  },
+  {
+    "name": "ValueOther_MM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The portion of total deal value allocated to items other than 2p Reserves, 3P Reserves, Acreage, Contingent Reserves or Proved Reserves (i.e. midstream assets)",
+    "filterType": ""
+  },
+  {
+    "name": "ValuePDP_MM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The portion of total deal value allocated to Proved Reserves or often times production value which is calculated using flowing production multiples for oil, NGLs, and gas, respectively. ",
+    "filterType": ""
+  },
+  {
+    "name": "ValueTotal_MM",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Sum of all Consideration Paid data fields.",
+    "filterType": ""
+  },
+  {
+    "name": "WellListDownload",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Excel file containing list of well APIs included in the transaction. ",
+    "filterType": ""
+  },
+  {
+    "name": "UniqueDealID",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be alphanumeric.",
+    "description": "A unique key associated with every transaction.",
+    "filterType": "path"
+  }
+]

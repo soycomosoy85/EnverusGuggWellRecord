@@ -83,9 +83,11 @@
     "EnvWellCentroid_Gugg",
     "EnvSH_Gugg"
   ],
-  "templateColumns": 99,
+  "templateColumns": 101,
   "headerFields": 69,
   "scope": "All account-entitled North America wells; no basin/country filter",
+  "gisBasinAssignment": "Longest positive analytical lateral overlap; vertical surface containment; ties flagged",
+  "wellConstraint": "Y only for usable nonvertical lateral intersecting a Gugg Basin/Bench-matched TCA; otherwise N",
   "identity": "Country plus full supplied API_UWI; never truncate Canadian UWIs",
   "measurement": "Per-well UTM/UPS projected XY feet"
 }

@@ -1,0 +1,634 @@
+[
+  {
+    "name": "Abstract",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Abstract number in which the permit was filed. This is a location field.",
+    "filterType": ""
+  },
+  {
+    "name": "AmendedDate",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Date the permit application is amended by state agency.",
+    "filterType": ""
+  },
+  {
+    "name": "API_UWI",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "API defined as: State (2 digit), county (3 digit), unique well identifier (5 digit) | UWI number is a unique well identifier (up to 16 digits) that defines the bottom-hole location and each significant drilling or completion event in the well.",
+    "filterType": ""
+  },
+  {
+    "name": "API_UWI_Unformatted",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be alphanumeric.",
+    "description": "API_UWI with dashes and slashes removed.",
+    "filterType": "request"
+  },
+  {
+    "name": "ApprovedDate",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Date permit was approved.",
+    "filterType": ""
+  },
+  {
+    "name": "Block",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Block in which the permit was filed. This is a location field.",
+    "filterType": ""
+  },
+  {
+    "name": "BottomHoleLatitude",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Bottom hole latitude location of the matched permit.",
+    "filterType": ""
+  },
+  {
+    "name": "BottomHoleLongitude",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Bottom hole longitude location of the matched permit.",
+    "filterType": ""
+  },
+  {
+    "name": "ContractorAddress",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Drilling contractor contact address.",
+    "filterType": ""
+  },
+  {
+    "name": "ContractorCity",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Drilling contractor contact address.",
+    "filterType": ""
+  },
+  {
+    "name": "ContractorContact",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Drilling contractor contact name.",
+    "filterType": ""
+  },
+  {
+    "name": "ContractorEmail",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Drilling contractor contact email.",
+    "filterType": ""
+  },
+  {
+    "name": "ContractorName",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Drilling contractor that is associated with the rig.",
+    "filterType": ""
+  },
+  {
+    "name": "ContractorPhone",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Drilling contractor contact phone number.",
+    "filterType": ""
+  },
+  {
+    "name": "ContractorState",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Drilling contractor contact address.",
+    "filterType": ""
+  },
+  {
+    "name": "ContractorWebsite",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Drilling contractor contact website.",
+    "filterType": ""
+  },
+  {
+    "name": "ContractorZip",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Drilling contractor contact address.",
+    "filterType": ""
+  },
+  {
+    "name": "Country",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be alphanumeric.",
+    "description": "Name of Country.",
+    "filterType": "request"
+  },
+  {
+    "name": "County",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be alphanumeric.",
+    "description": "Name of the county (USGS quad name in Alaska, Parish name for Louisiana).",
+    "filterType": "request"
+  },
+  {
+    "name": "DeletedDate",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be in the RFC3339 format. Example: 2021-01-01",
+    "description": "Date the record was deleted.",
+    "filterType": "request"
+  },
+  {
+    "name": "DirectionsToLocation",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Driving direction from county courthouse to the rig location",
+    "filterType": ""
+  },
+  {
+    "name": "District",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Associated district assigned by the Railroad Commission of Texas (RRC). This is a location field.",
+    "filterType": ""
+  },
+  {
+    "name": "DrawWorks",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Draw works of a rig. Reported by rig contractor.",
+    "filterType": ""
+  },
+  {
+    "name": "ENVBasin",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be alphanumeric.",
+    "description": "ENV Basin as defined by a well's location within one of 32 ENV Basin Shapefiles. Basins are defined by EIA Shapefiles and Enverus-defined geological prospectivity.",
+    "filterType": "request"
+  },
+  {
+    "name": "ENVGasGatherer",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The closest gas gathering system to the well, based on Enverus shapefiles.",
+    "filterType": ""
+  },
+  {
+    "name": "ENVGasGatheringSystem",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The closest gas gathering system to the well, based on Enverus shapefiles.",
+    "filterType": ""
+  },
+  {
+    "name": "ENVInterval",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "ENV Interval is assigned when a well is located within an ENV Play Shapefile boundary AND meets specific geo-gridding, date, trajectory and/or formation criteria to be considered prospective within that given play file boundary.",
+    "filterType": ""
+  },
+  {
+    "name": "ENVOilGatherer",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The closest oil gathering system to the well, based on Enverus shapefiles.",
+    "filterType": ""
+  },
+  {
+    "name": "ENVOilGatheringSystem",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The closest oil gathering system to the well, based on Enverus shapefiles.",
+    "filterType": ""
+  },
+  {
+    "name": "ENVOperator",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be alphanumeric.",
+    "description": "Latest operator of the well. Data has been normalized and standardized by Enverus to aggregate into single operator names as well as roll subsidiaries up to the parent company where public data is disclosed.",
+    "filterType": "request"
+  },
+  {
+    "name": "ENVPeerGroup",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The respective group a company belongs based on market capitalization for public companies, and for private companies either private equity backed or non-private equity backed private distinctions.",
+    "filterType": ""
+  },
+  {
+    "name": "ENVPlay",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "ENV Play as defined by a well's location within an Enverus-defined Play Shapefile AND meets criteria to be assigned an ENV Interval within that play.",
+    "filterType": ""
+  },
+  {
+    "name": "ENVRegion",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be alphanumeric.",
+    "description": "ENV Region as defined by a well's location within one of nine ENV Region Shapefiles. ENV Region inclusively covers North America.",
+    "filterType": "request"
+  },
+  {
+    "name": "ENVSubPlay",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "ENV Sub Play as defined by a well's location within an Enverus-defined Sub Play Shapefile. Sub Play is a subset of a play where all Sub Plays inclusively make up a play.",
+    "filterType": ""
+  },
+  {
+    "name": "ENVTicker",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Ticker symbol for the most recent reported operator based on Enverus-normalized ENV Operator field. Public companies follow the convention of \"-US\" for US-listed stocks and \"-CA\" for Canadian-listed stocks. Private operators are followed by an asterisk*.",
+    "filterType": ""
+  },
+  {
+    "name": "ExpiredDate",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Date of Permit Expiration.",
+    "filterType": ""
+  },
+  {
+    "name": "Field",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The name of the field in which the well is permitted.",
+    "filterType": ""
+  },
+  {
+    "name": "H2SArea",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Flag indicating that the well is subject to Statewide Rule 36 (hydrogen sulfide area). (TX only).",
+    "filterType": ""
+  },
+  {
+    "name": "LandOffshore",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Flag indicating the well is on land or in offshore region.",
+    "filterType": ""
+  },
+  {
+    "name": "LeaseName",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Name of the lease or well as defined by the operator on filing.",
+    "filterType": ""
+  },
+  {
+    "name": "Mobility",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The mobile capabilities of the rig: walking, sliding and skidding.",
+    "filterType": ""
+  },
+  {
+    "name": "OperatorAddress",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Operator contact address.",
+    "filterType": ""
+  },
+  {
+    "name": "OperatorCity",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Operator contact address.",
+    "filterType": ""
+  },
+  {
+    "name": "OperatorCity30_MI",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Aliased small operator cities to the nearest major city (within 30 mi) for easier identification of operators in a metro-area.",
+    "filterType": ""
+  },
+  {
+    "name": "OperatorContact",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Operator contact name.",
+    "filterType": ""
+  },
+  {
+    "name": "OperatorPhone",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Operator contact phone number.",
+    "filterType": ""
+  },
+  {
+    "name": "OperatorState",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Operator contact address.",
+    "filterType": ""
+  },
+  {
+    "name": "OperatorZip",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Operator contact address.",
+    "filterType": ""
+  },
+  {
+    "name": "PermitNumber",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Number assigned to the permit by the state agency.",
+    "filterType": ""
+  },
+  {
+    "name": "PermittedMeasuredDepth_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Measured Depth (MD) to which the well is intended to be drilled.",
+    "filterType": ""
+  },
+  {
+    "name": "PermittedOperator",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The most recently reported operator obtained from the state document, permit, completion or production data source.",
+    "filterType": ""
+  },
+  {
+    "name": "PermittedTrueVerticalDepth_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "True Vertical Depth (TVD) to which the well is intended to be drilled.",
+    "filterType": ""
+  },
+  {
+    "name": "PermittedWaterDepth_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Permitted Water Depth for offshore wells in the Gulf of Mexico.",
+    "filterType": ""
+  },
+  {
+    "name": "PermitType",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Specifies the permit type \u00e2\u20ac\u201c for example, Wildcat, Extension, or Amended.",
+    "filterType": ""
+  },
+  {
+    "name": "PowerType",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Drive mode of the rig: AC electric drive (AC), DC electric drive via silicon-controlled-rectifier (SCR), or mechanical drive (MECH).",
+    "filterType": ""
+  },
+  {
+    "name": "Range",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Number of the range in which the permit was filed. This is a location field. This is a location field.",
+    "filterType": ""
+  },
+  {
+    "name": "RatedHorsePower",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Rated horsepower of the rig.",
+    "filterType": ""
+  },
+  {
+    "name": "RatedWaterDepth_FT",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Rated water depth for offshore/inland water rigs; measured in ft.",
+    "filterType": ""
+  },
+  {
+    "name": "RigClass",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Indicates the horsepower category. There are five categories: A is less than 500, B is 500 to 999, C is 1,000 to 1,499, D is 1,500 to 1,999 and E is greater than or equal to 2,000 HP.",
+    "filterType": ""
+  },
+  {
+    "name": "RigJobStartDate",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The earliest date of a drilling event (job).",
+    "filterType": ""
+  },
+  {
+    "name": "RigLatitude",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Latitude of the rig measured in degrees. Reported by Enverus GPS Unit or taken from permit surface hole, or manual input (GPS, permit, customer, state agency, etc.)",
+    "filterType": ""
+  },
+  {
+    "name": "RigLongitude",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Longitude of the rig measured in degrees. Reported by Enverus GPS Unit or taken from permit surface hole, or manual input (GPS, permit, customer, state agency, etc.)",
+    "filterType": ""
+  },
+  {
+    "name": "RigNameNumber",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Concatenation of ENVERUS created abbreviation of contractor name and contractor assigned rig name/number.",
+    "filterType": ""
+  },
+  {
+    "name": "RigType",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Type of drilling rig. Reported by contractor.",
+    "filterType": ""
+  },
+  {
+    "name": "Section",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Number of the section in which the permit was filed. This is a location field.",
+    "filterType": ""
+  },
+  {
+    "name": "SpudDate",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The first recorded spud date / drilling start date of the well surface location.",
+    "filterType": ""
+  },
+  {
+    "name": "StateProvince",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be alphanumeric.",
+    "description": "Name of State or Province.",
+    "filterType": "request"
+  },
+  {
+    "name": "STR",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Section Township Range.",
+    "filterType": ""
+  },
+  {
+    "name": "SubmittedDate",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Date of Permit Submission.",
+    "filterType": ""
+  },
+  {
+    "name": "SurfaceLocationSource",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Identification of the source of the rig surface location.",
+    "filterType": ""
+  },
+  {
+    "name": "Survey",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Survey name in which the permit was filed. This is a location field.",
+    "filterType": ""
+  },
+  {
+    "name": "TargetFormation",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "The name of the formation in which the well is permitted.",
+    "filterType": ""
+  },
+  {
+    "name": "Township",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Number of the township in which the permit was filed. This is a location field.",
+    "filterType": ""
+  },
+  {
+    "name": "Trajectory",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Description for wellbore orientation.",
+    "filterType": ""
+  },
+  {
+    "name": "UpdatedDate",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be in the RFC3339 format. Example: 2021-01-01",
+    "description": "Date the record was updated.",
+    "filterType": "request"
+  },
+  {
+    "name": "WellID",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Enverus-generated unique well identifier.",
+    "filterType": ""
+  },
+  {
+    "name": "WellNumber",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Number of wells.",
+    "filterType": ""
+  },
+  {
+    "name": "WellType",
+    "required": false,
+    "default": "",
+    "requirements": "",
+    "description": "Description of well type.",
+    "filterType": ""
+  },
+  {
+    "name": "ENVRigID",
+    "required": false,
+    "default": "",
+    "requirements": "Value should be numeric.",
+    "description": "Internal Enverus unique identifier for rig dataset.",
+    "filterType": "path"
+  }
+]

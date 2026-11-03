@@ -22,7 +22,7 @@
   "nightly": {
     "time": "01:00",
     "action": "run",
-    "timeBasis": "Work computer local time"
+    "timeBasis": "Executing computer local time"
   },
   "maximumAutomaticRemovalFraction": 0.05
 }

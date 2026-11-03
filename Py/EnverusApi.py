@@ -20,7 +20,17 @@ class Api:
         if not credential:raise RuntimeError('Run Ps1/SetEnverusCredentials.ps1 -ApiVersion 3 on this Windows account first')
         request=Request(BASE+'tokens',data=json.dumps({'secretKey':credential['SecretKey']}).encode(),headers={'Content-Type':'application/json'})
         del credential
-        with urlopen(request,timeout=60) as response:self.token=json.load(response)['token']
+        for attempt in range(5):
+            try:
+                with urlopen(request,timeout=60) as response:self.token=json.load(response)['token']
+                return
+            except HTTPError as error:
+                if error.code not in [429,500,502,503,504] or attempt==4:raise RuntimeError('Enverus authentication HTTP '+str(error.code)+'; credentials and response not logged') from None
+                delay=min(float((error.headers or {}).get('Retry-After','3')),45)
+            except (URLError,TimeoutError,socket.timeout,ConnectionError):
+                if attempt==4:raise RuntimeError('Enverus authentication connection failed after retries') from None
+                delay=min(3*2**attempt,45)
+            time.sleep(delay)
     def request(self,url,method='GET'):
         if not url.startswith(BASE) or urlparse(url).netloc!='api.enverus.com':raise RuntimeError('Unexpected API destination')
         for attempt in range(5):

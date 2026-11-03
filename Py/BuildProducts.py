@@ -29,7 +29,7 @@ def compute(well,ident,headers,stations,schema,refs,config):
         elif f['exportType']=='TEXT':v=None if v is None else str(v)
         elif f['exportType'] not in ['DATE','TEXT']:v=number(v)
         a[f['fieldName']]=v
-    a.update(WellKey=hashlib.sha256(ident.encode()).hexdigest()[:32],EnvWellId=str(well.get('WellID')) if well.get('WellID') is not None else None,Api12=survey_key(well))
+    a.update(WellKey=hashlib.sha256(ident.encode()).hexdigest()[:32],EnvWellId=str(well.get('WellID')) if well.get('WellID') is not None else None,Api12=survey_key(well),WellConstr='N')
     refs.nomenclature(well,a,flags)
     source_kinds={str(h.get('CoordinateSource') or '').upper() for h in headers}
     if not a['Api12']:flags.add('MissingSurveyLookup')
@@ -67,6 +67,7 @@ def compute(well,ident,headers,stations,schema,refs,config):
         geom=arcpy.PointGeometry(arcpy.Point(x,y),SR) if x is not None and y is not None and -180<=x<=180 and -90<=y<=90 else None
         layer='Point' if geom else 'NoLocation'
         if not geom:a['GeomSrc']='NoLocation';flags.add('NoPointCoordinates')
+        if geom is not None and hasattr(refs,'assign_gis_basin'):refs.assign_gis_basin(geom,a,flags,sr)
         calc=calculate_spacing(None);a.update(Spacing_Ft=None,DA_Ft=None)
     a['QaStatus']='|'.join(sorted(flags)) or 'OK'
     return layer,a,geom.JSON if geom else None,geom3.JSON if geom3 else None

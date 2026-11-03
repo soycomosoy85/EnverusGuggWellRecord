@@ -1,0 +1,801 @@
+{
+  "pipelines": {
+    "GeomBbox_Poly": {
+      "length": 2147483647,
+      "type": "TEXT"
+    },
+    "Geom_Line": {
+      "length": 2147483647,
+      "type": "TEXT"
+    }
+  },
+  "facilities": {
+    "Geom_Point": {
+      "length": 2147483647,
+      "type": "TEXT"
+    },
+    "HubNotes": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "NGSFMaxDeliverability_MCFPerDay": {
+      "platform": [
+        "oracle",
+        "sqlserver",
+        "postgresql"
+      ],
+      "rename": "NGSFMxDeliverability_MCFPerDay",
+      "when": [
+        "RemoteDatabase"
+      ]
+    }
+  },
+  "operator-land": {
+    "ENVOperator": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "ENVPeerGroup": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "GeomBBox_Poly": {
+      "length": 2147483647,
+      "type": "TEXT"
+    },
+    "Geom_Poly": {
+      "length": 2147483647,
+      "type": "TEXT"
+    },
+    "PECompanyWideEquityCommitment_MM": {
+      "platform": [
+        "oracle",
+        "sqlserver",
+        "postgresql"
+      ],
+      "rename": "PECmpnyWideEquityCommitment_MM",
+      "when": [
+        "RemoteDatabase"
+      ]
+    },
+    "PEInitialFundingYear": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "PESponsors": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "PEStatus": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "PETargetRegion": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "ShapefileUpdateDate": {
+      "length": 65535,
+      "type": "TEXT"
+    }
+  },
+  "active-rigs": {
+    "Block": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "ContractorAddress": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "ContractorCity": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "ContractorContact": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "ContractorEmail": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "ContractorName": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "ContractorPhone": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "ContractorState": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "ContractorWebsite": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "ContractorZip": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "DirectionsToLocation": {
+      "length": 2147483647,
+      "type": "TEXT"
+    },
+    "District": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "DrawWorks": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "ENVGasGatherer": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "ENVGasGatheringSystem": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "ENVOilGatherer": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "ENVOilGatheringSystem": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "ENVOperator": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "ENVPeerGroup": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "Field": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "LeaseName": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "Mobility": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "OperatorAddress": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "OperatorCity": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "OperatorCity30_MI": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "OperatorContact": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "OperatorPhone": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "OperatorState": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "OperatorZip": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "PermitNumber": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "PermitType": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "PermittedOperator": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "PowerType": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "RigClass": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "RigNameNumber": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "RigType": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "SurfaceLocationSource": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "Survey": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "TargetFormation": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "Trajectory": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "WellNumber": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "WellType": {
+      "length": 256,
+      "type": "TEXT"
+    }
+  },
+  "transactions": {
+    "Assets": {
+      "length": 2147483647,
+      "type": "TEXT"
+    },
+    "Blocks": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "Buyers": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "BuyersAsReported": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "CashFlowOrEBITDAMultipleComment": {
+      "platform": [
+        "oracle",
+        "sqlserver",
+        "postgresql"
+      ],
+      "rename": "CshFlowOrEBITDAMultipleComment",
+      "when": [
+        "RemoteDatabase"
+      ]
+    },
+    "Counties": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "DealHighlights": {
+      "length": 65535,
+      "type": "TEXT"
+    },
+    "DealValueComplexityBarrelDollarPerBBL": {
+      "platform": [
+        "oracle",
+        "sqlserver",
+        "postgresql"
+      ],
+      "rename": "DealValComplexBarlDollarPerBBL",
+      "when": [
+        "RemoteDatabase"
+      ]
+    },
+    "DealValueDailyCapacityDollarPerBBL": {
+      "platform": [
+        "oracle",
+        "sqlserver",
+        "postgresql"
+      ],
+      "rename": "DealValueDlyCapacityDolrPerBBL",
+      "when": [
+        "RemoteDatabase"
+      ]
+    },
+    "DealValueStorageCapacityDollarPerBBL": {
+      "platform": [
+        "oracle",
+        "sqlserver",
+        "postgresql"
+      ],
+      "rename": "DealValStrgeCapacityDolrPerBBL",
+      "when": [
+        "RemoteDatabase"
+      ]
+    },
+    "DollarPerAcreDollarPerSurfaceAcre": {
+      "platform": [
+        "oracle",
+        "sqlserver",
+        "postgresql"
+      ],
+      "rename": "DollaPerAcreDollarPerSurfcAcre",
+      "when": [
+        "RemoteDatabase"
+      ]
+    },
+    "DollarPerDailyBBLLiquidsGatheringCapacity": {
+      "platform": [
+        "oracle",
+        "sqlserver",
+        "postgresql"
+      ],
+      "rename": "DolrPerDlyBBLLiqidGathrnCapcty",
+      "when": [
+        "RemoteDatabase"
+      ]
+    },
+    "DollarPerDailyBBLLiquidsPipelineCapacity": {
+      "platform": [
+        "oracle",
+        "sqlserver",
+        "postgresql"
+      ],
+      "rename": "DolrPerDlyBBLLiquidPiplnCapcty",
+      "when": [
+        "RemoteDatabase"
+      ]
+    },
+    "DollarPerDailyMCFGasGatheringandProcessing": {
+      "platform": [
+        "oracle",
+        "sqlserver",
+        "postgresql"
+      ],
+      "rename": "DolrPerDlyMCFGasGathrnandProcs",
+      "when": [
+        "RemoteDatabase"
+      ]
+    },
+    "DollarPerbblLiquidsStorageCapacity": {
+      "platform": [
+        "oracle",
+        "sqlserver",
+        "postgresql"
+      ],
+      "rename": "DollarPerbblLiquidsStorgeCapac",
+      "when": [
+        "RemoteDatabase"
+      ]
+    },
+    "DrillingLocationsComment": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "ENVBasin": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "ENVClosingStory": {
+      "length": 2147483647,
+      "type": "TEXT"
+    },
+    "ENVNarrative": {
+      "length": 2147483647,
+      "type": "TEXT"
+    },
+    "ENVOperatorBuyer": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "ENVOperatorBuyerTicker": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "ENVOperatorSeller": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "ENVOperatorSellerTicker": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "ENVPlay": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "ENVRegion": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "GasGatheringProcessingCapacity_MMCFD": {
+      "platform": [
+        "oracle",
+        "sqlserver",
+        "postgresql"
+      ],
+      "rename": "GasGathernProcsnCapacity_MMCFD",
+      "when": [
+        "RemoteDatabase"
+      ]
+    },
+    "Geom_Poly": {
+      "length": 2147483647,
+      "type": "TEXT"
+    },
+    "Headline": {
+      "length": 2147483647,
+      "type": "TEXT"
+    },
+    "Key_Assets": {
+      "length": 2147483647,
+      "type": "TEXT"
+    },
+    "Licences": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "LiquidsGatheringProcessingCapacity_MMBBLD": {
+      "platform": [
+        "oracle",
+        "sqlserver",
+        "postgresql"
+      ],
+      "rename": "LiqdsGathrnProcesCapcty_MMBBLD",
+      "when": [
+        "RemoteDatabase"
+      ]
+    },
+    "MajorProductsHeld": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "MarketCommentary": {
+      "length": 65535,
+      "type": "TEXT"
+    },
+    "OperatorDisclosedField": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "OperatorDisclosedInterval": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "PV10Comment": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "PriceBrent12monthFutureDollarPerBBL": {
+      "platform": [
+        "oracle",
+        "sqlserver",
+        "postgresql"
+      ],
+      "rename": "PrcBrent12monthFtrDollarPerBBL",
+      "when": [
+        "RemoteDatabase"
+      ]
+    },
+    "PriceHenryHubSpotDollarPerMMBTU": {
+      "platform": [
+        "oracle",
+        "sqlserver",
+        "postgresql"
+      ],
+      "rename": "PriceHenryHubSpotDollaPerMMBTU",
+      "when": [
+        "RemoteDatabase"
+      ]
+    },
+    "PriceNYMEXGas12MonthStripDollarPerMMBTU": {
+      "platform": [
+        "oracle",
+        "sqlserver",
+        "postgresql"
+      ],
+      "rename": "PrcNYMEXGs12MnthStrpDlrPrMMBTU",
+      "when": [
+        "RemoteDatabase"
+      ]
+    },
+    "PriceNYMEXOil12MonthStripDollarPerBBL": {
+      "platform": [
+        "oracle",
+        "sqlserver",
+        "postgresql"
+      ],
+      "rename": "PrcNYMEXOil12MnthStrpDolPerBBL",
+      "when": [
+        "RemoteDatabase"
+      ]
+    },
+    "PriceWesternCanadaSelectSpotCDollarPerBBL": {
+      "platform": [
+        "oracle",
+        "sqlserver",
+        "postgresql"
+      ],
+      "rename": "PrcWstrnCDNSlctSpotCDolrPerBBL",
+      "when": [
+        "RemoteDatabase"
+      ]
+    },
+    "PriceWesternCanadaSelectStripCDollarPerBBL": {
+      "platform": [
+        "oracle",
+        "sqlserver",
+        "postgresql"
+      ],
+      "rename": "PrcWstrnCDNSlctStripCDlrPerBBL",
+      "when": [
+        "RemoteDatabase"
+      ]
+    },
+    "PrivateEquitySponsorBuyer": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "PrivateEquitySponsorSeller": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "ProductionComment": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "RefineryConversionCapacityFCCEquiv": {
+      "platform": [
+        "oracle",
+        "sqlserver",
+        "postgresql"
+      ],
+      "rename": "RefinryConvrsnCapacityFCCEquiv",
+      "when": [
+        "RemoteDatabase"
+      ]
+    },
+    "ReplacementCostIndexRCIRefinery": {
+      "platform": [
+        "oracle",
+        "sqlserver",
+        "postgresql"
+      ],
+      "rename": "ReplacementCostIndxRCIRefinery",
+      "when": [
+        "RemoteDatabase"
+      ]
+    },
+    "ReplacementCostIndexRCITerminal": {
+      "platform": [
+        "oracle",
+        "sqlserver",
+        "postgresql"
+      ],
+      "rename": "ReplacementCostIndxRCITerminal",
+      "when": [
+        "RemoteDatabase"
+      ]
+    },
+    "ReserveComment": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "ReservesNGLIncludedWithCrude_MMBBLD": {
+      "platform": [
+        "oracle",
+        "sqlserver",
+        "postgresql"
+      ],
+      "rename": "ResrveNGLIncldWithCrude_MMBBLD",
+      "when": [
+        "RemoteDatabase"
+      ]
+    },
+    "ReservesProvedDevelopedMMBBL_PCT": {
+      "platform": [
+        "oracle",
+        "sqlserver",
+        "postgresql"
+      ],
+      "rename": "ReservesPrvdDevelopedMMBBL_PCT",
+      "when": [
+        "RemoteDatabase"
+      ]
+    },
+    "ReservesProvedDevelopedMMBOE_PCT": {
+      "platform": [
+        "oracle",
+        "sqlserver",
+        "postgresql"
+      ],
+      "rename": "ReservesPrvdDevelopedMMBOE_PCT",
+      "when": [
+        "RemoteDatabase"
+      ]
+    },
+    "ReservesProvedDevelopedNGL_MMBBL": {
+      "platform": [
+        "oracle",
+        "sqlserver",
+        "postgresql"
+      ],
+      "rename": "ReservesPrvdDevelopedNGL_MMBBL",
+      "when": [
+        "RemoteDatabase"
+      ]
+    },
+    "ReservesProvedDevelopedWIMMBOE_PCT": {
+      "platform": [
+        "oracle",
+        "sqlserver",
+        "postgresql"
+      ],
+      "rename": "ReservsPrvdDevelopdWIMMBOE_PCT",
+      "when": [
+        "RemoteDatabase"
+      ]
+    },
+    "ReservesProvedDevelopedWI_MMBOE": {
+      "platform": [
+        "oracle",
+        "sqlserver",
+        "postgresql"
+      ],
+      "rename": "ReservesProvedDevelopdWI_MMBOE",
+      "when": [
+        "RemoteDatabase"
+      ]
+    },
+    "ReservesProvedUndevelopedNGL_MMBBL": {
+      "platform": [
+        "oracle",
+        "sqlserver",
+        "postgresql"
+      ],
+      "rename": "ReservsPrvedUndevelpdNGL_MMBBL",
+      "when": [
+        "RemoteDatabase"
+      ]
+    },
+    "ReservesProvedUndeveloped_MMBBL": {
+      "platform": [
+        "oracle",
+        "sqlserver",
+        "postgresql"
+      ],
+      "rename": "ReservesProvedUndevelope_MMBBL",
+      "when": [
+        "RemoteDatabase"
+      ]
+    },
+    "ReservesProvedUndeveloped_MMBOE": {
+      "platform": [
+        "oracle",
+        "sqlserver",
+        "postgresql"
+      ],
+      "rename": "ReservesProvedUndevelope_MMBOE",
+      "when": [
+        "RemoteDatabase"
+      ]
+    },
+    "Segment": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "Sellers": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "SellersAsReported": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "SellersFinancialAdvisors": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "StateCountyGrouped": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "TransactionNotes": {
+      "length": 65535,
+      "type": "TEXT"
+    },
+    "TransactionType": {
+      "length": 65535,
+      "type": "TEXT"
+    },
+    "ValuationNotes": {
+      "length": 65535,
+      "type": "TEXT"
+    },
+    "WellListDownload": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "buyersAsReported": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "dealHighlights": {
+      "length": 2147483647,
+      "type": "TEXT"
+    },
+    "drillingLocationsComment": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "majorProductsHeld": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "marketCommentary": {
+      "length": 2147483647,
+      "type": "TEXT"
+    },
+    "operatorDisclosedField": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "operatorDisclosedInterval": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "privateEquitySponsorBuyer": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "privateEquitySponsorSeller": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "productionComment": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "productionCommentWi": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "reserveComment": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "reserveCommentWi": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "sellersAsReported": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "sellersFinancialAdvisors": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "stateCountyGrouped": {
+      "length": 256,
+      "type": "TEXT"
+    },
+    "transactionNotes": {
+      "length": 2147483647,
+      "type": "TEXT"
+    },
+    "transactionType": {
+      "length": 2147483647,
+      "type": "TEXT"
+    },
+    "valuationNotes": {
+      "length": 2147483647,
+      "type": "TEXT"
+    }
+  }
+}

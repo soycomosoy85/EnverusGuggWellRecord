@@ -1,0 +1,15 @@
+{
+  "profile": "NorthAmerica",
+  "outputGeodatabase": "EnverusContext.gdb",
+  "minimumFreeDiskGb": 20,
+  "maximumAutomaticRemovalFraction": 0.1,
+  "batchSize": 100,
+  "layers": [
+    {"dataset": "pipelines", "featureClass": "EnvPipelines", "idField": "UniqueID", "geometryType": "POLYLINE", "geometryFields": ["Geom_Line"], "enabled": true},
+    {"dataset": "facilities", "featureClass": "EnvFacilities", "idField": "UniqueID", "geometryType": "POINT", "geometryFields": ["Geom_Point"], "enabled": true},
+    {"dataset": "operator-land", "featureClass": "EnvOperatorLand", "idField": "UniqueID", "geometryType": "POLYGON", "geometryFields": ["Geom_Poly"], "enabled": true},
+    {"dataset": "active-rigs", "featureClass": "EnvActiveRigs", "idField": "ENVRigID", "geometryType": "POINT", "geometryFields": ["RigLatitude", "RigLongitude"], "maximumAutomaticRemovalFraction": 0.5, "enabled": true},
+    {"dataset": "transactions", "featureClass": "EnvMaTransactions", "idField": "UniqueDealID", "geometryType": "POLYGON", "geometryFields": ["Geom_Poly"], "enabled": true},
+    {"dataset": "pwi-dsus", "featureClass": "EnvPwiDsus", "idField": "DSUID", "geometryType": "POLYGON", "geometryFields": ["Geom_WKT"], "enabled": false, "reason": "Awaiting API entitlement; PRISM website access is separate"}
+  ]
+}

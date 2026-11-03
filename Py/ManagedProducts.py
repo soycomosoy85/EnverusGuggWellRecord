@@ -75,6 +75,8 @@ def apply(root,config,db,fields,qa):
             columns=[(f['fieldName'],f['exportType'],f.get('textLength') or 254 if f['exportType']=='TEXT' else None) for f in fields]
             for n,t,length in columns:
                 if n not in existing_fields:arcpy.management.AddField(path,n,t,field_length=length,field_alias=next((f['alias'] for f in fields if f['fieldName']==n),n))
+            for f in fields:
+                if f.get('defaultValue') is not None:arcpy.management.AssignDefaultToField(path,f['fieldName'],f['defaultValue'])
             if 'RecKey' not in existing_fields:arcpy.management.AddField(path,'RecKey','TEXT',field_length=32,field_alias='Internal Stable Feature Record Key')
             if not arcpy.ListIndexes(path,'RecKeyIdx'):arcpy.management.AddIndex(path,'RecKey','RecKeyIdx')
         db.execute('INSERT OR REPLACE INTO ProductMeta VALUES(?,?)',('schema',schema));db.commit()

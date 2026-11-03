@@ -15,11 +15,11 @@ Maintain an incremental Enverus source cache and enrich analytical/display well 
 
 Midpoints lie on the line rather than at the bounding-box or polygon centroid. Origins without coordinates remain in the processing cache but cannot produce a point. Surface-hole points use one selected record per well origin; missing or invalid surface coordinates are omitted and counted in the surface-hole report. The final GDB contains no supporting tables or additional layers; surveys, alternative completions, and source identities remain internal in SQLite.
 
-The supplied well template defines field names, aliases, and order in `Json/Config/FieldDictionary.json`: 99 unique columns after retaining `EnvWellId` once. `EnvDsuId` is text and NULL until a source is specified. Country-safe grouping preserves complete Canadian UWIs; the template alias “API 10” does not truncate them.
+The supplied well template defines field names, aliases, and order in `Json/Config/FieldDictionary.json`: 99 unique template columns after retaining `EnvWellId` once, plus the requested derived `GuggGisBsn` and `WellConstr` columns, for 101 total. `EnvDsuId` is text and NULL until a source is specified. Country-safe grouping preserves complete Canadian UWIs; the template alias “API 10” does not truncate them.
 
 ## Install
 
-Clone/download source and privately extract `GuggReferenceInputs.zip` into the root. The asset supplies `Gdb/Reference/GuggenheimReference.gdb` with only nomenclature, TCAs, fluid windows, and vendor documentation. Keep it and all runtime transfers out of a public repository or release. Source files contain no well data or credentials.
+Clone/download source and privately extract `GuggReferenceInputs.zip` into the root. The asset supplies `Gdb/Reference/GuggenheimReference.gdb` with nomenclature, TCAs, fluid windows, GIS basin polygons, and vendor documentation. Keep it and all runtime transfers out of a public repository or release. Source files contain no well data or credentials.
 
 Install/sign in to licensed ArcGIS Pro compatible with the Pro 3.6 project template. ArcPy comes from Pro; `requests` is normally installed. In PowerShell at the root:
 
@@ -61,6 +61,10 @@ Per-well UTM/UPS projections supply lengths and half-distance points; outputs us
 
 Nomenclature matches `(ENVRegion, ENVBasin, ENVInterval)`. TCAs must match Gugg Basin/Bench; longest positive lateral overlap wins and `TCA_NAME` is unique. Fluid windows also use longest overlap. `Spacing_Ft = 5280 / WPS`; `DA_Ft = Spacing_Ft / 2`. Invalid WPS yields NULL. Outside Gugg coverage, wells remain with unmatched flags.
 
+`GUGG_GIS_Basin.GuggGisBsn` supplies the broader GIS basin assignment, independently of TCA/bench matching. Lines use longest positive lateral overlap, while verticals and point-only wells use their surface locations. Multiple overlaps and ties are flagged; ties remain NULL. Geometries remain intact. The assignment is inherited by the display, centroid, and surface-hole products.
+
+`WellConstr` (alias “Well Constraint”) is TEXT(1), defaults to `N`, and is inherited by all four well products. It becomes `Y` only for usable nonvertical lateral geometry intersecting at least one TCA with both a matching nomenclature Gugg Basin and Gugg Bench. Verticals, unknown trajectories, surface-only records, and unmatched wells remain `N`. The flag is independent of the primary TCA winner: even a TCA tie can constrain future inventory. A boundary-only intersection is an intersection and is flagged for review. This does not alter well geometries or calculate additional API fields.
+
 Fields are at most ten characters with descriptive aliases. Dates are date-only; source month-only dates use day one with a precision flag. Identifier fields are text. Shapefile numeric NULLs use `-999999999`, text NULLs use blanks, and `NullCount` reports missing business values. The GDB preserves exact NULLs/full text. Overlong shapefile text uses `SeeGdb:<WellKey>`. `RecKey` is the stable feature key, final template column, and hidden in supplied layers. Never persist shapefile FIDs as identifiers. Parts respect configured text widths and byte/record limits; only affected parts/rows are updated. Disable exports with `exportShapefiles: false`; pending changes remain queued.
 
 ## Private transfer
@@ -76,7 +80,35 @@ Keep the manifest and every numbered 1 GiB part together in private storage. The
 
 ## Nightly updates and folders
 
-Windows Task Scheduler defaults to **1:00 AM work-PC local time**, syncing and updating changed GIS records:
+### Context datasets
+
+`Json/Config/ContextLayers.json` enables pipelines, facilities, operator land, active rigs, and M&A transaction polygons. PWI DSUs remain disabled pending API entitlement. Context layers have independent SQLite caches/watermarks and an independent process lock; failure in one layer preserves its previous cache and does not erase successful layers. They are stored in `Gdb/<Profile>/Output/EnverusContext.gdb`, separate from the four well products.
+
+```powershell
+& 'C:\Program Files\ArcGIS\Pro\bin\Python\Scripts\propy.bat' .\Py\ContextLayers.py run
+```
+
+Each refresh reads a thin identifier/timestamp inventory, requests only new/changed full records, and removes features that leave the source inventory. This includes rigs becoming inactive. Initial acquisition is complete once; saved pending payloads support retries. NULL update timestamps force a fresh payload check. Duplicate identifiers, inconsistent inventory/payload snapshots, and excessive removals stop publication of that cache. GIS feature hashes retain unchanged ObjectIDs and retry an acknowledged GIS batch idempotently after failures.
+
+Context output retains source attributes with short field names and full source aliases; raw payloads remain in SQLite. Field dictionaries are stored under `Json/<Profile>/Context`. Context exports use a GDB rather than shapefiles: the M&A source has more than the shapefile column limit. Missing/invalid geometries are counted while source records remain cached.
+
+The nightly launcher now runs the well workflow and context refreshes, followed by a local AGOL readiness check. It does not upload data. Context refreshes can proceed independently while an initial well build is still running.
+
+### ArcGIS Online test publication
+
+The supplied `GUGG_GIS_Basin` polygon feature class and `GuggGisBsn` name field are configured in `Json/Config/ArcGisOnline.json`. Publishing and automatic subset preparation are held until the user completes QC of the finished data (`awaitUserQualityControl: true`). After QC, `AgolPreflight.py --prepare-subset` checks readiness and prepares a local size/count report only; it never creates or updates hosted content. Paused/incomplete source builds are not eligible for subset preparation. Review the subset report before implementing/enabling hosted publication.
+
+The publication boundary is these broader GIS basins, including fringe wells. Well products are filtered by their basin assignment; context features are selected spatially. Whole features are copied instead of clipping analytical lines. The local report includes per-layer counts, well counts by basin, staging size, and sample-based hosted-storage planning estimates. Estimates are not a storage-credit quote. The full national cache is not a publication input. The proposed remote publishing stage keeps initial items private, retains stable item/layer identifiers, and uses keyed add/update/delete operations; it remains a subsequent setup step and is not implemented by the local readiness/subset commands.
+
+Authenticate on the publishing machine under the intended organization account. ArcGIS Pro sign-in can be used during testing; persistent unattended authentication must be verified under the Windows task account. Store organization identity/profile settings in ignored `*.Local.json` files, never passwords/tokens in source. The work PC can then connect to the same hosted items using that account.
+
+ArcGIS Online hosted feature storage incurs credits based on actual hosted size; local cache/GDB size is not an exact estimate. See [Esri storage rates](https://doc.arcgis.com/en/arcgis-online/administer/credits.htm). At the documented rate, 500 MB of hosted features is approximately 120 credits/month before other usage. The first subset needs a measured report rather than a national upload.
+
+### Eventual server destination
+
+The intended database destination is PostgreSQL with PostGIS geometry support. Context acquisition is independent of ArcPy and keeps stable source IDs, raw attributes, timestamps, and dirty queues that can feed a future PostGIS upsert sink. That sink is not yet implemented. The existing well geometry engine still uses ArcPy; moving it to a server requires appropriate ArcGIS licensing/runtime or a separately validated port. Keep acquisition, enrichment, storage, and publication separate so AGOL remains a delivery layer and a future PostGIS database can become the system of record.
+
+Windows Task Scheduler defaults to **1:00 AM in the executing PC's local time**, syncing and updating changed GIS records. It is currently installed on the test PC; manual download workers can be paused independently without disabling that task:
 
 ```powershell
 .\Ps1\InstallNightlyTask.ps1 -Preview
