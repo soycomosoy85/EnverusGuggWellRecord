@@ -80,7 +80,8 @@
   "finalProducts": [
     "EnvLateral_Gugg",
     "EnvWell_Gugg",
-    "EnvWellCentroid_Gugg"
+    "EnvWellCentroid_Gugg",
+    "EnvSH_Gugg"
   ],
   "templateColumns": 99,
   "headerFields": 69,

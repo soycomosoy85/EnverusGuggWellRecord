@@ -4,15 +4,16 @@ Maintain an incremental Enverus source cache and enrich analytical/display well 
 
 ## Final products
 
-`Gdb/<Profile>/Output/EnverusGuggWellRecord.gdb` contains exactly three feature classes:
+`Gdb/<Profile>/Output/EnverusGuggWellRecord.gdb` contains exactly four feature classes:
 
 | Feature class | Geometry and use |
 | --- | --- |
 | EnvLateral_Gugg | One selected analytical lateral per country/full base API_UWI origin. Actual survey lateral takes precedence, followed by allowed planned surveys and trimmed Enverus lateral fallback. |
 | EnvWell_Gugg | Original Enverus lateral geometry retaining eligible source API14s, with selected well attributes. Use for map display. |
 | EnvWellCentroid_Gugg | Half-distance point along each selected analytical line, measured in the well's local projection. Vertical wells and point-only wells use the surface hole. |
+| EnvSH_Gugg | Surface-hole points from the selected well's existing `ShlLon`/`ShlLat` attributes, carrying the complete template and Gugg columns. No API, survey, or polygon recalculation is performed for this final step. |
 
-Midpoints lie on the line rather than at the bounding-box or polygon centroid. Origins without coordinates remain in the processing cache but cannot produce a point. The final GDB contains no supporting tables or additional layers; surveys, alternative completions, and source identities remain internal in SQLite.
+Midpoints lie on the line rather than at the bounding-box or polygon centroid. Origins without coordinates remain in the processing cache but cannot produce a point. Surface-hole points use one selected record per well origin; missing or invalid surface coordinates are omitted and counted in the surface-hole report. The final GDB contains no supporting tables or additional layers; surveys, alternative completions, and source identities remain internal in SQLite.
 
 The supplied well template defines field names, aliases, and order in `Json/Config/FieldDictionary.json`: 99 unique columns after retaining `EnvWellId` once. `EnvDsuId` is text and NULL until a source is specified. Country-safe grouping preserves complete Canadian UWIs; the template alias “API 10” does not truncate them.
 
@@ -50,7 +51,7 @@ For an existing installation changing to these names/columns:
 .\Ps1\RunWellRecord.ps1 -Action build
 ```
 
-`migrate` verifies new header coverage and archives old GIS registry tables in the processing database. Source surveys and previous output files remain. The first revised-schema build initializes the three new products once. Later updates evaluate affected origins and write only changed features; unchanged ObjectIDs remain. A timestamp-only change with identical outputs causes no GIS writes. References/geometry-rule changes may require broader local evaluation. Use newly exported runtime transfers with this source version; previous-schema archives need the corresponding previous version.
+`migrate` verifies new header coverage and archives old GIS registry tables in the processing database. Source surveys and previous output files remain. The first revised-schema build initializes the revised core products once. The surface-hole layer is an additive final cached-data step and can be populated on an existing build without recomputing survey or Gugg assignments. Later updates evaluate affected origins and write only changed features; unchanged ObjectIDs remain. A timestamp-only change with identical outputs causes no GIS writes. References/geometry-rule changes may require broader local evaluation. Use newly exported runtime transfers with this source version; previous-schema archives need the corresponding previous version.
 
 ## Geometry and enrichment
 

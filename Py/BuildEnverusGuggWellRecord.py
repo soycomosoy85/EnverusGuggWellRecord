@@ -73,7 +73,11 @@ def main():
             if not known and source_meta.get('baselineDefinition'):known=set(json.loads(source_meta['baselineDefinition']).get('fields','').split(','))
             if not required<=known:raise RuntimeError('New template header fields are not in the source cache. Run sync to backfill them before building.')
             from BuildProducts import build
-            print(json.dumps(build(ROOT,config,cache),indent=2))
+            from SurfaceHoles import capture_pending,sync_surface
+            capture_pending(ROOT,config,cache)
+            report=sync_surface(ROOT,config,build(ROOT,config,cache))
+            (ROOT/'Json/Config/LatestPortableOutput.json').write_text(json.dumps(report,indent=2))
+            print(json.dumps(report,indent=2))
     finally:held.__exit__(None,None,None)
 
 if __name__=='__main__':

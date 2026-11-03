@@ -8,7 +8,10 @@ def export_runtime(root,config,part_bytes=1024**3,build_first=False):
     root=Path(root);profile=config['profile'];base=root/'Sqlite'/profile/'Cache';cache=base/'EnverusCache.sqlite';processed=base/'Processed.sqlite'
     if build_first:
         from BuildProducts import build
-        build(root,config,cache)
+        from SurfaceHoles import capture_pending,sync_surface
+        capture_pending(root,config,cache)
+        report=sync_surface(root,config,build(root,config,cache))
+        (root/'Json/Config/LatestPortableOutput.json').write_text(json.dumps(report,indent=2))
     if not processed.exists():raise RuntimeError('Build the initial managed GIS products before exporting GIS state')
     state=sqlite3.connect(processed);meta=dict(state.execute('SELECT * FROM ProductMeta'))
     if not meta.get('initialized'):state.close();raise RuntimeError('Managed GIS initialization is not complete')
