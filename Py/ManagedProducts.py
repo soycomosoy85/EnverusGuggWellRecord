@@ -8,6 +8,7 @@ import hashlib,json,sqlite3,shutil,gzip
 from datetime import datetime
 from pathlib import Path
 from WellGeometry import SR,number
+from TextFields import required_widths,shapefile_text
 
 SPECS={'EnvLateral_Gugg':('POLYLINE',False),'EnvWell_Gugg':('POLYLINE',False),'EnvWellCentroid_Gugg':('POINT',False)}
 
@@ -31,6 +32,9 @@ def midpoint(geom,attrs):
     return geom.projectAs(measurement_sr(geom)).positionAlongLine(.5,True).projectAs(SR)
 
 def project_attributes(attrs,fields,entity):
+    if any(f['fieldName']=='WelCnsStat' for f in fields):
+        from WellConstraintAttributes import apply
+        attrs=apply(attrs)
     result={f['fieldName']:attrs.get(f.get('internalField',f['fieldName'])) for f in fields}
     result['RecKey']=key(entity)
     return result
@@ -89,11 +93,16 @@ def apply(root,config,db,fields,qa):
     with gzip.open(operations,'wt',encoding='utf-8') as audit:
         for dataset in datasets:
             path=str(gdb/dataset);shape=dataset in SPECS;columns=names
+            text_widths={f.name:f.length for f in arcpy.ListFields(path) if f.type=='String'}
             counts=dict(inserted=0,updated=0,deleted=0)
             query='SELECT d.RecKey,d.Origin,d.Hash,d.Attrs,d.Geom FROM Desired d LEFT JOIN Managed m ON d.Dataset=m.Dataset AND d.RecKey=m.RecKey WHERE d.Dataset=? AND (m.RecKey IS NULL OR m.Hash!=d.Hash) ORDER BY d.RecKey'
             cursor=db.execute(query,(dataset,))
             for batch in batches(cursor,1000 if fresh else 300):
                 wanted={r[0]:r for r in batch};seen=set();guard()
+                for name,width in required_widths(fields,(r[3] for r in batch),text_widths).items():
+                    arcpy.management.AlterField(path,name,field_length=width)
+                    text_widths[name]=width
+                    print('Expanded GDB text field '+dataset+'.'+name+' to '+str(width),flush=True)
                 if not fresh:
                     where='RecKey IN ('+','.join("'"+r[0]+"'" for r in batch)+')'
                     with arcpy.da.UpdateCursor(path,['OID@','RecKey']+(['SHAPE@'] if shape else [])+columns,where) as write:
@@ -157,7 +166,7 @@ def apply_shp(root,config,db,fields,dataset,values,guard):
             v=a.get(f['fieldName'])
             if v is None:missing+=1;v='' if f['exportType']=='TEXT' else None if f['exportType']=='DATE' else -999999999
             elif f['exportType']=='DATE':v=datetime.fromisoformat(v)
-            if isinstance(v,str) and len(v)>min(f.get('textLength') or 254,254):v='SeeGdb:'+a['WellKey']
+            if isinstance(v,str):v=shapefile_text(v,min(f.get('textLength') or 254,254))
             out.append(v)
         return out+[missing]
     def create_part():

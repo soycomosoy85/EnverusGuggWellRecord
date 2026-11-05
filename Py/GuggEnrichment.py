@@ -37,7 +37,7 @@ class References:
     def assign(self,geom,a,flags,sr):
         projected=geom.projectAs(sr);length=projected.length;a['LatGeomFt']=length*FT_PER_M;a['WellConstr']='N'
         trajectory=norm(a.get('Trajectory'))
-        constraint_eligible=geom.type=='polyline' and length>1e-6 and trajectory not in {'','VERTICAL','UNKNOWN','UNSPECIFIED','UNDETERMINED'} and bool(norm(a.get('GuggBasin'))) and bool(norm(a.get('GuggBench')))
+        constraint_eligible=geom.type=='polyline' and length>1e-6 and trajectory in {'HORIZONTAL','DIRECTIONAL'} and bool(norm(a.get('GuggBasin'))) and bool(norm(a.get('GuggBench')))
         self.assign_gis_basin(geom,a,flags,sr,projected)
         for kind,polygons in [('Tca',self.tcas.get((norm(a.get('GuggBasin')),norm(a.get('GuggBench'))),[])),('Fluid',self.fluids)]:
             overlaps=[]

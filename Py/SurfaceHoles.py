@@ -44,6 +44,9 @@ def sync_surface(root,config,report):
             db.execute('INSERT OR IGNORE INTO SurfacePending SELECT Origin FROM Managed WHERE Dataset=?',(NAME,));db.commit()
         pending=db.execute('SELECT count(*) FROM SurfacePending').fetchone()[0]
         fields=json.loads((root/'Json/Config/FieldDictionary.json').read_text())
+        if any(f['fieldName']=='WelCnsStat' for f in fields):
+            from WellConstraintAttributes import configure
+            configure(root)
         if not pending and meta.get('initialized'):
             if meta.get('projectRoot')!=str(root):
                 ensure_project(report,fields);db.execute('INSERT OR REPLACE INTO SurfaceMeta VALUES(?,?)',('projectRoot',str(root)));db.commit()

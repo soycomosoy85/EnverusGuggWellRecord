@@ -83,11 +83,20 @@ def build(root,config,cache_path):
     db.executescript('CREATE TABLE IF NOT EXISTS Results(Id TEXT PRIMARY KEY,Origin TEXT,Signature TEXT,Layer TEXT,Attrs TEXT,Geom TEXT,Geom3 TEXT);CREATE INDEX IF NOT EXISTS ResultOrigin ON Results(Origin);CREATE TABLE IF NOT EXISTS Winners(Origin TEXT PRIMARY KEY,Id TEXT UNIQUE,Layer TEXT,Attrs TEXT,Geom TEXT,Geom3 TEXT);CREATE TABLE IF NOT EXISTS WinnerStats(Origin TEXT PRIMARY KEY,Kind TEXT);')
     init_products(db);meta=dict(db.execute('SELECT * FROM ProductMeta'));db.execute('ATTACH DATABASE ? AS source',(str(cache_path),))
     schema=json.loads((root/'Json/Config/HeaderSchema.json').read_text());fields=json.loads((root/'Json/Config/FieldDictionary.json').read_text())
+    if any(f['fieldName']=='WelCnsStat' for f in fields):
+        from WellConstraintAttributes import configure
+        from UpgradeWellAttributes import upgrade_if_needed
+        configure(root);upgrade_if_needed(root,config,db,fields)
+        meta=dict(db.execute('SELECT * FROM ProductMeta'))
     reference=root/config['referenceGdb'];refs=None
     logic_files=['Identity.py','WellGeometry.py','Selection.py','GuggEnrichment.py','WellRecordCalculations.py','BuildProducts.py','ManagedProducts.py']
     logic_hash=hashlib.sha256(''.join((root/'Py'/n).read_text(encoding='utf-8-sig') for n in logic_files).encode()).hexdigest()
+    # A reviewed writer-only repair must not invalidate completed well geometry.
+    # Exact hashes ensure any subsequent computation edit still invalidates it.
+    from ExportCompatibility import compatible_logic_hash,geometry_fields
+    logic_hash=compatible_logic_hash(logic_hash)
     geometry_config={n:config.get(n) for n in ['plannedSurveyStates','measurement']}
-    rules_hash=hashlib.sha256((fingerprint(reference)+logic_hash+json.dumps(geometry_config,sort_keys=True)+arcpy.GetInstallInfo()['Version']+json.dumps(fields)+json.dumps(schema)).encode()).hexdigest()
+    rules_hash=hashlib.sha256((fingerprint(reference)+logic_hash+json.dumps(geometry_config,sort_keys=True)+arcpy.GetInstallInfo()['Version']+json.dumps(geometry_fields(fields))+json.dumps(schema)).encode()).hexdigest()
     db.execute('CREATE TEMP TABLE BuildFocus(Origin TEXT PRIMARY KEY)')
     full_initialization=not meta.get('initialized') or meta.get('rulesHash')!=rules_hash
     if full_initialization:

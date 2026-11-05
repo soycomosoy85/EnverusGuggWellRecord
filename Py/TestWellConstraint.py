@@ -23,7 +23,7 @@ class ConstraintTests(unittest.TestCase):
         attrs,flags=self.assign(dict(GuggBasin='DEL',GuggBench='WCA',Trajectory='HORIZONTAL'));self.assertEqual(attrs['WellConstr'],'Y')
 
     def test_vertical_unknown_and_mismatched_basin_or_bench_remain_n(self):
-        for basin,bench,trajectory in [('DEL','WCA','VERTICAL'),('DEL','WCA',None),('OTHER','WCA','HORIZONTAL'),('DEL','OTHER','HORIZONTAL')]:
+        for basin,bench,trajectory in [('DEL','WCA','VERTICAL'),('DEL','WCA','UNDETERMINED'),('DEL','WCA','DEVIATED'),('DEL','WCA',None),('OTHER','WCA','HORIZONTAL'),('DEL','OTHER','HORIZONTAL')]:
             with self.subTest(basin=basin,bench=bench,trajectory=trajectory):
                 attrs,_=self.assign(dict(GuggBasin=basin,GuggBench=bench,Trajectory=trajectory));self.assertEqual(attrs['WellConstr'],'N')
 

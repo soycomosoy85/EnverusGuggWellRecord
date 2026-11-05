@@ -16,6 +16,7 @@ __pycache__/
 /Pdf/Reference/Enverus/
 /Zip/
 /Assets/
+/CustomRuns/
 *.zip
 *.zip.part*
 *.lock

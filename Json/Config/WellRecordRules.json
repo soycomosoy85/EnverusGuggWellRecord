@@ -87,7 +87,8 @@
   "headerFields": 69,
   "scope": "All account-entitled North America wells; no basin/country filter",
   "gisBasinAssignment": "Longest positive analytical lateral overlap; vertical surface containment; ties flagged",
-  "wellConstraint": "Y only for usable nonvertical lateral intersecting a Gugg Basin/Bench-matched TCA; otherwise N",
+  "wellConstraint": "Y only for Horizontal or Directional trajectory with usable lateral geometry intersecting a Gugg Basin/Bench-matched TCA; all other trajectories and unmatched wells remain N",
+  "wellConstraintStatus": "WelCnsStat (TEXT 6, alias Well Constraint Status) follows WellConstr and looks up EnvStatus from private Json/Config/WellConstraintStatus.Local.json; unlisted or missing statuses remain null and are reported",
   "identity": "Country plus full supplied API_UWI; never truncate Canadian UWIs",
   "measurement": "Per-well UTM/UPS projected XY feet"
 }
