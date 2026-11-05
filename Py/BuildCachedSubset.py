@@ -40,7 +40,7 @@ def prepare(source, output):
             shutil.copy2(source/'Json/Config'/name, cfg_folder/name)
         lookup=source/'Json/Config/WellConstraintStatus.Local.json'
         if lookup.exists():shutil.copy2(lookup,cfg_folder/lookup.name)
-        config.update(profile='TexasNewMexico', apiFilters={'stateprovince':'in(TX,NM)'})
+        config.update(profile='TexasNewMexico', apiFilters={'stateprovince':'in(TX,NM)'}, exportShapefiles=False)
         config['note'] = 'Custom cached TX/NM snapshot; no API acquisition or nightly task installed.'
         (cfg_folder/'Workflow.json').write_text(json.dumps(config, indent=2))
         pending = base/'SubsetSourcePending.sqlite'

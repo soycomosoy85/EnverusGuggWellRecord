@@ -3,14 +3,14 @@ import argparse
 import json
 import shutil
 import sqlite3
-from datetime import datetime,timezone
 from pathlib import Path
 from ProcessLock import ProcessLock,BusyError
 from UpgradeWellAttributes import upgrade_if_needed
 
 
 def main():
-    parser=argparse.ArgumentParser();parser.add_argument('--root',required=True);args=parser.parse_args()
+    from datetime import datetime,timezone
+    parser=argparse.ArgumentParser();parser.add_argument('--root',required=True);parser.add_argument('--code-only',action='store_true');args=parser.parse_args()
     source=Path(__file__).resolve().parents[1];root=Path(args.root).resolve()
     config=json.loads((root/'Json/Config/Workflow.json').read_text());base=root/'Sqlite'/config['profile']/'Cache'
     marker=root/'Json/Config/ConstraintAttributeAmendment.json'
@@ -22,6 +22,9 @@ def main():
                 if (source/'Py'/name).resolve()!=(root/'Py'/name).resolve():shutil.copy2(source/'Py'/name,root/'Py'/name)
             for name in ['FieldDictionary.json','WellRecordRules.json','WellConstraintStatus.Local.json']:
                 if (source/'Json/Config'/name).resolve()!=(root/'Json/Config'/name).resolve():shutil.copy2(source/'Json/Config'/name,root/'Json/Config'/name)
+            if args.code_only:
+                report.update(status='CodeInstalledAwaitingBuild',updated=datetime.now(timezone.utc).isoformat())
+                print(json.dumps(report,indent=2),flush=True);return
             fields=json.loads((root/'Json/Config/FieldDictionary.json').read_text())
             db=sqlite3.connect(base/'Processed.sqlite')
             try:result=upgrade_if_needed(root,config,db,fields)

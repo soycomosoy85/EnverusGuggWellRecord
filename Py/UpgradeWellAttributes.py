@@ -123,7 +123,7 @@ def upgrade_if_needed(root,config,db,fields,force=False):
             with arcpy.da.SearchCursor(str(path),['OID@','RecKey']) as rows:
                 db.executemany('UPDATE Managed SET Oid=? WHERE Dataset=? AND RecKey=?',((oid,dataset,key) for oid,key in rows))
             db.commit();state_path.write_text(json.dumps(report,indent=2))
-        if db.execute("SELECT 1 FROM sqlite_master WHERE name='ShpParts'").fetchone():
+        if config.get('exportShapefiles',True) and db.execute("SELECT 1 FROM sqlite_master WHERE name='ShpParts'").fetchone():
             for relative, in db.execute('SELECT Part FROM ShpParts ORDER BY Part').fetchall():
                 path=root/relative
                 if not arcpy.Exists(str(path)):raise RuntimeError('Managed shapefile is missing: '+str(path))
