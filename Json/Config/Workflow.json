@@ -3,7 +3,11 @@
   "apiFilters": {},
   "excludedStatuses": [
     "PERMIT CANCELLED",
-    "PERMIT EXPIRED"
+    "PERMIT EXPIRED",
+    "EXPIRED PERMIT",
+    "PERMIT CANCELED",
+    "CANCELLED PERMIT",
+    "CANCELED PERMIT"
   ],
   "plannedSurveyStates": [
     "NM"

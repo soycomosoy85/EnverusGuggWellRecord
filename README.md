@@ -1,5 +1,7 @@
 # Build Enverus Gugg Well Record
 
+The current installation uses one repository for code and ignored runtime data. On the test PC it is `GitHub/EnverusGuggWellRecord` under the project folder; the former duplicate source/runtime installations and TX/NM QC run have been retired. Run `Ps1/RunNationalRebuild.ps1` to process the existing national cache, update the five enabled context datasets, build the four current well layers, and validate actual output counts, fields, aliases and constraint attributes. Add `-SyncSources` only when an immediate additional well-source sync is needed; the existing 1:00 AM nightly task already performs incremental source updates. Rebuild completion is recorded in `Json/Config/LatestNationalRebuild.json`. AGOL publication remains disabled pending QC.
+
 Maintain an incremental Enverus source cache and enrich analytical/display well geometries with Gugg nomenclature, type curve areas, and fluid windows. NorthAmerica has no basin or country filter. Cancelled and expired permits are excluded; null-status wells are retained and flagged.
 
 ## Final products

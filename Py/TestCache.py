@@ -12,10 +12,13 @@ class FakeApi:
     def __init__(self,wells):self.wells=wells;self.headers={};self.stations={};self.events=[];self.fail=False;self.allow=lambda ids:False;self.full_downloads=0
     def count(self,dataset,params):
         status=params.get('envwellstatus')
-        if status=='in(PERMIT CANCELLED,PERMIT EXPIRED)':return sum(w['ENVWellStatus'] in ['PERMIT CANCELLED','PERMIT EXPIRED'] for w in self.wells)
+        from WellScope import EXCLUDED_STATUS_FILTER,excluded
+        if status==EXCLUDED_STATUS_FILTER:return sum(excluded(w['ENVWellStatus']) for w in self.wells)
         if status=='null':return sum(w['ENVWellStatus'] is None for w in self.eligible())
         return sum(w['ENVWellStatus'] is not None for w in self.eligible()) if status else len(self.wells)
-    def eligible(self):return [w for w in self.wells if not w.get('DeletedDate') and w['ENVWellStatus'] not in ['PERMIT CANCELLED','PERMIT EXPIRED']]
+    def eligible(self):
+        from WellScope import excluded
+        return [w for w in self.wells if not w.get('DeletedDate') and not excluded(w['ENVWellStatus'])]
     def pages(self,dataset,params,metadata=False):
         expr=params.get('api_uwi_12_unformatted');ids=expr[3:-1].split(',') if expr else None
         if dataset=='wells':

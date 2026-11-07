@@ -9,7 +9,7 @@ from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime,timezone,timedelta
 from pathlib import Path
 from Identity import record_id,survey_key,origin
-from WellScope import STATUS_FILTER,excluded
+from WellScope import STATUS_FILTER,EXCLUDED_STATUS_FILTER,excluded
 from ProcessLock import ProcessLock
 
 INVENTORY='API_UWI,API_UWI_Unformatted,API_UWI_12_Unformatted,API_UWI_14_Unformatted,Country,WellID,CompletionID,UpdatedDate,ENVWellStatus'
@@ -57,7 +57,7 @@ def sync(api,path,config,well_fields,now=None):
         expected=api.count('wells',common)+null_count
         # No silent dropping of null-status records through NOT IN SQL semantics.
         all_params={k:v for k,v in common.items() if k!='envwellstatus'}
-        all_count=api.count('wells',all_params);excluded_count=api.count('wells',dict(all_params,envwellstatus='in(PERMIT CANCELLED,PERMIT EXPIRED)'))
+        all_count=api.count('wells',all_params);excluded_count=api.count('wells',dict(all_params,envwellstatus=EXCLUDED_STATUS_FILTER))
         if all_count-excluded_count!=expected:raise RuntimeError('Status-filter count mismatch, possibly null statuses; no cache published')
         progress=0
         for page in well_pages(api,dict(common,fields=INVENTORY),include_null=null_count>0):

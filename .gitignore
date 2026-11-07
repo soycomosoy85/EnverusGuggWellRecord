@@ -17,6 +17,11 @@ __pycache__/
 /Zip/
 /Assets/
 /CustomRuns/
+/Json/*/Context/
+/Json/Config/DownloadPause.json
+/Json/Config/ConstraintAttributeAmendment.json
+/Json/Config/ReferenceInventory.json
+/GpMessages/
 *.zip
 *.zip.part*
 *.lock

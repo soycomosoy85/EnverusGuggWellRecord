@@ -22,7 +22,8 @@ class ApiTests(unittest.TestCase):
     def test_relative_pagination_preserves_status_and_field_scope(self):
         api=StubApi();rows=list(api.pages('wells',dict(fields='ENVWellStatus',country='CA')));self.assertEqual(len(rows),3)
         for url in api.urls:
-            self.assertTrue(url.startswith(BASE));query=parse_qs(urlparse(url).query);self.assertEqual(query['envwellstatus'],['not(in(PERMIT CANCELLED,PERMIT EXPIRED))']);self.assertEqual(query['country'],['CA']);self.assertEqual(query['fields'],['ENVWellStatus'])
+            from WellScope import STATUS_FILTER
+            self.assertTrue(url.startswith(BASE));query=parse_qs(urlparse(url).query);self.assertEqual(query['envwellstatus'],[STATUS_FILTER]);self.assertEqual(query['country'],['CA']);self.assertEqual(query['fields'],['ENVWellStatus'])
     def test_full_survey_download_requires_allowlist(self):
         api=StubApi()
         with self.assertRaises(RuntimeError):list(api.pages('full-directional-surveys',dict(fields='Latitude,Longitude')))
