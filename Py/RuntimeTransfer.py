@@ -19,10 +19,6 @@ def export_runtime(root,config,part_bytes=1024**3,build_first=False):
     if not gdb.exists():state.close();raise RuntimeError('Current managed geodatabase is missing')
     paths=[(cache,'sourceCache'),(processed,'processingState')]
     paths.extend((p,'managedGdb') for p in gdb.rglob('*') if p.is_file() and not p.name.lower().endswith('.lock'))
-    for part, in state.execute('SELECT Part FROM ShpParts'):
-        shape=root/part
-        for p in shape.parent.glob(shape.stem+'.*'):
-            if p.is_file() and p.suffix.lower() in ['.shp','.dbf','.shx','.prj','.cpg','.sbn','.sbx','.atx','.xml']:paths.append((p,'managedShapefile'))
     state.close();paths=sorted(set(paths),key=lambda x:str(x[0]));stamp=datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ');folder=root/'Zip/CacheTransfers'/(profile+stamp);folder.mkdir(parents=True)
     connections=[];writer=None;entries=[]
     try:
@@ -50,7 +46,7 @@ def import_runtime(root,config,manifest_path,replace=False):
     root=Path(root).resolve();manifest_path=Path(manifest_path);m=json.loads(manifest_path.read_text());profile=config['profile'];base=root/'Sqlite'/profile/'Cache';base.mkdir(parents=True,exist_ok=True);cache=base/'EnverusCache.sqlite'
     if m['formatVersion']!=2 or m['profile']!=profile or m['scope']!=config.get('apiFilters',{}):raise RuntimeError('Runtime transfer profile/scope mismatch')
     if cache.exists() and not replace:raise RuntimeError('A cache already exists; explicit --replace is required')
-    prefixes={'managedGdb':f'Gdb/{profile}/Output/EnverusGuggWellRecord.gdb/','managedShapefile':f'Shp/{profile}/Output/Current/'};exact={'sourceCache':f'Sqlite/{profile}/Cache/EnverusCache.sqlite','processingState':f'Sqlite/{profile}/Cache/Processed.sqlite'}
+    prefixes={'managedGdb':f'Gdb/{profile}/Output/EnverusGuggWellRecord.gdb/'};exact={'sourceCache':f'Sqlite/{profile}/Cache/EnverusCache.sqlite','processingState':f'Sqlite/{profile}/Cache/Processed.sqlite'}
     entries={}
     for entry in m['files']:
         rel=entry['path'];role=entry['role']
@@ -85,7 +81,7 @@ def import_runtime(root,config,manifest_path,replace=False):
                     meta=dict(con.execute('SELECT * FROM Meta'))
                     if meta['watermark']!=m['watermark'] or json.loads(meta['scope'])!=m['scope']:raise RuntimeError('Watermark/scope validation failed')
             finally:con.close()
-        moves=[f'Gdb/{profile}/Output/EnverusGuggWellRecord.gdb',f'Shp/{profile}/Output/Current',exact['processingState'],exact['sourceCache']]
+        moves=[f'Gdb/{profile}/Output/EnverusGuggWellRecord.gdb',exact['processingState'],exact['sourceCache']]
         backup=root/'Zip/ImportBackups'/stamp
         for rel in moves:
             source=staging/rel;target=root/rel

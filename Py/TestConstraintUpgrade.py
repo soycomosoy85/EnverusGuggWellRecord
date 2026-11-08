@@ -35,9 +35,6 @@ class ConstraintUpgradeTests(unittest.TestCase):
                     for row in values:
                         oid=cursor.insertRow([shape]+list(row));db.execute('INSERT INTO Managed VALUES(?,?,?,?,?)',(dataset,row[-1],row[-1],'old-hash',oid))
                 before[dataset]=feature_check(path)
-            shp=root/'Shp/Test/Output/Current';shp.mkdir(parents=True)
-            path=shp/'EnvLateral_Gugg0001.shp';arcpy.management.CopyFeatures(str(gdb/DATASETS[0]),str(path));arcpy.management.AddField(str(path),'NullCount','LONG')
-            db.execute('INSERT INTO ShpParts VALUES(?,?,?,?)',(DATASETS[0],path.relative_to(root).as_posix(),4,1000));db.commit()
             report=upgrade_if_needed(root,config,db,fields)
             self.assertTrue(report['validation']['passed']);self.assertEqual(report['geometryRecomputations'],0)
             for dataset in DATASETS:

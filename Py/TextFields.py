@@ -1,4 +1,4 @@
-"""Preserve full GDB text and use a bounded marker for DBF overflow."""
+"""Preserve full text in geodatabase fields."""
 import json
 
 
@@ -19,9 +19,3 @@ def required_widths(fields, payloads, current):
                 wanted[name] = max(wanted.get(name, 0), max(64, 1 << (size - 1).bit_length()))
     return wanted
 
-
-def shapefile_text(value, width):
-    if len(value) <= width:
-        return value
-    # The independent WellKey and RecKey fields identify the complete GDB row.
-    return 'SeeGdb' if width >= 6 else '?'

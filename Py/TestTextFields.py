@@ -2,7 +2,7 @@ import json
 import tempfile
 import unittest
 from pathlib import Path
-from TextFields import required_widths, shapefile_text
+from TextFields import required_widths
 from ExportCompatibility import compatible_logic_hash, PREVIOUS_LOGIC_HASH, WRITER_REPAIR_LOGIC_HASH
 
 
@@ -13,11 +13,6 @@ class TextFieldTests(unittest.TestCase):
         self.assertEqual(required_widths(fields,[json.dumps(dict(EnvTicker=text,WellConstr='N'))],{'EnvTicker':32,'WellConstr':1}),{'EnvTicker':64})
         with self.assertRaises(ValueError):
             required_widths(fields,[json.dumps(dict(WellConstr='YES'))],{'EnvTicker':32,'WellConstr':1})
-
-    def test_dbf_marker_always_fits(self):
-        for width in [1,5,6,32,254]:
-            self.assertLessEqual(len(shapefile_text('X'*300,width)),width)
-        self.assertEqual(shapefile_text('ABC',32),'ABC')
 
     def test_compatibility_is_exact(self):
         self.assertEqual(compatible_logic_hash(WRITER_REPAIR_LOGIC_HASH),PREVIOUS_LOGIC_HASH)

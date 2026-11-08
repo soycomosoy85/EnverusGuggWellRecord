@@ -24,7 +24,7 @@ class BuildTests(unittest.TestCase):
             with arcpy.da.InsertCursor(str(ref/'GUGG_Nomenclature'),['ENVRegion','ENVBasin','ENVInterval','GUGG_BASIN','GUGG_LANDING_ZONE','GUGG_BENCH','GUGG_TCA_PREFIX']) as cursor:cursor.insertRow(['SYNTHETIC','SYNTHETIC','SYNTHETIC','SYNTHETIC','SYNTHETIC','SYNTHETIC','SYNTHETIC'])
             from WellGeometry import SR
             with arcpy.da.InsertCursor(str(ref/'GUGG_TCAs'),['TCA_NAME','GUGG_BASIN','GUGG_BENCH','WPS','SHAPE@']) as cursor:cursor.insertRow(['SyntheticConstraint','SYNTHETIC','SYNTHETIC',4,arcpy.FromWKT('POLYGON((-104.1 31.9,-103.8 31.9,-103.8 32.1,-104.1 32.1,-104.1 31.9))',SR)])
-            cfg=json.loads((root/'Json/Config/Workflow.json').read_text());cfg.update(profile='Synthetic',shapefileMaximumRecords=2)
+            cfg=json.loads((root/'Json/Config/Workflow.json').read_text());cfg.update(profile='Synthetic',exportShapefiles=True)
             cache=root/'Sqlite/Synthetic/Cache/EnverusCache.sqlite';cache.parent.mkdir(parents=True);db=sqlite3.connect(cache);initialize(db)
             def well(uwi,bore,country,state,x,y,status='PRODUCING',kind='HORIZONTAL'):
                 return dict(API_UWI=uwi,API_UWI_Unformatted=uwi,API_UWI_12_Unformatted=bore,API_UWI_14_Unformatted=uwi+'0000' if country=='US' else None,API_UWI_14=uwi+'0000' if country=='US' else None,Country=country,StateProvince=state,WellID=uwi,CompletionID=uwi,WellName='Synthetic Only',Longitude=x,Latitude=y,Longitude_BH=(x+.02 if x is not None else None),Latitude_BH=y,Trajectory=kind,ENVWellStatus=status,LateralLength_FT=1000,ENVRegion='SYNTHETIC',ENVBasin='SYNTHETIC',ENVInterval='SYNTHETIC',UpdatedDate='2026-10-01T00:00:00Z',LateralLine=(f'LINESTRING({x} {y},{x+.02} {y})' if x is not None else None))
@@ -55,10 +55,26 @@ class BuildTests(unittest.TestCase):
                 self.assertAlmostEqual(point.firstPoint.X,x);self.assertAlmostEqual(point.firstPoint.Y,y)
             dates=[(p,l) for p,l in arcpy.da.SearchCursor(str(Path(report['geodatabase'])/'EnvLateral_Gugg'),['PermitDate','LastProd']) if p]
             self.assertEqual(dates[0][0].hour,0);self.assertEqual(dates[0][1].day,1)
-            self.assertGreaterEqual(len(report['shapefileParts']),5)
-            self.assertEqual(sum(Path(p).stem.startswith('EnvLateral_Gugg') for p in report['shapefileParts']),2)
-            for path in report['shapefileParts']:
-                self.assertLessEqual(int(arcpy.management.GetCount(path)[0]),2);self.assertTrue(all(len(f.name)<=10 for f in arcpy.ListFields(path)))
+            self.assertFalse((root/'Shp').exists());self.assertNotIn('shapefileParts',report)
+            # Resume an interrupted post-GDB export checkpoint using only cached
+            # winners. Preserve core feature IDs and perform no geometry work.
+            from ManagedProducts import targets
+            from ResumeGeodatabaseCheckpoint import finish
+            state=sqlite3.connect(root/'Sqlite/Synthetic/Cache/Processed.sqlite')
+            state.execute('ATTACH DATABASE ? AS source',(str(cache),))
+            targets(state,[r[0] for r in state.execute('SELECT Origin FROM Winners')],template)
+            meta=dict(state.execute('SELECT * FROM ProductMeta'))
+            checkpoint=dict(rulesHash=meta['rulesHash'],referenceFingerprint=report['referenceFingerprint'])
+            (root/'Json/Config/GdbOnlyCheckpoint.json').write_text(json.dumps(checkpoint))
+            state.execute("DELETE FROM Managed WHERE Dataset='EnvSH_Gugg'")
+            state.execute("UPDATE SurfaceMeta SET Value='0' WHERE Key='initialized'")
+            state.commit();state.close()
+            core_ids={n:list(arcpy.da.SearchCursor(str(Path(report['geodatabase'])/n),['RecKey','OID@'])) for n in ['EnvLateral_Gugg','EnvWell_Gugg','EnvWellCentroid_Gugg']}
+            arcpy.management.Delete(str(Path(report['geodatabase'])/'EnvSH_Gugg'))
+            report=finish(root,cfg)
+            self.assertEqual(report['processingCounts']['Recomputed'],0)
+            self.assertEqual(report['surfaceHoleChanges']['inserted'],5)
+            for name,ids in core_ids.items():self.assertEqual(list(arcpy.da.SearchCursor(str(Path(report['geodatabase'])/name),['RecKey','OID@'])),ids)
             project=arcpy.mp.ArcGISProject(report['project']);self.assertFalse(project.listBrokenDataSources());self.assertTrue(all(str(root) in d['databasePath'] for d in project.databases));self.assertTrue(all(str(root) in t['toolboxPath'] for t in project.toolboxes));del project
             # Check signatures by a second local build; no API is involved.
             cfg['exportShapefiles']=False
@@ -73,7 +89,7 @@ class BuildTests(unittest.TestCase):
             connection=sqlite3.connect(cache);ident=record_id(wells[0]);wells[0]['WellName']='Changed Synthetic Name';connection.execute('UPDATE Wells SET Payload=? WHERE Id=?',(json.dumps(wells[0]),ident));connection.execute('INSERT OR IGNORE INTO DirtyOrigins VALUES(?)',(origin(wells[0]),));connection.commit();connection.close()
             import time
             time.sleep(1)
-            changed=build(root,cfg,cache);self.assertEqual(changed['affectedOrigins'],1);self.assertEqual(changed['gdbChanges']['EnvLateral_Gugg']['updated'],1);self.assertEqual(changed['gdbChanges']['EnvWellCentroid_Gugg']['updated'],1);self.assertEqual(changed['shapefileChanges']['EnvLateral_Gugg']['updated'],1)
+            changed=build(root,cfg,cache);self.assertEqual(changed['affectedOrigins'],1);self.assertEqual(changed['gdbChanges']['EnvLateral_Gugg']['updated'],1);self.assertEqual(changed['gdbChanges']['EnvWellCentroid_Gugg']['updated'],1)
             self.assertEqual(changed['surfaceHoleChanges']['updated'],1)
             after={k:oid for k,oid in arcpy.da.SearchCursor(str(Path(report['geodatabase'])/'EnvLateral_Gugg'),['RecKey','OID@'])};self.assertEqual(before,after)
             # A source timestamp-only change must cause zero GIS writes.
@@ -82,13 +98,14 @@ class BuildTests(unittest.TestCase):
             # Retired/cancelled records remove only their own analytical and
             # display rows; unrelated ObjectIDs and features remain intact.
             connection=sqlite3.connect(cache);connection.execute('DELETE FROM Wells WHERE Id=?',(record_id(wells[3]),));connection.execute('INSERT OR IGNORE INTO DirtyOrigins VALUES(?)',(origin(wells[3]),));connection.commit();connection.close();time.sleep(1)
-            retired=build(root,cfg,cache);self.assertEqual(retired['affectedOrigins'],1);self.assertEqual(retired['gdbChanges']['EnvLateral_Gugg']['deleted'],1);self.assertEqual(retired['shapefileChanges']['EnvLateral_Gugg']['deleted'],1);self.assertEqual(retired['gdbChanges']['EnvWell_Gugg']['deleted'],1)
+            retired=build(root,cfg,cache);self.assertEqual(retired['affectedOrigins'],1);self.assertEqual(retired['gdbChanges']['EnvLateral_Gugg']['deleted'],1);self.assertEqual(retired['gdbChanges']['EnvWell_Gugg']['deleted'],1)
             self.assertEqual(retired['surfaceHoleChanges']['deleted'],1)
             remaining={k:oid for k,oid in arcpy.da.SearchCursor(str(Path(report['geodatabase'])/'EnvLateral_Gugg'),['RecKey','OID@'])};self.assertEqual(len(remaining),len(before)-1);self.assertTrue(all(before[k]==oid for k,oid in remaining.items()))
             # Transfer the managed GIS state too: a new machine must not need a
             # national geometry rebuild when its inputs have not changed.
             from RuntimeTransfer import export_runtime,import_runtime
             transfer=export_runtime(root,cfg,part_bytes=4096)
+            manifest=json.loads(Path(transfer['manifest']).read_text());self.assertFalse(any(f['role']=='managedShapefile' for f in manifest['files']))
             relocated=root/'MovedInstallation'
             for name in ['Py','Json/Config','Gdb/Reference','Aprx/Template','Atbx']:shutil.copytree(source_root/name,relocated/name,ignore=shutil.ignore_patterns('__pycache__','*.lock'))
             # Relocation carries the exact same references, including test rows.

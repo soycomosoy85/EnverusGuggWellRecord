@@ -28,7 +28,7 @@ class CachedSubsetTests(unittest.TestCase):
             for state in ['TX','NM','OK']:db.execute('INSERT INTO Results VALUES(?,?,?,?,?,?,?)',(state,state,'signature','Line','{}','geometry',None))
             db.commit();db.close()
             config=prepare(source,output);self.assertEqual(config['profile'],'TexasNewMexico')
-            self.assertFalse(config['exportShapefiles'])
+            self.assertNotIn('exportShapefiles',config)
             base=output/'Sqlite/TexasNewMexico/Cache'
             with closing(sqlite3.connect(base/'EnverusCache.sqlite')) as db:
                 self.assertEqual(set(r[0] for r in db.execute('SELECT Id FROM Wells')),{'TX','NM'})

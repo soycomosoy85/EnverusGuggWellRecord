@@ -76,8 +76,7 @@ def sync_surface(root,config,report):
         ensure_project(report,fields)
         db.execute('DELETE FROM SurfacePending');count=db.execute('SELECT count(*) FROM Managed WHERE Dataset=?',(NAME,)).fetchone()[0]
         db.executemany('INSERT OR REPLACE INTO SurfaceMeta VALUES(?,?)',[('initialized','1'),('count',str(count)),('projectRoot',str(root))]);db.commit()
-        report.setdefault('counts',{})[NAME]=count;report.setdefault('gdbChanges',{}).update(result['gdbChanges']);report.setdefault('shapefileChanges',{}).update(result['shapefileChanges']);report['gisWrites']=report.get('gisWrites',0)+result['gisWrites'];report['surfaceHoleChanges']=result['gdbChanges'][NAME];report['surfaceHoleMissingCoordinatesInBatch']=skipped
-        report['shapefileParts']=result['shapefileParts']
+        report.setdefault('counts',{})[NAME]=count;report.setdefault('gdbChanges',{}).update(result['gdbChanges']);report['gisWrites']=report.get('gisWrites',0)+result['gisWrites'];report['surfaceHoleChanges']=result['gdbChanges'][NAME];report['surfaceHoleMissingCoordinatesInBatch']=skipped
         if result['gisWrites']:report['status']='UpdatedChangedRecords'
         (qa/'SurfaceHoleReport.json').write_text(json.dumps(dict(count=count,missingCoordinatesInBatch=skipped,changes=result['gdbChanges'][NAME],gisWrites=result['gisWrites']),indent=2))
         return report

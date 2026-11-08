@@ -102,7 +102,6 @@ def build(root,config,cache_path):
     if full_initialization:
         db.execute('INSERT OR IGNORE INTO BuildFocus SELECT DISTINCT Origin FROM source.Wells');db.execute('INSERT OR IGNORE INTO BuildFocus SELECT Origin FROM Winners')
     else:db.execute('INSERT OR IGNORE INTO BuildFocus SELECT Origin FROM source.DirtyOrigins')
-    if config['exportShapefiles']:db.execute('INSERT OR IGNORE INTO BuildFocus SELECT Origin FROM ShpPending')
     focus_count=db.execute('SELECT count(*) FROM BuildFocus').fetchone()[0]
     def finish(report):
         report.update(run=stamp,qaFolder=str(qa),sourceCache=str(cache_path),referenceFingerprint=fingerprint(reference))
@@ -112,7 +111,7 @@ def build(root,config,cache_path):
     if not focus_count and meta.get('projectRoot')==str(root) and meta.get('lastReport'):
         report=json.loads(meta['lastReport'])
         if not Path(report['geodatabase']).exists():raise RuntimeError('Managed GIS products are missing; restore them before incremental updates')
-        report.update(status='SkippedNoChanges',gisWrites=0,processingCounts=dict(Recomputed=0,Reused=0),affectedOrigins=0,gdbChanges={},shapefileChanges={});return finish(report)
+        report.update(status='SkippedNoChanges',gisWrites=0,processingCounts=dict(Recomputed=0,Reused=0),affectedOrigins=0,gdbChanges={});return finish(report)
     counts=Counter();last_api=None;headers=[];stations=[];seen=0
     query='SELECT w.Id,w.Api,w.Payload,b.Version FROM source.Wells w JOIN BuildFocus f ON w.Origin=f.Origin LEFT JOIN source.BoreVersions b ON w.Api=b.Api ORDER BY w.Api,w.Id'
     for ident,bore,payload,version in db.execute(query):

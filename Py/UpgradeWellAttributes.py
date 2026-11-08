@@ -1,6 +1,6 @@
 """Add/recalculate constraint attributes without surveys or spatial enrichment.
 
-An ordered copy is needed once because file geodatabases and DBF files append
+An ordered copy is needed once because file geodatabases append
 new fields. Coordinates are copied unchanged and checked by stable-key/WKB
 checksums. Subsequent lookup changes update attributes in place.
 Call while holding the profile's Workflow.lock.
@@ -52,7 +52,7 @@ def ordered_fields(path,fields):
         raise RuntimeError('An earlier ordered-copy backup needs inspection: '+str(backup))
     if arcpy.Exists(str(temporary)):arcpy.management.Delete(str(temporary))
     mappings=arcpy.FieldMappings()
-    for name in desired+(['NullCount'] if 'NullCount' in existing else []):
+    for name in desired:
         mapping=arcpy.FieldMap();mapping.addInputField(str(path),name)
         field=mapping.outputField
         field.aliasName=next((f['alias'] for f in fields if f['fieldName']==name),name)
@@ -75,22 +75,19 @@ def update_feature_class(path,fields,lookup):
     path=Path(path);existing={f.name:f for f in arcpy.ListFields(str(path))}
     if 'WelCnsStat' not in existing:
         arcpy.management.AddField(str(path),'WelCnsStat','TEXT',field_length=6,field_alias='Well Constraint Status')
-    is_shp=path.suffix.lower()=='.shp'
     names=[f['fieldName'] for f in fields if f['fieldName']!='RecKey']
-    columns=names+(['NullCount'] if is_shp else [])
+    columns=names
     idx={n:i for i,n in enumerate(columns)};changed=0
     with arcpy.da.UpdateCursor(str(path),columns) as rows:
         for row in rows:
             attrs={n:row[idx[n]] for n in ['EnvStatus','Trajectory','WellConstr']}
             result=apply(attrs,lookup);new=list(row)
-            new[idx['WellConstr']]=result['WellConstr'];new[idx['WelCnsStat']]=result['WelCnsStat'] or ('' if is_shp else None)
-            if is_shp:new[idx['NullCount']]=sum(value is None or value=='' or value==-999999999 for value in new[:-1])
+            new[idx['WellConstr']]=result['WellConstr'];new[idx['WelCnsStat']]=result['WelCnsStat']
             if list(row)!=new:rows.updateRow(new);changed+=1
     copied=ordered_fields(path,fields)
-    if not is_shp:
-        arcpy.management.AlterField(str(path),'WelCnsStat',new_field_alias='Well Constraint Status')
-        if not arcpy.ListIndexes(str(path),'RecKeyIdx'):arcpy.management.AddIndex(str(path),'RecKey','RecKeyIdx')
-        arcpy.management.AssignDefaultToField(str(path),'WellConstr','N')
+    arcpy.management.AlterField(str(path),'WelCnsStat',new_field_alias='Well Constraint Status')
+    if not arcpy.ListIndexes(str(path),'RecKeyIdx'):arcpy.management.AddIndex(str(path),'RecKey','RecKeyIdx')
+    arcpy.management.AssignDefaultToField(str(path),'WellConstr','N')
     result=feature_check(path,lookup)
     actual=[f.name for f in arcpy.ListFields(str(path))]
     if actual.index('WelCnsStat')!=actual.index('WellConstr')+1:raise RuntimeError('Constraint status field is out of order: '+str(path))
@@ -99,7 +96,7 @@ def update_feature_class(path,fields,lookup):
 
 
 def upgrade_if_needed(root,config,db,fields,force=False):
-    from ManagedProducts import hide_key,write_layer
+    from ManagedProducts import hide_key
     root=Path(root);meta=dict(db.execute('SELECT * FROM ProductMeta'))
     if not any(f['fieldName']=='WelCnsStat' for f in fields):return None
     signature=schema_signature(fields);revision=rules_hash(root)
@@ -112,7 +109,7 @@ def upgrade_if_needed(root,config,db,fields,force=False):
     if not arcpy.Exists(str(gdb)):raise RuntimeError('Constraint upgrade requires the existing managed GDB')
     qa=root/'Json'/profile/'Output/Qa';qa.mkdir(parents=True,exist_ok=True)
     state_path=qa/'ConstraintAttributeUpgrade.json'
-    report=dict(status='Running',started=datetime.now(timezone.utc).isoformat(),geodatabase=str(gdb),geometryRecomputations=0,spatialJoins=0,apiDownloads=0,features={},shapefiles={},validation=dict(passed=False))
+    report=dict(status='Running',started=datetime.now(timezone.utc).isoformat(),geodatabase=str(gdb),geometryRecomputations=0,spatialJoins=0,apiDownloads=0,features={},validation=dict(passed=False))
     state_path.write_text(json.dumps(report,indent=2));lookup=configure(root)
     try:
         for dataset in DATASETS:
@@ -123,14 +120,6 @@ def upgrade_if_needed(root,config,db,fields,force=False):
             with arcpy.da.SearchCursor(str(path),['OID@','RecKey']) as rows:
                 db.executemany('UPDATE Managed SET Oid=? WHERE Dataset=? AND RecKey=?',((oid,dataset,key) for oid,key in rows))
             db.commit();state_path.write_text(json.dumps(report,indent=2))
-        if config.get('exportShapefiles',True) and db.execute("SELECT 1 FROM sqlite_master WHERE name='ShpParts'").fetchone():
-            for relative, in db.execute('SELECT Part FROM ShpParts ORDER BY Part').fetchall():
-                path=root/relative
-                if not arcpy.Exists(str(path)):raise RuntimeError('Managed shapefile is missing: '+str(path))
-                print('Updating constraint attributes '+path.name,flush=True)
-                report['shapefiles'][relative]=update_feature_class(path,fields,lookup)
-                write_layer(root,profile,path,[f for f in fields if f['fieldName']!='RecKey'])
-                state_path.write_text(json.dumps(report,indent=2))
         project_path=root/'Aprx'/profile/'EnverusGuggWellRecord.aprx'
         if project_path.exists():
             project=arcpy.mp.ArcGISProject(str(project_path))

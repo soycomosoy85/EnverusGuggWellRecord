@@ -1,14 +1,14 @@
 """Row-level current GIS products. Unchanged feature hashes cause no GIS writes.
 
 RecKey is the final stable-key column in the supplied template. It
-also survives shapefile FID renumbering, enabling idempotent targeted retries.
+enables idempotent targeted retries for geodatabase features.
 """
 import arcpy
 import hashlib,json,sqlite3,shutil,gzip
 from datetime import datetime
 from pathlib import Path
 from WellGeometry import SR,number
-from TextFields import required_widths,shapefile_text
+from TextFields import required_widths
 
 SPECS={'EnvLateral_Gugg':('POLYLINE',False),'EnvWell_Gugg':('POLYLINE',False),'EnvWellCentroid_Gugg':('POINT',False)}
 
@@ -17,7 +17,7 @@ def pack(value):return json.dumps(value,sort_keys=True,separators=(',',':'))
 def digest(attrs,geom):return hashlib.sha256((pack(attrs)+'|'+str(geom)).encode()).hexdigest()
 
 def initialize(db):
-    db.executescript('CREATE TABLE IF NOT EXISTS ProductMeta(Key TEXT PRIMARY KEY,Value TEXT);CREATE TABLE IF NOT EXISTS Managed(Dataset TEXT,RecKey TEXT,Origin TEXT,Hash TEXT,Oid INTEGER,PRIMARY KEY(Dataset,RecKey));CREATE INDEX IF NOT EXISTS ManagedOrigin ON Managed(Origin);CREATE TABLE IF NOT EXISTS ShpRows(Dataset TEXT,RecKey TEXT,Origin TEXT,Hash TEXT,Part TEXT,Bytes INTEGER,PRIMARY KEY(Dataset,RecKey));CREATE INDEX IF NOT EXISTS ShpOrigin ON ShpRows(Origin);CREATE TABLE IF NOT EXISTS ShpParts(Dataset TEXT,Part TEXT PRIMARY KEY,Rows INTEGER,Bytes INTEGER);CREATE TABLE IF NOT EXISTS ShpPending(Origin TEXT PRIMARY KEY);')
+    db.executescript('CREATE TABLE IF NOT EXISTS ProductMeta(Key TEXT PRIMARY KEY,Value TEXT);CREATE TABLE IF NOT EXISTS Managed(Dataset TEXT,RecKey TEXT,Origin TEXT,Hash TEXT,Oid INTEGER,PRIMARY KEY(Dataset,RecKey));CREATE INDEX IF NOT EXISTS ManagedOrigin ON Managed(Origin);')
 
 def desired(db,dataset,entity,group,attrs,geom=None):
     db.execute('INSERT OR REPLACE INTO Desired VALUES(?,?,?,?,?,?,?)',(dataset,key(entity),group,digest(attrs,geom),pack(attrs),geom,entity))
@@ -84,7 +84,7 @@ def apply(root,config,db,fields,qa):
             if 'RecKey' not in existing_fields:arcpy.management.AddField(path,'RecKey','TEXT',field_length=32,field_alias='Internal Stable Feature Record Key')
             if not arcpy.ListIndexes(path,'RecKeyIdx'):arcpy.management.AddIndex(path,'RecKey','RecKeyIdx')
         db.execute('INSERT OR REPLACE INTO ProductMeta VALUES(?,?)',('schema',schema));db.commit()
-    changes={};shp_changes={};operations=qa/'GisChanges.jsonl.gz'
+    changes={};operations=qa/'GisChanges.jsonl.gz'
     def values(dataset,payload):
         a=json.loads(payload)
         return [datetime.fromisoformat(a[n]) if a.get(n) is not None and f['exportType']=='DATE' else a.get(n) for n,f in zip(names,fields)]
@@ -126,115 +126,20 @@ def apply(root,config,db,fields,qa):
                 for rec in keys:audit.write(pack(dict(dataset=dataset,RecKey=rec,operation='delete'))+'\n')
             changes[dataset]=counts
             if sum(counts.values()):print('Changed GIS rows '+dataset+': '+pack(counts),flush=True)
-        if config['exportShapefiles']:
-            for dataset in SPECS:shp_changes[dataset]=apply_shp(root,config,db,fields,dataset,values,guard)
-            db.execute('DELETE FROM ShpPending WHERE Origin IN(SELECT Origin FROM Focus)')
-        else:db.execute('INSERT OR IGNORE INTO ShpPending SELECT Origin FROM Focus')
     db.execute('INSERT OR REPLACE INTO ProductMeta VALUES(?,?)',('initialized','1'));db.commit()
-    project_path=root/'Aprx'/profile/'EnverusGuggWellRecord.aprx';lyr=root/'Lyrx'/profile/'Output/Current';lyr.mkdir(parents=True,exist_ok=True)
+    project_path=root/'Aprx'/profile/'EnverusGuggWellRecord.aprx'
     if not project_path.exists() or meta.get('projectRoot')!=str(root):
         project=arcpy.mp.ArcGISProject(str(root/'Aprx/Template/WellRecordTemplate.aprx'));project.homeFolder=str(root);project.defaultGeodatabase=str(gdb);project.defaultToolbox=str(root/'Atbx/WellRecord.atbx');project.updateDatabases([dict(databasePath=str(gdb),isDefaultDatabase=True),dict(databasePath=str(root/config['referenceGdb']),isDefaultDatabase=False)]);project.updateToolboxes([dict(toolboxPath=str(root/'Atbx/WellRecord.atbx'),isDefaultToolbox=True)]);project.updateFolderConnections([dict(connectionString=str(root),alias='WellRecord',isHomeFolder=True)])
         analysis=project.createMap('Enverus Gugg Wells','MAP')
         for dataset in SPECS:
             layer=analysis.addDataFromPath(str(gdb/dataset));hide_key(layer,fields)
         project_path.parent.mkdir(parents=True,exist_ok=True);project.saveACopy(str(project_path));db.execute('INSERT OR REPLACE INTO ProductMeta VALUES(?,?)',('projectRoot',str(root)));db.commit()
-        # The GIS-state transfer preserves rows/keys but not machine paths.
-        # Repoint layer metadata once after relocation, without rewriting wells.
-        if meta.get('projectRoot') and meta['projectRoot']!=str(root):
-            for part, in db.execute('SELECT Part FROM ShpParts'):write_layer(root,profile,root/part,fields)
-    counts={name:0 for name in datasets};counts.update(dict(db.execute('SELECT Dataset,count(*) FROM Managed GROUP BY Dataset')));parts=[str(root/r[0]) for r in db.execute('SELECT Part FROM ShpParts ORDER BY Part')]
-    writes=sum(sum(v.values()) for v in changes.values())+sum(sum(v.values()) for v in shp_changes.values())
-    return dict(geodatabase=str(gdb),project=str(project_path),counts=counts,shapefileParts=parts,layerFolder=str(lyr),gdbChanges=changes,shapefileChanges=shp_changes,gisWrites=writes,status='UpdatedChangedRecords' if writes else 'SkippedNoGisChanges',technicalKey='RecKey',validation=dict(passed=True,stableKeys=True,incrementalWritesOnly=True))
+    counts={name:0 for name in datasets};counts.update(dict(db.execute('SELECT Dataset,count(*) FROM Managed GROUP BY Dataset')))
+    writes=sum(sum(v.values()) for v in changes.values())
+    return dict(geodatabase=str(gdb),project=str(project_path),counts=counts,gdbChanges=changes,gisWrites=writes,status='UpdatedChangedRecords' if writes else 'SkippedNoGisChanges',technicalKey='RecKey',validation=dict(passed=True,stableKeys=True,incrementalWritesOnly=True))
 
 def hide_key(layer,fields):
     cim=layer.getDefinition('V3');descriptions=[]
     for f in fields+[dict(fieldName='RecKey',alias='Internal Stable Feature Record Key')]:
         d=arcpy.cim.CreateCIMObjectFromClassName('CIMFieldDescription','V3');d.fieldName=f['fieldName'];d.alias=f['alias'];d.visible=f['fieldName']!='RecKey';descriptions.append(d)
     cim.featureTable.fieldDescriptions=descriptions;layer.setDefinition(cim)
-
-def write_layer(root,profile,path,fields):
-    project=arcpy.mp.ArcGISProject(str(root/'Aprx/Template/WellRecordTemplate.aprx'));m=project.createMap('Layer','MAP');layer=m.addDataFromPath(str(path));hide_key(layer,fields);target=root/'Lyrx'/profile/'Output/Current'/(path.stem+'.lyrx');target.parent.mkdir(parents=True,exist_ok=True)
-    if target.exists():target.unlink()
-    layer.saveACopy(str(target));del layer;del m;del project
-
-def apply_shp(root,config,db,fields,dataset,values,guard):
-    profile=config['profile'];folder=root/'Shp'/profile/'Output/Current';folder.mkdir(parents=True,exist_ok=True);names=[f['fieldName'] for f in fields];kind,z=SPECS[dataset];counts=dict(inserted=0,updated=0,deleted=0)
-    # A stable tracking key avoids relying on shapefile FIDs after deletion.
-    def encode(payload):
-        a=json.loads(payload);out=[];missing=0
-        for f in fields:
-            v=a.get(f['fieldName'])
-            if v is None:missing+=1;v='' if f['exportType']=='TEXT' else None if f['exportType']=='DATE' else -999999999
-            elif f['exportType']=='DATE':v=datetime.fromisoformat(v)
-            if isinstance(v,str):v=shapefile_text(v,min(f.get('textLength') or 254,254))
-            out.append(v)
-        return out+[missing]
-    def create_part():
-        n=db.execute('SELECT count(*) FROM ShpParts WHERE Dataset=?',(dataset,)).fetchone()[0]+1;path=folder/(dataset+str(n).zfill(4)+'.shp')
-        if not arcpy.Exists(str(path)):
-            arcpy.management.CreateFeatureclass(str(folder),path.name,kind,has_z='ENABLED' if z else 'DISABLED',spatial_reference=SR)
-        # A prior interrupted schema creation can leave a partial part on disk.
-        existing_fields={f.name for f in arcpy.ListFields(str(path))}
-        for f in fields:
-            if f['fieldName'] not in existing_fields:arcpy.management.AddField(str(path),f['fieldName'],f['exportType'],field_precision=18,field_scale=6,field_length=min(f.get('textLength') or 254,254) if f['exportType']=='TEXT' else None)
-        if 'NullCount' not in existing_fields:arcpy.management.AddField(str(path),'NullCount','LONG')
-        if 'RecKey' not in existing_fields:arcpy.management.AddField(str(path),'RecKey','TEXT',field_length=32)
-        if not arcpy.ListIndexes(str(path),'RecKeyIdx'):arcpy.management.AddIndex(str(path),'RecKey','RecKeyIdx')
-        write_layer(root,profile,path,fields)
-        rel=path.relative_to(root).as_posix();db.execute('INSERT OR IGNORE INTO ShpParts VALUES(?,?,0,0)',(dataset,rel));db.commit();return rel
-    # Remove retired/moved records from only the affected parts.
-    deletions=db.execute('SELECT s.RecKey,s.Part FROM ShpRows s JOIN Focus f ON s.Origin=f.Origin WHERE s.Dataset=? AND NOT EXISTS(SELECT 1 FROM Desired d WHERE d.Dataset=s.Dataset AND d.RecKey=s.RecKey) ORDER BY s.Part',(dataset,)).fetchall()
-    for part in sorted({r[1] for r in deletions}):
-        keys={r[0] for r in deletions if r[1]==part}
-        with arcpy.da.UpdateCursor(str(root/part),['RecKey']) as write:
-            for row in write:
-                if row[0] in keys:write.deleteRow();counts['deleted']+=1
-        db.executemany('DELETE FROM ShpRows WHERE Dataset=? AND RecKey=?',[(dataset,k) for k in keys]);db.execute('UPDATE ShpParts SET Rows=(SELECT count(*) FROM ShpRows WHERE Part=?),Bytes=(SELECT coalesce(sum(Bytes),0) FROM ShpRows WHERE Part=?) WHERE Part=?',(part,part,part));db.commit()
-    query='SELECT d.RecKey,d.Origin,d.Hash,d.Attrs,d.Geom,s.Part,s.Bytes FROM Desired d LEFT JOIN ShpRows s ON d.Dataset=s.Dataset AND d.RecKey=s.RecKey WHERE d.Dataset=? AND (s.RecKey IS NULL OR s.Hash!=d.Hash) ORDER BY d.RecKey'
-    cursor=db.execute(query,(dataset,));part_state={p:[n,b] for p,n,b in db.execute('SELECT Part,Rows,Bytes FROM ShpParts WHERE Dataset=?',(dataset,))};active=None
-    def where(keys):return 'RecKey IN ('+','.join("'"+k+"'" for k in keys)+')'
-    while batch:=cursor.fetchmany(1000):
-        guard();existing={};pending=[];touched=set()
-        for rec,group,h,payload,g,part,old_size in batch:
-            geometry=arcpy.AsShape(json.loads(g),True);size=512+geometry.pointCount*(32 if z else 24)+sum(min(f.get('textLength') or 254,254) if f['exportType']=='TEXT' else 20 for f in fields)
-            if size>config['shapefileMaximumEstimatedBytes']:raise RuntimeError('Changed feature exceeds shapefile part limit; use geodatabase')
-            record=(rec,group,h,payload,geometry,size)
-            if part:
-                if not arcpy.Exists(str(root/part)):raise RuntimeError('Managed shapefile part missing; restore it before updating')
-                if part_state[part][1]-(old_size or 0)+size>config['shapefileMaximumEstimatedBytes']:
-                    with arcpy.da.UpdateCursor(str(root/part),['RecKey'],"RecKey = '"+rec+"'") as delete:
-                        for old in delete:delete.deleteRow();counts['deleted']+=1
-                    db.execute('DELETE FROM ShpRows WHERE Dataset=? AND RecKey=?',(dataset,rec));part_state[part][0]-=1;part_state[part][1]-=old_size or 0;db.execute('UPDATE ShpParts SET Rows=?,Bytes=? WHERE Part=?',(*part_state[part],part));pending.append(record)
-                else:existing.setdefault(part,[]).append((record,old_size or 0))
-            else:pending.append(record)
-        for part,records in existing.items():
-            wanted={r[0][0]:r[0] for r in records};found=set()
-            with arcpy.da.UpdateCursor(str(root/part),['RecKey','SHAPE@']+names+['NullCount'],where(wanted)) as write:
-                for row in write:
-                    r=wanted[row[0]];write.updateRow([r[0],r[4]]+encode(r[3]));found.add(r[0]);counts['updated']+=1
-            for r,old_size in records:
-                if r[0] not in found:pending.append(r);continue
-                db.execute('UPDATE ShpRows SET Origin=?,Hash=?,Bytes=? WHERE Dataset=? AND RecKey=?',(r[1],r[2],r[5],dataset,r[0]));part_state[part][1]+=r[5]-old_size
-            touched.add(part)
-        assigned={}
-        for r in pending:
-            if active is None or part_state[active][0]>=config['shapefileMaximumRecords'] or part_state[active][1]+r[5]>config['shapefileMaximumEstimatedBytes']:
-                active=next((p for p,(n,b) in part_state.items() if n<config['shapefileMaximumRecords'] and b+r[5]<=config['shapefileMaximumEstimatedBytes']),None)
-                if active is None:active=create_part();part_state[active]=[0,0]
-            assigned.setdefault(active,[]).append(r);part_state[active][0]+=1;part_state[active][1]+=r[5]
-        for part,records in assigned.items():
-            wanted={r[0]:r for r in records};found=set()
-            # One keyed cursor per batch/part, not one cursor per feature. It
-            # recovers an insert committed by the GIS driver before a crash.
-            with arcpy.da.UpdateCursor(str(root/part),['RecKey','SHAPE@']+names+['NullCount'],where(wanted)) as write:
-                for row in write:
-                    r=wanted[row[0]];write.updateRow([r[0],r[4]]+encode(r[3]));found.add(r[0]);counts['updated']+=1
-            with arcpy.da.InsertCursor(str(root/part),['RecKey','SHAPE@']+names+['NullCount']) as write:
-                for r in records:
-                    if r[0] not in found:write.insertRow([r[0],r[4]]+encode(r[3]));counts['inserted']+=1
-                    db.execute('INSERT OR REPLACE INTO ShpRows VALUES(?,?,?,?,?,?)',(dataset,r[0],r[1],r[2],part,r[5]))
-            touched.add(part)
-        for part in touched:
-            n,b=db.execute('SELECT count(*),coalesce(sum(Bytes),0) FROM ShpRows WHERE Part=?',(part,)).fetchone();part_state[part]=[n,b];db.execute('UPDATE ShpParts SET Rows=?,Bytes=? WHERE Part=?',(n,b,part))
-        db.commit()
-    return counts
