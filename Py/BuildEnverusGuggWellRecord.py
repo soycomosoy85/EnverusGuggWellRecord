@@ -5,7 +5,7 @@ from ProcessLock import ProcessLock,BusyError
 ROOT=Path(__file__).resolve().parents[1]
 
 def main():
-    parser=argparse.ArgumentParser();parser.add_argument('action',choices=['validate','probe','sync','build','run','test','migrate']);parser.add_argument('--config',default='Json/Config/Workflow.json');parser.add_argument('--require-cache',action='store_true');args=parser.parse_args()
+    parser=argparse.ArgumentParser();parser.add_argument('action',choices=['validate','probe','sync','build','run','test']);parser.add_argument('--config',default='Json/Config/Workflow.json');parser.add_argument('--require-cache',action='store_true');args=parser.parse_args()
     config=json.loads((ROOT/args.config).read_text())
     if config['profile']!=Path(config['profile']).name or config['profile'] in ['.','..']:raise RuntimeError('Profile must be a simple folder name')
     if args.action=='test':
@@ -31,9 +31,6 @@ def main():
     folder=ROOT/'Sqlite'/config['profile']/'Cache';folder.mkdir(parents=True,exist_ok=True);cache=folder/'EnverusCache.sqlite';lock=folder/'Workflow.lock'
     held=ProcessLock(lock);held.__enter__()
     try:
-        if args.action=='migrate':
-            from MigrateProducts import migrate
-            print(json.dumps(migrate(ROOT,config),indent=2));return
         if args.require_cache:
             import sqlite3
             if (folder/'ImportInProgress.json').exists():print('Waiting for GIS/cache import to finish; no updates started');raise SystemExit(76)

@@ -1,5 +1,5 @@
 param(
-    [ValidateSet('validate','probe','sync','build','run','test','migrate')][string]$Action = 'validate',
+    [ValidateSet('validate','probe','sync','build','run','test')][string]$Action = 'validate',
     [string]$Config = 'Json/Config/Workflow.json',
     [string]$ProPython = 'C:\Program Files\ArcGIS\Pro\bin\Python\Scripts\propy.bat'
 )

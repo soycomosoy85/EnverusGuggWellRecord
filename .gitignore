@@ -21,6 +21,9 @@ __pycache__/
 /Json/Config/DownloadPause.json
 /Json/Config/ConstraintAttributeAmendment.json
 /Json/Config/ReferenceInventory.json
+/Json/Config/GdbOnlyCheckpoint.json
+/Json/*/State/
+/Json/*/Agol/
 /GpMessages/
 *.zip
 *.zip.part*
