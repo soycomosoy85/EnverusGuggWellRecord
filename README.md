@@ -47,6 +47,8 @@ The scope is all account-entitled North America records, with no basin or countr
 
 The first source baseline is checkpointed. Later syncs read identifier/timestamp inventories and download changed well payloads and affected directional surveys. Survey updates/deletions use a three-day overlap. Watermarks advance only after successful synchronization. Unexpected membership removals stop publication for review. OS locks prevent overlapping updates.
 
+Vendor timestamps identify candidates for download; they do not by themselves require GIS edits. Identical well payloads retain their processing signatures while the inventory timestamp advances separately. Survey versions change only when header/station content changes, including additions or deletions; timestamp-only refreshes and row/key ordering do not invalidate geometry. Sync reports distinguish vendor-marked candidates (`changedWellRecords`, `surveyWellboresRefreshed`) from confirmed content changes (`wellContentChanged`, `surveyContentChanged`). Final `gdbChanges` and `gisWrites` report actual feature edits.
+
 Later GIS runs evaluate affected origins and write only changed features. Unchanged feature ObjectIDs are retained. Timestamp-only changes with identical outputs cause no GIS writes. Reference or geometry-rule changes can require broader local processing. Cached survey calculations, selected records, and source lineage stay in SQLite.
 
 `Ps1/ResumeGeodatabaseOnly.ps1` finishes a verified completed-core GDB checkpoint and populates the surface-hole layer from cached coordinates. It does not rerun the survey geometry engine or Gugg spatial assignments. This is a recovery entry point; normal operation uses the national or nightly launcher.

@@ -49,6 +49,37 @@ class CacheTests(unittest.TestCase):
         a=self.call();b=self.call();self.assertTrue(a['baseline']);self.assertFalse(b['baseline']);self.assertEqual(b['fullWellPayloadsDownloaded'],0);self.assertEqual(b['surveyWellboresRefreshed'],0)
     def test_changed_well_only(self):
         self.call();self.api.wells[1]['UpdatedDate']='2026-10-11T00:00:00Z';self.api.wells[1]['WellName']='Changed Synthetic';r=self.call();self.assertEqual(r['fullWellPayloadsDownloaded'],1);self.assertEqual(r['surveyWellboresRefreshed'],1)
+    def clear_dirty_and_snapshot(self):
+        from contextlib import closing
+        with closing(sqlite3.connect(self.path)) as db:
+            db.execute('DELETE FROM DirtyOrigins');db.commit()
+            return list(db.execute('SELECT Id,Payload FROM Wells ORDER BY Id')),list(db.execute('SELECT * FROM BoreVersions ORDER BY Api'))
+    def test_vendor_timestamp_only_refresh_does_not_dirty_features(self):
+        from contextlib import closing
+        self.call();before=self.clear_dirty_and_snapshot()
+        self.api.wells[0]['UpdatedDate']='2026-10-11T00:00:00Z'
+        r=self.call();self.assertEqual(r['wellContentChanged'],0);self.assertEqual(r['surveyContentChanged'],0)
+        with closing(sqlite3.connect(self.path)) as db:
+            self.assertEqual(db.execute('SELECT count(*) FROM DirtyOrigins').fetchone()[0],0)
+            self.assertEqual(db.execute('SELECT Updated FROM Wells WHERE Id=?',(record_id(self.api.wells[0]),)).fetchone()[0],self.api.wells[0]['UpdatedDate'])
+        self.assertEqual(self.clear_dirty_and_snapshot(),before)
+        self.assertEqual(self.call()['fullWellPayloadsDownloaded'],0)
+    def test_identical_survey_event_and_order_does_not_invalidate_geometry(self):
+        from contextlib import closing
+        self.call();before=self.clear_dirty_and_snapshot()
+        self.api.events=[dict(API_UWI_12_Unformatted='00100',UpdatedDate='2026-10-11')]
+        self.api.stations['00100'].reverse()
+        for row in self.api.stations['00100']:row['UpdatedDate']='2026-10-11'
+        r=self.call();self.assertEqual(r['surveyWellboresRefreshed'],1);self.assertEqual(r['surveyContentChanged'],0)
+        with closing(sqlite3.connect(self.path)) as db:self.assertEqual(db.execute('SELECT count(*) FROM DirtyOrigins').fetchone()[0],0)
+        self.assertEqual(self.clear_dirty_and_snapshot(),before)
+    def test_real_status_and_survey_edit_remain_dirty(self):
+        from contextlib import closing
+        self.call();self.clear_dirty_and_snapshot()
+        self.api.wells[0].update(UpdatedDate='2026-10-11',ENVWellStatus='PERMITTED')
+        self.api.stations['00100'][0]['Longitude']=-104.1
+        r=self.call();self.assertEqual(r['wellContentChanged'],1);self.assertEqual(r['surveyContentChanged'],1)
+        with closing(sqlite3.connect(self.path)) as db:self.assertEqual(list(db.execute('SELECT Origin FROM DirtyOrigins')),[(origin(self.api.wells[0]),)])
     def test_status_exit_and_disappearance_removed(self):
         self.call();self.api.wells[0]['ENVWellStatus']='PERMIT CANCELLED';self.api.wells.pop(1);r=self.call();self.assertEqual(r['removedFromScope'],2)
         d=sqlite3.connect(self.path);self.assertEqual(d.execute('SELECT count(*) FROM Wells').fetchone()[0],1);d.close();self.assertEqual(r['fullWellPayloadsDownloaded'],0)

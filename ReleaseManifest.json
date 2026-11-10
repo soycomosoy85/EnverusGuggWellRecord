@@ -1,10 +1,10 @@
 {
   "package": "BuildEnverusGuggWellRecord",
-  "prepared": "2026-11-08T23:12:03.799473+00:00",
+  "prepared": "2026-11-10T01:56:42.357592+00:00",
   "sourceContainsWellData": false,
   "sourceContainsCredentials": false,
   "referenceAsset": "GuggReferenceInputs.zip",
-  "referenceAssetSha256": "d6ac4ceb66157cea043dd6de92371414afb0823898d61e0059d157816c0ee158",
+  "referenceAssetSha256": "6540ca031faac3c1e5d29294563fde51b581e0ec531c1a2c734228ccc94d8981",
   "files": {
     ".gitattributes": "f3a81184af7ccc033165ffd77ef8dc30bb2782fe4f492b3bf55b5a092b3bf6ed",
     ".github/workflows/tests.yml": "ee5a892b0522c0b8337f7c2687500502e07e2b9705f2e6429f8c66524bd342e8",
@@ -57,7 +57,8 @@
     "Py/ResumeGeodatabaseCheckpoint.py": "7792ebf40c83099dca0a22a2dafec47e0e1d125558890fd98b57bd7d9655a732",
     "Py/RuntimeTransfer.py": "0bbe78c551329069c2a1e64d1f2c73c3b7e678ec993b64312533145a3439a7fa",
     "Py/Selection.py": "4fdbc425e518ca79950a1bd4e1541fe164718849cf8dd8535110276562039712",
-    "Py/SourceCache.py": "172463e66589efcb995146d48f9efb6030175729ad08f9bf34123cbcc46c40f9",
+    "Py/SourceCache.py": "47ee9d269f57f647b6a7938d6bd51c2901926fce059789d8701df762cf08905d",
+    "Py/SourceContent.py": "b515cb6cf05bda4d934adee9b08370422e80dbdb2da05c83b1083918e1b92c85",
     "Py/SourceDates.py": "a3c9bd43b84502cb7376f50a3a2d9ddf1b89d59c4a3148594796fde79bb865ef",
     "Py/SurfaceHoles.py": "6cf33d589b7b7569358afe0b0f9c2846567bf08e746b7e0431c32e72f85b4597",
     "Py/TestAgolPreflight.py": "b3a31ac7796743304f335fbe7cf1e0bf406515796d0c1dcfcc493472910dd2b2",
@@ -65,7 +66,7 @@
     "Py/TestApi.py": "95787c004153baa08a26bf41bc53a58ac11ecf8931f3e74264e8b91686e52e0f",
     "Py/TestBaseline.py": "403600f9cbc7a432591d4b88d54b7f47ce9146f82f0039effdc71935dd5e6f79",
     "Py/TestBuild.py": "05f45e5df3d4036b2ce714536e0d4b62603d8765358f92d8384f6b2071440942",
-    "Py/TestCache.py": "89d96769cf14b95f61ede1ec6f880a602384dba333f81c9508df828de69d058e",
+    "Py/TestCache.py": "25a95088d177c276dbbcacceeb48724ce9b4d7e546e5439e232af8db84d7fe89",
     "Py/TestConstraintAttributes.py": "40e0b7faef00092a3a56d452ac0c2789cde6695c8d52adc195dabc80fd0a61c8",
     "Py/TestConstraintUpgrade.py": "ca0f0da64235036e3fe4a51d9aa1eb8d03ea196e3561b9b6f895a2607166330e",
     "Py/TestContext.py": "f46d05d5d55187a638fddbb276b7d15c88fe0dd7d1dc89b89818da1967dd6130",
@@ -88,7 +89,7 @@
     "Py/WellGeometry.py": "23fc9830986c3674401c14445e10e0dbceb942bad68484e04f684f117afe3b78",
     "Py/WellRecordCalculations.py": "aacf839bcd83c4397a2d73f4318a526904ea6edd37b906f8e47a8eff3ce1c8f5",
     "Py/WellScope.py": "251d7dfdc4ef636038095213db0cd09b0c9aff7483a29976f9ff92dc3b5d1ca2",
-    "README.md": "492ef31ff83f8560973499d30f7b368934b959436a34886c3e55651bdf7ef215",
+    "README.md": "581634c811a2dfeb10def0486c4fccbf4fab3c4fee5c7dfdf7934dcf51247425",
     "requirements.txt": "b11cd6cd76d323d5cf4990b6cbf445651fdc72fcbbc285a29ae45ba97a5413c5",
     "Xlsx/Template/WellTemplate.xlsx": "81ea2d363f4ce0a540222a62c19a51301f087adc875b330c890d006871a5bb17"
   }

@@ -11,6 +11,7 @@ from pathlib import Path
 from Identity import record_id,survey_key,origin
 from WellScope import STATUS_FILTER,EXCLUDED_STATUS_FILTER,excluded
 from ProcessLock import ProcessLock
+from SourceContent import content,same_surveys,survey_version
 
 INVENTORY='API_UWI,API_UWI_Unformatted,API_UWI_12_Unformatted,API_UWI_14_Unformatted,Country,WellID,CompletionID,UpdatedDate,ENVWellStatus'
 STATION_FIELDS='API_UWI_12_Unformatted,StationNumber,CoordinateSource,MeasuredDepth_FT,Longitude,Latitude,SubseaElevation_FT,Inclination_DEG,UpdatedDate,DeletedDate'
@@ -36,7 +37,7 @@ def sync(api,path,config,well_fields,now=None):
     start=now or datetime.now(timezone.utc);stamp=start.strftime('%Y%m%dT%H%M%SZ');path=Path(path);path.parent.mkdir(parents=True,exist_ok=True)
     staging=path.with_name('Pending'+stamp+'.sqlite');lock=path.with_suffix('.lock')
     held=ProcessLock(lock);held.__enter__()
-    db=None
+    db=None;previous=None
     try:
         db=sqlite3.connect(staging)
         initialize(db)
@@ -132,7 +133,8 @@ def sync(api,path,config,well_fields,now=None):
                         result[bore][table].append(row)
             if not config.get('_testSerial'):api.token=worker.token
             return result
-        completed=0
+        completed=0;survey_content_changed=0
+        if incremental:previous=sqlite3.connect('file:'+path.as_posix()+'?mode=ro',uri=True)
         for window in chunks(db.execute('SELECT Api FROM Dirty ORDER BY Api'),config['surveyBatchSize']*config['workers']):
             batches=[window[i:i+config['surveyBatchSize']] for i in range(0,len(window),config['surveyBatchSize'])]
             if config.get('_testSerial'):results=map(fetch,batches)
@@ -141,21 +143,32 @@ def sync(api,path,config,well_fields,now=None):
             try:
                 for result in results:
                     for bore,tables in result.items():
+                        completed+=1
+                        if previous is not None and same_surveys(previous,bore,tables):continue
+                        survey_content_changed+=1
                         for table,rows in tables.items():
                             db.execute('DELETE FROM '+table+' WHERE Api=?',(bore,));db.executemany('INSERT INTO '+table+' VALUES(?,?,?)',[(bore,i,json.dumps(r,separators=(',',':'))) for i,r in enumerate(rows)])
-                        db.execute('INSERT OR REPLACE INTO BoreVersions VALUES(?,?)',(bore,stamp));completed+=1
+                        db.execute('INSERT OR REPLACE INTO BoreVersions VALUES(?,?)',(bore,survey_version(tables)))
                     db.commit()
             finally:
                 if not config.get('_testSerial'):pool.shutdown(wait=True)
             print('Survey wellbores refreshed '+str(completed)+'/'+str(dirty),flush=True)
         for table in ['Headers','Stations','BoreVersions']:db.execute('DELETE FROM '+table+' WHERE Api NOT IN(SELECT DISTINCT Api FROM Wells)')
-        report=dict(started=start.isoformat(),baseline=baseline,eligibleWells=inventory_count,unknownStatusWells=null_count,changedWellRecords=changed_count,fullWellPayloadsDownloaded=downloaded,removedFromScope=removed,surveyWellboresRefreshed=dirty,metadataMode=config['surveyChangeScan'])
+        if previous is not None:previous.close();previous=None
+        report=dict(started=start.isoformat(),baseline=baseline,eligibleWells=inventory_count,unknownStatusWells=null_count,changedWellRecords=changed_count,fullWellPayloadsDownloaded=downloaded,removedFromScope=removed,surveyWellboresRefreshed=dirty,surveyContentChanged=survey_content_changed,metadataMode=config['surveyChangeScan'])
         db.executemany('INSERT OR REPLACE INTO Meta VALUES(?,?)',[('watermark',start.isoformat()),('scope',signature),('lastSync',json.dumps(report))]);db.execute('DROP TABLE Inventory');db.commit();db.close();db=None
         if not incremental:os.replace(staging,path)
         else:
             target=sqlite3.connect(path)
             try:
                 initialize(target);target.execute('ATTACH DATABASE ? AS delta',(str(staging),));target.execute('BEGIN IMMEDIATE')
+                target.create_function('well_content',1,content,deterministic=True)
+                # Retain the payload used by the geometry signature when only
+                # source timestamps/key ordering changed. Updated still advances
+                # independently, so the next inventory does not fetch it again.
+                target.execute('UPDATE delta.Wells SET Payload=(SELECT w.Payload FROM main.Wells w WHERE w.Id=delta.Wells.Id) WHERE Payload IS NOT NULL AND EXISTS(SELECT 1 FROM main.Wells w WHERE w.Id=delta.Wells.Id AND well_content(w.Payload)=well_content(delta.Wells.Payload))')
+                report['wellContentChanged']=target.execute('SELECT count(*) FROM delta.Wells d LEFT JOIN Wells w ON w.Id=d.Id WHERE d.Payload IS NOT NULL AND (w.Id IS NULL OR w.Payload!=d.Payload)').fetchone()[0]
+                target.execute('UPDATE delta.Meta SET Value=? WHERE Key=?',(json.dumps(report),'lastSync'))
                 target.execute('INSERT OR IGNORE INTO DirtyOrigins SELECT Origin FROM Wells WHERE Id NOT IN(SELECT Id FROM delta.Wells)')
                 target.execute('INSERT OR IGNORE INTO DirtyOrigins SELECT w.Origin FROM Wells w JOIN delta.Wells d ON w.Id=d.Id WHERE d.Payload IS NOT NULL AND w.Payload!=d.Payload')
                 target.execute('INSERT OR IGNORE INTO DirtyOrigins SELECT d.Origin FROM delta.Wells d LEFT JOIN Wells w ON w.Id=d.Id WHERE d.Payload IS NOT NULL AND (w.Id IS NULL OR w.Payload!=d.Payload)')
@@ -173,6 +186,7 @@ def sync(api,path,config,well_fields,now=None):
             finally:target.close()
         return report
     finally:
+        if previous is not None:previous.close()
         if db is not None:db.close()
         if staging.exists():staging.unlink()
         held.__exit__(None,None,None)
