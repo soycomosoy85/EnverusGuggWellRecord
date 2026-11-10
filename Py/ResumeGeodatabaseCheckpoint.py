@@ -4,7 +4,7 @@ The three core GDB products must already have complete, matching Desired and
 Managed row counts. Only the cached surface-hole product is then populated.
 """
 import arcpy
-import argparse,hashlib,json,re,sqlite3
+import argparse,hashlib,json,sqlite3
 from pathlib import Path
 from datetime import datetime,timezone
 from ProcessLock import ProcessLock
@@ -35,12 +35,6 @@ def finish(root,config):
             if any(prior!=actual for prior,actual in sample):raise RuntimeError('Feature-hash mismatch in completed checkpoint: '+name)
         print('Verified completed core layers: '+json.dumps(expected),flush=True)
         db.execute('DROP TABLE IF EXISTS Focus');db.execute('CREATE TEMP TABLE Focus(Origin TEXT PRIMARY KEY)');db.execute('INSERT INTO Focus SELECT Origin FROM Winners')
-        # Permanently retire all legacy shapefile tracking, including old migrations.
-        legacy=[name for name, in db.execute("SELECT name FROM sqlite_master WHERE type='table'") if name.lower().startswith('shp')]
-        for name in legacy:
-            if not re.fullmatch('[A-Za-z0-9_]+',name):raise RuntimeError('Unexpected legacy tracking-table name')
-            db.execute('DROP TABLE "'+name+'"')
-        db.commit()
         report=managed.apply(root,config,db,fields,qa)
         if report['gisWrites']!=0:raise RuntimeError('A completed core layer unexpectedly required GIS writes')
         print('Restoring processing summary from cached winners',flush=True)

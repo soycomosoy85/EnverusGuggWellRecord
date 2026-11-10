@@ -24,7 +24,7 @@ class BuildTests(unittest.TestCase):
             with arcpy.da.InsertCursor(str(ref/'GUGG_Nomenclature'),['ENVRegion','ENVBasin','ENVInterval','GUGG_BASIN','GUGG_LANDING_ZONE','GUGG_BENCH','GUGG_TCA_PREFIX']) as cursor:cursor.insertRow(['SYNTHETIC','SYNTHETIC','SYNTHETIC','SYNTHETIC','SYNTHETIC','SYNTHETIC','SYNTHETIC'])
             from WellGeometry import SR
             with arcpy.da.InsertCursor(str(ref/'GUGG_TCAs'),['TCA_NAME','GUGG_BASIN','GUGG_BENCH','WPS','SHAPE@']) as cursor:cursor.insertRow(['SyntheticConstraint','SYNTHETIC','SYNTHETIC',4,arcpy.FromWKT('POLYGON((-104.1 31.9,-103.8 31.9,-103.8 32.1,-104.1 32.1,-104.1 31.9))',SR)])
-            cfg=json.loads((root/'Json/Config/Workflow.json').read_text());cfg.update(profile='Synthetic',exportShapefiles=True)
+            cfg=json.loads((root/'Json/Config/Workflow.json').read_text());cfg.update(profile='Synthetic')
             cache=root/'Sqlite/Synthetic/Cache/EnverusCache.sqlite';cache.parent.mkdir(parents=True);db=sqlite3.connect(cache);initialize(db)
             def well(uwi,bore,country,state,x,y,status='PRODUCING',kind='HORIZONTAL'):
                 return dict(API_UWI=uwi,API_UWI_Unformatted=uwi,API_UWI_12_Unformatted=bore,API_UWI_14_Unformatted=uwi+'0000' if country=='US' else None,API_UWI_14=uwi+'0000' if country=='US' else None,Country=country,StateProvince=state,WellID=uwi,CompletionID=uwi,WellName='Synthetic Only',Longitude=x,Latitude=y,Longitude_BH=(x+.02 if x is not None else None),Latitude_BH=y,Trajectory=kind,ENVWellStatus=status,LateralLength_FT=1000,ENVRegion='SYNTHETIC',ENVBasin='SYNTHETIC',ENVInterval='SYNTHETIC',UpdatedDate='2026-10-01T00:00:00Z',LateralLine=(f'LINESTRING({x} {y},{x+.02} {y})' if x is not None else None))
@@ -55,7 +55,7 @@ class BuildTests(unittest.TestCase):
                 self.assertAlmostEqual(point.firstPoint.X,x);self.assertAlmostEqual(point.firstPoint.Y,y)
             dates=[(p,l) for p,l in arcpy.da.SearchCursor(str(Path(report['geodatabase'])/'EnvLateral_Gugg'),['PermitDate','LastProd']) if p]
             self.assertEqual(dates[0][0].hour,0);self.assertEqual(dates[0][1].day,1)
-            self.assertFalse((root/'Shp').exists());self.assertNotIn('shapefileParts',report)
+            self.assertEqual(Path(report['geodatabase']).suffix,'.gdb')
             # Resume an interrupted post-GDB export checkpoint using only cached
             # winners. Preserve core feature IDs and perform no geometry work.
             from ManagedProducts import targets
@@ -77,14 +77,12 @@ class BuildTests(unittest.TestCase):
             for name,ids in core_ids.items():self.assertEqual(list(arcpy.da.SearchCursor(str(Path(report['geodatabase'])/name),['RecKey','OID@'])),ids)
             project=arcpy.mp.ArcGISProject(report['project']);self.assertFalse(project.listBrokenDataSources());self.assertTrue(all(str(root) in d['databasePath'] for d in project.databases));self.assertTrue(all(str(root) in t['toolboxPath'] for t in project.toolboxes));del project
             # Check signatures by a second local build; no API is involved.
-            cfg['exportShapefiles']=False
             # Output/schedule changes must not invalidate source geometry work.
             cfg['nightly']={'time':'01:00','action':'run'}
             second=build(root,cfg,cache)
             self.assertEqual(second['processingCounts'].get('Recomputed',0),0);self.assertEqual(second['gisWrites'],0);self.assertEqual(second['status'],'SkippedNoChanges')
             # A single changed well updates its canonical row and map attributes,
             # with stable ObjectIDs for every other well.
-            cfg['exportShapefiles']=True
             before={k:oid for k,oid in arcpy.da.SearchCursor(str(Path(report['geodatabase'])/'EnvLateral_Gugg'),['RecKey','OID@'])}
             connection=sqlite3.connect(cache);ident=record_id(wells[0]);wells[0]['WellName']='Changed Synthetic Name';connection.execute('UPDATE Wells SET Payload=? WHERE Id=?',(json.dumps(wells[0]),ident));connection.execute('INSERT OR IGNORE INTO DirtyOrigins VALUES(?)',(origin(wells[0]),));connection.commit();connection.close()
             import time
@@ -105,7 +103,7 @@ class BuildTests(unittest.TestCase):
             # national geometry rebuild when its inputs have not changed.
             from RuntimeTransfer import export_runtime,import_runtime
             transfer=export_runtime(root,cfg,part_bytes=4096)
-            manifest=json.loads(Path(transfer['manifest']).read_text());self.assertFalse(any(f['role']=='managedShapefile' for f in manifest['files']))
+            manifest=json.loads(Path(transfer['manifest']).read_text());self.assertTrue(manifest['files'])
             relocated=root/'MovedInstallation'
             for name in ['Py','Json/Config','Gdb/Reference','Aprx/Template','Atbx']:shutil.copytree(source_root/name,relocated/name,ignore=shutil.ignore_patterns('__pycache__','*.lock'))
             # Relocation carries the exact same references, including test rows.

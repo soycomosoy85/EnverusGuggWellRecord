@@ -57,7 +57,7 @@
       "unit": "Feet"
     }
   ],
-  "calculationNullPolicy": "For missing, zero, negative, nonnumeric, or nonfinite WPS, return null for both calculated fields and flag the reason. Shapefiles use -999999999 for missing numeric values with a keyed null manifest.",
+  "calculationNullPolicy": "For missing, zero, negative, nonnumeric, or nonfinite WPS, return null for both calculated fields and flag the reason. Preserve native geodatabase NULL values.",
   "schema": {
     "enverusHeaderFieldCount": 69,
     "appendGuggColumns": true,

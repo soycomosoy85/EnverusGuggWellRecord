@@ -12,6 +12,7 @@ jobs:
           python-version: '3.11'
       - run: python -m pip install -r requirements.txt
       - run: python -m unittest discover -s Py -p TestCache.py -v
+      - run: python -m unittest discover -s Py -p TestExportCompatibility.py -v
       - run: python -m unittest discover -s Py -p TestApi.py -v
       - run: python -m unittest discover -s Py -p TestBaseline.py -v
       - run: python -m unittest discover -s Py -p TestTransfer.py -v

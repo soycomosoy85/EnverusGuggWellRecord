@@ -1,6 +1,6 @@
 # Build Enverus Gugg Well Record
 
-Current national Enverus acquisition, incremental synchronization, and Gugg well enrichment. The workflow produces **file-geodatabase feature classes only**. Shapefile generation is not supported by manual runs, nightly updates, or runtime transfers.
+Current national Enverus acquisition, incremental synchronization, and Gugg well enrichment. Manual runs, nightly updates, and runtime transfers produce **file-geodatabase feature classes only**.
 
 This repository contains current code, configuration schemas, blank ArcGIS/Excel templates, API field definitions, and automated tests. Keep credentials, Gugg reference inputs, downloaded records, processing caches, and GIS outputs private.
 

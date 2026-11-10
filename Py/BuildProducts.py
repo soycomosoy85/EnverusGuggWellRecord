@@ -93,10 +93,11 @@ def build(root,config,cache_path):
     logic_hash=hashlib.sha256(''.join((root/'Py'/n).read_text(encoding='utf-8-sig') for n in logic_files).encode()).hexdigest()
     # A reviewed writer-only repair must not invalidate completed well geometry.
     # Exact hashes ensure any subsequent computation edit still invalidates it.
-    from ExportCompatibility import compatible_logic_hash,geometry_fields
+    from ExportCompatibility import compatible_logic_hash,compatible_rules_hash,geometry_fields
     logic_hash=compatible_logic_hash(logic_hash)
     geometry_config={n:config.get(n) for n in ['plannedSurveyStates','measurement']}
     rules_hash=hashlib.sha256((fingerprint(reference)+logic_hash+json.dumps(geometry_config,sort_keys=True)+arcpy.GetInstallInfo()['Version']+json.dumps(geometry_fields(fields))+json.dumps(schema)).encode()).hexdigest()
+    rules_hash=compatible_rules_hash(rules_hash)
     db.execute('CREATE TEMP TABLE BuildFocus(Origin TEXT PRIMARY KEY)')
     full_initialization=not meta.get('initialized') or meta.get('rulesHash')!=rules_hash
     if full_initialization:

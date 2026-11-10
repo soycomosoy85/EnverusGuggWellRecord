@@ -5,7 +5,7 @@
     "type": "Polyline",
     "hasZ": false
   },
-  "aliasDelivery": "Geodatabase and ArcGIS layer file; shapefile uses dictionary",
+  "aliasDelivery": "File-geodatabase feature class field aliases",
   "columnGroups": [
     "EnverusHeader",
     "GuggNomenclature",
@@ -659,7 +659,6 @@
   ],
   "pendingDecisions": [
     "Confirm Gugg nomenclature, TCA, fluid-window, and provenance field order.",
-    "Choose shapefile missing-value encoding without treating missing numerics as real zeros.",
     "Validate text widths and numeric precision against current data; never silently truncate."
   ],
   "template": "Well Template.xlsx"
